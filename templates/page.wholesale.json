@@ -1,0 +1,474 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "seo_heading": "h2",
+        "banner_height_desktop": "auto",
+        "banner_height_mobile": "auto",
+        "bgcolor": "#f5efec",
+        "textcolor": "#181818"
+      }
+    },
+    "image_banner_NigAap": {
+      "type": "image-banner",
+      "name": "t:sections.image_banner.presets.name",
+      "settings": {
+        "enable_parallax": true,
+        "section_visibility": "always",
+        "video": "shopify://files/videos/basilgreen.mp4",
+        "desktop_height": "550px",
+        "mobile_height": "500px",
+        "block_display": "categories",
+        "banner_title": "Bring Artisan Craft to Your Shelves",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "desktop_title_size": 36,
+        "mobile_title_size": 32,
+        "banner_desc": "We’re excited to work with retailers who share our love for handcrafted, block-printed textiles. If you’re looking to stock fabricsg in your store or online shop, we’d love to discuss wholesale opportunities.",
+        "button_text": "Apply for Wholesale",
+        "button_link": "https://fabricsg.com/pages/wholesale-application",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "content_position": "bottom-left",
+        "title_color": "#ffffff",
+        "desc_color": "#ffffff",
+        "btn_bg": "#ffffff",
+        "btn_text": "#000000",
+        "btn_border": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50
+      }
+    },
+    "images_grid_NT7jEe": {
+      "type": "images-grid",
+      "blocks": {
+        "image_kzX4PU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/turquoise_5_e867e3d0-1d9a-4ee2-81f0-5933399b7313.png"
+          }
+        },
+        "image_UfmHhG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/turquoise.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_kzX4PU",
+        "image_UfmHhG"
+      ],
+      "name": "t:sections.image-grid.presets.name",
+      "settings": {
+        "content_position": "right",
+        "image_height": "70",
+        "heading": "Handmade with Heart for Every Retail Space",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h4",
+        "description": "<p>From table linens to cushions, wrapping fabrics to napkins, each piece from fabricsg is designed to elevate lives. Whether your shop is big or small, we’ve built a wholesale program that’s flexible and supportive.</p>",
+        "btn_as_link": false,
+        "btn_text": "Button text",
+        "btn_link": "",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "rich_text_m94PpV": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_YEDKbN": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Why Partner with fabricsg?",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_YEDKbN"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "1758828664ce00d850": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_48429f5_Fyrwmx": {
+          "type": "ai_gen_block_48429f5",
+          "settings": {
+            "text_alignment": "center",
+            "columns_tablet": "2",
+            "columns_mobile": "1",
+            "column_gap": 30,
+            "background_color": "#ffffff",
+            "item_background_color": "#ffffff",
+            "icon_color": "#000000",
+            "title_color": "#000000",
+            "description_color": "#666666",
+            "section_padding_top": 0,
+            "section_padding_bottom": 50,
+            "item_padding": 20,
+            "item_border_radius": 8,
+            "hover_lift": 3,
+            "icon_size": 48,
+            "icon_stroke_width": 1,
+            "icon_margin_bottom": 15,
+            "title_font_size": 18,
+            "title_font_weight": "400",
+            "title_margin_bottom": 10,
+            "description_font_size": 14,
+            "icon_1": "heart",
+            "title_1": "Handcrafted & Unique",
+            "description_1": "Every item is hand block printed in Jaipur, making each piece one-of-a-kind.
+",
+            "icon_2": "quality",
+            "title_2": "Eco-Friendly",
+            "description_2": "Made from 100% natural cotton using sustainable methods.",
+            "icon_3": "payment",
+            "title_3": "Exclusive Pricing",
+            "description_3": "Enjoy competitive wholesale prices and bulk discounts.",
+            "icon_4": "gift",
+            "title_4": "Custom Orders",
+            "description_4": "We offer custom sizes, designs, and private label options tailored to your store’s needs."
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_48429f5_Fyrwmx"
+      ],
+      "settings": {}
+    },
+    "rotating_text_6xJXGY": {
+      "type": "rotating-text",
+      "name": "t:sections.rotating-text.presets.name",
+      "settings": {
+        "text1": "",
+        "desktop_text_gap": 17,
+        "mobile_text_gap": 17,
+        "text2": "<p>◦ 100% Cotton ◦ Eco-Friendly ◦ Handmade in India</p>",
+        "desktop_subtext_gap": 10,
+        "mobile_subtext_gap": 5,
+        "rotating_text_style": "vertical",
+        "pause_on_hover": false,
+        "row1_font_family": "--font-family",
+        "row2_font_family": "--font-family",
+        "row1_direction": "left",
+        "row2_direction": "right",
+        "heading_font_size": 28,
+        "subheading_font_size": 16,
+        "heading_font_size_m": 18,
+        "subheading_font_size_m": 16,
+        "section_border": true,
+        "section_border_bottom": true,
+        "border_width": "2px",
+        "border_style": "solid",
+        "background_opacity": 50,
+        "min_height_desktop": 300,
+        "min_height_mobile": 200,
+        "bgcolor": "#000000",
+        "bg_gradient_color": "",
+        "text1color": "#000000",
+        "outlinetext1color": "#000000",
+        "text2color": "#ffffff",
+        "outlinetext2color": "#a56748",
+        "background_overlay": "#000000",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 10,
+        "top_space_mobile": 15,
+        "bottom_space_mobile": 15
+      }
+    },
+    "featured_collections_carousel_iwwM83": {
+      "type": "featured-collections-carousel",
+      "blocks": {
+        "collection_8AdWKz": {
+          "type": "collection",
+          "settings": {
+            "collection": "vintage-yellow",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_zqkGN4": {
+          "type": "collection",
+          "settings": {
+            "collection": "columbia-blue",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_rMdGk6": {
+          "type": "collection",
+          "settings": {
+            "collection": "basil-green-products",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_8AdWKz",
+        "collection_zqkGN4",
+        "collection_rMdGk6"
+      ],
+      "name": "t:sections.featured-collections-carousel.presets.name",
+      "settings": {
+        "style": "style1",
+        "enable_fullwidth": false,
+        "collections_per_row": 3,
+        "emphasize_center_image": false,
+        "heading": "Top Picks: Crowd Favorites You’ll Love",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "subheading": "",
+        "description": "",
+        "btntext": "View All",
+        "btnlink": "shopify://collections",
+        "button_size": "default",
+        "mobile_button_size": "m-med",
+        "bgcolor": "quaternary",
+        "section_visibility": "always",
+        "top_space_desktop": 40,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 35,
+        "bottom_space_mobile": 35
+      }
+    },
+    "image_banner_PDL6Aq": {
+      "type": "image-banner",
+      "blocks": {
+        "categories_ydg3w3": {
+          "type": "categories",
+          "settings": {
+            "collection": "pillow-covers",
+            "custom_title": "Pillow Covers"
+          }
+        },
+        "categories_TXmahD": {
+          "type": "categories",
+          "settings": {
+            "collection": "strawberry-pink",
+            "custom_title": "Tablecloths"
+          }
+        },
+        "categories_AcATw9": {
+          "type": "categories",
+          "settings": {
+            "collection": "embroidered-napkins",
+            "custom_title": "Napkins"
+          }
+        },
+        "categories_cHDEDp": {
+          "type": "categories",
+          "settings": {
+            "collection": "round-placemats",
+            "custom_title": "Placemats"
+          }
+        },
+        "categories_iUQJc3": {
+          "type": "categories",
+          "settings": {
+            "collection": "kitchen-aprons",
+            "custom_title": "Aprons"
+          }
+        },
+        "categories_drQiBY": {
+          "type": "categories",
+          "settings": {
+            "collection": "quilt",
+            "custom_title": "Quilts"
+          }
+        }
+      },
+      "block_order": [
+        "categories_ydg3w3",
+        "categories_TXmahD",
+        "categories_AcATw9",
+        "categories_cHDEDp",
+        "categories_iUQJc3",
+        "categories_drQiBY"
+      ],
+      "name": "t:sections.image_banner.presets.name",
+      "settings": {
+        "enable_parallax": true,
+        "section_visibility": "always",
+        "image": "shopify://shop_images/Inspired_by_a_recent_stay_at_the_Don_CeSar_Hotel_in_St._Petersburg_FL._Hydrangeas_from_our_yard.jpg",
+        "desktop_height": "550px",
+        "mobile_height": "500px",
+        "block_display": "categories",
+        "banner_title": "Fill Your Store with Tradition & Beauty.",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "desktop_title_size": 42,
+        "mobile_title_size": 36,
+        "banner_desc": "",
+        "button_text": "Become a partner",
+        "button_link": "https://fabricsg.com/pages/wholesale-application",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "content_position": "center-center",
+        "title_color": "#ffffff",
+        "desc_color": "#000000",
+        "btn_bg": "#ffffff",
+        "btn_text": "#000000",
+        "btn_border": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50
+      }
+    },
+    "rich_text_NA6CmG": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_Ag8Vr8": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Start Your Wholesale Journey Today",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_Ag8Vr8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "17588298531ab5dede": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_44a6f8a_PhF9Y7": {
+          "type": "ai_gen_block_44a6f8a",
+          "settings": {
+            "max_width": 1200,
+            "section_padding": 16,
+            "columns_desktop": "5",
+            "columns_tablet": "3",
+            "columns_mobile": "1",
+            "column_spacing": 20,
+            "item_layout": "column",
+            "mobile_layout": "vertical",
+            "background_color": "#ffffff",
+            "item_background_color": "#ffffff",
+            "item_border_color": "#ffffff",
+            "icon_color": "#000000",
+            "title_color": "#000000",
+            "description_color": "#666666",
+            "item_padding": 16,
+            "item_border_radius": 8,
+            "item_border_width": 1,
+            "border_radius": 12,
+            "icon_size": 32,
+            "icon_stroke_width": 1,
+            "icon_text_gap": 12,
+            "title_font_size": 16,
+            "title_font_weight": "400",
+            "title_margin_bottom": 4,
+            "description_font_size": 12,
+            "row_1_icon": "check",
+            "row_1_title": "Product Range",
+            "row_1_description": "Tablecloths, napkins, quilts, cushions, and more.",
+            "row_2_icon": "check",
+            "row_2_title": "Bulk Discounts",
+            "row_2_description": "Special pricing on large orders and bundles.
+",
+            "row_3_icon": "check",
+            "row_3_title": "Flexible Quantities",
+            "row_3_description": "We cater to both small boutiques and larger stores.
+",
+            "row_4_icon": "check",
+            "row_4_title": "Marketing Support",
+            "row_4_description": "Access to product images, descriptions, and marketing assets.",
+            "row_5_icon": "check",
+            "row_5_title": "Fast Shipping",
+            "row_5_description": "Reliable, timely deliveries worldwide.
+",
+            "button_text": "START TODAY",
+            "button_link": "https://fabricsg.com/pages/wholesale-application",
+            "button_alignment": "center",
+            "button_margin_top": 16,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "button_padding_vertical": 16,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "button_font_size": 14,
+            "button_font_weight": "500"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_44a6f8a_PhF9Y7"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-page",
+    "image_banner_NigAap",
+    "images_grid_NT7jEe",
+    "rich_text_m94PpV",
+    "1758828664ce00d850",
+    "rotating_text_6xJXGY",
+    "featured_collections_carousel_iwwM83",
+    "image_banner_PDL6Aq",
+    "rich_text_NA6CmG",
+    "17588298531ab5dede"
+  ]
+}

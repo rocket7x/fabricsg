@@ -45,7 +45,6 @@
     </div>
   </div>
 {%- endcapture -%}
-{% render 'section-id-clipboard' %}
 <div
   class="{% if section.settings.enable_fullwidth %}fullwidth-container{% else %}container md-container{% endif %}"
   style="--layoutRadius:{% if settings.layout_style == 'rounded' %}20px{% else %}0px{% endif %};--imageShadowColor:{{ section.settings.image_shadow_color }}; {% if section.settings.show_icon_on_image %} position: relative;{% endif %}">
@@ -64,29 +63,15 @@
           {% case block.type %}
             {% when 'heading' %}
               {% if block.settings.highlight_font == 'body' %}
-                {% capture highlightStyle %}
-                  <span class="body-font highlighted-text">
-                    {% endcapture %}
+                {% capture highlightStyle %}<span class="body-font">{% endcapture %}
               {% elsif block.settings.highlight_font == 'heading' %}
-              {% capture highlightStyle %}
-                <span class="heading-font highlighted-text">
-                  {% endcapture %}  
+              {% capture highlightStyle %}<span class="heading-font">{% endcapture %}  
               {% else %}
-              {% capture highlightStyle %}
-                <span class="accent-font highlighted-text">
-                  {% endcapture %}  
+              {% capture highlightStyle %}<span class="accent-font">{% endcapture %}  
               {% endif %}
               <div class="section-heading ">
-                <{{ block.settings.seo_heading }} class="section-heading-title {{ block.settings.heading_size }}" id="{{ block.id }}">
-
-                  {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-                  {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-                  {%- if heading contains '[' and heading contains ']' -%}
-                    {%- render 'rotational-highlight', heading: heading -%}
-                  {%- else -%}
-                    {{- heading -}}
-                  {%- endif -%}
-
+                <{{ block.settings.seo_heading }} class="section-heading-title {{ block.settings.heading_size }}" >
+                  {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
                 </{{ block.settings.seo_heading }}>
               </div>
             {% when 'text' %}
@@ -177,15 +162,6 @@
               }
             }
           {% endif %}
-          {% when 'heading' %}
-            #shopify-section-{{ section.id }} #{{ block.id }} {
-              {% if block.settings.highlight_text_gradient != blank %}
-                --highlightTextColor: {{ block.settings.highlight_text_gradient }};
-              {% else %}
-                --highlightTextColor: {{ block.settings.highlight_text_color }};
-              {% endif %}
-              --fontSize: var(--{{ block.settings.heading_size }});
-            }
         {% endcase %}
     {% endfor %}
   {% if section.settings.section_visibility == 'large' %}
@@ -542,21 +518,6 @@
           "label": "t:sections.image-with-text.blocks.heading.settings.heading.label",
           "info": "t:common.highlight_text_and_break_text.info",
           "default": "Image with text"
-        },
-        {
-          "type": "color",
-          "id": "highlight_text_color",
-          "label": "t:common.highlight_text_color.label",
-          "default": "#000000",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
-        },
-        {
-          "type": "color_background",
-          "id": "highlight_text_gradient",
-          "label": "t:common.highlight_text_gradient.label",
-          "info": "t:common.highlight_text_gradient.info",
-          "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
         },
         {
           "type": "select",

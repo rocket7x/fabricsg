@@ -45,7 +45,6 @@
     --theme-light-color: {{ settings.color_base | color_modify: 'alpha', 0.1 }};
     --colorTextBody: {{ settings.color_body_text }};
     --colorLightTextBody: {{ settings.color_body_text | color_modify: 'alpha', 0.5 }};
-    --colorLighterTextBody: {{ settings.color_body_text | color_modify: 'alpha', 0.5 }};
     --colorXlightTextBody: {{ settings.color_body_text | color_modify: 'alpha', 0.3 }};
     --colorXXlightTextBody: {{ settings.color_body_text | color_modify: 'alpha', 0.1 }};
     --cartDotColor: {{ settings.color_cart_dot }};
@@ -58,8 +57,6 @@
     --colorBtnSecondaryText:{{ settings.secondary_color_button_text | default: '#000' }};
     --colorBtnSecondaryBorder:{{ settings.secondary_color_button_border | default: '#000' }};
     --primaryColorBody: {{ settings.color_body_bg }};
-    --primaryColorXlightBody: {{ settings.color_body_bg | color_modify : 'alpha' , 0.3 }};
-    --primaryColorXXlightBody: {{ settings.color_body_bg | color_modify : 'alpha' , 0.1 }};
     --saleBadgeBg:{{ settings.sale_badge_bg }};
     --saleBadgeText:{{ settings.sale_badge_text }};
     --soldBadgeBg:{{ settings.sold_badge_bg }};
@@ -75,11 +72,6 @@
     --tertiaryCardBackground: {{ settings.tertiary_card_background }};
     --quaternaryCardBackground: {{ settings.quaternary_card_background }};
     --gradientCardBackground: {{ settings.gradient_card_background }};
-    --primaryCardText: {{ settings.primary_card_text }};
-    --secondaryCardText: {{ settings.secondary_card_text }};
-    --tertiaryCardText: {{ settings.tertiary_card_text }};
-    --quaternaryCardText: {{ settings.quaternary_card_text }};
-    --gradientCardText: {{ settings.gradient_card_text }};
     --cardRadius: {{ settings.layout_card_radius }}px;
     --inputRadius: {{ settings.layout_input_radius }}px;
     --primaryBorderColor: {{ settings.primary_border_color }};
@@ -87,10 +79,6 @@
     --tertiaryBorderColor: {{ settings.tertiary_border_color }};
     --quaternaryBorderColor: {{ settings.quaternary_border_color }};
     --gradientBorderColor: {{ settings.gradient_border_color }};
-    --line-clamp-count: {{ settings.truncate_title }};
-    --navigationArrowBg: {{ settings.arrow_bg }};
-    --navigationArrowColor: {{ settings.arrow_color }};
-    --navigationArrowBorder: {{ settings.arrow_border_color }};
     {% liquid
       assign primarycolorBrightness = settings.color_body_bg | color_brightness
       assign secondarycolorBrightness = settings.secondary_color_body_bg | color_brightness
@@ -100,38 +88,25 @@
     {%- if primarycolorBrightness < 130 -%}
       --primarySocialIconBg:{{ settings.color_body_bg | color_lighten: 10 }};
       --primaryAlternateBg:{{ settings.color_body_bg | color_lighten: 10 }};
-    {%- else -%}
+      {%- else -%}
       --primarySocialIconBg:{{ settings.color_body_bg | color_darken: 10 }};
       --primaryAlternateBg:{{ settings.color_body_bg | color_darken: 5 }};
     {%- endif -%}
     {%- if secondarycolorBrightness < 130 -%}
       --secondarySocialIconBg:{{ settings.secondary_color_body_bg | color_lighten: 10 }};
-      --secondaryAlternateBg:{{ settings.secondary_color_body_bg | color_lighten: 10 }};
       {%- else -%}
       --secondarySocialIconBg:{{ settings.secondary_color_body_bg | color_darken: 10 }};
-      --secondaryAlternateBg:{{ settings.secondary_color_body_bg | color_darken: 5 }};
     {%- endif -%}
     {%- if tertiarycolorBrightness < 130 -%}
       --tertiarySocialIconBg:{{ settings.tertiary_color_body_bg | color_lighten: 10 }};
-      --tertiaryAlternateBg:{{ settings.tertiary_color_body_bg | color_lighten: 10 }};
       {%- else -%}
       --tertiarySocialIconBg:{{ settings.tertiary_color_body_bg | color_darken: 10 }};
-      --tertiaryAlternateBg:{{ settings.tertiary_color_body_bg | color_darken: 5 }};
     {%- endif -%}
     {%- if quaternarycolorBrightness < 130 -%}
       --quaternarySocialIconBg:{{ settings.quaternary_color_body_bg | color_lighten: 10 }};
-      --quaternaryAlternateBg:{{ settings.quaternary_color_body_bg | color_lighten: 10 }};
       {%- else -%}
       --quaternarySocialIconBg:{{ settings.quaternary_color_body_bg | color_darken: 10 }};
-      --quaternaryAlternateBg:{{ settings.quaternary_color_body_bg | color_darken: 5 }};
     {%- endif -%}
-    {% if settings.enable_bottom_background %}
-      {%- if primarycolorBrightness < 130 -%}
-        --cartBottomBg:{{ settings.color_body_bg | color_lighten: 10 }};
-      {%- else -%}
-        --cartBottomBg:{{ settings.color_body_bg | color_darken: 10 }};
-      {%- endif -%}
-    {% endif %}
     --secondarycolorTextBody: {{ settings.secondary_color_body_text }};
     --secondaryColorLightTextBody: {{ settings.secondary_color_body_text | color_modify: 'alpha', 0.5 }};
     --secondaryColorXlightTextBody: {{ settings.secondary_color_body_text | color_modify: 'alpha', 0.3 }};
@@ -199,7 +174,6 @@
     --largeText: calc(var(--text_base_size) * 18px);
     --xlargeText:  calc(var(--text_base_size) * 20px);
     --buttonAnimationDirection:{%- case settings.buttonAnimation -%}
-    
     {%- when 'left' -%}
     translateX(-100%)
     {%- when 'right' -%}

@@ -1,0 +1,316 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "spacer_fFyMEf": {
+      "type": "spacer",
+      "name": "t:sections.spacer.presets.name",
+      "settings": {
+        "height_desktop": 30,
+        "height_mobile": 20,
+        "bgcolor": "primary",
+        "custom_color": ""
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h6",
+            "seo_heading": "h2"
+          }
+        },
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33": {
+          "type": "review-star",
+          "settings": {}
+        },
+        "text_wiXQyA": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "5540566c-63cd-4a90-b9b6-7707e45d7066": {
+          "type": "price",
+          "settings": {}
+        },
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68": {
+          "type": "variant",
+          "settings": {
+            "size_chart": ""
+          }
+        },
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "16819786-9d1e-449d-966d-08d21e1c91af": {
+          "type": "button",
+          "settings": {
+            "dynamic_checkout_btn": true,
+            "enable_fullwidth": false,
+            "show_subscriptions_plan": true,
+            "show_recipient_form": false,
+            "sticky_add_to_cart": true,
+            "sticky_add_to_cart_position": "top"
+          }
+        },
+        "icons_rFPYQF": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/7.png",
+            "heading1": "Fast & Free Shipping",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/8.png",
+            "heading2": "No Hassle Returns",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/9.png",
+            "heading3": "Secure Checkout"
+          }
+        },
+        "icons_HkJMgw": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/10.png",
+            "heading1": "Handmade in India",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/11.png",
+            "heading2": "100% Cotton",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/12.png",
+            "heading3": "Eco-Friendly"
+          }
+        },
+        "8f9762a2-e474-4a67-aa34-aff7848106ff": {
+          "type": "complementary_products",
+          "settings": {
+            "heading": "Pairs well with",
+            "products_count": 10
+          }
+        },
+        "description_BxjqVp": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "description_visibility": "always",
+            "show_as_accordion": true,
+            "open_default_accordion": false
+          }
+        },
+        "accordion_fXcaTb": {
+          "type": "accordion",
+          "name": "Why You'll Love Our Tablecloths",
+          "settings": {
+            "content_heading": "Why You'll Love These Pillow Inserts",
+            "content": "<ul><li><strong>Fluffy & Full Look:</strong> Keeps your pillows looking plump and inviting.</li><li><strong>Comfort Meets Support: </strong>Soft enough to relax, firm enough to hold shape.</li><li><strong>Hypoallergenic Fill:</strong> Safe for families, kids, and sensitive skin.</li><li><strong>Versatile Use: </strong>Fits throw pillows, shams, cushions, and decor pillows.</li><li><strong>Low-Maintenance:</strong> Easy to fluff back to life and fully machine washable.</li><li><strong>Built to Last:</strong> High-quality fill and strong stitching ensure durability.</li></ul>",
+            "open_default_accordion": false
+          }
+        },
+        "accordion_rPikyc": {
+          "type": "accordion",
+          "name": "Product Care",
+          "settings": {
+            "content_heading": "Product Care",
+            "content": "<p>To keep your fabricsg items looking beautiful for years, please follow these care tips:<br/><br/>1. Machine Washable – Wash on a gentle cycle with cold water.<br/>2. Mild Detergent – Protect natural fibers and preserve colors.<br/>3. Do Not Bleach – Avoid harsh chemicals.<br/>4. Tumble Dry Low or Air Dry – Air drying recommended for longevity.<br/>5. Ironing – Iron on low while fabric is slightly damp, always on reverse side.<br/>6. Storage – Store in a cool, dry place away from direct sunlight.</p>",
+            "open_default_accordion": false
+          }
+        }
+      },
+      "block_order": [
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f",
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33",
+        "text_wiXQyA",
+        "5540566c-63cd-4a90-b9b6-7707e45d7066",
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68",
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9",
+        "16819786-9d1e-449d-966d-08d21e1c91af",
+        "icons_rFPYQF",
+        "icons_HkJMgw",
+        "8f9762a2-e474-4a67-aa34-aff7848106ff",
+        "description_BxjqVp",
+        "accordion_fXcaTb",
+        "accordion_rPikyc"
+      ],
+      "settings": {
+        "gallery_style": "slider",
+        "show_description": true,
+        "open_description_accordion": false,
+        "show_variant-media": false,
+        "enable_shipping_policy": true,
+        "enable_zoom_icon": true,
+        "enable_thumb": true,
+        "content_divider_mobile": "none",
+        "carousel_thumbnail_position": "center",
+        "carousel_height_desktop": "adapt",
+        "carousel_height_mobile": "adapt",
+        "width": "half",
+        "style": "accordion",
+        "accordion_content_alignment": "left",
+        "content_heading": "",
+        "content": "",
+        "content_heading2": "",
+        "content2": "",
+        "content_heading3": "",
+        "content3": ""
+      }
+    },
+    "blocks_V6tykc": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1fcb42e_E8CyUK": {
+          "type": "ai_gen_block_1fcb42e",
+          "settings": {
+            "image": "shopify://shop_images/pillow_inserts.png",
+            "image_width": 50,
+            "image_border_radius": 10,
+            "badge_text": "Special Offer",
+            "heading": "Buy More Save More",
+            "description": "<p>A Treat for the Home You're Creating.</p>",
+            "discount_text": "10% OFF",
+            "threshold_text": "on orders above $100",
+            "button_text": "SHOP YOUR FAVORITES",
+            "button_link": "shopify://collections/all-cotton-pillow-covers",
+            "section_padding": 40,
+            "content_gap": 40,
+            "content_spacing": 16,
+            "border_radius": 10,
+            "background_color": "#ffffff",
+            "heading_color": "#000000",
+            "text_color": "#666666",
+            "badge_background_color": "#6e90b5",
+            "badge_text_color": "#ffffff",
+            "badge_font_size": 12,
+            "badge_border_radius": 4,
+            "offer_background_color": "#e0edfa",
+            "offer_border_color": "#6e90b5",
+            "discount_color": "#000000",
+            "threshold_color": "#333333",
+            "offer_padding": 16,
+            "offer_border_radius": 8,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 0,
+            "heading_font_size": 32,
+            "heading_font_weight": "400",
+            "text_font_size": 16,
+            "discount_font_size": 20,
+            "threshold_font_size": 14,
+            "button_font_size": 14,
+            "button_font_weight": "400"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1fcb42e_E8CyUK"
+      ],
+      "name": "Buy more save more deal",
+      "settings": {}
+    },
+    "faq_section_wKyF6y": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_ijywKr": {
+          "type": "faq",
+          "settings": {
+            "heading": "What size pillow insert should I buy for my pillow cover?",
+            "answer": "<p>For a fuller, plump look, choose a pillow insert that is 1–2 inches larger than your pillow cover.</p>"
+          }
+        },
+        "faq_wDRLib": {
+          "type": "faq",
+          "settings": {
+            "heading": "Are these pillow inserts machine washable?",
+            "answer": "<p>Yes! Our pillow inserts are machine washable on a gentle cycle and easy to fluff back into shape after drying.</p>"
+          }
+        },
+        "faq_BnEfAy": {
+          "type": "faq",
+          "settings": {
+            "heading": "What are these inserts filled with?",
+            "answer": "<p>They are filled with high-quality, hypoallergenic poly fiber, making them soft, supportive, and safe for families, kids, and those with allergies.</p>"
+          }
+        },
+        "faq_VD4CkP": {
+          "type": "faq",
+          "settings": {
+            "heading": "Will the inserts go flat over time?",
+            "answer": "<p>Unlike cheap fillers, our decorative pillow inserts are designed with durable stitching and premium filling that helps them retain shape and fullness even with everyday use.</p>"
+          }
+        },
+        "faq_G3Qeyq": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I use these inserts for both bed and sofa pillows?",
+            "answer": "<p>Absolutely! These versatile pillow inserts are perfect for throw pillows, couch cushions, bed shams, and decorative covers throughout your home.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_ijywKr",
+        "faq_wDRLib",
+        "faq_BnEfAy",
+        "faq_VD4CkP",
+        "faq_G3Qeyq"
+      ],
+      "name": "t:sections.faq-section.presets.name",
+      "settings": {
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "open_first": false,
+        "section_border_style": "solid",
+        "heading": "FAQs",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "bgcolor": "primary",
+        "row_bgcolor": "secondary",
+        "section_visibility": "always",
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "product_recommendations": {
+      "type": "product_recommendations",
+      "settings": {
+        "heading": "Recommended Products",
+        "seo_heading": "h2",
+        "products_count": 8,
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 10,
+        "bgcolor": "primary",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 60,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "spacer_fFyMEf",
+    "main-product",
+    "blocks_V6tykc",
+    "faq_section_wKyF6y",
+    "product_recommendations"
+  ]
+}

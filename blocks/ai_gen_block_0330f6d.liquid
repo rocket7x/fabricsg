@@ -1,0 +1,584 @@
+{% doc %}
+  @prompt
+    image on the left with a buy more save more deal section for Flat 10% OFF on order above $100, i love it, can i adjust the line weight of the header text and button text. as well as move the alignment on mobile to the left, can i get a "special offer" subheading too
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-deal-section-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    max-width: 100%;
+  }
+
+  .ai-deal-image-{{ ai_gen_id }} {
+    flex: 0 0 auto;
+    width: {{ block.settings.image_width }}px;
+    max-width: 50%;
+  }
+
+  .ai-deal-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-deal-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-deal-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 200px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-deal-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.5;
+  }
+
+  .ai-deal-content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-deal-subheading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.subheading_font_size }}px;
+    font-weight: {{ block.settings.subheading_font_weight }};
+    color: {{ block.settings.subheading_color }};
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ai-deal-header-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.header_font_size }}px;
+    font-weight: {{ block.settings.header_font_weight }};
+    color: {{ block.settings.header_color }};
+    line-height: 1.2;
+  }
+
+  .ai-deal-description-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.description_font_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.5;
+  }
+
+  .ai-deal-offer-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: {{ block.settings.offer_background_color }};
+    border-radius: {{ block.settings.offer_border_radius }}px;
+    border: 2px solid {{ block.settings.offer_border_color }};
+  }
+
+  .ai-deal-percentage-{{ ai_gen_id }} {
+    font-size: {{ block.settings.percentage_font_size }}px;
+    font-weight: {{ block.settings.percentage_font_weight }};
+    color: {{ block.settings.percentage_color }};
+    margin: 0;
+  }
+
+  .ai-deal-offer-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.offer_text_font_size }}px;
+    color: {{ block.settings.offer_text_color }};
+    margin: 0;
+  }
+
+  .ai-deal-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: {{ block.settings.button_font_weight }};
+    border: 2px solid {{ block.settings.button_border_color }};
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .ai-deal-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-deal-section-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 20px;
+      {% if block.settings.mobile_alignment == 'left' %}
+        text-align: left;
+      {% elsif block.settings.mobile_alignment == 'center' %}
+        text-align: center;
+      {% else %}
+        text-align: right;
+      {% endif %}
+    }
+
+    .ai-deal-image-{{ ai_gen_id }} {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .ai-deal-content-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-deal-offer-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .ai-deal-button-{{ ai_gen_id }} {
+      {% if block.settings.mobile_alignment == 'left' %}
+        align-self: flex-start;
+      {% elsif block.settings.mobile_alignment == 'center' %}
+        align-self: center;
+      {% else %}
+        align-self: flex-end;
+      {% endif %}
+    }
+  }
+{% endstyle %}
+
+<div class="ai-deal-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-deal-image-{{ ai_gen_id }}">
+    <div class="ai-deal-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 600 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+      {% else %}
+        <div class="ai-deal-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="ai-deal-content-{{ ai_gen_id }}">
+    {% if block.settings.subheading_text != blank %}
+      <p class="ai-deal-subheading-{{ ai_gen_id }}">{{ block.settings.subheading_text }}</p>
+    {% endif %}
+
+    {% if block.settings.header_text != blank %}
+      <h2 class="ai-deal-header-{{ ai_gen_id }}">{{ block.settings.header_text }}</h2>
+    {% endif %}
+
+    {% if block.settings.description_text != blank %}
+      <p class="ai-deal-description-{{ ai_gen_id }}">{{ block.settings.description_text }}</p>
+    {% endif %}
+
+    <div class="ai-deal-offer-{{ ai_gen_id }}">
+      {% if block.settings.percentage_text != blank %}
+        <h3 class="ai-deal-percentage-{{ ai_gen_id }}">{{ block.settings.percentage_text }}</h3>
+      {% endif %}
+      {% if block.settings.offer_text != blank %}
+        <p class="ai-deal-offer-text-{{ ai_gen_id }}">{{ block.settings.offer_text }}</p>
+      {% endif %}
+    </div>
+
+    {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+      <a href="{{ block.settings.button_link }}" class="ai-deal-button-{{ ai_gen_id }}">
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Buy more save more deal",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Image width",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subheading_text",
+      "label": "Subheading text",
+      "default": "Special Offer"
+    },
+    {
+      "type": "text",
+      "id": "header_text",
+      "label": "Header text",
+      "default": "Buy More Save More"
+    },
+    {
+      "type": "textarea",
+      "id": "description_text",
+      "label": "Description text",
+      "default": "Don't miss out on this amazing deal! Save more when you buy more."
+    },
+    {
+      "type": "text",
+      "id": "percentage_text",
+      "label": "Percentage text",
+      "default": "Flat 10% OFF"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer text",
+      "default": "on orders above $100"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Subheading text style"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Text color",
+      "default": "#e74c3c"
+    },
+    {
+      "type": "header",
+      "content": "Header text style"
+    },
+    {
+      "type": "range",
+      "id": "header_font_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "header_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Description text style"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Percentage text style"
+    },
+    {
+      "type": "range",
+      "id": "percentage_font_size",
+      "min": 16,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "percentage_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "percentage_color",
+      "label": "Text color",
+      "default": "#e74c3c"
+    },
+    {
+      "type": "header",
+      "content": "Offer text style"
+    },
+    {
+      "type": "range",
+      "id": "offer_text_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "offer_text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Button text style"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "button_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "Mobile alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "offer_background_color",
+      "label": "Offer box background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "offer_border_color",
+      "label": "Offer box border",
+      "default": "#e74c3c"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button hover background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button hover border",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Border radius"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Section border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "offer_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Offer box border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Buy more save more deal"
+    }
+  ]
+}
+{% endschema %}

@@ -10,31 +10,28 @@
 {
   "general": {
     "days": "Dny",
-    "hours": "Hodiny",
-    "minutes": "Zápis",
+    "hours": "hodiny",
+    "minutes": "Minut",
     "seconds": "Sekundy",
-    "cart_upsell": "Doporučení vozíku",
     "password_page": {
-      "login_form_heading": "Zadejte obchod pomocí hesla:",
+      "login_form_heading": "Vstupte do obchodu pomocí hesla:",
       "login_password_button": "Zadejte pomocí hesla",
       "login_form_password_label": "Heslo",
       "login_form_password_placeholder": "Vaše heslo",
       "login_form_error": "Špatné heslo!",
-      "login_form_submit": "Zadejte",
+      "login_form_submit": "Vstupte",
       "modal": "Modální heslo",
-      "admin_link_html": "Jste majitelem obchodu? <a href=\"/admin\" class=\"link underlined-link\">Přihlaste se sem</a>",
+      "admin_link_html": "Jste majitelem obchodu? <a href=\"\/admin\" class=\"link underlined-link\">Přihlaste se zde<\/a>",
       "powered_by_shopify_html": "Tento obchod bude poháněn {{ shopify }}",
-      "opening_soon": "Todo"
+      "opening_soon": "DĚLAT"
     },
-    "view_all": "Zobrazit vše",
-    "view_detail": "Zobrazit detaily",
-    "home": "Domov",
+    "view_detail": "Zobrazit detail",
     "quick_view_heading": "Rychlý pohled",
     "social": {
       "alt_text": {
-        "share_on_facebook": "Sdílejte na Facebooku",
-        "share_on_twitter": "Tweet na Twitteru",
-        "share_on_pinterest": "Pin na Pinterestu"
+        "share_on_facebook": "Sdílet na Facebooku",
+        "share_on_twitter": "Tweetujte na Twitteru",
+        "share_on_pinterest": "Připnout na Pinterest"
       },
       "links": {
         "twitter": "Cvrlikání",
@@ -43,66 +40,74 @@
         "instagram": "Instagram",
         "tumblr": "Tumblr",
         "snapchat": "Snapchat",
-        "youtube": "YouTube",
+        "youtube": "Youtube",
         "vimeo": "Vimeo",
-        "linkedin": "LinkedIn",
-        "tiktok": "Tiktok"
+        "linkedin": "Linkedin",
+        "tiktok": "Tik tak"
       }
     },
-    "continue_shopping": "Pokračujte v nakupování",
+    "continue_shopping": "Pokračovat v nákupu",
     "go_to_products": "Zadní",
-    "no_similar_found": "Omlouvám se, žádné výsledky!",
+    "no_similar_found": "Omlouváme se, nebyly nalezeny žádné výsledky!",
     "pagination": {
       "label": "Stránkování",
       "page": "Strana {{ number }}",
-      "next": "Další stránka",
+      "next": "Další strana",
       "previous": "Předchozí stránka"
     },
-    "search": { "search": "Vyhledávání" },
-    "video": { "button": "Hra - pauza" },
+    "search": {
+      "search": "Vyhledávání"
+    },
+    "video": {
+      "button": "Přehrát – Pozastavit"
+    },
     "cart": {
-      "view": "Zobrazit můj vozík ({{ count }})",
+      "view": "Zobrazit můj košík ({{ count }})",
       "item_added": "Položka přidána do košíku"
     },
     "share": {
-      "close": "Blízký podíl",
+      "close": "Zavřít sdílení",
       "copy_to_clipboard": "Kopírovat odkaz",
       "share_url": "Odkaz",
-      "success_message": "Odkaz zkopírovaný do schránky"
+      "success_message": "Odkaz zkopírován do schránky"
     },
     "socil": {
       "links": {
-        "facebook": "Todo",
-        "twitter": "Todo",
-        "linkedin": "Todo",
-        "instagram": "Todo"
+        "facebook": "DĚLAT",
+        "twitter": "DĚLAT",
+        "linkedin": "DĚLAT",
+        "instagram": "DĚLAT"
       }
-    }
+    },
+    "view_all": "TODO",
+    "home": "TODO"
   },
-  "date_formats": { "month_day_year": "%B %y" },
+  "date_formats": {
+    "month_year": "%B %Y"
+  },
   "newsletter": {
-    "label": "Váš e -mail",
-    "success": "Děkujeme za přihlášení",
-    "button_label": "Upsat",
-    "email_placeholder": "E-mailová adresa",
-    "popup_dont_show": "Tento dialog znovu nezobrajte"
+    "label": "Tvůj e-mail",
+    "success": "Děkujeme za přihlášení k odběru",
+    "button_label": "předplatit",
+    "email_placeholder": "Emailová adresa",
+    "popup_dont_show": "Tento dialog znovu nezobrazovat"
   },
   "accessibility": {
-    "skip_to_text": "Přeskočit na obsah",
-    "skip_to_product_info": "Přeskočit informace o produktu",
-    "close": "Blízko",
+    "skip_to_text": "Přejít na obsah",
+    "skip_to_product_info": "Přejít na informace o produktu",
+    "close": "Zavřít",
     "unit_price_separator": "za",
     "vendor": "Prodejce:",
     "error": "Chyba",
-    "refresh_page": "Výsledky výběru výběru v celé stránce Obnovení.",
+    "refresh_page": "Výběrem výběru dojde k úplnému obnovení stránky.",
     "link_messages": {
       "new_window": "Otevře se v novém okně.",
       "external": "Otevře externí web."
     },
     "of": "z",
-    "next_slide": "Posunout se doprava",
+    "next_slide": "Posuňte doprava",
     "previous_slide": "Posuňte doleva",
-    "loading": "Načítání ..."
+    "loading": "Načítání..."
   },
   "blogs": {
     "article": {
@@ -112,274 +117,255 @@
       "posted_by": "Autor: {{ author }}",
       "comments": {
         "one": "{{ count }} komentář",
-        "other": "{{ count }} Komentáře"
+        "other": "{{ count }} komentáře"
       },
-      "moderated": "Vezměte prosím na vědomí, že před zveřejněním je třeba schválit komentáře.",
-      "comment_form_title": "Nechte svou myšlenku zde",
-      "name": "Jméno",
-      "email": "E-mail",
+      "moderated": "Upozorňujeme, že komentáře musí být před zveřejněním schváleny.",
+      "comment_form_title": "Nechte zde svou myšlenku",
+      "name": "název",
+      "email": "E-mailem",
       "message": "Komentář",
-      "post": "Zveřejnit komentář",
+      "post": "Přidat komentář",
       "back_to_blog": "Zpět na blog",
       "share": "Sdílejte tento článek",
-      "success": "Váš komentář byl úspěšně zveřejněn! ",
-      "success_moderated": "Váš komentář byl úspěšně zveřejněn. "
+      "success": "Váš komentář byl úspěšně odeslán! ",
+      "success_moderated": "Váš komentář byl úspěšně odeslán. "
     }
   },
   "onboarding": {
     "product_title": "Příklad názvu produktu",
     "collection_title": "Sbírka",
-    "rich_text_page": "V této části v současné době není žádný obsah. ",
-    "rich_text_field": "V této oblasti v současné době neexistuje žádný obsah."
+    "rich_text_page": "V této sekci není momentálně žádný obsah. ",
+    "rich_text_field": "TODO"
   },
   "products": {
     "product": {
-      "add_to_cart": "Přidejte do košíku",
+      "add_to_cart": "Přidat do košíku",
       "preorder": "Předobjednávka",
-      "coming_soon": "Přijde brzy",
+      "coming_soon": "Již brzy",
       "description": "Popis",
       "one_time_purchase": "Jednorázový nákup",
       "reviews": "Recenze",
       "on_sale": "Prodej",
       "product_variants": "Varianty produktu",
       "option": "Vybrat {{title}}",
-      "size_chart_label": "Graf velikosti",
+      "size_chart_label": "Tabulka velikostí",
       "tax_included": "Včetně daně.",
-      "shipping_policy": "Přeprava vypočtená při pokladně.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Přeprava</a> vypočteno při pokladně",
+      "shipping_policy": "Poštovné kalkulováno při pokladně.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Lodní doprava<\/a> vypočítané při pokladně",
       "media": {
         "heading": "Galerie",
-        "open_featured_media": "Otevřená doporučená média v zobrazení galerie",
-        "open_media": "Otevřená média {{ index }} V pohledu galerie",
-        "play_model": "Hrajte 3D prohlížeč",
-        "play_video": "Přehrajte video",
+        "open_featured_media": "Otevřít doporučená média v zobrazení galerie",
+        "open_media": "Otevřete médium {{ index }} v zobrazení galerie",
+        "play_model": "Přehrát 3D prohlížeč",
+        "play_video": "Přehrát video",
         "view_in_ar_button": "Zobrazit ve svém prostoru"
       },
-      "volume_pricing": {
-        "each": "{{ money }}/ea",
-        "title": "Objemové ceny",
-        "note": "Dostupné ceny objemu",
-        "minimum": "{{ quantity }}+",
-        "price_at_each": "na {{ price }}/ea",
-        "in_cart": "({{ item }} v vozíku)",
-        "price_range": "{{ minimum }} - {{ maximum }}"
-      },
       "quantity": {
-        "label": "Množství",
+        "label": "Označte množství",
         "input_label": "Množství pro {{ product }}",
-        "minimum_of": "Minimálně {{ quantity }}",
-        "maximum_of": "Maximum {{ quantity }}",
-        "multiples_of": "Přírůstky {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> v vozíku",
-        "note": "Zobrazit pravidla kvantity",
-        "increase": "Zvýšit množství pro {{ product }}",
-        "decrease": "Snižovat množství pro {{ product }}"
+        "increase": "Zvyšte množství pro {{ product }}",
+        "decrease": "Snížit množství pro {{ product }}",
+        "minimum_of": "TODO",
+        "maximum_of": "TODO",
+        "multiples_of": "TODO",
+        "in_cart_html": "TODO",
+        "note": "TODO"
       },
       "pickup_availability": {
-        "heading": "Vyzvednout dostupnost",
-        "view_store_info": "Zobrazit informace o obchodě",
-        "check_other_stores": "Zkontrolujte dostupnost v jiných obchodech",
-        "pick_up_available": "Dostupný vyzvednutí",
-        "pick_up_unavailable": "Pickup v současné době není k dispozici",
-        "pick_up_available_at_html": "Vyzvednutí dostupné na <span class=\"color-foreground\">{{ location_name }}</span>",
-        "pick_up_unavailable_at_html": "Vyzvednutí v současné době není k dispozici na <span class=\"color-foreground\">{{ location_name }}</span>",
-        "unavailable": "Nelze načíst dostupnost vyzvednutí",
+        "heading": "Dostupnost vyzvednutí",
+        "view_store_info": "Zobrazit informace o prodejně",
+        "check_other_stores": "Ověřte si dostupnost na jiných prodejnách",
+        "pick_up_available": "Možnost vyzvednutí",
+        "pick_up_unavailable": "Vyzvednutí momentálně není k dispozici",
+        "pick_up_available_at_html": "Možnost vyzvednutí na <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "pick_up_unavailable_at_html": "Vyzvednutí momentálně není k dispozici na <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "unavailable": "Nepodařilo se načíst dostupnost vyzvednutí",
         "refresh": "Obnovit"
       },
       "recipient": {
         "form": {
           "checkbox": "Chci to poslat jako dárek",
-          "email": "E -mail příjemce",
-          "email_placeholder": "E-mail",
-          "name": "Jméno příjemce",
-          "name_optional": "Název příjemce (volitelné)",
+          "email": "Příjemce e-mailu",
+          "email_placeholder": "E-mailem",
+          "name": "Jméno Příjemce",
+          "name_optional": "Jméno příjemce (volitelné)",
           "message": "Zpráva",
           "message_optional": "Zpráva (volitelné)"
         }
       },
       "price": {
         "from_price_html": "Z {{ price }}",
-        "regular_price": "Pravidelná cena",
+        "regular_price": "Běžná cena",
         "sale_price": "Prodejní cena",
         "unit_price": "Jednotková cena",
-        "saved": "Uložil jsi"
+        "saved": "Zachránil jsi"
       },
       "sold_out": "Vyprodáno",
       "in_stock": "Na skladě",
-      "in_stock_with_unit": "Na skladě, {{ stock }} jednotky",
-      "restock": "Brzy se opětovné zásoby",
-      "out_of_stock": "Mimo skladování",
-      "low_stock": "Pouze {{ stock }} jednotky vlevo",
-      "off": "Vypnuto",
+      "in_stock_with_unit": "Na skladě, {{ stock }} Jednotky",
+      "restock": "Brzy znovu naskladnění",
+      "out_of_stock": "Vyprodáno",
+      "low_stock": "Pouze {{ stock }} jednotky zbyly",
+      "off": "VYPNUTO",
       "similar_products": "Podobné produkty",
       "view_product": "Zobrazit produkt",
-      "more_options": "{{item}}+ Více",
-      "unavailable": "Nedostupné",
+      "more_options": "{{item}}Více",
+      "unavailable": "Není k dispozici",
       "vendor": "Prodejce",
       "onboarding_product_text": "Vyberte produkt pro zobrazení podrobností",
       "onboarding": {
         "options": {
           "option1": {
             "label": "Barva",
-            "value1": "Červený",
-            "value2": "Zelený",
+            "value1": "Červené",
+            "value2": "Zelená",
             "value3": "Modrý",
-            "value4": "Žluť",
+            "value4": "Žlutá",
             "value5": "Růžový"
           },
           "option2": {
             "label": "Velikost",
-            "value1": "Xs",
+            "value1": "XS",
             "value2": "S",
             "value3": "M",
             "value4": "L",
-            "value5": "Xl"
+            "value5": "XL"
           }
         }
       },
-      "interlink_tabs": {
-        "overview": "Přehled"
-      }
+      "volume_pricing": "TODO"
     }
   },
   "templates": {
     "404": {
       "tag": "Jejda!",
-      "title": "Stránka nebyla nalezena",
-      "subtext_html": "Stránka, kterou jste požadovali, neexistuje.  <a href=\"/collections/all\">zde</a> pokračovat v nakupování.",
-      "button_txt": "Přejít na domovskou stránku"
+      "title": "Stránka nenalezena",
+      "subtext_html": "Požadovaná stránka neexistuje.  <a href=\"\/collections\/all\">tady<\/a> pokračovat v nákupu.",
+      "button_txt": "Jít na domovskou stránku"
     },
     "search": {
-      "no_results": "Žádné výsledky nalezeny pro „{{ terms }}“.",
-      "no_results_simple": "Žádné výsledky.",
+      "no_results": "Nebyly nalezeny žádné výsledky pro „{{ terms }}“.",
+      "no_results_simple": "Nebyly nalezeny žádné výsledky.",
       "no_suggestion": "Nebyly nalezeny žádné návrhy.",
-      "no_results_sub": "Zkontrolujte pravopis nebo použijte jiné slovo nebo frázi.",
+      "no_results_sub": "Zkontrolujte pravopis nebo použijte jiné slovo či frázi.",
       "page": "Stránky",
-      "product": "Produkty",
-      "article": "Články",
-      "collecton": "Sbírky",
+      "product": "produkty",
+      "article": "články",
       "suggestion": "Související dotazy",
       "results_with_count": {
-        "one": "{{ count }} Výsledek nalezený pro „{{ terms }}“",
-        "other": "{{ count }} Výsledky nalezené pro „{{ terms }}“"
+        "one": "{{ count }} nalezen výsledek pro „{{ terms }}“",
+        "other": "{{ count }} výsledky nalezeny pro „{{ terms }}“"
       },
       "title": "Výsledky vyhledávání",
       "drawer_placeholder": "Vyhledávání",
-      "drawer_no_results": "Žádný výsledek nalezen.",
-      "drawer_all_results": "Podívejte se na všechny výsledky",
+      "drawer_no_results": "Nebyl nalezen žádný výsledek.",
+      "drawer_all_results": "Zobrazit všechny výsledky",
       "drawer_search": "Hledat",
-      "drawer_results": "Výsledky",
-      "drawer_close": "Zavřete zásuvku vyhledávání",
+      "drawer_results": "Výsledek",
+      "drawer_close": "Zavřete vyhledávací zásuvku",
       "drawer_recent_title": "Nedávné vyhledávání"
     },
-    "collection": {
-      "grid_availability": "K dispozici pro vyzvednutí na",
-      "grid_out_of_stock": "Na skladě",
-      "grid_unavailability": "Nedostupné na",
-      "grid_select_store": "Vyberte obchod a zkontrolujte místní dostupnost"
+    "cart": {
+      "cart": "Vozík"
     },
-    "cart": { "cart": "Vozík" },
     "contact": {
       "form": {
-        "name": "Jméno",
-        "email": "E-mail",
+        "name": "název",
+        "email": "E-mailem",
         "phone": "Telefonní číslo",
         "comment": "Komentář",
         "send": "Poslat",
-        "post_success": "Děkujeme, že jste nás kontaktovali. ",
+        "post_success": "děkujeme, že jste nás kontaktovali. ",
         "error_heading": "Upravte prosím následující:"
       }
-    }
+    },
+    "collection": "TODO"
   },
   "sections": {
-    "images_highlights": {
-    "highlight_title": "Zvýrazněte název",
-    "highlight_description": "Sem napište krátký popis."
-  },
-  "section_id_clipboard": {
-    "label": "Kopírovat oddíl Id",
-    "info": "Bude viditelný pouze v režimu návrhu.",
-    "copy_button_aria_label": "Zkopírujte ID sekce pro propojení s produktem.",
-    "copied": "Zkopírováno!"
-  },
-    "announcement": { "heading": "Oznámení", "close": "Úzké oznámení" },
+    "announcement": {
+      "heading": "Oznámení",
+      "close": "Zavřít oznámení"
+    },
     "header": {
-      "menu": "Menu",
+      "menu": "Jídelní lístek",
       "cart_count": {
         "one": "{{ count }} položka",
         "other": "{{ count }} položky"
       }
     },
     "cart": {
-      "title": "Váš vozík",
-      "heading_html": "V tašce <span data-cart-item-count=\"\">{{itemCount}}</span> položky",
-      "caption": "Položky vozíku",
-      "price_detail": "Cenové podrobnosti",
+      "title": "Váš košík",
+      "heading_html": "Ve tvém batohu <span data-cart-item-count=\"\">{{itemCount}}<\/span> položky",
+      "caption": "Položky košíku",
+      "price_detail": "Podrobnosti o ceně",
       "remove_title": "Odstranit {{ title }}",
       "remove": "Odstranit",
       "subtotal": "Celkový",
       "discount": "Sleva",
-      "discount_label": "Kód Coupan",
-      "new_subtotal": "Subtotál",
+      "discount_label": "Kód kupónu",
+      "new_subtotal": "Mezisoučet",
       "note": "Zvláštní pokyny pro prodejce",
-      "note_heading": "Zanechte poznámku s objednávkou",
-      "checkout": "Pokladna",
-      "empty": "Váš vozík je prázdný",
-      "view_cart": "Zobrazit vozík",
+      "note_heading": "Zanechte poznámku k objednávce",
+      "checkout": "Překontrolovat",
+      "empty": "tvůj vozík je prázdný",
+      "view_cart": "Prohlédnout košík",
       "payment": "Platební metody",
-      "cart_error": "Při aktualizaci košíku došlo k chybě. ",
+      "cart_error": "Při aktualizaci vašeho košíku došlo k chybě. ",
       "cart_quantity_error_html": "Můžete pouze přidat {{ quantity }} této položky do košíku.",
-      "taxes_and_shipping_policy_at_checkout_html": "Daně a <a href=\"{{ link }}\">Přeprava</a> vypočteno při pokladně",
-      "taxes_included_but_shipping_at_checkout": "Zahrnuty daně a doprava vypočítaná při pokladně",
-      "taxes_included_and_shipping_policy_html": "Včetně daně. <a href=\"{{ link }}\">Přeprava</a> vypočteno při pokladně.",
-      "taxes_and_shipping_at_checkout": "Daně a přeprava vypočtená při pokladně",
+      "taxes_and_shipping_policy_at_checkout_html": "Daně a <a href=\"{{ link }}\">Lodní doprava<\/a> vypočítané při pokladně",
+      "taxes_included_but_shipping_at_checkout": "Včetně daně a dopravy vypočítané při pokladně",
+      "taxes_included_and_shipping_policy_html": "Včetně daně. <a href=\"{{ link }}\">Lodní doprava<\/a> vypočítané při pokladně.",
+      "taxes_and_shipping_at_checkout": "Daně a doprava vypočítané při pokladně",
       "headings": {
         "product": "Produkt",
         "price": "Cena",
         "total": "Celkový",
         "quantity": "Množství",
-        "remove": "Odstranit"
+        "remove": "TODO"
       },
-      "update": "Aktualizovat",
+      "update": "Aktualizace",
       "login": {
-        "title": "Máte účet?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Přihlaste se</a> Chcete -li se podívat rychleji."
+        "title": "Mít účet?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Přihlásit se<\/a> pro rychlejší odbavení."
       },
       "shipping_estimates": {
-        "heading": "Získejte odhad přepravy pro vaši objednávku",
+        "heading": "Získejte odhad dopravy pro vaši objednávku",
         "country": "Země",
         "province": "Provincie",
         "zip": "PSČ",
         "button": "Získejte odhady",
         "error": "Chyba",
-        "not_available": "Neposíláme do tohoto cíle."
+        "not_available": "Do této destinace nezasíláme."
       }
     },
-    "footer": { "payment": "Platební metody" },
-    "bundle-products": {
-      "view_bundle": "ZOBRAZIT BALÍČEK",
-      "your_bundle": "Váš balíček"
+    "footer": {
+      "payment": "Platební metody"
     },
     "featured_article": {
       "view_all": "Zobrazit vše",
-      "onboarding_date": "DD MM YYYY",
-      "onboarding_title": "Blogový příspěvek",
-      "onboarding_content": "Dejte svým zákazníkům shrnutí vašeho blogového příspěvku"
+      "onboarding_date": "DD MM RRRR",
+      "onboarding_title": "Příspěvek na blogu",
+      "onboarding_content": "Poskytněte svým zákazníkům shrnutí vašeho blogového příspěvku"
     },
-    "featured_product": { "heading": "Představoval" },
-    "collection_list": { "view_all": "Zobrazit vše", "view": "Prozkoumat" },
+    "featured_product": {
+      "heading": "Nejlepší"
+    },
+    "collection_list": {
+      "view_all": "Zobrazit vše",
+      "view": "Prozkoumat"
+    },
     "collection_template": {
       "apply": "Aplikovat",
-      "clear": "Jasný",
-      "clear_all": "Vyčistit vše",
-      "empty": "Žádné produkty",
+      "clear": "Průhledná",
+      "clear_all": "Vymazat vše",
+      "empty": "Nebyly nalezeny žádné produkty",
       "from": "Z",
-      "filter_and_sort": "Filtr a třídění",
+      "filter_and_sort": "Filtrovat a třídit",
       "filter_by_label": "Filtr",
       "filter_button": "Aplikovat",
-      "filter_cancel_button": "Zrušit",
-      "filter_show_more": "Ukázat více",
-      "filter_show_less": "Ukázat méně",
+      "filter_cancel_button": "zrušení",
+      "filter_show_more": "Zobrazit více",
+      "filter_show_less": "Ukaž méně",
       "filters_selected": {
         "one": "{{ count }} vybraný",
         "other": "{{ count }} vybraný"
@@ -394,180 +380,183 @@
         "other": "{{ count }} produkty"
       },
       "reset": "Resetovat",
-      "sort_button": "Třídit",
-      "sort_by_label": "Třídit",
+      "sort_button": "Seřadit",
+      "sort_by_label": "Seřazeno podle",
       "title": "Sbírka",
       "to": "Na",
-      "use_fewer_filters_html": "Použijte méně filtrů nebo <a class=\"{{ class }}\" href=\"{{ link }}\">vyčistit vše</a>"
+      "use_fewer_filters_html": "Použijte méně filtrů popř <a class=\"{{ class }}\" href=\"{{ link }}\">vymazat vše<\/a>"
     },
-    "video": { "load_video": "Načíst video: {{ description }}" },
+    "video": {
+      "load_video": "Načíst video: {{ description }}"
+    },
     "contact": {
-      "name": "Jméno",
-      "email": "E-mail",
+      "name": "název",
+      "email": "E-mailem",
       "number": "Kontaktní číslo",
       "message": "Zpráva"
     },
-    "localization": { "language_label": "Todo" }
+    "localization": {
+      "language_label": "DĚLAT"
+    }
   },
   "localization": {
-    "update": "Aktualizovat",
-    "country_label": "Země/region",
+    "update": "Aktualizace",
+    "country_label": "Země\/oblast",
     "language_label": "Jazyk",
     "update_language": "Aktualizovat jazyk",
-    "update_country": "Aktualizace země/regionu"
+    "update_country": "Aktualizujte zemi\/oblast"
   },
   "customer": {
     "account": {
       "title": "Můj účet",
-      "details": "Podrobnosti o účtu",
+      "details": "Detaily účtu",
       "view_addresses": "Zobrazit adresy",
-      "return": "Vraťte se k údajům o účtu"
+      "return": "Vraťte se na podrobnosti o účtu"
     },
     "account_fallback": "Účet",
     "activate_account": {
       "title": "Aktivovat účet",
-      "subtext": "Vytvořte heslo pro aktivaci účtu.",
+      "subtext": "Pro aktivaci účtu si vytvořte heslo.",
       "password": "Heslo",
       "password_confirm": "Potvrďte heslo",
       "submit": "Aktivovat účet",
-      "cancel": "Poklesnout pozvání"
+      "cancel": "Odmítnout pozvání"
     },
     "addresses": {
       "title": "Adresy",
       "default": "Výchozí adresa",
       "address_count": "Adresa {{ count }}",
-      "add_new": "Přidejte novou adresu",
+      "add_new": "přidat novou adresu",
       "edit_address": "Upravit adresu",
-      "first_name": "Křestní jméno",
+      "first_name": "Jméno",
       "last_name": "Příjmení",
       "company": "Společnost",
       "address1": "Adresa 1",
       "address2": "Adresa 2",
       "city": "Město",
-      "country": "Země/region",
+      "country": "Země\/oblast",
       "province": "Provincie",
-      "zip": "Poštovní/PSČ",
+      "zip": "Poštovní směrovací číslo",
       "phone": "Telefon",
-      "set_default": "Nastavte jako výchozí adresu",
+      "set_default": "Nastavit jako výchozí adresu",
       "add": "Přidat adresu",
-      "update": "Aktualizovat adresu",
-      "cancel": "Zrušit",
+      "update": "Aktualizujte adresu",
+      "cancel": "zrušení",
       "edit": "Upravit",
       "delete": "Vymazat",
-      "delete_confirm": "Určitě si přejete tuto adresu smazat?"
+      "delete_confirm": "Opravdu chcete smazat tuto adresu?"
     },
-    "log_in": "Přihlaste se",
-    "log_out": "Odhlaste",
+    "log_in": "Přihlásit se",
+    "log_out": "Odhlásit se",
     "login_page": {
-      "cancel": "Zrušit",
-      "create_account": "Vytvořte účet",
+      "cancel": "zrušení",
+      "create_account": "Vytvořit účet",
       "new_account_heading": "Vytvořit účet",
-      "new_account_subtext": "Registrace pro tento web umožňuje přístup k stavu objednávky a historii. ",
-      "subtext": "Pokud jste u nás vytvořili účet, zadejte.",
-      "email": "E-mail",
+      "new_account_subtext": "Registrace na této stránce vám umožní přístup ke stavu vaší objednávky a historii. ",
+      "subtext": "Pokud jste si u nás vytvořili účet, zadejte.",
+      "email": "E-mailem",
       "forgot_password": "Zapomněli jste heslo?",
       "guest_continue": "Pokračovat",
       "guest_title": "Pokračujte jako host",
       "password": "Heslo",
-      "title": "Přihlášení",
-      "sign_in": "Přihlaste se",
-      "submit": "Předložit",
-      "alternate_provider_separator": "Nebo"
+      "title": "Přihlásit se",
+      "sign_in": "Přihlásit se",
+      "submit": "Předložit"
     },
     "order": {
-      "heading": "Objednávka podrobnosti",
-      "title": "Objednávka {{ name }}",
-      "date_html": "Umístěno {{ date }}",
-      "cancelled_html": "Objednávka zrušená {{ date }}",
+      "heading": "Detail objednávky",
+      "title": "Objednat {{ name }}",
+      "date_html": "Umístěno na {{ date }}",
+      "cancelled_html": "Objednávka zrušena dne {{ date }}",
       "cancelled_reason": "Důvod: {{ reason }}",
-      "billing_address": "Fakturační adresa",
-      "payment_status": "Stav platby",
-      "shipping_address": "Přepravní adresa",
+      "billing_address": "fakturační adresa",
+      "payment_status": "Status platby",
+      "shipping_address": "doručovací adresa",
       "fulfillment_status": "Stav plnění",
       "discount": "Sleva",
-      "shipping": "Přeprava",
+      "shipping": "Lodní doprava",
       "tax": "Daň",
       "product": "Produkt",
       "sku": "SKU",
       "price": "Cena",
       "quantity": "Množství",
       "total": "Celkový",
-      "fulfilled_at_html": "Splněno {{ date }}",
-      "track_shipment": "Sledovat přepravu",
-      "tracking_url": "Sledování odkazu",
+      "fulfilled_at_html": "Splnil {{ date }}",
+      "track_shipment": "Sledovat zásilku",
+      "tracking_url": "Sledovací odkaz",
       "tracking_company": "Dopravce",
       "tracking_number": "Sledovací číslo",
-      "subtotal": "Subtotál",
+      "subtotal": "Mezisoučet",
       "back": "Zpět k objednávkám",
       "reorder": {
-        "heading": "Přeměnit",
-        "button_text": "Přeměnit",
+        "heading": "Přeobjednat",
+        "button_text": "Přeobjednat",
         "cart_status": {
-          "empty": "Váš vozík je prázdný.",
-          "not_empty": "Váš vozík již má některé položky."
+          "empty": "Tvůj vozík je prázdný.",
+          "not_empty": "Váš košík již obsahuje nějaké položky."
         },
         "item_status": {
           "heading": "Postavení",
-          "available": "K dispozici",
-          "unavailable": "Nedostupné",
-          "out_of_stock": "Mimo skladování"
+          "available": "Dostupný",
+          "unavailable": "Není k dispozici",
+          "out_of_stock": "Vyprodáno"
         },
-        "inventory": "Max Inventory",
-        "clear_btn": "Čistý vozík",
-        "atc_btn": "Přidejte do košíku",
-        "cancel_btn": "Zrušit"
+        "inventory": "Max inventář",
+        "clear_btn": "Vymazat košík",
+        "atc_btn": "Přidat do košíku",
+        "cancel_btn": "zrušení"
       }
     },
     "orders": {
       "title": "Objednávky",
-      "page_title": "Historie objednávky",
-      "order_number": "Objednávka",
+      "page_title": "Historie objednávek",
+      "order_number": "Objednat",
       "order_number_link": "Číslo objednávky {{ number }}",
-      "date": "Datum",
-      "payment_status": "Stav platby",
+      "date": "datum",
+      "payment_status": "Status platby",
       "fulfillment_status": "Stav plnění",
       "total": "Celkový",
       "none": "Ještě jste nezadali žádné objednávky."
     },
     "recover_password": {
-      "title": "Resetujte heslo",
-      "subtext": "Zašleme vám e -mail k resetování vašeho hesla",
-      "success": "Poslali jsme vám e -mail s odkazem na aktualizaci hesla."
+      "title": "Obnovit heslo",
+      "subtext": "Zašleme vám e-mail pro obnovení hesla",
+      "success": "Poslali jsme vám e-mail s odkazem na aktualizaci hesla."
     },
     "register": {
-      "title": "Vytvořte účet",
-      "subtext": "Pokud s námi chcete vytvořit účet, zadejte.",
+      "title": "Vytvořit účet",
+      "subtext": "Pokud si u nás chcete vytvořit účet, zadejte.",
       "full_name": "Celé jméno",
-      "first_name": "Křestní jméno",
+      "first_name": "Jméno",
       "last_name": "Příjmení",
-      "email": "E-mail",
+      "email": "E-mailem",
       "password": "Heslo",
-      "submit": "Zaregistrujte se",
-      "login_heading": "Už máte účet?",
-      "login_button": "Přihlášení",
-      "login_subtext": "Registrace pro tento web umožňuje přístup k stavu objednávky a historii. "
+      "submit": "Přihlásit se",
+      "login_heading": "Máte již účet?",
+      "login_button": "Přihlásit se",
+      "login_subtext": "Registrace na této stránce vám umožní přístup ke stavu vaší objednávky a historii. "
     },
     "reset_password": {
-      "title": "Resetovat heslo účtu",
+      "title": "Obnovit heslo účtu",
       "subtext": "Zadejte nové heslo pro {{ email }}",
       "password": "Heslo",
       "password_confirm": "Potvrďte heslo",
-      "submit": "Resetovat heslo"
+      "submit": "Obnovit heslo"
     }
   },
   "gift_cards": {
     "issued": {
-      "title": "Tady je vaše {{ value }} dárková karta pro {{ shop }}!",
+      "title": "Tady je tvůj {{ value }} dárkový poukaz na {{ shop }}!",
       "subtext": "Vaše dárková karta",
       "gift_card_code": "Kód dárkové karty",
-      "shop_link": "Pokračujte v nakupování",
+      "shop_link": "Pokračovat v nákupu",
       "remaining_html": "Zbývající {{ balance }}",
-      "add_to_apple_wallet": "Přidejte do peněženky Apple",
-      "qr_image_alt": "QR kód - Skenujte na uplatnění dárkové karty",
+      "add_to_apple_wallet": "Přidat do Apple Wallet",
+      "qr_image_alt": "QR kód – naskenujte pro uplatnění dárkové karty",
       "copy_code": "Kopírovat kód",
-      "expired": "Vypršel",
+      "expired": "Platnost vypršela",
       "copy_code_success": "Kód byl úspěšně zkopírován",
-      "print_gift_card": "Vytisknout"
+      "print_gift_card": "Tisk"
     }
   }
 }

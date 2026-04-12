@@ -1,0 +1,811 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "seo_heading": "h2",
+        "banner_height_desktop": "auto",
+        "banner_height_mobile": "auto",
+        "bgcolor": "#f5efec",
+        "textcolor": "#181818"
+      }
+    },
+    "rich_text_LQ4QRP": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_krijTN": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Become a fabricsg Affiliate",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": "<p>As an affiliate, you don’t just promote linens—you share a tradition, empower artisans, and tell a story your audience will connect with.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_krijTN"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "175808312444af0552": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8b72f48_c6UVzB": {
+          "type": "ai_gen_block_8b72f48",
+          "settings": {
+            "button_text": "APPLY NOW",
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "padding_horizontal": 24,
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "border_radius": 0,
+            "font_size": 14,
+            "font_weight": "500"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8b72f48_c6UVzB"
+      ],
+      "settings": {}
+    },
+    "collage_r36jiA": {
+      "type": "collage",
+      "blocks": {
+        "image_zHFnXn": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-973.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        },
+        "image_HGUeX4": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-903.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        },
+        "image_DE4ece": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-984.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        },
+        "image_xdiNaf": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-910.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        },
+        "image_FitkjN": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-894.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        },
+        "image_MabANB": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "video": "shopify://files/videos/Video-165.mp4",
+            "heading": "",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "",
+            "btn_text": "",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 0,
+            "desktop_content_position": "d-center",
+            "mobile_content_position": "m-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#000000",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_border_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "image_zHFnXn",
+        "image_HGUeX4",
+        "image_DE4ece",
+        "image_xdiNaf",
+        "image_FitkjN",
+        "image_MabANB"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_swipe": true,
+        "image_layout": "rounded",
+        "enable_image_animation": true,
+        "enable_hover_effect": false,
+        "image_radius_desktop": 10,
+        "image_radius_mobile": 10,
+        "heading_size": "h2",
+        "button_size": "xsmall",
+        "space_in_images": true,
+        "image_spacing_desktop": 10,
+        "image_spacing_mobile": 10,
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 25,
+        "bottom_space_desktop": 50,
+        "top_space_mobile": 20,
+        "bottom_space_mobile": 20
+      }
+    },
+    "17580826910317c593": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9805005_FVrtdj": {
+          "type": "ai_gen_block_9805005",
+          "settings": {
+            "heading": "At fabricsg,",
+            "description": "<p>Every design is born from love and tradition. Partnering with us means you don’t just promote products—you share a story of family, women-led business, and handmade artistry.</p>",
+            "button_text": "Start Earning",
+            "button_link": "shopify://pages/affiliate-program",
+            "image": "shopify://shop_images/C8C6B132-FADA-46AC-8DEC-FDAC7872C4DD_4f41fc48-04fa-424f-ba74-dfa21dec6c14.jpg",
+            "mobile_layout": "text_top",
+            "mobile_text_alignment": "left",
+            "image_aspect_ratio": "4/3",
+            "spacing": 40,
+            "padding": 40,
+            "background_color": "#6e90b5",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#333333",
+            "heading_size": 32,
+            "text_size": 16,
+            "image_radius": 8,
+            "button_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9805005_FVrtdj"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "images_grid_BJ3kGn": {
+      "type": "images-grid",
+      "blocks": {
+        "image_MjW4jG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/C8C6B132-FADA-46AC-8DEC-FDAC7872C4DD_4f41fc48-04fa-424f-ba74-dfa21dec6c14.jpg"
+          }
+        },
+        "image_7BnhUd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/5AS151ZT6vp46fwocXxsfmB0cpFLj8c0UbPO1cwnbLjTc9OAaTqLfwNeLa7v4h_dYQgvk92oc_xcjNncd6cioOVh17HYTSxEMJCNZ68J1rNBZAZPNEwkqhv3eTa3pxyuGd8XYaEu1EavjJawJCpdMJtyRGIy24WiSQmCBh3uNl27X54ie8vBFBk.webp"
+          }
+        },
+        "image_pDQgcx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/39C40339-82D5-4624-AEFD-691161DCC382.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_MjW4jG",
+        "image_7BnhUd",
+        "image_pDQgcx"
+      ],
+      "name": "t:sections.image-grid.presets.name",
+      "settings": {
+        "content_position": "left",
+        "image_height": "100",
+        "heading": "At fabricsg,",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "description": "<p>Every design is born from love and tradition. Partnering with us means you don’t just promote products—you share a story of family, women-led business, and handmade artistry.</p>",
+        "btn_as_link": false,
+        "btn_text": "Start Earning",
+        "bgcolor": "quaternary",
+        "section_visibility": "always",
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "rich_text_YY6LFF": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_HytxAB": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Why Partner With Us?",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_HytxAB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 20
+      }
+    },
+    "text_with_icons_x6xxrM": {
+      "type": "text-with-icons",
+      "blocks": {
+        "column_keyTCp": {
+          "type": "column",
+          "settings": {
+            "icon": "tag",
+            "heading": "15% Commission",
+            "seo_heading": "h2",
+            "size": "text-medium",
+            "subtext": ""
+          }
+        },
+        "column_n4eTfR": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "heading": "Eco-Friendly",
+            "seo_heading": "h2",
+            "size": "text-medium",
+            "subtext": ""
+          }
+        },
+        "column_ViPygP": {
+          "type": "column",
+          "settings": {
+            "icon": "gift",
+            "heading": "Exclusive Discounts",
+            "seo_heading": "h2",
+            "size": "text-medium",
+            "subtext": ""
+          }
+        },
+        "column_3wFczG": {
+          "type": "column",
+          "settings": {
+            "icon": "global",
+            "heading": "Global Reach",
+            "seo_heading": "h2",
+            "size": "text-medium",
+            "subtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_keyTCp",
+        "column_n4eTfR",
+        "column_ViPygP",
+        "column_3wFczG"
+      ],
+      "name": "t:sections.text-with-icons.presets.name",
+      "settings": {
+        "container_width": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "section_border_style": "solid",
+        "column_background": false,
+        "mobile_column_count": "2",
+        "alignment": "center",
+        "icon_content_space_desktop": 15,
+        "icon_content_space_mobile": 15,
+        "enable_border": false,
+        "border_style": "dashed",
+        "column_radius_desktop": 10,
+        "column_radius_mobile": 10,
+        "icon_background": false,
+        "icon_position": "top",
+        "bgcolor": "primary",
+        "column_background_color": "",
+        "icon_color": "#000000",
+        "icon_background_color": "",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 15,
+        "bottom_space_desktop": 50,
+        "top_space_mobile": 20,
+        "bottom_space_mobile": 20
+      }
+    },
+    "rotating_text_GY3AFx": {
+      "type": "rotating-text",
+      "name": "t:sections.rotating-text.presets.name",
+      "settings": {
+        "text1": "",
+        "desktop_text_gap": 17,
+        "mobile_text_gap": 17,
+        "text2": "<p>◦ 100% Cotton ◦ Eco-Friendly ◦ Handmade in India</p>",
+        "desktop_subtext_gap": 10,
+        "mobile_subtext_gap": 5,
+        "rotating_text_style": "vertical",
+        "pause_on_hover": false,
+        "row1_font_family": "--font-family",
+        "row2_font_family": "--font-family",
+        "row1_direction": "left",
+        "row2_direction": "right",
+        "heading_font_size": 28,
+        "subheading_font_size": 14,
+        "heading_font_size_m": 18,
+        "subheading_font_size_m": 16,
+        "section_border": true,
+        "section_border_bottom": true,
+        "border_width": "2px",
+        "border_style": "solid",
+        "background_opacity": 50,
+        "min_height_desktop": 325,
+        "min_height_mobile": 200,
+        "bgcolor": "#000000",
+        "bg_gradient_color": "",
+        "text1color": "#000000",
+        "outlinetext1color": "#000000",
+        "text2color": "#ffffff",
+        "outlinetext2color": "#a56748",
+        "background_overlay": "#000000",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 10,
+        "top_space_mobile": 15,
+        "bottom_space_mobile": 15
+      }
+    },
+    "image_with_text_YqLKPQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Nijqnp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get Started in Three Easy Steps:",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "icon_with_text_wGaBgY": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "heart",
+            "heading": "1. Apply to Join:",
+            "content": "<p>Fill out a short application. We’re looking for creators who align with our values.</p>"
+          }
+        },
+        "icon_with_text_NMYcQg": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "heart",
+            "heading": "2. Promote Your Link:",
+            "content": "<p>Once approved, you’ll get a unique affiliate link to share with your audience and access to brand assets.</p>"
+          }
+        },
+        "icon_with_text_JpzzzY": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "heart",
+            "heading": "3. Earn Commission:",
+            "content": "<p>Get 15% commission on every sale made through your link.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Nijqnp",
+        "icon_with_text_wGaBgY",
+        "icon_with_text_NMYcQg",
+        "icon_with_text_JpzzzY"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/woman-takes-a-mirror-self-portrait-among-sunflowers.jpg",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "right",
+        "image_height": "portrait",
+        "show_icon_on_image": false,
+        "icon": "snail",
+        "left_to_right": 50,
+        "top_to_bottom": 50,
+        "mobile_left_to_right": 50,
+        "mobile_top_to_bottom": 50,
+        "icon_animated_color": "#ffffff",
+        "content_position": "center",
+        "bgcolor": "quaternary",
+        "image_shadow_color": "#181818",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "1758824759f5563016": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_277c85d_BHK3T7": {
+          "type": "ai_gen_block_277c85d",
+          "settings": {
+            "button_text": "START EARNING",
+            "button_alignment": "center",
+            "button_padding_vertical": 16,
+            "button_padding_horizontal": 32,
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_border_color": "#000000",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "button_min_width": 120,
+            "button_font_size": 16,
+            "button_font_weight": "500",
+            "button_font_family": "--font-family",
+            "button_text_transform": "none",
+            "button_letter_spacing": 0,
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "button_hover_transform": -2,
+            "section_background_color": "#6e90b5",
+            "section_padding_top": 24,
+            "section_padding_bottom": 40,
+            "section_padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_277c85d_BHK3T7"
+      ],
+      "settings": {}
+    },
+    "featured_collection_wjQPQV": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "collection": "pillow-covers",
+        "products_count": 6,
+        "edge_to_edge": false,
+        "slider_full_width": false,
+        "product_as_stacked": true,
+        "over_image_product": false,
+        "enable_swipe": true,
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 12,
+        "heading": "Products Your Audience Will Love",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "subheading": "",
+        "collection_image": "shopify://shop_images/fkO2g77ocWj0UX37dcj7g3m1ufFztWr1Ev5MC5b3VxQf35RPtBnEWtxY2PIvcLk1Grg__Q7xV.sTNyUkyHeg6SMo1NfvW2rch3YRp7IANYxmTChtNHYw6DXSFsp3Hi5dBtBmdcrsR6RdxHUY2BZeIg73_zEI1xqcy_1.webp",
+        "collection_heading": "",
+        "hide_description": false,
+        "collection_desc": "",
+        "bgcolor": "gradient",
+        "collection_title_color": "#ffffff",
+        "collection_desc_color": "#ffffff",
+        "section_visibility": "always",
+        "show_icon_on_image": true,
+        "icon": "heart",
+        "left_to_right": 4,
+        "top_to_bottom": -1,
+        "mobile_left_to_right": 3,
+        "mobile_top_to_bottom": 24,
+        "icon_animated_color": "#ffffff",
+        "top_space_desktop": 40,
+        "bottom_space_desktop": 60,
+        "top_space_mobile": 0,
+        "bottom_space_mobile": 50
+      }
+    },
+    "1758826161fa32f6b1": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e2e9203_rMeE7q": {
+          "type": "ai_gen_block_e2e9203",
+          "settings": {
+            "layout": "text_first",
+            "vertical_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "background_color": "#ffffff",
+            "image": "shopify://shop_images/viridiangreen_0ec0d5e3-edd9-4099-a33a-57c8d486c875.png",
+            "image_width": 50,
+            "image_border_radius": 10,
+            "heading": "Dedicated to Your Growth",
+            "text": "<p>At fabricsg, we’re here to make your journey as an affiliate both rewarding and seamless. You’ll receive your own exclusive discount codes to share with your community, a simple dashboard to track your earnings and sales, and exciting bonus opportunities - like increased commission rates and special rewards for top affiliates.</p>",
+            "text_alignment": "left",
+            "content_gap": 40,
+            "content_padding": 20,
+            "text_spacing": 20,
+            "heading_size": 32,
+            "text_size": 16,
+            "heading_color": "#000000",
+            "text_color": "#000000",
+            "button_text": "",
+            "button_link": "",
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 0,
+            "button_text_size": 14,
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_background": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "mobile_gap": 25,
+            "mobile_content_padding": 5,
+            "mobile_heading_size": 24,
+            "mobile_text_size": 14
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e2e9203_rMeE7q"
+      ],
+      "settings": {}
+    },
+    "faq_section_arDMH7": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_JfjEgn": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is the fabricsg Affiliate Program?",
+            "answer": "<p>The fabricsg Affiliate Program allows you to earn commissions by sharing our handcrafted, block-printed home textiles with your audience.</p>"
+          }
+        },
+        "faq_X8aJmq": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do I join the affiliate program?",
+            "answer": "<p>Simply apply through our affiliate sign-up page, and once approved, you’ll receive access to your dashboard, affiliate links, and discount codes.</p>"
+          }
+        },
+        "faq_JRGz7T": {
+          "type": "faq",
+          "settings": {
+            "heading": "Are there any fees to join?",
+            "answer": "<p>No—joining our affiliate program is completely free.</p>"
+          }
+        },
+        "faq_GjwHT8": {
+          "type": "faq",
+          "settings": {
+            "heading": "Who can become an affiliate?",
+            "answer": "<p>Anyone with a passion for design, slow fashion, artisan-made products, or sharing beautiful finds with their audience is welcome to apply.</p>"
+          }
+        },
+        "faq_brgiMM": {
+          "type": "faq",
+          "settings": {
+            "heading": "What types of products will I be promoting?",
+            "answer": "<p>You’ll be promoting our collection of handmade block-printed tablecloths, napkins, runners, pillow covers, and more - each crafted from 100% cotton by skilled artisans.</p>"
+          }
+        },
+        "faq_YCLJzf": {
+          "type": "faq",
+          "settings": {
+            "heading": "Will my audience get a discount?",
+            "answer": "<p>Yes! Your followers will receive exclusive discounts through your unique affiliate code.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_JfjEgn",
+        "faq_X8aJmq",
+        "faq_JRGz7T",
+        "faq_GjwHT8",
+        "faq_brgiMM",
+        "faq_YCLJzf"
+      ],
+      "name": "t:sections.faq-section.presets.name",
+      "settings": {
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "open_first": true,
+        "section_border_style": "solid",
+        "heading": "FAQs",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "bgcolor": "primary",
+        "row_bgcolor": "quaternary",
+        "section_visibility": "always",
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 10,
+        "bottom_space_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_LQ4QRP",
+    "175808312444af0552",
+    "collage_r36jiA",
+    "17580826910317c593",
+    "images_grid_BJ3kGn",
+    "rich_text_YY6LFF",
+    "text_with_icons_x6xxrM",
+    "rotating_text_GY3AFx",
+    "image_with_text_YqLKPQ",
+    "1758824759f5563016",
+    "featured_collection_wjQPQV",
+    "1758826161fa32f6b1",
+    "faq_section_arDMH7"
+  ]
+}

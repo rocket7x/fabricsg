@@ -1,33 +1,8 @@
-# ─── Shopify CLI ─────────────────────────────────────────────────────────────
-.shopify/
-shopify.theme.toml.local
-
-# ─── Environment / secrets ───────────────────────────────────────────────────
-.env
-.env.*
-*.env
-secrets.json
-
-# ─── Node ────────────────────────────────────────────────────────────────────
-node_modules/
-npm-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# ─── OS ──────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-
-# ─── Build output ────────────────────────────────────────────────────────────
-dist/
-build/
-
-# ─── IDE ─────────────────────────────────────────────────────────────────────
-.vscode/settings.json
-.idea/
-
-# ─── Shopify auto-generated ──────────────────────────────────────────────────
-assets/*.min.css
-assets/*.min.js
+node_modules/
+.env
+.env.*
+.shopify/
+shopify.theme.toml
+config/settings_data.json

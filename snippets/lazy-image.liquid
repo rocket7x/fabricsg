@@ -18,7 +18,7 @@
   data-original="{{ image | image_url }}"
   alt="{{ image.alt | escape }}"
   loading="{% if section.index <= 2 %}eager{% else %}lazy{% endif %}"
-  style="object-position:{{ image.presentation.focal_point | default: '50.0% 50.0%' }}"
+  style="object-position:{{ image.presentation.focal_point }}"
 >
   {% if settings.enable_lazyload %}
   <noscript>

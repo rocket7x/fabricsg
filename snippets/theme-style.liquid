@@ -30,12 +30,13 @@
 {{ 'footer.min.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'theme.min.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'responsive.min.css' | asset_url | preload_tag: as: 'style' }}
-{% comment %} {{ 'fancybox.min.css' | asset_url | preload_tag: as: 'style' }} {% endcomment %}
+{{ 'fancybox.min.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'flickity.min.css' | asset_url | preload_tag: as: 'style' }}
 {% if settings.enable_animation %}
   {{ 'aos.css' | asset_url | preload_tag: as: 'style' }}
 {% endif %}
 {{ 'flickity.min.css' | asset_url | stylesheet_tag }}
+{{ 'fancybox.min.css' | asset_url | stylesheet_tag }}
 {{ 'common.min.css' | asset_url | stylesheet_tag }}
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 {{ 'header.min.css' | asset_url | stylesheet_tag }}
@@ -46,7 +47,6 @@
   {{ 'aos.css' | asset_url | stylesheet_tag }}
 {% endif %}
 {% if template contains 'product' %}
-{{ 'fancybox.min.css' | asset_url | stylesheet_tag }}
   <link rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css">
 {% endif %}
 {% if request.page_type == 'collection' or request.page_type == 'search' %}

@@ -1,0 +1,432 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "spacer_fFyMEf": {
+      "type": "spacer",
+      "name": "t:sections.spacer.presets.name",
+      "settings": {
+        "height_desktop": 30,
+        "height_mobile": 20,
+        "bgcolor": "primary",
+        "custom_color": ""
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h6",
+            "seo_heading": "h2"
+          }
+        },
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33": {
+          "type": "review-star",
+          "settings": {}
+        },
+        "text_wiXQyA": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "5540566c-63cd-4a90-b9b6-7707e45d7066": {
+          "type": "price",
+          "settings": {}
+        },
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68": {
+          "type": "variant",
+          "settings": {
+            "size_chart": ""
+          }
+        },
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "16819786-9d1e-449d-966d-08d21e1c91af": {
+          "type": "button",
+          "settings": {
+            "dynamic_checkout_btn": true,
+            "enable_fullwidth": false,
+            "show_subscriptions_plan": true,
+            "show_recipient_form": false,
+            "sticky_add_to_cart": true,
+            "sticky_add_to_cart_position": "top"
+          }
+        },
+        "icons_4qAdnw": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/7.png",
+            "heading1": "Fast & Free Shipping",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/8.png",
+            "heading2": "Hassle Free Returns",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/9.png",
+            "heading3": "Secure Checkout"
+          }
+        },
+        "icons_th4QXG": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/10.png",
+            "heading1": "Handmade in India",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/11.png",
+            "heading2": "100% Cotton",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/12.png",
+            "heading3": "Eco-Friendly"
+          }
+        },
+        "8f9762a2-e474-4a67-aa34-aff7848106ff": {
+          "type": "complementary_products",
+          "settings": {
+            "heading": "Pairs well with",
+            "products_count": 10
+          }
+        },
+        "description_BxjqVp": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "description_visibility": "always",
+            "show_as_accordion": true,
+            "open_default_accordion": false
+          }
+        },
+        "accordion_fXcaTb": {
+          "type": "accordion",
+          "name": "Why You'll Love Our Tablecloths",
+          "settings": {
+            "content_heading": "Why You'll Love Our Tissue Box Covers",
+            "content": "<ul><li><strong>Handmade with Heart:</strong> Each cover is carefully hand block printed, making every piece unique and full of artisan charm.</li><li><strong>Soft, Durable Cotton:</strong> Gentle to the touch, yet sturdy enough to last for years of everyday use.</li><li><strong>Eco-Friendly & Reusable:</strong> Reduce waste with a washable design that’s kind to the planet.</li><li><strong>Versatile & Stylish:</strong> Adds a touch of boho, rustic, or vintage elegance to any space.</li><li><strong>Perfect Fit & Practical: </strong>Designed to snugly cover standard square tissue boxes while keeping them stylish.</li></ul>",
+            "open_default_accordion": false
+          }
+        },
+        "accordion_rPikyc": {
+          "type": "accordion",
+          "name": "Product Care",
+          "settings": {
+            "content_heading": "Product Care",
+            "content": "<p>To keep your fabricsg items looking beautiful for years, please follow these care tips:<br/><br/>1. Machine Washable – Wash on a gentle cycle with cold water.<br/>2. Mild Detergent – Protect natural fibers and preserve colors.<br/>3. Do Not Bleach – Avoid harsh chemicals.<br/>4. Tumble Dry Low or Air Dry – Air drying recommended for longevity.<br/>5. Ironing – Iron on low while fabric is slightly damp, always on reverse side.<br/>6. Storage – Store in a cool, dry place away from direct sunlight.</p>",
+            "open_default_accordion": false
+          }
+        }
+      },
+      "block_order": [
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f",
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33",
+        "text_wiXQyA",
+        "5540566c-63cd-4a90-b9b6-7707e45d7066",
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68",
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9",
+        "16819786-9d1e-449d-966d-08d21e1c91af",
+        "icons_4qAdnw",
+        "icons_th4QXG",
+        "8f9762a2-e474-4a67-aa34-aff7848106ff",
+        "description_BxjqVp",
+        "accordion_fXcaTb",
+        "accordion_rPikyc"
+      ],
+      "settings": {
+        "gallery_style": "slider",
+        "show_description": true,
+        "open_description_accordion": false,
+        "show_variant-media": false,
+        "enable_shipping_policy": true,
+        "enable_zoom_icon": true,
+        "enable_thumb": true,
+        "content_divider_mobile": "none",
+        "carousel_thumbnail_position": "center",
+        "carousel_height_desktop": "adapt",
+        "carousel_height_mobile": "adapt",
+        "width": "half",
+        "style": "accordion",
+        "accordion_content_alignment": "left",
+        "content_heading": "",
+        "content": "",
+        "content_heading2": "",
+        "content2": "",
+        "content_heading3": "",
+        "content3": ""
+      }
+    },
+    "image_with_text_EUWWXA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UgKBdX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hand Block Printed Tissue Box Covers",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_ejadiw": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Each piece is <strong>hand-stamped by skilled artisans</strong>, turning an ordinary tissue box cover into a stylish, sustainable decor accent that complements any room.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UgKBdX",
+        "text_ejadiw"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/D1CB52D9-6EEF-4216-A697-5EE3A52684F6.jpg",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "right",
+        "image_height": "aspect",
+        "show_icon_on_image": false,
+        "icon": "snail",
+        "left_to_right": 50,
+        "top_to_bottom": 50,
+        "mobile_left_to_right": 50,
+        "mobile_top_to_bottom": 50,
+        "icon_animated_color": "#000000",
+        "content_position": "center",
+        "bgcolor": "primary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 15
+      }
+    },
+    "blocks_m8FrEC": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0c55d4a_97VBUP": {
+          "type": "ai_gen_block_0c55d4a",
+          "settings": {
+            "preheader": "",
+            "heading": "Why You’ll Love Them",
+            "subheader": "",
+            "preheader_size": 14,
+            "preheader_weight": 500,
+            "preheader_color": "#666666",
+            "heading_size": 36,
+            "heading_weight": 500,
+            "heading_color": "#000000",
+            "subheader_size": 16,
+            "subheader_weight": 400,
+            "subheader_color": "#666666",
+            "block_1_heading": "Handcrafted with Heart",
+            "block_1_description": "Each cover is individually block printed for a one-of-a-kind design filled with artisan charm.",
+            "block_2_heading": "Soft, Durable Cotton",
+            "block_2_description": "Made from premium breathable cotton that’s gentle to the touch yet built to last.",
+            "block_3_heading": "Versatile & Stylish",
+            "block_3_description": "Perfect for living rooms, bedrooms, bathrooms, offices, or spas - wherever beauty meets function.",
+            "block_4_heading": "Eco-Friendly & Reusable",
+            "block_4_description": "Washable, sustainable, and a chic alternative to disposable covers.",
+            "block_heading_size": 20,
+            "block_heading_weight": 600,
+            "block_heading_color": "#ffffff",
+            "block_description_size": 14,
+            "block_description_weight": 400,
+            "block_description_color": "#ffffff",
+            "block_text_alignment": "center",
+            "columns_mobile": "1",
+            "grid_gap": 30,
+            "header_spacing": 40,
+            "content_spacing": 40,
+            "background_color": "#ffffff",
+            "block_background_color": "#6e90b5",
+            "block_border_color": "#6e90b5",
+            "section_padding_top": 60,
+            "section_padding_bottom": 60,
+            "block_padding": 30,
+            "block_border_radius": 8,
+            "block_border_width": 1
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_5796956_xRTRCC": {
+          "type": "ai_gen_block_5796956",
+          "name": "Add to cart button",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 20,
+            "button_text": "Add to cart",
+            "sold_out_text": "Sold out",
+            "show_cart_icon": false,
+            "button_alignment": "center",
+            "button_min_width": 200,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "button_font_size": 16,
+            "button_font_weight": "500",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0c55d4a_97VBUP",
+        "ai_gen_block_5796956_xRTRCC"
+      ],
+      "name": "Content blocks",
+      "settings": {}
+    },
+    "image_with_text_6J38ka": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tBgyUz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Upgrade Your Home Aesthetic",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_tKBPYG": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Designed for <em>standard square tissue boxes</em>, these covers offer a <em>snug, tailored fit</em> that instantly upgrades your home aesthetic.</p><p>Perfect for:</p><ul><li>Living Rooms & Coffee Tables<br/></li><li>Bedrooms & Nightstands<br/></li><li>Bathrooms & Vanity Areas<br/></li><li>Offices, Spas, or Boutique Spaces</li></ul><p></p>"
+          }
+        },
+        "button_QQ4nnG": {
+          "type": "button",
+          "settings": {
+            "btn_text": "ADD TO YOUR HOME DECOR",
+            "btn_link": "shopify://collections/tissue-box-covers",
+            "button_size": "med",
+            "mobile_button_size": "m-med"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tBgyUz",
+        "text_tKBPYG",
+        "button_QQ4nnG"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/IMG_2868.png",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "left",
+        "image_height": "aspect",
+        "show_icon_on_image": false,
+        "icon": "snail",
+        "left_to_right": 50,
+        "top_to_bottom": 50,
+        "mobile_left_to_right": 50,
+        "mobile_top_to_bottom": 50,
+        "icon_animated_color": "#000000",
+        "content_position": "center",
+        "bgcolor": "primary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "blocks_LrRAQr": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_063c133_NYVdYc": {
+          "type": "ai_gen_block_063c133",
+          "settings": {
+            "header_text": "Buy More Save More",
+            "subheader_text": "10% OFF on order above $100",
+            "description_text": "<p>A Treat for the Home You're Creating.</p>",
+            "button_text": "SHOP THE COLLECTION",
+            "button_link": "shopify://collections/tissue-box-covers",
+            "deal_image": "shopify://shop_images/tissue_box_covers.png",
+            "header_size": 32,
+            "header_weight": "400",
+            "subheader_size": 20,
+            "text_size": 16,
+            "button_text_size": 14,
+            "button_text_weight": "400",
+            "background_color": "#ffffff",
+            "header_color": "#000000",
+            "subheader_color": "#6e90b5",
+            "text_color": "#666666",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "border_radius": 12,
+            "image_border_radius": 8,
+            "button_border_radius": 0,
+            "mobile_layout": "column-reverse",
+            "mobile_alignment": "left"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_063c133_NYVdYc"
+      ],
+      "name": "Buy more save more deal",
+      "settings": {}
+    },
+    "product_recommendations": {
+      "type": "product_recommendations",
+      "settings": {
+        "heading": "Recommended Products",
+        "seo_heading": "h2",
+        "products_count": 8,
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 10,
+        "bgcolor": "primary",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 60,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "spacer_fFyMEf",
+    "main-product",
+    "image_with_text_EUWWXA",
+    "blocks_m8FrEC",
+    "image_with_text_6J38ka",
+    "blocks_LrRAQr",
+    "product_recommendations"
+  ]
+}

@@ -1,0 +1,608 @@
+{% doc %}
+  @prompt
+    can i have a section with subheader, header, and preheader with 5 blocks that include adjustable line weight headers and descriptions and if i can customize the colors of the sections as well, if i can have 3 blocks per row
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-content-section-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-content-section__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-content-section__header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    margin-bottom: {{ block.settings.header_spacing }}px;
+  }
+
+  .ai-content-section__preheader-{{ ai_gen_id }} {
+    font-size: {{ block.settings.preheader_size }}px;
+    color: {{ block.settings.preheader_color }};
+    margin-bottom: 8px;
+    font-weight: {{ block.settings.preheader_weight }};
+    line-height: 1.4;
+  }
+
+  .ai-content-section__main-header-{{ ai_gen_id }} {
+    font-size: {{ block.settings.header_size }}px;
+    color: {{ block.settings.header_color }};
+    margin-bottom: 12px;
+    font-weight: {{ block.settings.header_weight }};
+    line-height: 1.2;
+  }
+
+  .ai-content-section__subheader-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subheader_size }}px;
+    color: {{ block.settings.subheader_color }};
+    margin-bottom: 0;
+    font-weight: {{ block.settings.subheader_weight }};
+    line-height: 1.5;
+  }
+
+  .ai-content-section__blocks-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: {{ block.settings.block_spacing }}px;
+    margin-top: {{ block.settings.content_spacing }}px;
+  }
+
+  .ai-content-block-{{ ai_gen_id }} {
+    background-color: {{ block.settings.block_background_color }};
+    padding: {{ block.settings.block_padding }}px;
+    border-radius: {{ block.settings.block_border_radius }}px;
+    border: {{ block.settings.block_border_width }}px solid {{ block.settings.block_border_color }};
+    text-align: {{ block.settings.block_text_alignment }};
+  }
+
+  .ai-content-block__header-{{ ai_gen_id }} {
+    font-size: {{ block.settings.block_header_size }}px;
+    color: {{ block.settings.block_header_color }};
+    margin-bottom: {{ block.settings.block_header_spacing }}px;
+    font-weight: {{ block.settings.block_header_weight }};
+    line-height: 1.3;
+  }
+
+  .ai-content-block__description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.block_description_size }}px;
+    color: {{ block.settings.block_description_color }};
+    margin-bottom: 0;
+    font-weight: {{ block.settings.block_description_weight }};
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-content-section__blocks-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.block_spacing | times: 0.75 }}px;
+    }
+
+    .ai-content-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_top | times: 0.75 }}px 16px {{ block.settings.section_padding_bottom | times: 0.75 }}px;
+    }
+
+    .ai-content-section__main-header-{{ ai_gen_id }} {
+      font-size: {{ block.settings.header_size | times: 0.85 }}px;
+    }
+
+    .ai-content-section__preheader-{{ ai_gen_id }} {
+      font-size: {{ block.settings.preheader_size | times: 0.9 }}px;
+    }
+
+    .ai-content-section__subheader-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subheader_size | times: 0.9 }}px;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .ai-content-section__blocks-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .ai-content-section__blocks-{{ ai_gen_id }} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+{% endstyle %}
+
+<div class="ai-content-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-content-section__container-{{ ai_gen_id }}">
+    {% if block.settings.show_header_section %}
+      <div class="ai-content-section__header-{{ ai_gen_id }}">
+        {% if block.settings.preheader != blank %}
+          <div class="ai-content-section__preheader-{{ ai_gen_id }}">
+            {{ block.settings.preheader }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.main_header != blank %}
+          <h2 class="ai-content-section__main-header-{{ ai_gen_id }}">
+            {{ block.settings.main_header }}
+          </h2>
+        {% endif %}
+
+        {% if block.settings.subheader != blank %}
+          <div class="ai-content-section__subheader-{{ ai_gen_id }}">
+            {{ block.settings.subheader }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-content-section__blocks-{{ ai_gen_id }}">
+      {% for i in (1..5) %}
+        {% liquid
+          assign block_enabled_key = 'block_' | append: i | append: '_enabled'
+          assign block_header_key = 'block_' | append: i | append: '_header'
+          assign block_description_key = 'block_' | append: i | append: '_description'
+
+          assign block_enabled = block.settings[block_enabled_key]
+          assign block_header = block.settings[block_header_key]
+          assign block_description = block.settings[block_description_key]
+        %}
+
+        {% if block_enabled %}
+          <div class="ai-content-block-{{ ai_gen_id }}">
+            {% if block_header != blank %}
+              <h3 class="ai-content-block__header-{{ ai_gen_id }}">
+                {{ block_header }}
+              </h3>
+            {% endif %}
+
+            {% if block_description != blank %}
+              <div class="ai-content-block__description-{{ ai_gen_id }}">
+                {{ block_description }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Content blocks section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_section",
+      "label": "Show header section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "preheader",
+      "label": "Preheader text",
+      "default": "Our Services"
+    },
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main header",
+      "default": "What We Offer"
+    },
+    {
+      "type": "textarea",
+      "id": "subheader",
+      "label": "Subheader text",
+      "default": "Discover our comprehensive range of services designed to meet your needs"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Header alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Header typography"
+    },
+    {
+      "type": "range",
+      "id": "preheader_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Preheader size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "preheader_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Preheader weight",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "header_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Main header size",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "header_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Main header weight",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "subheader_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Subheader size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "subheader_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Subheader weight",
+      "default": 400
+    },
+    {
+      "type": "header",
+      "content": "Header colors"
+    },
+    {
+      "type": "color",
+      "id": "preheader_color",
+      "label": "Preheader color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Main header color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subheader_color",
+      "label": "Subheader color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Content blocks"
+    },
+    {
+      "type": "checkbox",
+      "id": "block_1_enabled",
+      "label": "Enable block 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "block_1_header",
+      "label": "Block 1 header",
+      "default": "Quality Service"
+    },
+    {
+      "type": "textarea",
+      "id": "block_1_description",
+      "label": "Block 1 description",
+      "default": "We provide exceptional quality in everything we do, ensuring your complete satisfaction."
+    },
+    {
+      "type": "checkbox",
+      "id": "block_2_enabled",
+      "label": "Enable block 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "block_2_header",
+      "label": "Block 2 header",
+      "default": "Expert Team"
+    },
+    {
+      "type": "textarea",
+      "id": "block_2_description",
+      "label": "Block 2 description",
+      "default": "Our experienced professionals bring years of expertise to deliver outstanding results."
+    },
+    {
+      "type": "checkbox",
+      "id": "block_3_enabled",
+      "label": "Enable block 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "block_3_header",
+      "label": "Block 3 header",
+      "default": "Fast Delivery"
+    },
+    {
+      "type": "textarea",
+      "id": "block_3_description",
+      "label": "Block 3 description",
+      "default": "Quick turnaround times without compromising on quality or attention to detail."
+    },
+    {
+      "type": "checkbox",
+      "id": "block_4_enabled",
+      "label": "Enable block 4",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "block_4_header",
+      "label": "Block 4 header",
+      "default": "24/7 Support"
+    },
+    {
+      "type": "textarea",
+      "id": "block_4_description",
+      "label": "Block 4 description",
+      "default": "Round-the-clock customer support to assist you whenever you need help."
+    },
+    {
+      "type": "checkbox",
+      "id": "block_5_enabled",
+      "label": "Enable block 5",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "block_5_header",
+      "label": "Block 5 header",
+      "default": "Affordable Pricing"
+    },
+    {
+      "type": "textarea",
+      "id": "block_5_description",
+      "label": "Block 5 description",
+      "default": "Competitive rates that provide excellent value for your investment."
+    },
+    {
+      "type": "header",
+      "content": "Block typography"
+    },
+    {
+      "type": "range",
+      "id": "block_header_size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Block header size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "block_header_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Block header weight",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "block_description_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Block description size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "block_description_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Block description weight",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "block_text_alignment",
+      "label": "Block text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Block colors"
+    },
+    {
+      "type": "color",
+      "id": "block_header_color",
+      "label": "Block header color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_description_color",
+      "label": "Block description color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Section colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Section text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_background_color",
+      "label": "Block background",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "block_border_color",
+      "label": "Block border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section bottom padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Header bottom spacing",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Content top spacing",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "block_spacing",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Block spacing",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "block_padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Block padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "block_header_spacing",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Block header spacing",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "block_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Block border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "block_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Block border width",
+      "default": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content blocks section"
+    }
+  ]
+}
+{% endschema %}

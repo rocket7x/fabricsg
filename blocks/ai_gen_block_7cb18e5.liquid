@@ -1,0 +1,276 @@
+{% doc %}
+  @prompt
+    can i get a simple text and button underneath the text
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-button-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding }}px;
+    background-color: {{ block.settings.background_color }};
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-text-button__content-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-text-button__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.6;
+    margin: 0 0 {{ block.settings.text_button_spacing }}px 0;
+  }
+
+  .ai-text-button__button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid {{ block.settings.button_border_color }};
+  }
+
+  .ai-text-button__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-text-button-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding | times: 0.7 }}px;
+    }
+
+    .ai-text-button__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-text-button__button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_text_size | times: 0.9 }}px;
+      padding: {{ block.settings.button_padding_vertical | times: 0.8 }}px {{ block.settings.button_padding_horizontal | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-text-button-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-button__content-{{ ai_gen_id }}">
+    {% if block.settings.text != blank %}
+      <div class="ai-text-button__text-{{ ai_gen_id }}">
+        {{ block.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.button_text != blank %}
+      <a 
+        href="{{ block.settings.button_link | default: '#' }}" 
+        class="ai-text-button__button-{{ ai_gen_id }}"
+      >
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text and button",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add your text content here. This can be multiple paragraphs or just a simple message.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Content width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_button_spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between text and button",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button text size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Button vertical padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Button horizontal padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button hover background color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button hover border color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text and button"
+    }
+  ]
+}
+{% endschema %}

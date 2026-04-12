@@ -64,7 +64,7 @@
     >
       {% for block in section.blocks %}
         {% if block.settings.navigation_label != blank %}
-        <div class="yv-timeline-content" id="{{ block.id }}">
+        <div class="yv-timeline-content">
           <div class="yv-timeline-content-inner">
             <div class="yv-timeline-content-img">
               {% liquid
@@ -100,26 +100,18 @@
               {% if block.settings.heading != blank %}
                 {% if block.settings.highlight_font == 'body' %}
                   {% capture highlightStyle %}
-                  <span class="body-font highlighted-text">
+                  <span class="body-font">
                   {% endcapture %}
                 {% elsif block.settings.highlight_font == 'heading' %}
                 {% capture highlightStyle %}
-                   <span class="heading-font highlighted-text">
+                   <span class="heading-font">
                 {% endcapture %}  
                 {% else %}
                 {% capture highlightStyle %}
-                   <span class="accent-font highlighted-text">
+                   <span class="accent-font">
                 {% endcapture %}  
                 {% endif %}
-                <{{ block.settings.seo_heading }} class="yv-timeline-content-heading {{ block.settings.heading_size }}">
-                  {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-                  {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-                  {%- if heading contains '[' and heading contains ']' -%}
-                    {%- render 'rotational-highlight', heading: heading -%}
-                  {%- else -%}
-                    {{- heading -}}
-                  {%- endif -%}
-                </{{ block.settings.seo_heading }}>
+                <{{ block.settings.seo_heading }} class="yv-timeline-content-heading {{ block.settings.heading_size }}">{{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ block.settings.seo_heading }}>
               {% endif %}
               {% if block.settings.description != blank %}
                 <div class="yv-timeline-content-desc">
@@ -149,7 +141,7 @@
     </div>
       {% if section.settings.navigation_position == 'bottom' %}
         {{ timelineNav }}
-      {% endif %}
+        {% endif %}
   </div>
 </div>
 <style>
@@ -175,22 +167,6 @@
     --primaryBorderColor: var(--{{- section.settings.bgcolor -}}BorderColor);
     {%- endunless -%}
   }
-
-  {%- for block in section.blocks -%}
-    {% case block.type %}
-      {% when 'slide' %}
-        #shopify-section-{{ section.id }} #{{ block.id }} .yv-timeline-content-heading {
-          {% if block.settings.highlight_text_gradient != blank %}
-            --highlightTextColor: {{ block.settings.highlight_text_gradient }};
-          {% else %}
-            --highlightTextColor: {{ block.settings.highlight_text_color }};
-          {% endif %}
-          --fontSize: var(--{{ block.settings.heading_size }});
-        }
-      {% endcase %}
-  {%- endfor -%}
-  
-
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -412,21 +388,6 @@
           "default": "Heading",
           "label": "t:sections.timeline.blocks.slide.settings.heading.label",
           "info": "t:common.highlight_text_and_break_text.info"
-        },
-        {
-          "type": "color",
-          "id": "highlight_text_color",
-          "label": "t:common.highlight_text_color.label",
-          "default": "#000000",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
-        },
-        {
-          "type": "color_background",
-          "id": "highlight_text_gradient",
-          "label": "t:common.highlight_text_gradient.label",
-          "info": "t:common.highlight_text_gradient.info",
-          "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
         },
         {
           "type": "select",

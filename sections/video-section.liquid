@@ -77,7 +77,7 @@
             {%- liquid 
                     capture poster 
                         if section.settings.poster != blank
-                        render 'lazy-image', image: section.settings.poster
+                        render 'lazy-image' image: section.settings.poster
                         else 
                         unless section.settings.hosted_video != blank
                         echo 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg'
@@ -100,32 +100,21 @@
                     </deferred-media>
                   {%- elsif section.settings.videofile != blank -%}
                     {%- liquid
-                      assign videoUrl = section.settings.videofile 
-                      assign videoSource = 'mp4' 
-                      assign video_id = ''
-
-                      if videoUrl contains 'youtube.com/watch'
-                        assign videoSource = 'youtube'
-                        assign video_id = videoUrl | split: 'v=' | last | split: '&' | first
-
-                      elsif videoUrl contains 'youtu.be/'
-                        assign videoSource = 'youtube'
-                        assign video_id = videoUrl | split: '.be/' | last | split: '?' | first
-
-                      elsif videoUrl contains 'youtube.com/embed/' or videoUrl contains 'youtube.com/shorts/'
-                        assign videoSource = 'youtube'
-                        assign video_id = videoUrl | split: 'shorts/' | last
-                        assign video_id = video_id | split: 'embed/' | last
-                        assign video_id = video_id | split: '?' | first
-
-                      elsif videoUrl contains 'vimeo.com/'
-                        assign videoSource = 'vimeo'
-                        assign video_id = videoUrl
-                        assign video_id = video_id | split: 'video/' | last
-                        assign video_id = video_id | split: '.com/' | last
-                        assign video_id = video_id | split: '/' | first
-                        assign video_id = video_id | split: '?' | first
-                      endif
+                        assign videoUrl = section.settings.videofile 
+                        assign videoSource = 'mp4' 
+                        if videoUrl contains 'youtube.com/watch'
+                            assign videoSource = 'youtube' 
+                            assign video_id = videoUrl | split: 'v='
+                            assign video_id = video_id[1] | split: '&' | first
+                        elsif videoUrl contains 'youtu.be/'
+                            assign videoSource = 'youtube' 
+                            assign video_id = videoUrl | split: '.be/'
+                            assign video_id = video_id[1] | split: '&' | first
+                        elsif videoUrl contains 'vimeo.com/'
+                            assign videoSource = 'vimeo' 
+                            assign video_id = videoUrl | split: '.com/'
+                            assign video_id = video_id[1] | split: '/' | first
+                        endif
                     -%}
                     {% capture nojsVideoPlaceholder %}                  
                     <noscript>
@@ -216,7 +205,6 @@
 <style>
 
   #shopify-section-{{ section.id }}.shopify-section {
-    --heading_color: {{ section.settings.title_color }};
     background:var(--{{- section.settings.bgcolor -}}ColorBody);
     padding-top:{{ section.settings.top_space_desktop }}px;
     padding-bottom:{{ section.settings.bottom_space_desktop }}px;
@@ -236,17 +224,16 @@
   #shopify-section-{{- section.id -}}{
   --videoOverlayBg: {{- overlayColor -}};
   --videoHeight:{{ section.settings.desktop_height }}px;
-  {% if section.settings.video_size == 'cover' and section.settings.autoplay %}
+    {% if section.settings.video_size == 'cover' and section.settings.autoplay %}
   --videoWidth:{{ section.settings.desktop_height | divided_by : 56.25 | times : 100 }}px;
   --videoMinHeight:{{ section.settings.desktop_height | divided_by : 56.25 | times : 100 | divided_by : 56.25 | times : 50 }}px;
-  {% endif %}
+      {% endif %}
 }  
 {% if section.settings.video_size == 'contain' %}
   #shopify-section-{{- section.id }} .yv-feature-imgbox {
     padding-bottom: 0;
-  }
+}
   {% endif %}
-
   #shopify-section-{{- section.id }} .video-overlay-head .video-subtitle{
     color:{{- section.settings.subtitle_color -}};
   }  
@@ -307,12 +294,6 @@
       ]
     },
     {
-      "type": "checkbox",
-      "id": "fullwidth",
-      "default": true,
-      "label": "t:sections.video-banner.settings.fullwidth.label"
-    },
-    {
       "type": "text",
       "id": "videofile",
       "label": "t:sections.video-banner.settings.videofile.label",
@@ -330,7 +311,12 @@
       "label": "t:sections.video-banner.settings.poster.label",
       "info": "t:sections.video-banner.settings.poster.info"
     },
-
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "default": true,
+      "label": "t:sections.video-banner.settings.fullwidth.label"
+    },
     {
       "type": "range",
       "label": "t:sections.video-banner.settings.desktop_height.label",

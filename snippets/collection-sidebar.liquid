@@ -15,7 +15,7 @@
       </svg>   
     </button>
   </div>
-  <form id="FiltersForm" class="yv-collection-filter" >    
+  <form id="FiltersForm" class="yv-collection-filter" style="--layoutRadius:{% if settings.layout_style == 'rounded' %}10px{% else %}0px{% endif %}">    
   {% if section.settings.filter_menu != blank %}
     <div class="yv-filters-menu">
         <ul class="list-unstyled yv-filters-menu-list">
@@ -136,11 +136,11 @@
                      <label for="Filter-{{ filter.label | handle }}-{{ forloop.index }}-1"{% if filter.presentation == 'text' %}{% if colorOptions contains filterLabel %}
                       {%- assign colorImage = value.label | handleize | append : '.png' -%}
                         style="background-color:{{ value.label | escape }};background-image:url('{{ colorImage | asset_img_url : 100 }}');"{% endif %}{% endif %}>
-                      {% if normalFilter %}
-                     {{ value.label | escape }}<span class="filter-count">({{ value.count }})</span>
-                      {% else %}
-                      {% render 'swatch-display', value: value, presentation: filter.presentation %}
-                    {% endif %}
+                      {% if filter.presentation == 'text' or filter.type == 'boolean' %}
+                        {{ value.label | escape }} ({{ value.count }})
+                        {% else %} 
+                        {% render 'swatch-display', value : value %}
+                      {% endif %}
                     </label>
               </li> 
               {% endfor %}
@@ -156,7 +156,7 @@
           </div>
         </div>
       {% when 'price_range' %}
-        <div class="yv-filter-name">
+        <div class="yv-filter-name" style="--layoutRadius:{% if settings.layout_style == 'rounded' %}6px{% else %}0px{% endif %}">
           {%- liquid 
           assign filter_min_value = filter.min_value.value | money_without_currency | replace: ',', ''
           assign filter_max_value = filter.max_value.value | money_without_currency | replace: ',', ''
@@ -196,7 +196,7 @@
               data-target="price" 
               >
           </div>
-          <div class="price-range-value" style="--layoutRadius:{% if settings.layout_style == 'rounded' %}6px{% else %}0px{% endif %}">
+          <div class="price-range-value">
             <span class="js-visually-hide" >{{ filter_min_value }}</span>        
             <span class="js-visually-hide" >{{ filter_max_value }}</span>
             <div class="field">  

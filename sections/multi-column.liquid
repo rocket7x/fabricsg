@@ -6,26 +6,18 @@
       {% if section.settings.heading != blank %}
         {% if section.settings.highlight_font == 'body' %}
           {% capture highlightStyle %}
-          <span class="body-font highlighted-text">
+          <span class="body-font">
           {% endcapture %}
         {% elsif section.settings.highlight_font == 'heading' %}
         {% capture highlightStyle %}
-           <span class="heading-font highlighted-text">
+           <span class="heading-font">
         {% endcapture %}  
         {% else %}
         {% capture highlightStyle %}
-           <span class="accent-font highlighted-text">
+           <span class="accent-font">
         {% endcapture %}  
         {% endif %}
-        <{{ section.settings.seo_heading }} class="section-heading-title h2">
-          {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-          {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-          {%- if heading contains '[' and heading contains ']' -%}
-            {%- render 'rotational-highlight', heading: heading -%}
-          {%- else -%}
-            {{- heading -}}
-          {%- endif -%}
-        </{{ section.settings.seo_heading }}>
+        <{{ section.settings.seo_heading }} class="section-heading-title h2">{{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
         {% endif %}
       {% if section.settings.description != blank %}
         <div class="yv-multi-column-desc">{{ section.settings.description }}</div>
@@ -94,7 +86,7 @@
                           <div class="yv-multicolumn-product-media ">
                           {%- if cProduct.featured_image != blank -%}
                             <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : cProduct.featured_image.aspect_ratio | times: 100 | minus : 1 }}%">
-                            {%- render 'lazy-image', image: cProduct, class: 'multicolumnSectionImage' -%}
+                            {%- render 'lazy-image' image: cProduct, class: 'multicolumnSectionImage' -%}
                             </div>
                           {%- else -%}
                             {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -155,17 +147,7 @@
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
-    {% if section.settings.highlight_text_gradient != blank %}
-      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
-    {% else %}
-      --highlightTextColor: {{ section.settings.highlight_text_color }};
-    {% endif %}
   }
-
-  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
-    --fontSize: var(--h2);
-  }
-
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -204,21 +186,6 @@
       "default": "Multi columns",
       "label": "t:sections.multi_column.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
-    },
-    {
-      "type": "color",
-      "id": "highlight_text_color",
-      "label": "t:common.highlight_text_color.label",
-      "default": "#000000",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
-    },
-    {
-      "type": "color_background",
-      "id": "highlight_text_gradient",
-      "label": "t:common.highlight_text_gradient.label",
-      "info": "t:common.highlight_text_gradient.info",
-      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

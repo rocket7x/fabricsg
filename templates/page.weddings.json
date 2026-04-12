@@ -1,0 +1,336 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "seo_heading": "h2",
+        "banner_height_desktop": "auto",
+        "banner_height_mobile": "auto",
+        "bgcolor": "#f5efec",
+        "textcolor": "#181818"
+      }
+    },
+    "image_banner_hgFtdh": {
+      "type": "image-banner",
+      "name": "t:sections.image_banner.presets.name",
+      "settings": {
+        "enable_parallax": true,
+        "section_visibility": "always",
+        "image": "shopify://shop_images/ChatGPT_Image_Sep_25_2025_03_57_05_PM.png",
+        "desktop_height": "550px",
+        "mobile_height": "500px",
+        "block_display": "categories",
+        "banner_title": "Crafted for the Day You’ll Always Remember",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "desktop_title_size": 36,
+        "mobile_title_size": 36,
+        "banner_desc": "Make your wedding day unforgettable with fabricsg’s handcrafted tablecloths and napkins.",
+        "button_text": "submit inquiry",
+        "button_link": "shopify://collections/all",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "content_position": "bottom-left",
+        "title_color": "#ffffff",
+        "desc_color": "#ffffff",
+        "btn_bg": "#ffffff",
+        "btn_text": "#000000",
+        "btn_border": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50
+      }
+    },
+    "17588340838cddd12d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_33e66ad_Rgp9zY": {
+          "type": "ai_gen_block_33e66ad",
+          "settings": {
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "layout": "image_first",
+            "mobile_layout": "image_first",
+            "vertical_alignment": "center",
+            "background_color": "#ffffff",
+            "image": "shopify://shop_images/ltk3.webp",
+            "image_height": 400,
+            "mobile_image_height": 500,
+            "image_border_radius": 8,
+            "image_crop_horizontal": "center",
+            "image_crop_vertical": "center",
+            "mobile_image_crop_horizontal": "center",
+            "mobile_image_crop_vertical": "center",
+            "heading": "Because Every Detail Matters",
+            "text": "<p>Your wedding is filled with memories, symbolism, and careful choices. Your linens should be no different. Here’s why couples trust Ridhi to bring grace and authenticity to their celebrations:</p><p></p><ul><li>Handcrafted with Love</li><li>Custom Sizes for Any Table</li><li>Sustainable & Ethical</li><li>Timeless Designs for Every Theme</li><li>Free Worldwide Shipping</li></ul>",
+            "button_text": "",
+            "button_link": "",
+            "heading_color": "#000000",
+            "text_color": "#666666",
+            "heading_size": 32,
+            "text_size": 16,
+            "button_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_33e66ad_Rgp9zY"
+      ],
+      "settings": {}
+    },
+    "rotating_text_Jpt7fX": {
+      "type": "rotating-text",
+      "name": "t:sections.rotating-text.presets.name",
+      "settings": {
+        "text1": "<p>◦ Handmade in India ◦ 100% Cotton ◦ Eco-Friendly</p>",
+        "desktop_text_gap": 10,
+        "mobile_text_gap": 17,
+        "text2": "",
+        "desktop_subtext_gap": 17,
+        "mobile_subtext_gap": 17,
+        "rotating_text_style": "vertical",
+        "pause_on_hover": false,
+        "row1_font_family": "--font-family",
+        "row2_font_family": "--font-family",
+        "row1_direction": "left",
+        "row2_direction": "right",
+        "heading_font_size": 14,
+        "subheading_font_size": 24,
+        "heading_font_size_m": 18,
+        "subheading_font_size_m": 16,
+        "section_border": true,
+        "section_border_bottom": true,
+        "border_width": "2px",
+        "border_style": "solid",
+        "background_opacity": 50,
+        "min_height_desktop": 400,
+        "min_height_mobile": 200,
+        "bgcolor": "#000000",
+        "bg_gradient_color": "",
+        "text1color": "#ffffff",
+        "outlinetext1color": "#000000",
+        "text2color": "#A56748",
+        "outlinetext2color": "#A56748",
+        "background_overlay": "#000000",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 10,
+        "top_space_mobile": 15,
+        "bottom_space_mobile": 15
+      }
+    },
+    "image_gallery_Uqnajq": {
+      "type": "image-gallery",
+      "blocks": {
+        "image_3CRcGx": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/9e5d6982-4362-4161-8d57-0554d365ed9e_664882d1-32ad-43bd-a051-16df63c5b078.jpg",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "image_kmECNi": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/CCAF5777-FFA9-4169-AFC8-06696D5CE69C.jpg",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "image_XEPq3W": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/image00053.jpg",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "image_bpdwPE": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/Mm45TMpBUrrcjD1MH.vYhDWPNOC3qzI.GxuK7VGOr2y7vP7FmdRXC4UUNJ4xYcaC9Ov941C9GGlUxWUKgCJTtUFOYTfwCkTNclSgrBoRR2yayp1o5Mm.VdwnYSTBha7S7l4qag0cKEcH33GC9Dc7zPDcqO_tP0m0eKPxTS1X.webp",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "image_waNB3X": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/IMG_20250716_114048_409.jpg",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "image_GWWfYK": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "image": "shopify://shop_images/IMG_20250714_160836_212.jpg",
+            "link": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "image_3CRcGx",
+        "image_kmECNi",
+        "image_XEPq3W",
+        "image_bpdwPE",
+        "image_waNB3X",
+        "image_GWWfYK"
+      ],
+      "name": "t:sections.image-gallery.presets.name",
+      "settings": {
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "heading": "Your Love, Your Style",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "show_border": false,
+        "column_gap": 10,
+        "column_gap_mobile": 10,
+        "bgcolor": "quaternary",
+        "section_visibility": "always",
+        "top_space_desktop": 45,
+        "bottom_space_desktop": 45,
+        "top_space_mobile": 35,
+        "bottom_space_mobile": 0
+      }
+    },
+    "rich_text_Q83b8m": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_PfGFGF": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Let's Create Something Beautiful Together",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_PfGFGF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "17588353204edee262": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6c4bdd9_VAMjRe": {
+          "type": "ai_gen_block_6c4bdd9",
+          "settings": {
+            "text_alignment": "center",
+            "columns_tablet": "3",
+            "columns_mobile": "1",
+            "item_spacing": 20,
+            "icon_text_spacing": 10,
+            "header_text_spacing": 5,
+            "icon_size": 30,
+            "icon_color": "#000000",
+            "icon_stroke_weight": 1,
+            "icon_1": "quality",
+            "header_1": "Handcrafted with Love",
+            "text_1": "Every piece block printed by hand, ensuring unique detail.",
+            "icon_2": "quality",
+            "header_2": "Custom Sizes for Any Table",
+            "text_2": "From intimate to grand celebrations.",
+            "icon_3": "quality",
+            "header_3": "Sustainable & Ethical",
+            "text_3": "Eco-friendly textiles that celebrate tradition.",
+            "icon_4": "quality",
+            "header_4": "Timeless Designs",
+            "text_4": "Perfect for rustic, boho, or classic weddings.",
+            "icon_5": "quality",
+            "header_5": "Complete Sets",
+            "text_5": "Coordinate tablecloths, napkins, and more.",
+            "icon_6": "quality",
+            "header_6": "Free Worldwide Shipping",
+            "text_6": "Delivered straight to your door.",
+            "header_size": 16,
+            "header_color": "#000000",
+            "text_size": 14,
+            "text_color": "#666666",
+            "show_button": true,
+            "button_text": "WEDDING INQUIRY",
+            "button_link": "",
+            "button_alignment": "center",
+            "button_spacing": 30,
+            "button_text_size": 14,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "background_color": "#ffffff",
+            "section_padding_top": 15,
+            "section_padding_bottom": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6c4bdd9_VAMjRe"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-page",
+    "image_banner_hgFtdh",
+    "17588340838cddd12d",
+    "rotating_text_Jpt7fX",
+    "image_gallery_Uqnajq",
+    "rich_text_Q83b8m",
+    "17588353204edee262"
+  ]
+}

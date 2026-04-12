@@ -4,26 +4,18 @@
       {%- if section.settings.heading != blank -%}
         {% if section.settings.highlight_font == 'body' %}
           {% capture highlightStyle %}
-          <span class="body-font highlighted-text">
+          <span class="body-font">
           {% endcapture %}
         {% elsif section.settings.highlight_font == 'heading' %}
         {% capture highlightStyle %}
-           <span class="heading-font highlighted-text">
+           <span class="heading-font">
         {% endcapture %}  
         {% else %}
         {% capture highlightStyle %}
-           <span class="accent-font highlighted-text">
+           <span class="accent-font">
         {% endcapture %}  
         {% endif %}
-        <{{ section.settings.seo_heading }} class="section-heading-title h4">
-          {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-          {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-          {%- if heading contains '[' and heading contains ']' -%}
-            {%- render 'rotational-highlight', heading: heading -%}
-          {%- else -%}
-            {{- heading -}}
-          {%- endif -%}
-        </{{ section.settings.seo_heading }}>
+        <{{ section.settings.seo_heading }} class="h4">{{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
       {%- endif -%}
       <div class="yv-product-accordion yv-faq-accordion" data-tabs-open-method="click" data-faq-accordions>
         {%- for block in section.blocks -%}
@@ -75,17 +67,7 @@
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     --primaryBorderColor: var(--{{- section.settings.bgcolor -}}BorderColor);
     {%- endunless -%}
-    {% if section.settings.highlight_text_gradient != blank %}
-      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
-    {% else %}
-      --highlightTextColor: {{ section.settings.highlight_text_color }};
-    {% endif %}
   }
-
-  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
-    --fontSize: var(--h4);
-  }
-
   #shopify-section-{{ section.id }}.shopify-section .yv-accordion-header{
     background:var(--{{- section.settings.row_bgcolor -}}ColorBody);
     {%- unless section.settings.row_bgcolor == 'primary' or section.settings.row_bgcolor == 'gradient' -%}
@@ -169,21 +151,6 @@
       "default": "FAQs",
       "label": "t:sections.faq-section.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
-    },
-    {
-      "type": "color",
-      "id": "highlight_text_color",
-      "label": "t:common.highlight_text_color.label",
-      "default": "#000000",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
-    },
-    {
-      "type": "color_background",
-      "id": "highlight_text_gradient",
-      "label": "t:common.highlight_text_gradient.label",
-      "info": "t:common.highlight_text_gradient.info",
-      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

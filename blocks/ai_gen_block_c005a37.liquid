@@ -1,0 +1,735 @@
+{% doc %}
+  @prompt
+    can i have a before and after slider on the left and on the right header, description, and button, Can i adjust the line weight of the button and choose on mobile and desktop whether to center the text, i want to adjust the line weight of all the text
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-before-after-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    max-width: 100%;
+  }
+
+  .ai-before-after-slider-{{ ai_gen_id }} {
+    position: relative;
+    width: 50%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-before-after-images-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+
+  .ai-before-after-image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-before-after-after-{{ ai_gen_id }} {
+    clip-path: inset(0 0 0 50%);
+    transition: clip-path 0.3s ease;
+  }
+
+  .ai-before-after-divider-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: {{ block.settings.divider_color }};
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    z-index: 3;
+    transition: left 0.3s ease;
+  }
+
+  .ai-before-after-handle-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: {{ block.settings.handle_color }};
+    border: 3px solid {{ block.settings.handle_border_color }};
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: ew-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .ai-before-after-handle-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+    color: {{ block.settings.handle_icon_color }};
+  }
+
+  .ai-before-after-labels-{{ ai_gen_id }} {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  .ai-before-after-label-{{ ai_gen_id }} {
+    background-color: {{ block.settings.label_background }};
+    color: {{ block.settings.label_text_color }};
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: {{ block.settings.label_font_weight }};
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-before-after-content-{{ ai_gen_id }} {
+    flex: 1;
+    padding-left: 20px;
+    {% if block.settings.desktop_text_alignment == 'center' %}
+      text-align: center;
+    {% elsif block.settings.desktop_text_alignment == 'right' %}
+      text-align: right;
+    {% else %}
+      text-align: left;
+    {% endif %}
+  }
+
+  .ai-before-after-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    font-family: var(--heading-font-family);
+    font-weight: {{ block.settings.heading_font_weight }};
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .ai-before-after-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: {{ block.settings.text_font_weight }};
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  .ai-before-after-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-weight: {{ block.settings.button_font_weight }};
+    transition: all 0.3s ease;
+    border: {{ block.settings.button_border_weight }}px solid {{ block.settings.button_border_color }};
+  }
+
+  .ai-before-after-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-before-after-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 400px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    position: relative;
+  }
+
+  .ai-before-after-placeholder-{{ ai_gen_id }} svg {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+  }
+
+  .ai-before-after-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-before-after-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 15px;
+    }
+
+    .ai-before-after-slider-{{ ai_gen_id }} {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .ai-before-after-content-{{ ai_gen_id }} {
+      padding-left: 0;
+      {% if block.settings.mobile_text_alignment == 'center' %}
+        text-align: center;
+      {% elsif block.settings.mobile_text_alignment == 'right' %}
+        text-align: right;
+      {% else %}
+        text-align: left;
+      {% endif %}
+    }
+
+    .ai-before-after-images-{{ ai_gen_id }} {
+      height: 300px;
+    }
+
+    .ai-before-after-placeholder-{{ ai_gen_id }} {
+      height: 300px;
+    }
+  }
+{% endstyle %}
+
+<before-after-slider-{{ ai_gen_id }}
+  class="ai-before-after-container-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-before-after-slider-{{ ai_gen_id }}">
+    {% if block.settings.before_image and block.settings.after_image %}
+      <div class="ai-before-after-images-{{ ai_gen_id }}">
+        <img
+          src="{{ block.settings.before_image | image_url: width: 800 }}"
+          alt="{{ block.settings.before_image.alt | escape }}"
+          class="ai-before-after-image-{{ ai_gen_id }} ai-before-after-before-{{ ai_gen_id }}"
+          loading="lazy"
+          width="{{ block.settings.before_image.width }}"
+          height="{{ block.settings.before_image.height }}"
+        >
+        <img
+          src="{{ block.settings.after_image | image_url: width: 800 }}"
+          alt="{{ block.settings.after_image.alt | escape }}"
+          class="ai-before-after-image-{{ ai_gen_id }} ai-before-after-after-{{ ai_gen_id }}"
+          loading="lazy"
+          width="{{ block.settings.after_image.width }}"
+          height="{{ block.settings.after_image.height }}"
+        >
+        
+        <div class="ai-before-after-labels-{{ ai_gen_id }}">
+          <span class="ai-before-after-label-{{ ai_gen_id }}">{{ block.settings.before_label }}</span>
+          <span class="ai-before-after-label-{{ ai_gen_id }}">{{ block.settings.after_label }}</span>
+        </div>
+        
+        <div class="ai-before-after-divider-{{ ai_gen_id }}">
+          <div class="ai-before-after-handle-{{ ai_gen_id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="ai-before-after-placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+        <div class="ai-before-after-empty-state-{{ ai_gen_id }}">
+          Add before and after images
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="ai-before-after-content-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-before-after-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    {% if block.settings.description != blank %}
+      <div class="ai-before-after-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+    {% endif %}
+
+    {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+      <a href="{{ block.settings.button_link }}" class="ai-before-after-button-{{ ai_gen_id }}">
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</before-after-slider-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BeforeAfterSlider{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.isDragging = false;
+        this.startX = 0;
+        this.currentPosition = 50;
+      }
+
+      connectedCallback() {
+        this.slider = this.querySelector('.ai-before-after-slider-{{ ai_gen_id }}');
+        this.afterImage = this.querySelector('.ai-before-after-after-{{ ai_gen_id }}');
+        this.divider = this.querySelector('.ai-before-after-divider-{{ ai_gen_id }}');
+        this.handle = this.querySelector('.ai-before-after-handle-{{ ai_gen_id }}');
+
+        if (!this.slider || !this.afterImage || !this.divider || !this.handle) return;
+
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.handle.addEventListener('mousedown', this.startDrag.bind(this));
+        this.handle.addEventListener('touchstart', this.startDrag.bind(this));
+        
+        document.addEventListener('mousemove', this.drag.bind(this));
+        document.addEventListener('touchmove', this.drag.bind(this));
+        
+        document.addEventListener('mouseup', this.stopDrag.bind(this));
+        document.addEventListener('touchend', this.stopDrag.bind(this));
+
+        this.slider.addEventListener('click', this.handleClick.bind(this));
+      }
+
+      startDrag(e) {
+        this.isDragging = true;
+        this.startX = this.getEventX(e);
+        e.preventDefault();
+      }
+
+      drag(e) {
+        if (!this.isDragging) return;
+
+        const rect = this.slider.getBoundingClientRect();
+        const x = this.getEventX(e) - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        
+        this.updatePosition(percentage);
+        e.preventDefault();
+      }
+
+      stopDrag() {
+        this.isDragging = false;
+      }
+
+      handleClick(e) {
+        if (this.isDragging) return;
+
+        const rect = this.slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        
+        this.updatePosition(percentage);
+      }
+
+      updatePosition(percentage) {
+        this.currentPosition = percentage;
+        
+        this.divider.style.left = percentage + '%';
+        this.afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+      }
+
+      getEventX(e) {
+        return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+      }
+    }
+
+    customElements.define('before-after-slider-{{ ai_gen_id }}', BeforeAfterSlider{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Before and after slider",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Amazing transformation"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>See the incredible difference our product makes. Drag the slider to compare before and after results.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Text alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_alignment",
+      "label": "Desktop text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_alignment",
+      "label": "Mobile text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button hover background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_border_weight",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border weight",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Slider style"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "handle_color",
+      "label": "Handle background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "handle_border_color",
+      "label": "Handle border color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "handle_icon_color",
+      "label": "Handle icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "label_background",
+      "label": "Label background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Label text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading font weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "text_font_weight",
+      "label": "Text font weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "select",
+      "id": "button_font_weight",
+      "label": "Button font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "label_font_weight",
+      "label": "Label font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Container border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before and after slider"
+    }
+  ]
+}
+{% endschema %}

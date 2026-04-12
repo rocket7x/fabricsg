@@ -144,7 +144,6 @@ html {
     -webkit-text-size-adjust: 100%;
     font-kerning: normal;
     font-size: var(--text);
-    scrollbar-gutter: stable;
 }
 
 body {
@@ -157,12 +156,11 @@ body {
     font-size: var(--text);
     letter-spacing: var(--base_spacing);
     word-break: break-word;
-    scrollbar-gutter: stable;
 }
 
-/* body.mega-menu-open {
+body.mega-menu-open {
     padding-right: var(--scrollbar-width);
-} */
+}
 
 *:not(a, a *, h1, h2, h3, h4, h5, h6, svg, svg *, .rich-editor-text-content *, .button, font) {
     color: var(--colorTextBody);
@@ -303,44 +301,32 @@ h6,
 
 h1,
 .h1 {
-    --h1: calc( var(--heading_base_size) * 36px);
     font-size: calc( var(--heading_base_size) * 36px);
-    font-size: var(--h1);
 }
 
 h2,
 .h2 {
-    --h2: calc( var(--heading_base_size) * 26px);
     font-size: calc( var(--heading_base_size) * 26px);
-    font-size: var(--h2);
 }
 
 h3,
 .h3 {
-    --h3: calc( var(--heading_base_size) * 24px);
     font-size: calc( var(--heading_base_size) * 24px);
-    font-size: var(--h3);
 }
 
 h4,
 .h4 {
-    --h4: calc( var(--heading_base_size) * 22px);
     font-size: calc( var(--heading_base_size) * 22px);
-    font-size: var(--h4);
 }
 
 h5,
 .h5 {
-    --h5: calc( var(--heading_base_size) * 20px);
     font-size: calc( var(--heading_base_size) * 20px);
-    font-size: var(--h5);
 }
 
 h6,
 .h6 {
-    --h6: calc( var(--heading_base_size) * 18px);
     font-size: calc( var(--heading_base_size) * 18px);
-    font-size: var(--h6);
 }
 
 .text-xsmall {
@@ -389,10 +375,6 @@ table {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid var(--colorXXlightTextBody);
-}
-
-.rich-editor-text-content table{
-    white-space: nowrap;
 }
 
 tbody:not([data-cart-items]) tr th {
@@ -686,7 +668,7 @@ textarea {
     font-size: var(--text);
     color: var(--colorTextBody);
     font-family: var(--font-family);
-    border-radius: var(--inputRadius);
+    border-radius: var(--layoutRadius);
 }
 
 .form-control::placeholder,
@@ -1639,39 +1621,27 @@ ul.yv-product-meta,
     }
     h1,
     .h1 {
-        --h1: calc( var(--heading_base_size) * 45px);
         font-size: calc( var(--heading_base_size) * 45px);
-        font-size: var(--h1);
     }
     h2,
     .h2 {
-        --h2: calc( var(--heading_base_size) * 30px);
         font-size: calc( var(--heading_base_size) * 30px);
-        font-size: var(--h2);
     }
     h3,
     .h3 {
-        --h3: calc( var(--heading_base_size) * 28px);
         font-size: calc( var(--heading_base_size) * 28px);
-        font-size: var(--h3);
     }
     h4,
     .h4 {
-        --h4: calc( var(--heading_base_size) * 26px);
         font-size: calc( var(--heading_base_size) * 26px);
-        font-size: var(--h4);
     }
     h5,
     .h5 {
-        --h5: calc( var(--heading_base_size) * 22px);
         font-size: calc( var(--heading_base_size) * 22px);
-        font-size: var(--h5);
     }
     h6,
     .h6 {
-        --h6: calc( var(--heading_base_size) * 20px);
         font-size: calc( var(--heading_base_size) * 20px);
-        font-size: var(--h6);
     }
     shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
         --shopify-accelerated-checkout-button-block-size: 50px;
@@ -1910,39 +1880,27 @@ ul.yv-product-meta,
     }
     h1,
     .h1 {
-        --h1: calc( var(--heading_base_size) * 55px);
         font-size: calc( var(--heading_base_size) * 55px);
-        font-size: var(--h1);
     }
     h2,
     .h2 {
-        --h2: calc( var(--heading_base_size) * 34px);
         font-size: calc( var(--heading_base_size) * 34px);
-        font-size: var(--h2);
     }
     h3,
     .h3 {
-        --h3: calc( var(--heading_base_size) * 30px);
         font-size: calc( var(--heading_base_size) * 30px);
-        font-size: var(--h3);
     }
     h4,
     .h4 {
-        --h4: calc( var(--heading_base_size) * 28px);
         font-size: calc( var(--heading_base_size) * 28px);
-        font-size: var(--h4);
     }
     h5,
     .h5 {
-        --h5: calc( var(--heading_base_size) * 22px);
         font-size: calc( var(--heading_base_size) * 22px);
-        font-size: var(--h5);
     }
     h6,
     .h6 {
-        --h6: calc( var(--heading_base_size) * 20px);
         font-size: calc( var(--heading_base_size) * 20px);
-        font-size: var(--h6);
     }
 }
 

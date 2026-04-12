@@ -1,0 +1,444 @@
+{% doc %}
+  @prompt
+    can you create an icon and text section that include: family inspired, sustainable living, handmade with love, and ethical and women led, can the icons be outlines and able to adjust the line weight of them, can it swipe on mobile
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-text-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-icon-text-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-icon-text-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-icon-text-item-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: {{ block.settings.item_gap }}px;
+  }
+
+  .ai-icon-text-icon-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+    padding: {{ block.settings.icon_padding }}px;
+  }
+
+  .ai-icon-text-icon-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: {{ block.settings.icon_color }};
+    stroke-width: {{ block.settings.icon_stroke_width }};
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-icon-text-content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-icon-text-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: {{ block.settings.title_weight }};
+    color: {{ block.settings.title_color }};
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .ai-icon-text-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-text-grid-{{ ai_gen_id }} {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: {{ block.settings.grid_gap | times: 0.75 }}px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 10px;
+    }
+
+    .ai-icon-text-grid-{{ ai_gen_id }}::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ai-icon-text-item-{{ ai_gen_id }} {
+      flex: 0 0 {% if block.settings.columns_mobile == '1' %}85%{% else %}45%{% endif %};
+      scroll-snap-align: start;
+    }
+
+    .ai-icon-text-icon-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+
+    .ai-icon-text-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.9 }}px;
+    }
+
+    .ai-icon-text-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-icon-text-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-icon-text-container-{{ ai_gen_id }}">
+    <div class="ai-icon-text-grid-{{ ai_gen_id }}">
+      <div class="ai-icon-text-item-{{ ai_gen_id }}">
+        <div class="ai-icon-text-icon-wrapper-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="ai-icon-text-content-{{ ai_gen_id }}">
+          <h3 class="ai-icon-text-title-{{ ai_gen_id }}">{{ block.settings.item_1_title }}</h3>
+          {% if block.settings.item_1_description != blank %}
+            <p class="ai-icon-text-description-{{ ai_gen_id }}">{{ block.settings.item_1_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-icon-text-item-{{ ai_gen_id }}">
+        <div class="ai-icon-text-icon-wrapper-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="ai-icon-text-content-{{ ai_gen_id }}">
+          <h3 class="ai-icon-text-title-{{ ai_gen_id }}">{{ block.settings.item_2_title }}</h3>
+          {% if block.settings.item_2_description != blank %}
+            <p class="ai-icon-text-description-{{ ai_gen_id }}">{{ block.settings.item_2_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-icon-text-item-{{ ai_gen_id }}">
+        <div class="ai-icon-text-icon-wrapper-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="ai-icon-text-content-{{ ai_gen_id }}">
+          <h3 class="ai-icon-text-title-{{ ai_gen_id }}">{{ block.settings.item_3_title }}</h3>
+          {% if block.settings.item_3_description != blank %}
+            <p class="ai-icon-text-description-{{ ai_gen_id }}">{{ block.settings.item_3_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-icon-text-item-{{ ai_gen_id }}">
+        <div class="ai-icon-text-icon-wrapper-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <div class="ai-icon-text-content-{{ ai_gen_id }}">
+          <h3 class="ai-icon-text-title-{{ ai_gen_id }}">{{ block.settings.item_4_title }}</h3>
+          {% if block.settings.item_4_description != blank %}
+            <p class="ai-icon-text-description-{{ ai_gen_id }}">{{ block.settings.item_4_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon and text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between icon and text",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#6e90b5"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "icon_padding",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon border radius",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "icon_stroke_width",
+      "min": 1,
+      "max": 4,
+      "step": 0.5,
+      "label": "Icon line weight",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Title weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_title",
+      "label": "Title",
+      "default": "Family inspired"
+    },
+    {
+      "type": "textarea",
+      "id": "item_1_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_title",
+      "label": "Title",
+      "default": "Sustainable living"
+    },
+    {
+      "type": "textarea",
+      "id": "item_2_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_title",
+      "label": "Title",
+      "default": "Handmade with love"
+    },
+    {
+      "type": "textarea",
+      "id": "item_3_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "text",
+      "id": "item_4_title",
+      "label": "Title",
+      "default": "Ethical and women led"
+    },
+    {
+      "type": "textarea",
+      "id": "item_4_description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon and text"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}
