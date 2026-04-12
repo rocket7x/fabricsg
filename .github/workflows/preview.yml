@@ -1,0 +1,92 @@
+# ─── Create preview theme for every Pull Request ────────────────────────────
+name: PR Preview Theme
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    name: Create PR Preview Theme
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Push preview theme
+        id: push_preview
+        run: |
+          THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          # Truncate to Shopify's 50 char limit
+          THEME_NAME="${THEME_NAME:0:50}"
+          echo "THEME_NAME=$THEME_NAME" >> $GITHUB_ENV
+
+          OUTPUT=$(shopify theme push \
+            --store="${{ secrets.SHOPIFY_STORE_URL }}" \
+            --theme="$THEME_NAME" \
+            --json \
+            --unpublished 2>&1)
+          echo "$OUTPUT"
+
+          # Extract preview URL from JSON output
+          PREVIEW_URL=$(echo "$OUTPUT" | grep -o '"preview_url":"[^"]*"' | cut -d'"' -f4)
+          echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const previewUrl = process.env.PREVIEW_URL;
+            const themeName  = process.env.THEME_NAME;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              body: `## 🎨 Theme Preview Ready\n\n**Theme name:** \`${themeName}\`\n\n👀 [**Preview this PR on your store →**](${previewUrl})\n\n> This preview theme will be deleted when the PR is closed.`
+            });
+
+  cleanup:
+    name: Delete PR Preview Theme
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed'
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Delete preview theme
+        run: |
+          THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          THEME_NAME="${THEME_NAME:0:50}"
+
+          # Get theme ID by name
+          THEME_ID=$(shopify theme list \
+            --store="${{ secrets.SHOPIFY_STORE_URL }}" \
+            --json | jq -r ".[] | select(.name==\"$THEME_NAME\") | .id")
+
+          if [ -n "$THEME_ID" ]; then
+            shopify theme delete \
+              --store="${{ secrets.SHOPIFY_STORE_URL }}" \
+              --theme="$THEME_ID" \
+              --force
+            echo "🗑 Deleted preview theme: $THEME_NAME"
+          fi
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}

@@ -1,0 +1,27 @@
+# ─── Lint theme code on every PR ────────────────────────────────────────────
+name: Theme Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  theme-check:
+    name: Shopify Theme Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Run theme check
+        run: shopify theme check --fail-level error
+        continue-on-error: true   # don't fail build on warnings

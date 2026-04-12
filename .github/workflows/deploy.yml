@@ -1,0 +1,39 @@
+# ─── Auto-deploy to Shopify on push to main ────────────────────────────────
+name: Deploy Theme to Shopify
+
+on:
+  push:
+    branches:
+      - main        # pushes to main → deploy to LIVE theme
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    name: Deploy to nehp9h-xc.myshopify.com
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Deploy theme to Shopify
+        run: |
+          shopify theme push \
+            --store="${{ secrets.SHOPIFY_STORE_URL }}" \
+            --theme="${{ secrets.SHOPIFY_THEME_ID }}" \
+            --allow-live \
+            --nodelete
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+
+      - name: Notify success
+        if: success()
+        run: echo "✅ Theme deployed to https://${{ secrets.SHOPIFY_STORE_URL }}"

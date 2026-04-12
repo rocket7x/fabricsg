@@ -1,0 +1,10 @@
+# Shopify CLI theme configuration
+# https://shopify.dev/docs/storefronts/themes/tools/cli
+
+[environments.production]
+store   = "nehp9h-xc.myshopify.com"
+# theme ID is set via GitHub secret SHOPIFY_THEME_ID
+
+[environments.development]
+store   = "nehp9h-xc.myshopify.com"
+# Uses your personal Theme Access password when running locally
