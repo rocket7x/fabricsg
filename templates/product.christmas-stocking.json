@@ -1,0 +1,384 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "spacer_fFyMEf": {
+      "type": "spacer",
+      "name": "t:sections.spacer.presets.name",
+      "settings": {
+        "height_desktop": 30,
+        "height_mobile": 20,
+        "bgcolor": "primary",
+        "custom_color": ""
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h6",
+            "seo_heading": "h2"
+          }
+        },
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33": {
+          "type": "review-star",
+          "settings": {}
+        },
+        "text_wiXQyA": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "5540566c-63cd-4a90-b9b6-7707e45d7066": {
+          "type": "price",
+          "settings": {}
+        },
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68": {
+          "type": "variant",
+          "settings": {
+            "size_chart": ""
+          }
+        },
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "16819786-9d1e-449d-966d-08d21e1c91af": {
+          "type": "button",
+          "settings": {
+            "dynamic_checkout_btn": true,
+            "enable_fullwidth": false,
+            "show_subscriptions_plan": true,
+            "show_recipient_form": false,
+            "sticky_add_to_cart": true,
+            "sticky_add_to_cart_position": "top"
+          }
+        },
+        "icons_MhcM9q": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/7.png",
+            "heading1": "Fast & Free Shipping",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/8.png",
+            "heading2": "No Hassle Returns",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/9.png",
+            "heading3": "Secure Checkout"
+          }
+        },
+        "icons_UhJRXX": {
+          "type": "icons",
+          "settings": {
+            "icon1": "shipping",
+            "image1": "shopify://shop_images/10.png",
+            "heading1": "Handmade in India",
+            "icon2": "shipping",
+            "image2": "shopify://shop_images/11.png",
+            "heading2": "100% Cotton",
+            "icon3": "shipping",
+            "image3": "shopify://shop_images/12.png",
+            "heading3": "Eco-Friendly"
+          }
+        },
+        "8f9762a2-e474-4a67-aa34-aff7848106ff": {
+          "type": "complementary_products",
+          "settings": {
+            "heading": "Pairs well with",
+            "products_count": 10
+          }
+        },
+        "description_BxjqVp": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "description_visibility": "always",
+            "show_as_accordion": true,
+            "open_default_accordion": false
+          }
+        },
+        "accordion_fXcaTb": {
+          "type": "accordion",
+          "name": "Why You'll Love Our Tablecloths",
+          "settings": {
+            "content_heading": "Why You'll Love Our Christmas Stockings",
+            "content": "<ul><li><strong>Year Round Comfort:</strong> Lightweight cotton keeps you cool in summer and warm in winter.</li><li><strong>Timeless Style:</strong> Classic patterns and textures that never go out of trend.</li><li><strong>Crafted to Last:</strong> Durable stitching ensures years of cozy comfort.</li><li><strong>Sustainable Living:</strong> Eco-conscious choice made with natural, reusable fabric.</li><li><strong>Effortless Care: </strong>Machine washable, easy to maintain, and always fresh.</li></ul>",
+            "open_default_accordion": false
+          }
+        },
+        "accordion_rPikyc": {
+          "type": "accordion",
+          "name": "Product Care",
+          "settings": {
+            "content_heading": "Product Care",
+            "content": "<p>To keep your Ridhi Block Print items looking beautiful for years, please follow these care tips:<br/><br/>1. Machine Washable – Wash on a gentle cycle with cold water.<br/>2. Mild Detergent – Protect natural fibers and preserve colors.<br/>3. Do Not Bleach – Avoid harsh chemicals.<br/>4. Tumble Dry Low or Air Dry – Air drying recommended for longevity.<br/>5. Ironing – Iron on low while fabric is slightly damp, always on reverse side.<br/>6. Storage – Store in a cool, dry place away from direct sunlight.</p>",
+            "open_default_accordion": false
+          }
+        }
+      },
+      "block_order": [
+        "fe3c09d6-15d2-4555-a0f5-c87ab0cf370f",
+        "c069e4ad-5908-400d-a0ad-e071aa04cf33",
+        "text_wiXQyA",
+        "5540566c-63cd-4a90-b9b6-7707e45d7066",
+        "8658b9a0-c9c5-4055-a2e1-56a8f49d0b68",
+        "811e6d87-a5e5-4457-9124-d3c2ed070ba9",
+        "16819786-9d1e-449d-966d-08d21e1c91af",
+        "icons_MhcM9q",
+        "icons_UhJRXX",
+        "8f9762a2-e474-4a67-aa34-aff7848106ff",
+        "description_BxjqVp",
+        "accordion_fXcaTb",
+        "accordion_rPikyc"
+      ],
+      "settings": {
+        "gallery_style": "slider",
+        "show_description": true,
+        "open_description_accordion": false,
+        "show_variant-media": false,
+        "enable_shipping_policy": true,
+        "enable_zoom_icon": true,
+        "enable_thumb": true,
+        "content_divider_mobile": "none",
+        "carousel_thumbnail_position": "center",
+        "carousel_height_desktop": "adapt",
+        "carousel_height_mobile": "adapt",
+        "width": "half",
+        "style": "accordion",
+        "accordion_content_alignment": "left",
+        "content_heading": "",
+        "content": "",
+        "content_heading2": "",
+        "content2": "",
+        "content_heading3": "",
+        "content3": ""
+      }
+    },
+    "image_with_text_dUKC6Q": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aJiQwj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bring Home the Magic of Handmade Christmas",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_mmzBy9": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Celebrate the season with our handcrafted cotton Christmas stockings - timeless, eco-friendly, and made to fill your home with festive warmth and joy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aJiQwj",
+        "text_mmzBy9"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/stockings.png",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "left",
+        "image_height": "aspect",
+        "show_icon_on_image": false,
+        "icon": "snail",
+        "left_to_right": 50,
+        "top_to_bottom": 50,
+        "mobile_left_to_right": 50,
+        "mobile_top_to_bottom": 50,
+        "icon_animated_color": "#000000",
+        "content_position": "center",
+        "bgcolor": "primary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 15
+      }
+    },
+    "blocks_MVUiMf": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5541bed_ip6UEK": {
+          "type": "ai_gen_block_5541bed",
+          "settings": {
+            "preheader": "",
+            "header": "Details You'll Love",
+            "subheader": "",
+            "header_spacing": 40,
+            "preheader_size": 14,
+            "preheader_weight": 400,
+            "preheader_color": "#666666",
+            "header_size": 36,
+            "header_weight": 500,
+            "header_color": "#000000",
+            "subheader_size": 16,
+            "subheader_weight": 400,
+            "subheader_color": "#666666",
+            "block_1_title": "Festive Charm",
+            "block_1_description": "Instantly brightens up your holiday decor.",
+            "block_2_title": "Premium Cotton",
+            "block_2_description": "Soft, durable, and long-lasting.",
+            "block_3_title": "Handmade Touch",
+            "block_3_description": "Unique artisanal quality in every piece.",
+            "block_4_title": "Family Tradition",
+            "block_4_description": "Creates joyful holiday memories.",
+            "block_title_size": 20,
+            "block_title_weight": 600,
+            "block_title_color": "#ffffff",
+            "block_description_size": 14,
+            "block_description_weight": 400,
+            "block_description_color": "#ffffff",
+            "block_text_alignment": "center",
+            "blocks_top_spacing": 40,
+            "block_spacing": 30,
+            "block_padding": 30,
+            "block_border_radius": 8,
+            "block_border_width": 1,
+            "section_background_color": "#ffffff",
+            "block_background_color": "#6e90b5",
+            "block_border_color": "#6e90b5",
+            "section_padding_top": 60,
+            "section_padding_bottom": 45
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_5796956_r3nnNY": {
+          "type": "ai_gen_block_5796956",
+          "name": "Add to cart button",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 20,
+            "button_text": "Add to cart",
+            "sold_out_text": "Sold out",
+            "show_cart_icon": false,
+            "button_alignment": "center",
+            "button_min_width": 200,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "button_font_size": 16,
+            "button_font_weight": "500",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5541bed_ip6UEK",
+        "ai_gen_block_5796956_r3nnNY"
+      ],
+      "name": "Content blocks section",
+      "settings": {}
+    },
+    "image_with_text_VLMHQ6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_mcWBjb": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Thoughtful Gift for Loved Ones",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_DrQXCi": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Give the gift of warmth and nostalgia this holiday season. Our handcrafted stockings make perfect keepsakes for family, friends, and holiday hosts - a symbol of care, comfort, and handmade beauty.</p>"
+          }
+        },
+        "text_ypqbbn": {
+          "type": "text",
+          "settings": {
+            "content": "<p><em><strong>10% OFF orders above $100!</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mcWBjb",
+        "text_DrQXCi",
+        "text_ypqbbn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/ChatGPT_Image_Oct_13_2025_11_30_03_PM.png",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "right",
+        "image_height": "aspect",
+        "show_icon_on_image": true,
+        "icon": "sparkle",
+        "left_to_right": 43,
+        "top_to_bottom": 73,
+        "mobile_left_to_right": 73,
+        "mobile_top_to_bottom": 44,
+        "icon_animated_color": "#000000",
+        "content_position": "center",
+        "bgcolor": "primary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "product_recommendations": {
+      "type": "product_recommendations",
+      "settings": {
+        "heading": "Recommended Products",
+        "seo_heading": "h2",
+        "products_count": 8,
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 10,
+        "bgcolor": "primary",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 60,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "spacer_fFyMEf",
+    "main-product",
+    "image_with_text_dUKC6Q",
+    "blocks_MVUiMf",
+    "image_with_text_VLMHQ6",
+    "product_recommendations"
+  ]
+}

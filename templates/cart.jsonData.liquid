@@ -1,51 +1,47 @@
 {%- layout none -%}
-{% assign uniqueProductIdsString = cart.items | map: 'product_id' | uniq | join: ', ' %}
+{% assign uniqueProductIdsString = cart.items | map : 'product_id' | uniq | join : ', ' %}
 {%- if cart.item_count > 0 -%}
-  {% if settings.upsell_products %}
-    <div class="yv-upsell-drawer hidden enable-marquee-{{ settings.upsell_style }} upsell-tab-height-{{ settings.upsell_tab_height }}">
-      
-      <div class="yv-drawer-sidebar" data-drawer-side-header>
-        {% if settings.upsell_style == 'text' %}
-          <div class="yv-drawer-upsell-heading">
-            <h6 class="yv-drawer-title">{% if settings.upsell_heading != blank %}{{ settings.upsell_heading }}{% else %}{{ 'general.cart_upsell' | t }}{% endif %}</h6>
-          </div>
-        {% elsif settings.upsell_style == 'marquee' %}
-          <div class="yv-drawer-text-box marquee-inner-vertical">
-            {% for i in (1..15) %}
-              <h6 class="yv-drawer-text">{% if settings.upsell_heading != blank %}{{ settings.upsell_heading }}{% else %}{{ 'general.cart_upsell' | t }}{% endif %}</h6>
-            {% endfor %}
-          </div>
-          <div class="slide-arrow">
-            <svg width="10" height="15" viewBox="0 0 10 15" fill="none">
-              <path d="M0 7.5L8.33333 15L10 13.5L3.33333 7.5L10 1.5L8.33333 0L0 7.5Z" fill="currentColor"/>
-            </svg>
-          </div>
-        {% endif %}
-      </div>
-      <div
-        class="yv-suggest-sidebar-content yv-drawer-width{% if settings.upsell_products_style == 'rectangle' %} horizontal-products{% else %} vertical-products{% endif %}"
-        data-drawer-side-content
-        data-related-products="{{ settings.upsell_type }}"
-        data-limit="{{ settings.product_range }}"
-      >
-        {%- if settings.product_list != blank and settings.upsell_type == 'product-list' %}
-          {% if settings.upsell_products_heading != blank %}
-            <div class="yv_side_drawer_title">
-              <h6 data-drawer-title="">{{ settings.upsell_products_heading }}</h6>
+{% if settings.upsell_products %}
+  <div class="yv-upsell-drawer hidden enable-marquee-{{ settings.upsell_style }} upsell-tab-height-{{ settings.upsell_tab_height }}">
+   {% if settings.upsell_heading != blank and settings.upsell_style != 'none' %}
+          <div class="yv-drawer-sidebar" data-drawer-side-header>
+            {% if settings.upsell_style == 'text' %}
+            <div class="yv-drawer-upsell-heading">
+              <h6 class="yv-drawer-title">{{ settings.upsell_heading }}</h6>
             </div>
-          {% endif %}
-          {% liquid
-            for product in settings.product_list limit: settings.product_range
-              unless uniqueProductIdsString contains product.id
-                assign mainClass = 'small-product-card'
-                render 'product-grid', product: product, productClasses: mainClass, hideHoverImage: true, hide_options: true, hideRelated: true, hideQuickView: true, hidestockcount: true, hidebadges: true, hideCustomLabel: true, hidePickup: true, upsell_products_style: settings.upsell_products_style
-              endunless
-            endfor
-          -%}
-        {% endif %}
-      </div>
-    </div>
+            {% elsif settings.upsell_style == 'marquee' %}
+              <div class="yv-drawer-text-box marquee-inner-vertical">
+                {% for i in (1..15) %}
+                  <h6 class="yv-drawer-text">{{ settings.upsell_heading }}</h6>
+                {% endfor %}
+              </div>
+               <div class="slide-arrow"> 
+                  <svg  width="10" height="15" viewBox="0 0 10 15" fill="none">
+                    <path d="M0 7.5L8.33333 15L10 13.5L3.33333 7.5L10 1.5L8.33333 0L0 7.5Z" fill="currentColor"/>
+                  </svg>
+               </div>
+              {% endif %}
+          </div>
   {% endif %}
+   <div class="yv-suggest-sidebar-content yv-drawer-width{% if settings.upsell_products_style == 'rectangle' %} horizontal-products{% else %} vertical-products{% endif %}" data-drawer-side-content data-related-products="{{ settings.upsell_type }}" data-limit="{{ settings.product_range }}">
+    {%- if settings.product_list != blank and settings.upsell_type == 'product-list' %}
+      {% if settings.upsell_products_heading != blank %}
+        <div class="yv_side_drawer_title">      
+          <h6 data-drawer-title="">{{ settings.upsell_products_heading }}</h6>
+        </div>
+      {% endif %}
+      {% liquid
+        for product in settings.product_list limit: settings.product_range 
+          unless uniqueProductIdsString contains product.id
+            assign mainClass = 'small-product-card'
+            render 'product-grid', product: product, productClasses: mainClass, hideHoverImage: true, hide_options: true, hideRelated: true, hideQuickView: true, hidestockcount: true, hidebadges: true, hideCustomLabel: true, hidePickup: true, upsell_products_style: settings.upsell_products_style 
+          endunless
+        endfor        
+     -%}
+    {% endif %}
+   </div>
+  </div>
+{% endif %}
   <div class="yv-cart-drawer">
     <div class="cart-item-container cart-drawer-note-{{ settings.enable_cartdrawer_note }}">
       {%- if settings.enable_shipping and settings.shipping_rate != blank -%}
@@ -67,9 +63,9 @@
               <path d="M12.6403 7.58422C12.6403 7.65014 12.6598 7.71457 12.6965 7.76937C12.7331 7.82418 12.7851 7.86689 12.846 7.89211C12.9069 7.91733 12.9739 7.92394 13.0386 7.91108C13.1032 7.89822 13.1626 7.86649 13.2093 7.81989C13.3459 7.67911 13.4502 7.51034 13.5151 7.32524C13.5801 7.14014 13.604 6.94314 13.5853 6.74789L13.5853 6.74055C13.5678 6.63447 13.575 6.5258 13.6064 6.42296C13.6377 6.32012 13.6923 6.22589 13.7659 6.14755C13.8453 6.07331 13.9407 6.01838 14.0448 5.98704C14.1489 5.95571 14.2587 5.94881 14.3659 5.96689C14.5614 5.98843 14.7593 5.96578 14.9449 5.9006C15.1305 5.83543 15.2991 5.72939 15.4382 5.59033C15.5773 5.45127 15.6834 5.28274 15.7487 5.09717C15.814 4.91161 15.8367 4.71375 15.8153 4.51822C15.7936 4.41051 15.7989 4.29911 15.8307 4.19394C15.8625 4.08877 15.9197 3.99309 15.9974 3.9154C16.0751 3.83771 16.1708 3.78043 16.276 3.74864C16.3811 3.71686 16.4925 3.71156 16.6003 3.73322C16.7957 3.75179 16.9928 3.7277 17.178 3.66261C17.3632 3.59751 17.5321 3.49298 17.6729 3.35622C17.7054 3.32555 17.7314 3.28867 17.7493 3.24777C17.7672 3.20686 17.7768 3.16278 17.7773 3.11812C17.7779 3.07346 17.7695 3.02915 17.7526 2.98781C17.7357 2.94647 17.7106 2.90894 17.679 2.87746C17.6473 2.84598 17.6096 2.82119 17.5681 2.80456C17.5267 2.78792 17.4823 2.77979 17.4377 2.78064C17.393 2.78149 17.349 2.7913 17.3082 2.80949C17.2674 2.82769 17.2307 2.85389 17.2003 2.88655C17.1208 2.96078 17.0254 3.01577 16.9214 3.04727C16.8174 3.07876 16.7075 3.08593 16.6003 3.06822C16.4046 3.04672 16.2067 3.06944 16.021 3.13469C15.8354 3.19994 15.6667 3.30606 15.5276 3.44522C15.3884 3.58437 15.2823 3.753 15.2171 3.93866C15.1518 4.12432 15.1291 4.32227 15.1506 4.51789C15.1722 4.62534 15.1669 4.73648 15.1351 4.84138C15.1034 4.94629 15.0461 5.04171 14.9685 5.11913C14.891 5.19655 14.7954 5.25357 14.6904 5.28511C14.5855 5.31665 14.4743 5.32173 14.3669 5.29989C14.1717 5.28099 13.9746 5.30483 13.7895 5.36976C13.6044 5.4347 13.4356 5.53915 13.2949 5.67589C13.1591 5.81722 13.0553 5.98607 12.9904 6.17102C12.9255 6.35597 12.9012 6.5527 12.9189 6.74789L12.9189 6.75555C12.9365 6.86158 12.9293 6.97023 12.8979 7.07303C12.8666 7.17583 12.812 7.27001 12.7383 7.34822C12.7072 7.37918 12.6826 7.41596 12.6657 7.45646C12.6489 7.49695 12.6403 7.54037 12.6403 7.58422Z" fill="#FDC70E"/>
               <path d="M16.5439 6.46846C16.5439 6.52324 16.5573 6.57718 16.5831 6.62551C16.6089 6.67384 16.6462 6.71507 16.6917 6.74555C16.7372 6.77604 16.7895 6.79483 16.8441 6.80028C16.8986 6.80573 16.9536 6.79767 17.0042 6.77679C17.3977 6.59975 17.8238 6.50704 18.2552 6.50462C18.6867 6.50221 19.1138 6.59016 19.5092 6.76279C19.5872 6.80452 19.6785 6.81356 19.7632 6.78793C19.8478 6.7623 19.9188 6.7041 19.9605 6.62613C20.0023 6.54815 20.0113 6.4568 19.9857 6.37216C19.9601 6.28751 19.9019 6.21652 19.8239 6.17479C19.3415 5.95588 18.8183 5.84141 18.2886 5.83888C17.7589 5.83635 17.2346 5.94583 16.7502 6.16013C16.6891 6.18529 16.6369 6.22804 16.6002 6.28294C16.5635 6.33783 16.5439 6.40241 16.5439 6.46846Z" fill="#D3374E"/>
               <path d="M13.1968 3.12238C13.1968 3.19961 13.2235 3.27447 13.2725 3.33417C13.3215 3.39388 13.3897 3.43472 13.4654 3.44971C13.5412 3.46471 13.6198 3.45293 13.6879 3.41639C13.7559 3.37985 13.8092 3.32082 13.8385 3.24938C14.053 2.76495 14.1626 2.24061 14.1601 1.71081C14.1576 1.181 14.043 0.657734 13.8238 0.175375C13.7821 0.0974019 13.7111 0.0391975 13.6265 0.0135675C13.5418 -0.0120625 13.4505 -0.00301835 13.3725 0.038709C13.2945 0.0804363 13.2363 0.15143 13.2107 0.236071C13.1851 0.320713 13.1941 0.412069 13.2358 0.490042C13.4086 0.885455 13.4966 1.31268 13.4942 1.74419C13.4918 2.1757 13.399 2.60192 13.2218 2.99538C13.2053 3.03568 13.1968 3.07882 13.1968 3.12238Z" fill="#D3374E"/>
-            </svg>
-            <p data-free-shipping-text></p>
-          </div>
+              </svg>
+          <p data-free-shipping-text></p>
+        </div>
           <div class="progress">
             <div
               class="progress-bar"
@@ -99,7 +95,7 @@
             <div class="media-img">
               {%- if item.image -%}
                 <div
-                  class="media-img-wrapper cart-media-image"
+                  class="media-img-wrapper cart-media-image" 
                   style="height:0;padding-bottom:{{ 100 | divided_by : item.image.aspect_ratio }}%;"
                 >
                   <img src="{{ item.image | image_url: width: 93 }}" width="93" height="auto" loading="lazy">
@@ -121,8 +117,8 @@
               {%- for property in item.properties -%}
                 {%- assign property_first_char = property.first | slice: 0 -%}
                 {%- if property.last != blank and property_first_char != '_' -%}
-                  <p>
-                    <strong>{{ property.first }}</strong>:
+                  <p
+                    ><strong>{{ property.first }}</strong>:
                     {%- if property.last contains '/uploads/' -%}
                       <a href="{{ property.last }}" target="_blank" aria-label="{{ property.first }}">
                         {{ property.last | split: '/' | last }}
@@ -132,198 +128,166 @@
                     {%- endif -%}
                   </p>
                 {%- endif -%}
-              {%- endfor -%}
+              {%- endfor -%}            
               <div class="cart-item-price yv-product-information">
                 {% unless isGiftWrapProduct %}
-                  {%- liquid
-                    assign has_qty_rules = false
-                    if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
-                      assign has_qty_rules = true
-                    endif
+                {%- liquid
+                  assign has_qty_rules = false
+                  if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
+                    assign has_qty_rules = true
+                  endif
                     assign has_vol_pricing = false
-                    if item.variant.quantity_price_breaks.size > 0
-                      assign has_vol_pricing = true
-                    endif
-                  -%}
-                  {%- if has_qty_rules or has_vol_pricing -%}
-                    <div class="cart-quantity-information">
-                      <div class="cart-quantity-information-icon">
+                  if item.variant.quantity_price_breaks.size > 0
+                    assign has_vol_pricing = true
+                  endif
+                -%}
+                {%- if has_qty_rules or has_vol_pricing -%}
+                <div class="cart-quantity-information">
+                    <div class="cart-quantity-information-icon">
                         <svg fill="currentColor" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
-                          <g>
-                              <g>
-                                  <path d="M256,0C114.611,0,0,114.611,0,256s114.611,256,256,256s256-114.611,256-256S397.389,0,256,0z M256,486.4C128.759,486.4,25.6,383.241,25.6,256S128.759,25.6,256,25.6c127.249,0,230.4,103.159,230.4,230.4S383.249,486.4,256,486.4z"/>
-                              </g>
-                          </g>
-                          <g>
-                              <g>
-                                  <path d="M268.8,384V204.8c7.066,0,12.8-5.734,12.8-12.8s-5.734-12.8-12.8-12.8h-25.6c-7.066,0-12.8,5.734-12.8,12.8s5.734,12.8,12.8,12.8V384c-7.066,0-12.8,5.734-12.8,12.8c0,7.066,5.734,12.8,12.8,12.8h25.6c7.066,0,12.8-5.734,12.8-12.8C281.6,389.734,275.866,384,268.8,384z"/>
-                              </g>
-                          </g>
-                          <g>
-                              <g>
-                                  <circle cx="256" cy="128" r="25.6"/>
-                              </g>
-                          </g>
+                            <g>
+                                <g>
+                                    <path d="M256,0C114.611,0,0,114.611,0,256s114.611,256,256,256s256-114.611,256-256S397.389,0,256,0z M256,486.4C128.759,486.4,25.6,383.241,25.6,256S128.759,25.6,256,25.6c127.249,0,230.4,103.159,230.4,230.4S383.249,486.4,256,486.4z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M268.8,384V204.8c7.066,0,12.8-5.734,12.8-12.8s-5.734-12.8-12.8-12.8h-25.6c-7.066,0-12.8,5.734-12.8,12.8s5.734,12.8,12.8,12.8V384c-7.066,0-12.8,5.734-12.8,12.8c0,7.066,5.734,12.8,12.8,12.8h25.6c7.066,0,12.8-5.734,12.8-12.8C281.6,389.734,275.866,384,268.8,384z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <circle cx="256" cy="128" r="25.6"/>
+                                </g>
+                            </g>
                         </svg>
-                      </div>
-                      <div class="yv-quantity-pricing">
+                    </div>
+                    <div class="yv-quantity-pricing">
                         <div class="yv-quantity-rules">
-                          {%- if item.variant.quantity_rule.increment > 1 -%}
-                            <span class="yv-quantity-item">
-                              {{-
-                                'products.product.quantity.multiples_of'
-                                | t: quantity: item.variant.quantity_rule.increment
-                              -}}
-                            </span>
-                          {%- endif -%}
-                          {%- if item.variant.quantity_rule.min > 1 -%}
-                            <span class="yv-quantity-item">
-                              {{-
-                                'products.product.quantity.minimum_of'
-                                | t: quantity: item.variant.quantity_rule.min
-                              -}}
-                            </span>
-                          {%- endif -%}
-                          {%- if item.variant.quantity_rule.max != null -%}
-                            <span class="yv-quantity-item">
-                              {{-
-                                'products.product.quantity.maximum_of'
-                                | t: quantity: item.variant.quantity_rule.max
-                              -}}
-                            </span>
-                          {%- endif -%}
+                            {%- if item.variant.quantity_rule.increment > 1 -%}
+                              <span class="yv-quantity-item">
+                                {{- 'products.product.quantity.multiples_of' | t: quantity: item.variant.quantity_rule.increment -}}
+                              </span>
+                            {%- endif -%}
+                            {%- if item.variant.quantity_rule.min > 1 -%}
+                              <span class="yv-quantity-item">
+                                {{- 'products.product.quantity.minimum_of' | t: quantity: item.variant.quantity_rule.min -}}
+                              </span>
+                            {%- endif -%}              
+                            {%- if item.variant.quantity_rule.max != null -%}
+                              <span class="yv-quantity-item">
+                                {{- 'products.product.quantity.maximum_of' | t: quantity: item.variant.quantity_rule.max -}}
+                              </span>
+                            {%- endif -%}
                         </div>
                         <span class="yv-quantity-pricing-title">
-                          {{- 'products.product.volume_pricing.title' | t -}}
-                        </span>
+                        {{- 'products.product.volume_pricing.title' | t -}}</span>
                         {%- if item.variant.quantity_price_breaks.size > 0 -%}
-                          <ul class="yv-quantity-pricing-listing list-unstyled">
+                        <ul class="yv-quantity-pricing-listing list-unstyled">
                             <li>
-                              <span>{{ item.variant.quantity_rule.min }}+</span>
-                              {%- assign price = item.variant.price | money_with_currency -%}
-                              <span> {{ 'products.product.volume_pricing.each' | t: money: price }}</span>
+                                <span>{{ item.variant.quantity_rule.min }}+</span>
+                                {%- assign price = item.variant.price | money_with_currency -%}
+                                <span> {{ 'products.product.volume_pricing.each' | t: money: price }}</span>
                             </li>
                             {%- for price_break in item.variant.quantity_price_breaks -%}
-                              {%- assign price = price_break.price | money_with_currency -%}
-                              <li>
-                                <span>{{ price_break.minimum_quantity }}+</span
-                                ><span data-text="{{ 'products.product.volume_pricing.each' | t: money: price }}">
+                            {%- assign price = price_break.price | money_with_currency -%}
+                            <li>
+                                <span>{{ price_break.minimum_quantity }}+</span><span data-text="{{ 'products.product.volume_pricing.each' | t: money: price }}">
                                   {{ 'products.product.volume_pricing.each' | t: money: price }}
                                 </span>
-                              </li>
+                            </li>
                             {% endfor %}
-                          </ul>
+                        </ul>
                         {% endif %}
-                      </div>
                     </div>
-                  {% endif %}
-                  <label class="visually-hidden" for="line-item-quantity-{{ forloop.index }}">
-                    {{- 'sections.cart.headings.quantity' | t -}}
-                  </label>
-                  <div class="quantity cart-item-quantity">
-                    <button
-                      type="button"
-                      class="quantity-button quantity-down ajaxcart__qty--minus"
-                      data-id="{{ item.key }}"
+                </div>
+                {% endif %}
+                <label class="visually-hidden" for="line-item-quantity-{{ forloop.index }}">
+                {{- 'sections.cart.headings.quantity' | t -}}
+                </label>
+                <div class="quantity cart-item-quantity">
+                    <button type="button" class="quantity-button quantity-down ajaxcart__qty--minus" data-id="{{ item.key }}" 
                       data-line="{{ forloop.index }}"
                       data-qty="{{ item.quantity | minus: 1 }}"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        width="14px"
-                        height="14px"
-                        viewBox="0 0 14 14"
-                        xml:space="preserve"
-                      >
-                        <rect x="6" transform="matrix(6.123234e-17 -1 1 6.123234e-17 0 14)" width="2.1" height="14"/>
-                      </svg>
+                        >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            width="14px"
+                            height="14px"
+                            viewBox="0 0 14 14"
+                            xml:space="preserve"
+                            >
+                            <rect x="6" transform="matrix(6.123234e-17 -1 1 6.123234e-17 0 14)" width="2.1" height="14"/>
+                        </svg>
                     </button>
                     <input
-                      id="line-item-quantity-{{ forloop.index }}"
-                      type="number"
-                      class="ajaxcart__qty-num"
-                      name="updates[]"
-                      value="{{ item.quantity }}"
-                      data-id="{{ item.key }}"
-                      data-line="{{ forloop.index }}"
-                      aria-label="{{ 'sections.cart.headings.quantity' | t }}"
-                      min="0"
-                      data-min="{{ item.variant.quantity_rule.min }}"
-                      {% if item.variant.quantity_rule.max != null %}
-                        max="{{ item.variant.quantity_rule.max }}"
-                      {% endif %}
-                      step="{{ item.variant.quantity_rule.increment }}"
+                    id="line-item-quantity-{{ forloop.index }}"
+                    type="number"
+                    class="ajaxcart__qty-num"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    data-id="{{ item.key }}"
+                    data-line="{{ forloop.index }}"
+                    aria-label="{{ 'sections.cart.headings.quantity' | t }}"
+                    min="0"
+                    data-min="{{ item.variant.quantity_rule.min }}"
+                    {% if item.variant.quantity_rule.max != null %}
+                    max="{{ item.variant.quantity_rule.max }}"
+                    {% endif %}
+                    step="{{ item.variant.quantity_rule.increment }}"
                     >
                     <button
-                      type="button"
-                      class="quantity-button quantity-up ajaxcart__qty--plus"
-                      data-id="{{ item.key }}"
-                      data-line="{{ forloop.index }}"
-                      data-qty="{{ item.quantity | plus: 1 }}"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        width="14px"
-                        height="14px"
-                        viewBox="0 0 14 14"
-                        xml:space="preserve"
-                      >
-                        <polygon points="14,6 8,6 8,0 6,0 6,6 0,6 0,8 6,8 6,14 8,14 8,8 14,8 "/>
-                      </svg>
+                        type="button"
+                        class="quantity-button quantity-up ajaxcart__qty--plus"
+                        data-id="{{ item.key }}"
+                        data-line="{{ forloop.index }}"
+                        data-qty="{{ item.quantity | plus: 1 }}"
+                        >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            width="14px"
+                            height="14px"
+                            viewBox="0 0 14 14"
+                            xml:space="preserve"
+                            >
+                            <polygon points="14,6 8,6 8,0 6,0 6,6 0,6 0,8 6,8 6,14 8,14 8,8 14,8 "/>
+                        </svg>
                     </button>
-                  </div>
+                </div>
                 {% endunless %}
                 <div class="cart-item-price-unit">
-                  <div class="yv-prizebox">
-                    <span class="yv-product-price">{{ item.final_line_price | money }}</span>
-                    {%- if item.original_line_price > item.final_line_price -%}
-                      <span class="yv-product-compare-price">
-                        <div class="qb-total-line-item" data-id="{{ item.key }}">
-                          {{ item.original_line_price | money }}
-                        </div>
-                      </span>
-                    {%- endif -%}
-                  </div>
-                  {%- if item.unit_price_measurement -%}
-                    <small class="yv-product-unit-price">
-                      {{ item.unit_price | money }}
-                      /
-                      {%- if item.unit_price_measurement.reference_value != 1 %}
-                        {{ item.unit_price_measurement.reference_value -}}
-                      {%- endif %}
-                      {{ item.unit_price_measurement.reference_unit }}
-                    </small>
-                  {%- endif -%}
-                  {%- for discount in item.discounts -%}
-                    <div class="text-right">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        width="15px"
-                        height="15px"
-                        viewBox="0 0 15 15"
-                        xml:space="preserve"
-                      >
-                        <style> .st0{clip-path:url(#SVGID_00000165956311262374056750000003758549857970351779_);} </style> <g> <g style="clip-path:url(#SVGID_00000026141808041203487550000009411451200903998388_);"> <path d="M2.1,0.2c-1,0-1.9,0.8-1.9,1.9v4.7c0,0.5,0.2,0.9,0.5,1.3l6.2,6.2c0.7,0.7,1.9,0.7,2.7,0l4.6-4.6c0.7-0.7,0.7-1.9,0-2.7    L8.1,0.8C7.7,0.4,7.2,0.2,6.8,0.2L2.1,0.2L2.1,0.2z M3.7,5.4c-0.9,0-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7    C5.4,4.6,4.6,5.4,3.7,5.4L3.7,5.4z"/> </g> </g>
-                      </svg>
-                      <small class="item__discount coupanName">{{ discount.title }}</small><br>
+                    <div class="yv-prizebox">
+                        <span class="yv-product-price">{{ item.final_line_price | money }}</span>
+                        {%- if item.original_line_price > item.final_line_price -%}
+                        <span class="yv-product-compare-price">
+                            <div class="qb-total-line-item" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div>
+                        </span>
+                        {%- endif -%}
                     </div>
-                  {%- endfor -%}
+                    {%- if item.unit_price_measurement -%}
+                    <small class="yv-product-unit-price">
+                    {{ item.unit_price | money }}
+                    /
+                    {%- if item.unit_price_measurement.reference_value != 1 %}
+                    {{ item.unit_price_measurement.reference_value -}}
+                    {%- endif %}
+                    {{ item.unit_price_measurement.reference_unit }}
+                    </small>
+                    {%- endif -%}
+                    {%- for discount in item.discounts -%}
+                    <div class="text-right">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 15 15" xml:space="preserve" > <style> .st0{clip-path:url(#SVGID_00000165956311262374056750000003758549857970351779_);} </style> <g> <g style="clip-path:url(#SVGID_00000026141808041203487550000009411451200903998388_);"> <path d="M2.1,0.2c-1,0-1.9,0.8-1.9,1.9v4.7c0,0.5,0.2,0.9,0.5,1.3l6.2,6.2c0.7,0.7,1.9,0.7,2.7,0l4.6-4.6c0.7-0.7,0.7-1.9,0-2.7    L8.1,0.8C7.7,0.4,7.2,0.2,6.8,0.2L2.1,0.2L2.1,0.2z M3.7,5.4c-0.9,0-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7    C5.4,4.6,4.6,5.4,3.7,5.4L3.7,5.4z"/> </g> </g> </svg>
+                        <small class="item__discount coupanName">{{ discount.title }}</small><br>
+                    </div>
+                    {%- endfor -%}
                 </div>
               </div>
               <button class="sd_mini_removeproduct" data-line="{{ forloop.index }}">
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  role="presentation"
-                  class="icon icon-close"
-                  viewBox="0 0 40 40"
-                >
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 40 40">
                   <path d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path>
                 </svg>
               </button>
@@ -338,10 +302,10 @@
         <div class="leave-order-note">
           <span class="cartDrawerNote">
             <svg class="cart-note-icon" width="17" height="17" viewBox="0 0 17 17" fill="none">
-              <path d="M12.0415 4H4.95845C4.8327 3.99984 4.70812 4.01265 4.59185 4.0377C4.47558 4.06276 4.3699 4.09956 4.28087 4.146C4.19184 4.19245 4.1212 4.24763 4.073 4.30837C4.02481 4.36911 4 4.43423 4 4.5C4 4.56577 4.02481 4.63089 4.073 4.69163C4.1212 4.75237 4.19184 4.80755 4.28087 4.85399C4.3699 4.90044 4.47558 4.93724 4.59185 4.9623C4.70812 4.98735 4.8327 5.00016 4.95845 5H12.0415C12.1673 5.00016 12.2919 4.98735 12.4081 4.9623C12.5244 4.93724 12.6301 4.90044 12.7191 4.85399C12.8082 4.80755 12.8788 4.75237 12.927 4.69163C12.9752 4.63089 13 4.56577 13 4.5C13 4.43423 12.9752 4.36911 12.927 4.30837C12.8788 4.24763 12.8082 4.19245 12.7191 4.146C12.6301 4.09956 12.5244 4.06276 12.4081 4.0377C12.2919 4.01265 12.1673 3.99984 12.0415 4Z" fill="currentColor"/>
-              <path d="M8.46753 7H4.53247C4.46261 6.99984 4.3934 7.01265 4.32881 7.0377C4.26421 7.06276 4.2055 7.09956 4.15604 7.146C4.10658 7.19245 4.06733 7.24763 4.04056 7.30837C4.01378 7.36911 4 7.43423 4 7.5C4 7.56577 4.01378 7.63089 4.04056 7.69163C4.06733 7.75237 4.10658 7.80755 4.15604 7.85399C4.2055 7.90044 4.26421 7.93724 4.32881 7.9623C4.3934 7.98735 4.46261 8.00016 4.53247 8H8.46753C8.53739 8.00016 8.6066 7.98735 8.67119 7.9623C8.73579 7.93724 8.7945 7.90044 8.84396 7.85399C8.89342 7.80755 8.93267 7.75237 8.95944 7.69163C8.98622 7.63089 9 7.56577 9 7.5C9 7.43423 8.98622 7.36911 8.95944 7.30837C8.93267 7.24763 8.89342 7.19245 8.84396 7.146C8.7945 7.09956 8.73579 7.06276 8.67119 7.0377C8.6066 7.01265 8.53739 6.99984 8.46753 7Z" fill="currentColor"/>
-              <path d="M12.9351 10H5.06495C4.92522 9.99984 4.7868 10.0126 4.65761 10.0377C4.52842 10.0628 4.411 10.0996 4.31208 10.146C4.21315 10.1925 4.13467 10.2476 4.08112 10.3084C4.02756 10.3691 4 10.4342 4 10.5C4 10.5658 4.02756 10.6309 4.08112 10.6916C4.13467 10.7524 4.21315 10.8075 4.31208 10.854C4.411 10.9004 4.52842 10.9372 4.65761 10.9623C4.7868 10.9874 4.92522 11.0002 5.06495 11H12.9351C13.0748 11.0002 13.2132 10.9874 13.3424 10.9623C13.4716 10.9372 13.589 10.9004 13.6879 10.854C13.7868 10.8075 13.8653 10.7524 13.9189 10.6916C13.9724 10.6309 14 10.5658 14 10.5C14 10.4342 13.9724 10.3691 13.9189 10.3084C13.8653 10.2476 13.7868 10.1925 13.6879 10.146C13.589 10.0996 13.4716 10.0628 13.3424 10.0377C13.2132 10.0126 13.0748 9.99984 12.9351 10Z" fill="currentColor"/>
-              <path d="M11.225 0.332031H5.77504C4.33197 0.333675 2.94847 0.90766 1.92807 1.92807C0.90766 2.94847 0.333675 4.33197 0.332031 5.77504V11.225C0.333675 12.6681 0.90766 14.0516 1.92807 15.072C2.94847 16.0924 4.33197 16.6664 5.77504 16.668H11.225C12.6681 16.6664 14.0516 16.0924 15.072 15.072C16.0924 14.0516 16.6664 12.6681 16.668 11.225V5.77504C16.6664 4.33197 16.0924 2.94847 15.072 1.92807C14.0516 0.90766 12.6681 0.333675 11.225 0.332031ZM15.6055 11.225C15.6041 12.3864 15.1422 13.4998 14.321 14.321C13.4998 15.1422 12.3864 15.6041 11.225 15.6055H5.77504C4.61368 15.6041 3.50027 15.1422 2.67907 14.321C1.85786 13.4998 1.39592 12.3864 1.39459 11.225V5.77504C1.39592 4.61368 1.85786 3.50027 2.67907 2.67907C3.50027 1.85786 4.61368 1.39592 5.77504 1.39459H11.225C12.3864 1.39592 13.4998 1.85786 14.321 2.67907C15.1422 3.50027 15.6041 4.61368 15.6055 5.77504V11.225Z" fill="currentColor"/>
+            <path d="M12.0415 4H4.95845C4.8327 3.99984 4.70812 4.01265 4.59185 4.0377C4.47558 4.06276 4.3699 4.09956 4.28087 4.146C4.19184 4.19245 4.1212 4.24763 4.073 4.30837C4.02481 4.36911 4 4.43423 4 4.5C4 4.56577 4.02481 4.63089 4.073 4.69163C4.1212 4.75237 4.19184 4.80755 4.28087 4.85399C4.3699 4.90044 4.47558 4.93724 4.59185 4.9623C4.70812 4.98735 4.8327 5.00016 4.95845 5H12.0415C12.1673 5.00016 12.2919 4.98735 12.4081 4.9623C12.5244 4.93724 12.6301 4.90044 12.7191 4.85399C12.8082 4.80755 12.8788 4.75237 12.927 4.69163C12.9752 4.63089 13 4.56577 13 4.5C13 4.43423 12.9752 4.36911 12.927 4.30837C12.8788 4.24763 12.8082 4.19245 12.7191 4.146C12.6301 4.09956 12.5244 4.06276 12.4081 4.0377C12.2919 4.01265 12.1673 3.99984 12.0415 4Z" fill="currentColor"/>
+            <path d="M8.46753 7H4.53247C4.46261 6.99984 4.3934 7.01265 4.32881 7.0377C4.26421 7.06276 4.2055 7.09956 4.15604 7.146C4.10658 7.19245 4.06733 7.24763 4.04056 7.30837C4.01378 7.36911 4 7.43423 4 7.5C4 7.56577 4.01378 7.63089 4.04056 7.69163C4.06733 7.75237 4.10658 7.80755 4.15604 7.85399C4.2055 7.90044 4.26421 7.93724 4.32881 7.9623C4.3934 7.98735 4.46261 8.00016 4.53247 8H8.46753C8.53739 8.00016 8.6066 7.98735 8.67119 7.9623C8.73579 7.93724 8.7945 7.90044 8.84396 7.85399C8.89342 7.80755 8.93267 7.75237 8.95944 7.69163C8.98622 7.63089 9 7.56577 9 7.5C9 7.43423 8.98622 7.36911 8.95944 7.30837C8.93267 7.24763 8.89342 7.19245 8.84396 7.146C8.7945 7.09956 8.73579 7.06276 8.67119 7.0377C8.6066 7.01265 8.53739 6.99984 8.46753 7Z" fill="currentColor"/>
+            <path d="M12.9351 10H5.06495C4.92522 9.99984 4.7868 10.0126 4.65761 10.0377C4.52842 10.0628 4.411 10.0996 4.31208 10.146C4.21315 10.1925 4.13467 10.2476 4.08112 10.3084C4.02756 10.3691 4 10.4342 4 10.5C4 10.5658 4.02756 10.6309 4.08112 10.6916C4.13467 10.7524 4.21315 10.8075 4.31208 10.854C4.411 10.9004 4.52842 10.9372 4.65761 10.9623C4.7868 10.9874 4.92522 11.0002 5.06495 11H12.9351C13.0748 11.0002 13.2132 10.9874 13.3424 10.9623C13.4716 10.9372 13.589 10.9004 13.6879 10.854C13.7868 10.8075 13.8653 10.7524 13.9189 10.6916C13.9724 10.6309 14 10.5658 14 10.5C14 10.4342 13.9724 10.3691 13.9189 10.3084C13.8653 10.2476 13.7868 10.1925 13.6879 10.146C13.589 10.0996 13.4716 10.0628 13.3424 10.0377C13.2132 10.0126 13.0748 9.99984 12.9351 10Z" fill="currentColor"/>
+            <path d="M11.225 0.332031H5.77504C4.33197 0.333675 2.94847 0.90766 1.92807 1.92807C0.90766 2.94847 0.333675 4.33197 0.332031 5.77504V11.225C0.333675 12.6681 0.90766 14.0516 1.92807 15.072C2.94847 16.0924 4.33197 16.6664 5.77504 16.668H11.225C12.6681 16.6664 14.0516 16.0924 15.072 15.072C16.0924 14.0516 16.6664 12.6681 16.668 11.225V5.77504C16.6664 4.33197 16.0924 2.94847 15.072 1.92807C14.0516 0.90766 12.6681 0.333675 11.225 0.332031ZM15.6055 11.225C15.6041 12.3864 15.1422 13.4998 14.321 14.321C13.4998 15.1422 12.3864 15.6041 11.225 15.6055H5.77504C4.61368 15.6041 3.50027 15.1422 2.67907 14.321C1.85786 13.4998 1.39592 12.3864 1.39459 11.225V5.77504C1.39592 4.61368 1.85786 3.50027 2.67907 2.67907C3.50027 1.85786 4.61368 1.39592 5.77504 1.39459H11.225C12.3864 1.39592 13.4998 1.85786 14.321 2.67907C15.1422 3.50027 15.6041 4.61368 15.6055 5.77504V11.225Z" fill="currentColor"/>
             </svg>
             {{- 'sections.cart.note_heading' | t }}
             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -354,95 +318,94 @@
         </div>
       {% endif %}
       <div class="yv-">
-        <div class="cart-listed-new-display">
-          <ul class="list-unstyled">
-            {%- if cart.cart_level_discount_applications.size > 0 -%}
-              {%- for discount in cart.cart_level_discount_applications -%}
-                <li class="minicart__savings text-large">
-                  {{ 'sections.cart.discount' | t -}}
-                  <span class="coupanName">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="15px"
-                      height="15px"
-                      viewBox="0 0 15 15"
-                      xml:space="preserve"
-                    >
-                      <style type="text/css">
-                        .st0{clip-path:url(#SVGID_00000165956311262374056750000003758549857970351779_);}
-                      </style>
-                      <g>
-                        <g style="clip-path:url(#SVGID_00000026141808041203487550000009411451200903998388_);">
-                          <path d="M2.1,0.2c-1,0-1.9,0.8-1.9,1.9v4.7c0,0.5,0.2,0.9,0.5,1.3l6.2,6.2c0.7,0.7,1.9,0.7,2.7,0l4.6-4.6c0.7-0.7,0.7-1.9,0-2.7    L8.1,0.8C7.7,0.4,7.2,0.2,6.8,0.2L2.1,0.2L2.1,0.2z M3.7,5.4c-0.9,0-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7    C5.4,4.6,4.6,5.4,3.7,5.4L3.7,5.4z"/>
-                        </g>
+      <div class="cart-listed-new-display">
+        <ul class="list-unstyled">
+          {%- if cart.cart_level_discount_applications.size > 0 -%}
+            {%- for discount in cart.cart_level_discount_applications -%}
+              <li class="minicart__savings text-large">
+                {{ 'sections.cart.discount' | t -}}
+                <span class="coupanName">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="15px"
+                    height="15px"
+                    viewBox="0 0 15 15"
+                    xml:space="preserve"
+                  >
+                    <style type="text/css">
+                      .st0{clip-path:url(#SVGID_00000165956311262374056750000003758549857970351779_);}
+                    </style>
+                    <g>
+                      <g style="clip-path:url(#SVGID_00000026141808041203487550000009411451200903998388_);">
+                        <path d="M2.1,0.2c-1,0-1.9,0.8-1.9,1.9v4.7c0,0.5,0.2,0.9,0.5,1.3l6.2,6.2c0.7,0.7,1.9,0.7,2.7,0l4.6-4.6c0.7-0.7,0.7-1.9,0-2.7    L8.1,0.8C7.7,0.4,7.2,0.2,6.8,0.2L2.1,0.2L2.1,0.2z M3.7,5.4c-0.9,0-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7    C5.4,4.6,4.6,5.4,3.7,5.4L3.7,5.4z"/>
                       </g>
-                    </svg>
-                    {{ discount.title -}}
-                    <strong class="text-medium">-{{ discount.total_allocated_amount | money }}</strong>
-                  </span>
-                </li>
-              {%- endfor -%}
-            {%- endif -%}
-            <li class="totle-price text-large">
-              {{ 'sections.cart.subtotal' | t -}}
-              <strong class="h4">{{ cart.total_price | money }}</strong>
-            </li>
-          </ul>
-          <small class="bottom-p">
-            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-              {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-            {%- elsif cart.taxes_included -%}
-              {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
-            {%- elsif shop.shipping_policy.body != blank -%}
-              {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-            {%- else -%}
-              {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
-            {%- endif -%}
-          </small>
-        </div>
-        {% if settings.gift_wrap_product != blank
-          and settings.gift_wrap_text != blank
-          and settings.gift_wrap_product.available
-          and giftWrapProductStatus == false
-        %}
-          <div class="giftcard-box">
-            <label for="GiftWrapProduct" class="custom-checkbox">
-              <input
-                type="checkbox"
-                id="GiftWrapProduct"
-                name="giftCard"
-                data-product="{{ settings.gift_wrap_product.first_available_variant.id }}"
-                value=""
-              >
-              <span class="checkmark"></span>
-              {{ settings.gift_wrap_text }}
-            </label>
-          </div>
-        {% endif %}
-        <div class="cart-btn-container j">
-          {% liquid
-            if routes.root_url == '/'
-              assign checkoutUrl = '/checkout'
-            else
-              assign checkoutUrl = routes.root_url | append: '/checkout'
-            endif
-          %}
-          <a href="{{ checkoutUrl }}" class="checkout-btn button black-btn">
-            <span>
-              <svg width="20" height="20" viewBox="0 0 20 20">
-                <path
-                  d="M19.3908 7.525C18.9158 6.975 18.2241 6.66667 17.4991 6.66667H17.4241C17.0074 2.925 13.8241 0 9.97411 0C6.12411 0 2.93245 2.925 2.51578 6.66667H2.47411C1.74911 6.66667 1.05745 6.98333 0.582448 7.525C0.107448 8.075 -0.100886 8.8 -0.000885636 9.51667L0.882448 15.7C1.23245 18.15 3.35745 19.9917 5.83245 19.9917H14.1408C16.6158 19.9917 18.7408 18.15 19.0908 15.7L19.9741 9.51667C20.0741 8.8 19.8658 8.075 19.3908 7.525ZM9.97411 1.66667C12.9074 1.66667 15.3408 3.84167 15.7491 6.66667H4.19911C4.60745 3.84167 7.04078 1.66667 9.97411 1.66667ZM18.3241 9.28333L17.4408 15.4667C17.2074 17.1 15.7908 18.325 14.1408 18.325H5.83245C4.18245 18.325 2.76578 17.0917 2.53245 15.4667L1.64911 9.28333C1.61578 9.04167 1.68245 8.80833 1.84078 8.61667C1.99911 8.43333 2.22411 8.325 2.47411 8.325H17.4991C17.7408 8.325 17.9658 8.425 18.1241 8.60833C18.2824 8.79167 18.3574 9.03333 18.3158 9.275L18.3241 9.28333Z"
-                  fill="currentColor" />
-              </svg>
-            </span>
-            {{ 'sections.cart.checkout' | t -}}
-          </a>
-        </div>
-        <a class="shopping_cont" href="{{ routes.cart_url }}">{{ 'sections.cart.view_cart' | t }}</a>
+                    </g>
+                  </svg>
+                  {{ discount.title -}}
+                  <strong class="text-medium">-{{ discount.total_allocated_amount | money }}</strong>
+                </span>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+          <li class="totle-price text-large">
+            {{ 'sections.cart.subtotal' | t -}}
+            <strong class="h4">{{ cart.total_price | money }}</strong>
+          </li>
+        </ul>
+        <small class="bottom-p">
+          {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+          {%- elsif cart.taxes_included -%}
+            {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+          {%- elsif shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+          {%- else -%}
+            {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+          {%- endif -%}
+        </small>
       </div>
+      {% if settings.gift_wrap_product != blank
+        and settings.gift_wrap_text != blank
+        and settings.gift_wrap_product.available
+        and giftWrapProductStatus == false
+      %}
+        <div class="giftcard-box">
+          <label for="GiftWrapProduct" class="custom-checkbox">
+            <input
+              type="checkbox"
+              id="GiftWrapProduct"
+              name="giftCard"
+              data-product="{{ settings.gift_wrap_product.first_available_variant.id }}"
+              value=""
+            >
+            <span class="checkmark"></span>
+            {{ settings.gift_wrap_text }}
+          </label>
+        </div>
+      {% endif %}    
+      <div class="cart-btn-container j">
+        {% liquid
+          if routes.root_url == '/'
+            assign checkoutUrl = '/checkout'
+          else
+            assign checkoutUrl = routes.root_url | append: '/checkout'
+          endif
+        %}
+        <a href="{{ checkoutUrl }}" class="checkout-btn button black-btn">
+        <span>
+          <svg width="20" height="20" viewBox="0 0 20 20">
+            <path
+              d="M19.3908 7.525C18.9158 6.975 18.2241 6.66667 17.4991 6.66667H17.4241C17.0074 2.925 13.8241 0 9.97411 0C6.12411 0 2.93245 2.925 2.51578 6.66667H2.47411C1.74911 6.66667 1.05745 6.98333 0.582448 7.525C0.107448 8.075 -0.100886 8.8 -0.000885636 9.51667L0.882448 15.7C1.23245 18.15 3.35745 19.9917 5.83245 19.9917H14.1408C16.6158 19.9917 18.7408 18.15 19.0908 15.7L19.9741 9.51667C20.0741 8.8 19.8658 8.075 19.3908 7.525ZM9.97411 1.66667C12.9074 1.66667 15.3408 3.84167 15.7491 6.66667H4.19911C4.60745 3.84167 7.04078 1.66667 9.97411 1.66667ZM18.3241 9.28333L17.4408 15.4667C17.2074 17.1 15.7908 18.325 14.1408 18.325H5.83245C4.18245 18.325 2.76578 17.0917 2.53245 15.4667L1.64911 9.28333C1.61578 9.04167 1.68245 8.80833 1.84078 8.61667C1.99911 8.43333 2.22411 8.325 2.47411 8.325H17.4991C17.7408 8.325 17.9658 8.425 18.1241 8.60833C18.2824 8.79167 18.3574 9.03333 18.3158 9.275L18.3241 9.28333Z"
+              fill="currentColor" />
+          </svg>
+        </span>  
+        {{ 'sections.cart.checkout' | t }}</a>
+      </div>
+      <a class="shopping_cont" href="{{ routes.cart_url }}">{{ 'sections.cart.view_cart' | t }}</a>
     </div>
+  </div>
 {%- else -%}
   <div class="emptySideCart">
     <svg class="emptyCartIcon" fill="#000000" version="1.1" x="0px" y="0px" viewBox="0 0 128 128" xml:space="preserve">

@@ -7,128 +7,142 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "type": "footer",
-    "name": "Footer Group",
-    "sections": {
-      "footer": {
-        "type": "footer",
-        "blocks": {
-          "footer-0": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
-            }
-          },
-          "footer-1": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
-            }
-          },
-          "footer-2": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "main-menu"
-            }
-          },
-          "02d09236-991e-4fac-8b07-0e11a76ccd2d": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "main-menu"
-            }
-          },
-          "f9062c66-8e41-4775-b923-926a89641fdc": {
-            "type": "newsletter",
-            "settings": {
-              "heading": "Newsletter",
-              "description": "Description here",
-              "show_newsletter": true,
-              "placeholder": "Email address",
-              "button_style": "icon",
-              "show_social": true,
-              "enable_follow_on_shop": false
-            }
-          }
-        },
-        "block_order": [
-          "footer-0",
-          "footer-1",
-          "footer-2",
-          "02d09236-991e-4fac-8b07-0e11a76ccd2d",
-          "f9062c66-8e41-4775-b923-926a89641fdc"
-        ],
-        "settings": {
-          "image_width": 100,
-          "subtext": "",
-          "enable_language_selector": true,
-          "show_language_background": true,
-          "enable_currency_selector": true,
-          "show_currency_background": true,
-          "payment_enable": true,
-          "hide_copyright_content": false,
-          "custom_copyright_content": "",
-          "show_policies": false,
-          "footer_background_opacity": 50,
-          "bg_top_space_desktop": 0,
-          "bg_bottom_space_desktop": 0,
-          "bg_top_space_mobile": 0,
-          "bg_bottom_space_mobile": 0,
-          "footer_bg": "#0e0e10",
-          "footer_heading": "#7a7a7a",
-          "footer_text": "#766464",
-          "footer_text_hover": "#ff2121",
-          "footer_background_overlay": "#000000",
-          "color_button": "#000000",
-          "color_button_text": "#ffffff",
-          "color_button_border": "#000000"
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "1773663127dc24ddf4": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_text_DmAdrT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_text/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
-      "offer-sidebar": {
-        "type": "offer-sidebar",
-        "blocks": {
-          "3c184a8c-b344-4a00-bcc1-815922498300": {
-            "type": "offer",
-            "settings": {
-              "heading": "Offer Title",
-              "highlight_text": "Offer",
-              "linktext": "Shop now",
-              "link": ""
-            }
-          },
-          "eefd02b4-3264-40df-b101-73e51cb795f3": {
-            "type": "offer",
-            "settings": {
-              "heading": "Offer Title",
-              "highlight_text": "Offer",
-              "linktext": "Shop now",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "3c184a8c-b344-4a00-bcc1-815922498300",
-          "eefd02b4-3264-40df-b101-73e51cb795f3"
-        ],
-        "settings": {
-          "enable_sidebar": false,
-          "heading": "Heading Here",
-          "subheading": "Sub Heading Here",
-          "button_text": "Coupon",
-          "horizontal_position": "left",
-          "vertical_position": 50,
-          "btnbgcolor": "#46c0bf",
-          "btntextcolor": "#ffffff"
-        }
+      "block_order": [
+        "judge_me_reviews_all_reviews_text_DmAdrT"
+      ],
+      "settings": {
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
       }
     },
-    "order": [
-      "footer",
-      "offer-sidebar"
-    ]
-  }
-  
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "link_list",
+          "name": "The Brand",
+          "settings": {
+            "heading": "The Brand",
+            "menu": "the-brand"
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "name": "Collections",
+          "settings": {
+            "heading": "Collections",
+            "menu": "collections"
+          }
+        },
+        "02d09236-991e-4fac-8b07-0e11a76ccd2d": {
+          "type": "link_list",
+          "name": "Policies",
+          "settings": {
+            "heading": "Our Policies",
+            "menu": "our-polices"
+          }
+        },
+        "newsletter_aRMt4w": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Subscribe to our Newsletter",
+            "description": "",
+            "show_newsletter": true,
+            "placeholder": "Enter your email",
+            "button_style": "icon",
+            "show_social": true,
+            "enable_follow_on_shop": false
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "02d09236-991e-4fac-8b07-0e11a76ccd2d",
+        "newsletter_aRMt4w"
+      ],
+      "settings": {
+        "image_width": 100,
+        "subtext": "",
+        "enable_language_selector": true,
+        "show_language_background": true,
+        "enable_currency_selector": true,
+        "show_currency_background": true,
+        "payment_enable": true,
+        "hide_copyright_content": false,
+        "custom_copyright_content": "Copyright© 2025 <a href=\"https://guz0he-21.myshopify.com/\">Ridhi Block Print</a>",
+        "show_policies": false,
+        "footer_background_opacity": 50,
+        "bg_top_space_desktop": 0,
+        "bg_bottom_space_desktop": 0,
+        "bg_top_space_mobile": 0,
+        "bg_bottom_space_mobile": 0,
+        "footer_bg": "#6e90b5",
+        "footer_heading": "#ffffff",
+        "footer_text": "#ffffff",
+        "footer_text_hover": "#a0b7d0",
+        "footer_background_overlay": "#000000",
+        "color_button": "#000000",
+        "color_button_text": "#ffffff",
+        "color_button_border": "#000000"
+      }
+    },
+    "offer-sidebar": {
+      "type": "offer-sidebar",
+      "blocks": {
+        "3c184a8c-b344-4a00-bcc1-815922498300": {
+          "type": "offer",
+          "settings": {
+            "heading": "Offer Title",
+            "highlight_text": "Offer",
+            "linktext": "Shop now",
+            "link": ""
+          }
+        },
+        "eefd02b4-3264-40df-b101-73e51cb795f3": {
+          "type": "offer",
+          "settings": {
+            "heading": "Offer Title",
+            "highlight_text": "Offer",
+            "linktext": "Shop now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "3c184a8c-b344-4a00-bcc1-815922498300",
+        "eefd02b4-3264-40df-b101-73e51cb795f3"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sidebar": false,
+        "heading": "Heading Here",
+        "subheading": "Sub Heading Here",
+        "button_text": "Coupon",
+        "horizontal_position": "left",
+        "vertical_position": 50,
+        "btnbgcolor": "#46c0bf",
+        "btntextcolor": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "1773663127dc24ddf4",
+    "footer",
+    "offer-sidebar"
+  ]
+}

@@ -5,27 +5,21 @@
   {% if section.settings.heading != blank or section.settings.description != blank %}
     {% if section.settings.highlight_font == 'body' %}
         {% capture highlightStyle %}
-        <span class="body-font highlighted-text">
+        <span class="body-font">
         {% endcapture %}
       {% elsif section.settings.highlight_font == 'heading' %}
       {% capture highlightStyle %}
-         <span class="heading-font highlighted-text">
+         <span class="heading-font">
       {% endcapture %}  
       {% else %}
       {% capture highlightStyle %}
-         <span class="accent-font highlighted-text">
+         <span class="accent-font">
       {% endcapture %}  
     {% endif %} 
 
     <div class="section-heading" {% if settings.enable_animation %}data-aos="fade-up" data-aos-delay="200"{% endif %}>
       <{{ section.settings.seo_heading }} class="section-heading-title {{ section.settings.heading_size }}">
-          {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-          {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-          {%- if heading contains '[' and heading contains ']' -%}
-            {%- render 'rotational-highlight', heading: heading -%}
-          {%- else -%}
-            {{- heading -}}
-          {%- endif -%}
+          {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
       </{{ section.settings.seo_heading }}>
       {% if section.settings.description != blank %}
         <div class="section-heading-desc" {% if settings.enable_animation %}data-aos="fade-up" data-aos-delay="200"{% endif %}>
@@ -195,16 +189,7 @@
     --mobile-height:{{ section.settings.mobile_row_height }}px;
     --highlight-text: {{ section.settings.highlighted_color }};
     --column-gap:{{ section.settings.desktop_grid_gap }}px;
-    {% if section.settings.highlight_text_gradient != blank %}
-      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
-    {% else %}
-      --highlightTextColor: {{ section.settings.highlight_text_color }};
-    {% endif %}
   } 
-
-  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
-    --fontSize: var(--{{ section.settings.heading_size }});
-  }
 
   @media only screen and (max-width:767px) {
     #shopify-section-{{ section.id }}{
@@ -302,30 +287,15 @@
       "step": 1
     },
     {
-      "type": "header",
-      "content": "t:common.header.text_section.label"
-    },
+        "type": "header",
+        "content": "t:common.header.text_section.label"
+      },
     {
         "type": "inline_richtext",
         "id": "heading",
         "default": "Heading",
         "label": "t:common.highlight_font.options.heading.label",
         "info": "t:common.highlight_text_and_break_text.info"
-    },
-    {
-      "type": "color",
-      "id": "highlight_text_color",
-      "label": "t:common.highlight_text_color.label",
-      "default": "#000000",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
-    },
-    {
-      "type": "color_background",
-      "id": "highlight_text_gradient",
-      "label": "t:common.highlight_text_gradient.label",
-      "info": "t:common.highlight_text_gradient.info",
-      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
         "type": "select",
@@ -1344,12 +1314,6 @@
         },
         {
           "type": "text",
-          "id": "subheading",
-          "label": "t:sections.split-banner.blocks.settings.description.label",
-          "default": "t:sections.media-grid.blocks.settings.description.info"
-        },   
-        {
-          "type": "text",
           "id": "heading",
           "label": "t:common.highlight_font.options.heading.label",
           "default": "Heading",
@@ -1388,43 +1352,43 @@
           ]
         },
         {
-          "type": "select",
-          "id": "seo_heading",
-          "label": "t:common.header.heading_tag.label",
-          "info": "t:common.header.heading_tag.info",
-          "default": "h2",
-          "options": [
-            {
-              "value": "h1",
-              "label": "t:common.header.heading_tag.options.h1.label"
-            },
-            {
-              "value": "h2",
-              "label": "t:common.header.heading_tag.options.h2.label"
-            },
-            {
-              "value": "h3",
-              "label": "t:common.header.heading_tag.options.h3.label"
-            },
-            {
-              "value": "h4",
-              "label": "t:common.header.heading_tag.options.h4.label"
-            },
-            {
-              "value": "h5",
-              "label": "t:common.header.heading_tag.options.h5.label"
-            },
-            {
-              "value": "h6",
-              "label": "t:common.header.heading_tag.options.h6.label"
-            }
-          ]
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "t:sections.split-banner.blocks.settings.description.label",
-          "default": "t:sections.media-grid.blocks.settings.description.info"
+            "type": "select",
+            "id": "seo_heading",
+            "label": "t:common.header.heading_tag.label",
+            "info": "t:common.header.heading_tag.info",
+            "default": "h2",
+            "options": [
+              {
+                "value": "h1",
+                "label": "t:common.header.heading_tag.options.h1.label"
+              },
+              {
+                "value": "h2",
+                "label": "t:common.header.heading_tag.options.h2.label"
+              },
+              {
+                "value": "h3",
+                "label": "t:common.header.heading_tag.options.h3.label"
+              },
+              {
+                "value": "h4",
+                "label": "t:common.header.heading_tag.options.h4.label"
+              },
+              {
+                "value": "h5",
+                "label": "t:common.header.heading_tag.options.h5.label"
+              },
+              {
+                "value": "h6",
+                "label": "t:common.header.heading_tag.options.h6.label"
+              }
+            ]
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "t:sections.split-banner.blocks.settings.description.label",
+            "default": "t:sections.media-grid.blocks.settings.description.info"
         },    
         {
           "type": "url",

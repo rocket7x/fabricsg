@@ -1,0 +1,313 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "seo_heading": "h2",
+        "banner_height_desktop": "auto",
+        "banner_height_mobile": "auto",
+        "bgcolor": "#f5efec",
+        "textcolor": "#181818"
+      }
+    },
+    "image_banner_Uk8LTH": {
+      "type": "image-banner",
+      "name": "t:sections.image_banner.presets.name",
+      "settings": {
+        "enable_parallax": true,
+        "section_visibility": "always",
+        "image": "shopify://shop_images/coralandturquoisegreen_7_3e0845d8-c641-4729-bc5d-932e06d71cbc.png",
+        "desktop_height": "350px",
+        "mobile_height": "300px",
+        "block_display": "categories",
+        "banner_title": "The Art of Hand Block Printing",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "desktop_title_size": 70,
+        "mobile_title_size": 36,
+        "banner_desc": "A timeless tradition where artisan hands transform fabric into living art, one carved block at a time",
+        "button_text": "",
+        "button_link": "shopify://collections/all",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "content_position": "center-center",
+        "title_color": "#ffffff",
+        "desc_color": "#ffffff",
+        "btn_bg": "#000000",
+        "btn_text": "#ffffff",
+        "btn_border": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "rich_text_JNkNGm": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_mcUpNb": {
+          "type": "richtext",
+          "settings": {
+            "heading": "A Heritage Centuries in the Making",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": "<p>Hand block printing is an ancient textile art form that dates back thousands of years, with roots deeply embedded in Indian craftsmanship. This meticulous technique has been passed down through generations of artisan families, each keeper of this tradition adding their own vision while honoring the sacred methods of their ancestors.</p><p>What began as a means to decorate fabrics for royalty has evolved into a celebrated art form that bridges the past and present. Each piece tells a story - of patient hands carving intricate designs into wooden blocks, of natural dyes extracted from earth and plant, and of the rhythmic press of block against cloth that creates patterns both timeless and unique.</p><p>In an era of mass production, hand block printing stands as a testament to the irreplaceable value of human touch. Every print carries the subtle variations that make it authentic, the slight imperfections that prove its handmade origins, and the soul of the artisan who crafted it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_mcUpNb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "image_with_text_mDA76G": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_bb4L8T": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Printing Process",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_nbxhTC": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>1. Carving the Block: </strong>Master artisans hand-carve intricate designs into seasoned wood, a process requiring years of skill and unwavering precision.</p><p><strong>2. Preparing the Dye: </strong>Natural dyes are carefully extracted from plants, minerals, and earth, mixed to achieve rich, lasting colors that honor tradition.</p><p><strong>3. The Printing Ritual: </strong>With practiced rhythm, the artisan dips the block in dye and presses it firmly onto fabric, repeating this dance to create patterns.</p><p><strong>4. Setting & Finishing: </strong>The printed fabric is treated and washed, allowing colors to set and bloom into their final, vibrant expression.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bb4L8T",
+        "text_nbxhTC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "shopify://shop_images/Screenshot_2025-09-30_at_1.17.22_PM.png",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "left",
+        "image_height": "square",
+        "show_icon_on_image": false,
+        "icon": "snail",
+        "left_to_right": 50,
+        "top_to_bottom": 50,
+        "mobile_left_to_right": 50,
+        "mobile_top_to_bottom": 50,
+        "icon_animated_color": "#000000",
+        "content_position": "center",
+        "bgcolor": "primary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "multi_column_pmzkQH": {
+      "type": "multi-column",
+      "blocks": {
+        "column_XJFPpn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_20250714_161406_607.jpg",
+            "product": "taupe-embroidery-napkins",
+            "heading": "Floral Heritage",
+            "heading_size": "h2",
+            "description": "<p>Traditional floral motifs passed through generations</p>",
+            "link_text": "",
+            "link_url": "",
+            "btn_as_link": false
+          }
+        },
+        "column_96xQiw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-11-01_at_4.54.44_PM.png",
+            "product": "green-stripe-tissue-box-cover",
+            "heading": "Geometric Harmony",
+            "heading_size": "h2",
+            "description": "<p>Sacred geometry in textile form</p>",
+            "link_text": "",
+            "link_url": "",
+            "btn_as_link": false
+          }
+        },
+        "column_bWixwz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/skyshell.png",
+            "product": "sky-shell-piping-pillow-cover",
+            "heading": "Natural Elements",
+            "heading_size": "h2",
+            "description": "<p>Inspired by earth, water, and sky</p>",
+            "link_text": "",
+            "link_url": "",
+            "btn_as_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_XJFPpn",
+        "column_96xQiw",
+        "column_bWixwz"
+      ],
+      "name": "t:sections.multi_column.presets.name",
+      "settings": {
+        "heading": "Timeless Patterns",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "description": "<p>Each pattern carries meaning, history, and the distinct touch of its creator</p>",
+        "text_alignment": "center",
+        "grid_text_alignment": "center",
+        "media_style": "square",
+        "button_size": "small",
+        "mobile_button_size": "m-med",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 40,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 20,
+        "bottom_space_mobile": 20
+      }
+    },
+    "rich_text_6gbwnd": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_bjTag8": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Bring This Art Into Your Home",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": "<p>Explore our curated collection of hand block printed decor, where each piece carries the soul of traditional craftsmanship and the beauty of timeless design.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_bjTag8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "featured_collections_carousel_FcDTAq": {
+      "type": "featured-collections-carousel",
+      "blocks": {
+        "collection_qRwaJx": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-pillow-covers",
+            "heading": "Cotton Pillow Covers",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_K4TaRy": {
+          "type": "collection",
+          "settings": {
+            "collection": "embroidered-napkins",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_C3Nm9z": {
+          "type": "collection",
+          "settings": {
+            "collection": "round-placemats",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_WBzpXN": {
+          "type": "collection",
+          "settings": {
+            "collection": "table-runners",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_qRwaJx",
+        "collection_K4TaRy",
+        "collection_C3Nm9z",
+        "collection_WBzpXN"
+      ],
+      "name": "t:sections.featured-collections-carousel.presets.name",
+      "settings": {
+        "style": "style2",
+        "enable_fullwidth": false,
+        "collections_per_row": 3,
+        "emphasize_center_image": true,
+        "heading": "",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "subheading": "",
+        "description": "",
+        "btntext": "",
+        "btnlink": "shopify://collections",
+        "button_size": "default",
+        "mobile_button_size": "m-med",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 0,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 35,
+        "bottom_space_mobile": 35
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "image_banner_Uk8LTH",
+    "rich_text_JNkNGm",
+    "image_with_text_mDA76G",
+    "multi_column_pmzkQH",
+    "rich_text_6gbwnd",
+    "featured_collections_carousel_FcDTAq"
+  ]
+}

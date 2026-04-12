@@ -15,15 +15,15 @@
         {%- if section.settings.heading != blank -%}
           {% if section.settings.highlight_font == 'body' %}
             {% capture highlightStyle %}
-            <span class="body-font highlighted-text">
+            <span class="body-font">
             {% endcapture %}
           {% elsif section.settings.highlight_font == 'heading' %}
           {% capture highlightStyle %}
-             <span class="heading-font highlighted-text">
+             <span class="heading-font">
           {% endcapture %}  
           {% else %}
           {% capture highlightStyle %}
-             <span class="accent-font highlighted-text">
+             <span class="accent-font">
           {% endcapture %}  
           {% endif %}
           <{{ section.settings.seo_heading }}
@@ -32,13 +32,7 @@
               data-aos="fade-up" data-aos-delay="50"
             {%- endif %}
           >
-            {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-            {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-            {%- if heading contains '[' and heading contains ']' -%}
-              {%- render 'rotational-highlight', heading: heading -%}
-            {%- else -%}
-              {{- heading -}}
-            {%- endif -%}
+            {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
           </{{ section.settings.seo_heading }}>
         {%- endif %}
         {%- if section.settings.description != blank -%}
@@ -74,7 +68,7 @@
     <div class="yv-collection-slider collections-count-{{ section.blocks.size }} {% if settings.layout_style == 'rounded' %} collection-layout-rounded{% endif %}{% if section.settings.style == 'style1' %} column-count-{{ section.settings.collections_per_row }}{% endif %}{% if section.settings.collections_per_row == 3 and section.settings.emphasize_center_image and section.blocks.size > 2 %} emphasize_center_image{% endif %}">
       <div
         class="yv-collection-slider-wrapper {% if section.blocks.size < 3 %}no-center-mode{% endif %}"
-       
+        {% if section.blocks.size > 3 %}
           data-flickity-slider='
             { "pageDots": false,
             "draggable": false,
@@ -87,7 +81,7 @@
         "arrowShape":"M50.1228 1.62718C48.1063 -0.542395 44.8369 -0.542395 42.8204 1.62718L1.51235 46.0716C-0.504121 48.2412 -0.504121 51.7588 1.51235 53.9284L42.8204 98.3728C44.8369 100.542 48.1063 100.542 50.1228 98.3728C52.1392 96.2032 52.1392 92.6857 50.1228 90.5161L17.6293 55.5556H94.8365C97.6882 55.5556 100 53.0682 100 50C100 46.9317 97.6882 44.4444 94.8365 44.4444H17.6293L50.1228 9.48393C52.1392 7.31435 52.1392 3.79676 50.1228 1.62718Z"
           }
           '
-      
+        {% endif %}
         data-desktop-only
       >
         {%- for block in section.blocks -%}
@@ -123,7 +117,7 @@
                 {%- endif %}
               >
                 {%- if imageContent != blank -%}
-                  <a href="{{ collection.url }}" aria-label="Collection image">
+                  <a href="{{ collection.url }}">
                   {%- render 'lazy-image', image: imageContent -%}
                     </a>
                 {%- else -%}
@@ -145,7 +139,7 @@
                       {%- endif %}
                     </h6>
                   {%- endif -%}
-                  {%- if collection == blank and block.settings.subheading == blank -%}
+                  {%- if collection == blank and block.settings.heading == blank -%}
                     <p class="yv-collection-desc">Collection Description</p>
                   {%- elsif collection != blank or block.settings.subheading != blank -%}
                     <p class="yv-collection-desc">
@@ -174,7 +168,7 @@
 </div>
 <style>
   #shopify-section-{{ section.id }}.shopify-section {
-    background:var(--{{- section.settings.bgcolor -}}ColorBody);
+  background:var(--{{- section.settings.bgcolor -}}ColorBody);
     padding-top:{{ section.settings.top_space_desktop }}px;
     padding-bottom:{{ section.settings.bottom_space_desktop }}px;
     {%- unless section.settings.bgcolor == 'primary' or section.settings.bgcolor == 'gradient' -%}
@@ -184,15 +178,6 @@
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
-    {% if section.settings.highlight_text_gradient != blank %}
-      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
-    {% else %}
-      --highlightTextColor: {{ section.settings.highlight_text_color }};
-    {% endif %}
-  }
-
-  #shopify-section-{{ section.id }}.shopify-section .heading-title{
-    --fontSize: var(--{{ section.settings.heading_size }});
   }
   {%- for block in section.blocks -%}
     #yv-collection-list-{{ block.id }} .yv-collection-title {
@@ -284,21 +269,6 @@
       "default": "Collection carousel",
       "label": "t:sections.featured-collections-carousel.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
-    },
-    {
-      "type": "color",
-      "id": "highlight_text_color",
-      "label": "t:common.highlight_text_color.label",
-      "default": "#000000",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
-    },
-    {
-      "type": "color_background",
-      "id": "highlight_text_gradient",
-      "label": "t:common.highlight_text_gradient.label",
-      "info": "t:common.highlight_text_gradient.info",
-      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

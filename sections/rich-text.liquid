@@ -1,171 +1,40 @@
 <div class="{{ section.settings.content_width }}">
-  {% assign is_delimiter = false %}
   {% for block in section.blocks %}
-    {%- case block.type -%}
-      {% when 'column_delimiter' %}
-        {% assign is_delimiter = true %}
-    {% endcase %}
-  {% endfor %}
-  <div class="rich-text-content text-{{ section.settings.content_alignment }}">
-    {% if is_delimiter %}
-      <div class="hidden d-md-contents">
-    {% endif %}
-    <div class="richtext-content-inner" {{ block.shopify_attributes }}>
-      {% for block in section.blocks %}
-        {% if block.type == 'column_delimiter' %}
-          </div>
-          <div class="richtext-content-inner text-{{ section.settings.deliminter_content_alignment }}" {{ block.shopify_attributes }}>
-            {% continue %}
+    <div class="rich-text-content text-{{ section.settings.content_alignment }}" {{ block.shopify_attributes }}>
+      <{{ block.settings.seo_heading }} class="content-heading {{ block.settings.size }}">
+        {%- if block.settings.page != blank and block.settings.heading == blank -%}
+          {{ block.settings.page.title }}
+        {%- else -%}
+        {% if block.settings.highlight_font == 'body' %}
+          {% capture highlightStyle %}
+          <span class="body-font">
+          {% endcapture %}
+        {% elsif block.settings.highlight_font == 'heading' %}
+        {% capture highlightStyle %}
+           <span class="heading-font">
+        {% endcapture %}  
+        {% else %}
+        {% capture highlightStyle %}
+           <span class="accent-font">
+        {% endcapture %}  
         {% endif %}
-        {% if block.type == 'richtext' or block.type == 'page' or block.type == 'button' or block.type == 'subheading' %}
-          {% if block.settings.heading != blank or block.settings.page.title != blank %}
-            <{{ block.settings.seo_heading }} class="content-heading {{ block.settings.size }}" id="{{ block.id }}">
-              {%- if block.settings.page != blank and block.settings.heading == blank -%}
-                {{ block.settings.page.title }}
-              {%- else -%}
-              {% if block.settings.highlight_font == 'body' %}
-                {% capture highlightStyle %}
-                <span class="body-font highlighted-text">
-                {% endcapture %}
-              {% elsif block.settings.highlight_font == 'heading' %}
-              {% capture highlightStyle %}
-                <span class="heading-font highlighted-text">
-              {% endcapture %}  
-              {% else %}
-              {% capture highlightStyle %}
-                <span class="accent-font highlighted-text">
-              {% endcapture %}  
-              {% endif %}
-
-                {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-
-                {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-                {%- if heading contains '[' and heading contains ']' -%}
-                  {%- render 'rotational-highlight', heading: heading -%}
-                {%- else -%}
-                  {{- heading -}}
-                {%- endif -%}
-              {%- endif -%}
-            </{{ block.settings.seo_heading }}>
-          {% endif %}
-          {%- case block.type -%}
-              {% when 'richtext' %}
-                {%- if block.settings.content != blank -%}
-                  <div class="rich-text-description rte">
-                    {{ block.settings.content }}
-                  </div>
-                {%- endif -%}
-              {% when 'page' %}
-                <div class="rich-text-description rte">
-                {% if block.settings.page != blank and block.settings.page.content != blank %}
-                  {{ block.settings.page.content }}
-                {% else %}
-                  <p>{{ 'onboarding.rich_text_page' | t }}</p>
-                {% endif %}
-                </div>
-              {%  when 'button' %}
-                {%- if block.settings.btntext != blank and block.settings.btnlink != blank -%}
-                  <div class="yv-richtext-button">
-                    <a
-                      class="button {{ block.settings.button_size }}-btn {{ block.settings.mobile_button_size }}-btn"
-                      href="{{ block.settings.btnlink }}"
-                    >
-                      {% if settings.buttonAnimation == 'animated-arrow'%}
-                        <span class="btn-animated-arrow"><svg fill="none" viewBox="0 0 8 8">
-                          <path fill="currentColor" fill-rule="evenodd" d="M0 0h8v8H7V1.707L1.354 7.354 1 7.707.293 7l.353-.354L6.293 1H0V0Z" clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                      {% endif %}
-                      <span class="btn-txt">{{- block.settings.btntext -}}</span>
-                    </a>
-                  </div>
-                {%- endif -%}
-              {% when 'subheading' %}
-                {%- if block.settings.subheading != blank -%}
-                <div class="yv-text-subheading text-medium heading-style">{{ block.settings.subheading }}</div>
-                {%- endif -%}
-          {%- endcase -%}
-        {% endif %}
-      {% endfor %} 
-    </div>
-    {% if is_delimiter %}
-      </div>
-    {% endif %}
-    {% if is_delimiter == true %}
-      <div class="d-md-none d-block">
-        <div class="richtext-content-inner">
-          {% for block in section.blocks %}
-            {% if block.type == 'richtext' or block.type == 'page' or block.type == 'button' or block.type == 'subheading' %}
-              {% if block.settings.heading != blank or block.settings.page.title != blank %}
-                <{{ block.settings.seo_heading }} class="content-heading {{ block.settings.size }}" id="{{ block.id }}">
-                  {%- if block.settings.page != blank and block.settings.heading == blank -%}
-                    {{ block.settings.page.title }}
-                  {%- else -%}
-                  {% if block.settings.highlight_font == 'body' %}
-                    {% capture highlightStyle %}
-                    <span class="body-font highlighted-text">
-                    {% endcapture %}
-                  {% elsif block.settings.highlight_font == 'heading' %}
-                  {% capture highlightStyle %}
-                    <span class="heading-font highlighted-text">
-                  {% endcapture %}  
-                  {% else %}
-                  {% capture highlightStyle %}
-                    <span class="accent-font highlighted-text">
-                  {% endcapture %}  
-                  {% endif %}
-                    {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-
-                    {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-                    {%- if heading contains '[' and heading contains ']' -%}
-                      {%- render 'rotational-highlight', heading: heading -%}
-                    {%- else -%}
-                      {{- heading -}}
-                    {%- endif -%}
-                  {%- endif -%}
-                </{{ block.settings.seo_heading }}>
-              {% endif %}
-              {%- case block.type -%}
-                  {% when 'richtext' %}
-                    {%- if block.settings.content != blank -%}
-                      <div class="rich-text-description rte">
-                        {{ block.settings.content }}
-                      </div>
-                    {%- endif -%}
-                  {% when 'page' %}
-                    <div class="rich-text-description rte">
-                    {% if block.settings.page != blank and block.settings.page.content != blank %}
-                      {{ block.settings.page.content }}
-                    {% else %}
-                      <p>{{ 'onboarding.rich_text_page' | t }}</p>
-                    {% endif %}
-                    </div>
-                  {%  when 'button' %}
-                    {%- if block.settings.btntext != blank and block.settings.btnlink != blank -%}
-                      <a
-                        class="button yv-collections-mainlink {{ block.settings.button_size }}-btn {{ block.settings.mobile_button_size }}-btn"
-                        href="{{ block.settings.btnlink }}"
-                      >
-                        {% if settings.buttonAnimation == 'animated-arrow'%}
-                          <span class="btn-animated-arrow"><svg fill="none" viewBox="0 0 8 8">
-                            <path fill="currentColor" fill-rule="evenodd" d="M0 0h8v8H7V1.707L1.354 7.354 1 7.707.293 7l.353-.354L6.293 1H0V0Z" clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                        {% endif %}
-                        <span class="btn-txt">{{- block.settings.btntext -}}</span>
-                      </a>
-                    {%- endif -%}
-                  {% when 'subheading' %}
-                    {%- if block.settings.subheading != blank -%}
-                      <div class="yv-text-subheading text-medium heading-style">{{ block.settings.subheading }}</div>
-                    {%- endif -%}
-              {%- endcase -%}
+          {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+        {%- endif -%}
+      </{{ block.settings.seo_heading }}>
+      <div class="rich-text-description">
+        {%- case block.type -%}
+          {% when 'richtext' %}
+            {{ block.settings.content }}
+          {% when 'page' %}
+            {% if block.settings.page != blank and block.settings.page.content != blank %}
+              {{ block.settings.page.content }}
+            {% else %}
+              <p>{{ 'onboarding.rich_text_page' | t }}</p>
             {% endif %}
-          {% endfor %}
-        </div>
+        {%- endcase -%}
       </div>
-    {% endif %}
-  </div>
+    </div>
+  {% endfor %}
 </div>
 <style>
   #shopify-section-{{ section.id }}.shopify-section {
@@ -177,24 +46,8 @@
     --subheading_color:var(--{{- section.settings.bgcolor -}}_subheading_color);
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
-    --heading_color:var(--{{- section.settings.bgcolor -}}_heading_color);
     {%- endunless -%}
   }
-
-  {%- for block in section.blocks -%}
-    {% case block.type %}
-      {% when 'richtext' or 'page' %}
-        #shopify-section-{{ section.id }} #{{ block.id }} {
-          {% if block.settings.highlight_text_gradient != blank %}
-            --highlightTextColor: {{ block.settings.highlight_text_gradient }};
-          {% else %}
-            --highlightTextColor: {{ block.settings.highlight_text_color }};
-          {% endif %}
-          --fontSize: var(--{{ block.settings.size }});
-        }
-      {% endcase %}
-  {% endfor %}
-
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -216,11 +69,11 @@
   {% endif %}
 </style>
 {% schema %}
-{ 
+{
   "name": "t:sections.rich-text.name",
   "tag": "section",
   "class": "rich-text-section",
-  "max_blocks": 5,
+  "max_blocks": 3,
   "disabled_on": {
     "groups": [
       "header"
@@ -251,26 +104,6 @@
       "type": "select",
       "id": "content_alignment",
       "label": "t:sections.rich-text.settings.content_alignment.label",
-      "default": "center",
-      "options": [
-        {
-          "label": "t:sections.rich-text.settings.content_alignment.options.left.label",
-          "value": "left"
-        },
-        {
-          "label": "t:sections.rich-text.settings.content_alignment.options.center.label",
-          "value": "center"
-        },
-        {
-          "label": "t:sections.rich-text.settings.content_alignment.options.right.label",
-          "value": "right"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "deliminter_content_alignment",
-      "label": "t:sections.rich-text.settings.delimiter-content-alignment.label",
       "default": "center",
       "options": [
         {
@@ -382,19 +215,6 @@
   ],
   "blocks": [
     {
-      "type": "subheading",
-      "name": "t:sections.map.blocks.subheading.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "subheading",
-          "label": "t:sections.map.blocks.subheading.settings.heading.label",
-          "default": "Subheading"
-        }
-      ]
-    },
-    {
       "type": "richtext",
       "name": "t:sections.rich-text.blocks.richtext.name",
       "settings": [
@@ -404,21 +224,6 @@
           "label": "t:sections.rich-text.blocks.richtext.settings.heading.label",
           "info": "t:common.highlight_text_and_break_text.info",
           "default": "Rich text"
-        },
-        {
-          "type": "color",
-          "id": "highlight_text_color",
-          "label": "t:common.highlight_text_color.label",
-          "default": "#000000",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
-        },
-        {
-          "type": "color_background",
-          "id": "highlight_text_gradient",
-          "label": "t:common.highlight_text_gradient.label",
-          "info": "t:common.highlight_text_gradient.info",
-          "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
         },
         {
           "type": "select",
@@ -525,21 +330,6 @@
           "default": "Page Content"
         },
         {
-          "type": "color",
-          "id": "highlight_text_color",
-          "label": "t:common.highlight_text_color.label",
-          "default": "#000000",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
-        },
-        {
-          "type": "color_background",
-          "id": "highlight_text_gradient",
-          "label": "t:common.highlight_text_gradient.label",
-          "info": "t:common.highlight_text_gradient.info",
-          "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
-        },
-        {
           "type": "select",
           "id": "highlight_font",
           "default": "body",
@@ -628,87 +418,6 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.rich-text.blocks.page.settings.page.label"
-        }       
-      ]
-    },
-    {
-      "type": "column_delimiter",
-      "name": "t:sections.rich-text.blocks.column_delimiter.label",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "t:sections.rich-text.blocks.column_delimiter.content"
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "t:common.header.button_section.label",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "btntext",
-          "default": "View All",
-          "label": "t:sections.featured-collections-carousel.settings.btntext.label"
-        },
-        {
-          "type": "url",
-          "id": "btnlink",
-          "label": "t:sections.featured-collections-carousel.settings.btnlink.label"
-        },
-        {
-          "type": "header",
-          "content": "t:common.button.shortname.label"
-        },
-        {
-          "type": "select",
-          "id": "button_size",
-          "default": "default",
-          "label": "t:common.desktop.label",
-          "options": [
-            {
-              "value": "default",
-              "label": "t:common.button.options.default.label"
-            },
-            {
-              "value": "small",
-              "label": "t:common.button.options.small.label"
-            },
-            {
-              "value": "med",
-              "label": "t:common.button.options.medium.label"
-            },
-            {
-              "value": "large",
-              "label": "t:common.button.options.large.label"
-            }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "mobile_button_size",
-          "default": "m-med",
-          "label": "t:common.mobile.label",
-          "options": [
-            {
-              "value": "m-default",
-              "label": "t:common.button.options.default.label"
-            },
-            {
-              "value": "m-small",
-              "label": "t:common.button.options.small.label"
-            },
-            {
-              "value": "m-med",
-              "label": "t:common.button.options.medium.label"
-            },
-            {
-              "value": "m-large",
-              "label": "t:common.button.options.large.label"
-            }
-          ]
         }
       ]
     }

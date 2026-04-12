@@ -1,5 +1,5 @@
 <div class="{% if section.settings.enable_fullwidth %}full-width{% else %}container sm-container{% endif %}">
-  <div class="tabbed-collage-container img-position-{{ section.settings.media_alignment }} horizontal-gap-{{ section.settings.horizontal_gap }}" {% if section.settings.show_icon_on_image %}style="position: relative;"{% endif %}>
+  <div class="tabbed-collage-container img-position-{{ section.settings.media_alignment }}" {% if section.settings.show_icon_on_image %}style="position: relative;"{% endif %}>
     {% if section.settings.show_icon_on_image %}
       <div class="yv-draw-icon" data-icon="{{ section.settings.icon }}">
         {% render 'animated-icons', icon: section.settings.icon %}
@@ -11,9 +11,7 @@
               <div id="blockMedia-{{ block.id }}" class="tabbed-collage-image {% if forloop.first %}active{% endif %}" {% if forloop.first %}style="display:block"{% endif %}>
                 <div class="image-wrapper">
                 {% if block.settings.video != blank %}
-                  
-                    {% assign poster = block.settings.video.preview_image | image_url: width: 1100 %} 
-                  <deferred-media {% if block.settings.autoplay == false %}data-id="tabbed-collage-autodisable"{% endif %}>
+                  <deferred-media>
                     <template style="display:none">   
                       <video class="tabbed-collage-video" controls> 
                         <source src="{{ block.settings.video.sources[0].url }}" type="video/mp4">
@@ -21,16 +19,17 @@
                       </video>
                     </template>    
                     <noscript>
-                      {% if poster != blank or block.settings.image != blank %}
+                      {% if block.settings.product.featured_media != blank or block.settings.image != blank %}
                         {% liquid
                           assign media = block.settings.image
-                          if poster != blank
-                            assign media = poster
+                          if block.settings.product.featured_media != blank
+                            assign media = block.settings.product.featured_media.preview_image
                           endif
                         %}
                         <img
                           src="{{ media | image_url: width: 2048 }}"
                           alt="{{ media.alt | escape }}"
+                          loading="lazy"
                           aria-label="{{ media.alt | default: shop.name | strip_html }}"
                           width=""
                           height=""
@@ -44,7 +43,6 @@
                         {% endif %}
                     </noscript>
                   </deferred-media>
-                 
                 {% elsif block.settings.product.featured_media != blank %}
                     {% render 'lazy-image', image: block.settings.product.featured_media %}
                 {% elsif block.settings.image != blank %}
@@ -62,53 +60,45 @@
         </div>
         <div class="col-12 col-sm-12 col-md-6">
             <div class="tabbed-collage-content tab-behaviour-{{ section.settings.tabs_behavior }}{% if section.settings.compact_view %} tab-compact-view{% endif %}">
-              {% if section.settings.subheading != blank or section.settings.heading != blank or section.settings.description != blank %}
-                <div class="yv-tabbed-collage-text">
-                  {%- if section.settings.subheading != blank -%}
-                    <h6
-                      class="yv-tabbed-collage-subtitle yv-subheading text-small"
-                      {% if settings.enable_animation %}
-                        data-aos="fade-up"
-                      {%- endif %}
-                    > 
-                      {{ section.settings.subheading }}
-                    </h6>
-                  {%- endif %}
-                  {%- if section.settings.heading != blank -%}
-                    {% if section.settings.highlight_font == 'body' %}
-                      {% capture highlightStyle %}
-                      <span class="body-font highlighted-text">
-                      {% endcapture %}
-                    {% elsif section.settings.highlight_font == 'heading' %}
+              <div class="yv-tabbed-collage-text">
+                {%- if section.settings.subheading != blank -%}
+                  <h6
+                    class="yv-tabbed-collage-subtitle yv-subheading text-small"
+                    {% if settings.enable_animation %}
+                      data-aos="fade-up"
+                    {%- endif %}
+                  > 
+                    {{ section.settings.subheading }}
+                  </h6>
+                {%- endif %}
+                {%- if section.settings.heading != blank -%}
+                  {% if section.settings.highlight_font == 'body' %}
                     {% capture highlightStyle %}
-                      <span class="heading-font highlighted-text">
-                    {% endcapture %}  
-                    {% else %}
-                    {% capture highlightStyle %}
-                      <span class="accent-font highlighted-text">
-                    {% endcapture %}  
-                    {% endif %}
-                    <{{ section.settings.seo_heading }}
-                      class="heading-title {{ section.settings.heading_size }}"
-                      {% if settings.enable_animation %}
-                        data-aos="fade-up" data-aos-delay="50"
-                      {%- endif %}
-                    >
-                      {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
-                      {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
-                      {%- if heading contains '[' and heading contains ']' -%}
-                        {%- render 'rotational-highlight', heading: heading -%}
-                      {%- else -%}
-                        {{- heading -}}
-                      {%- endif -%}
-                    </{{ section.settings.seo_heading }}>
-                  {%- endif %}
-                  {%- if section.settings.description != blank -%}
-                    <p class="yv-tabbed-collage-desc" {% if settings.enable_animation %} data-aos="fade-up" data-aos-delay="75"
-                    {%- endif %}>{{ section.settings.description | newline_to_br }}</p>
-                  {%- endif %}
-                </div>
-              {% endif %}
+                    <span class="body-font">
+                    {% endcapture %}
+                  {% elsif section.settings.highlight_font == 'heading' %}
+                  {% capture highlightStyle %}
+                     <span class="heading-font">
+                  {% endcapture %}  
+                  {% else %}
+                  {% capture highlightStyle %}
+                     <span class="accent-font">
+                  {% endcapture %}  
+                  {% endif %}
+                  <{{ section.settings.seo_heading }}
+                    class="heading-title {{ section.settings.heading_size }}"
+                    {% if settings.enable_animation %}
+                      data-aos="fade-up" data-aos-delay="50"
+                    {%- endif %}
+                  >
+                    {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+                  </{{ section.settings.seo_heading }}>
+                {%- endif %}
+                {%- if section.settings.description != blank -%}
+                  <p class="yv-tabbed-collage-desc" {% if settings.enable_animation %} data-aos="fade-up" data-aos-delay="75"
+                  {%- endif %}>{{ section.settings.description | newline_to_br }}</p>
+                {%- endif %}
+              </div>
                 <div class="yv-product-accordion yv-faq-accordion{% if section.settings.enable_blockbg %} background-enabled{% endif %}" 
                   data-tabs-open-method="{{ section.settings.tabs_behavior }}" 
                   data-faq-accordions
@@ -254,7 +244,42 @@
   </div>
 </div>
 <style>
+  {% comment %} :root {
+    --transition-duration: {{ section.settings.autoplay_delay | times: 1000 | divided_by: 1000 }}s;
+  }  
 
+  .yv-accordion-header.active .custom-content-tabs-progress:after {
+    animation: line-fill var(--transition-duration) linear forwards;
+    width:100%
+}
+.autoplay .custom-content-tabs-progress {
+    width: 100%;
+    height: 2px;
+    background: rgb(255 255 255 / 15%);
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.autoplay .custom-content-tabs-progress:after {
+    position: absolute;
+    content: "";
+    animation: line-fill var(--transition-duration) linear forwards;
+    width:100%;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background:rgb(253, 252, 252);
+}
+
+ @keyframes line-fill {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+{% endcomment %}
   {% if section.settings.show_icon_on_image %}
     #shopify-section-{{ section.id }} .animated-path {
       stroke-dasharray: 1000;
@@ -288,20 +313,9 @@
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     --colorXXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXXlightTextBody);
     --primaryCardBackground:var(--{{- section.settings.bgcolor -}}CardBackground);
-    --primaryCardText:var(--{{- section.settings.bgcolor -}}CardText);
     --primaryBorderColor: var(--{{- section.settings.bgcolor -}}BorderColor);
     {%- endunless -%}
-    {% if section.settings.highlight_text_gradient != blank %}
-      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
-    {% else %}
-      --highlightTextColor: {{ section.settings.highlight_text_color }};
-    {% endif %}
   }
-
-  #shopify-section-{{ section.id }}.shopify-section .heading-title {
-    --fontSize: var(--{{ section.settings.heading_size }});
-  }
-
   #shopify-section-{{ section.id }}.shopify-section .tabbed-collage-content{
     --layoutRadius:40px;
   }
@@ -446,49 +460,15 @@
       "default": false
     },
     {
-        "type": "select",
-        "id": "horizontal_gap",
-        "label": "t:sections.tabbed-collage.settings.horizontal_gap.label",
-        "default": "medium",
-        "options": [
-          {
-            "label": "t:sections.tabbed-collage.settings.horizontal_gap.options.small.label",
-            "value": "small"
-          },
-          {
-            "label": "t:sections.tabbed-collage.settings.horizontal_gap.options.medium.label",
-            "value": "medium"
-          },
-          {
-            "label": "t:sections.tabbed-collage.settings.horizontal_gap.options.large.label",
-            "value": "large"
-          }
-        ]
-    },
-    {
       "type": "header",
       "content": "t:common.header.text_section.label"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
+      "default": "Heading",
       "label": "t:common.highlight_font.options.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
-    },
-    {
-      "type": "color",
-      "id": "highlight_text_color",
-      "label": "t:common.highlight_text_color.label",
-      "default": "#000000",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
-    },
-    {
-      "type": "color_background",
-      "id": "highlight_text_gradient",
-      "label": "t:common.highlight_text_gradient.label",
-      "info": "t:common.highlight_text_gradient.info",
-      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
-      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",
@@ -579,11 +559,13 @@
     {
       "type": "text",
       "id": "subheading",
+      "default": "Subheading",
       "label": "t:common.sub_heading.label"
     },
     {
       "type": "textarea",
       "id": "description",
+      "default": "Share information about your collection with customers. Describe a collection, make announcements related to your collection.",
       "label": "t:common.description.label"
     },
     {
@@ -884,7 +866,7 @@
       "type": "range",
       "id": "top_space_desktop",
       "label": "t:common.top_space_desktop.label",
-      "default": 50,
+      "default": 0,
       "min": 0,
       "max": 100,
       "step": 5
@@ -925,19 +907,12 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.tabbed-collage.blocks.media.settings.image.label" 
+          "label": "t:sections.tabbed-collage.blocks.media.settings.image.label"
         },
         {
           "type": "video",
           "id": "video",
           "label": "t:sections.tabbed-collage.blocks.media.settings.video.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "autoplay",
-          "default": false,
-          "label": "t:sections.video-banner.settings.autoplay.label",
-          "info": "t:sections.video-banner.settings.autoplay.info"
         },
         {
           "type": "header",

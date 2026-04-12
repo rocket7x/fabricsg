@@ -1,0 +1,870 @@
+{% doc %}
+  @prompt
+    can i have a section with subheader, header, and preheader with 3 blocks that include adjustable line weight headers and descriptions and if i can customize the colors of the sections as well, if i can have 3 blocks per row
+    , can each of the block headers have icons too: reusable, eco-friendly, handmade
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-header-section-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.section_background_color }};
+  }
+
+  .ai-header-section__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-header-section__header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    margin-bottom: {{ block.settings.header_spacing }}px;
+  }
+
+  .ai-header-section__preheader-{{ ai_gen_id }} {
+    color: {{ block.settings.preheader_color }};
+    font-size: {{ block.settings.preheader_size }}px;
+    font-weight: {{ block.settings.preheader_weight }};
+    margin-bottom: 8px;
+    text-transform: {{ block.settings.preheader_transform }};
+    letter-spacing: 0.5px;
+  }
+
+  .ai-header-section__heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: {{ block.settings.heading_weight }};
+    line-height: 1.2;
+    margin: 0 0 12px;
+    text-transform: {{ block.settings.heading_transform }};
+  }
+
+  .ai-header-section__subheader-{{ ai_gen_id }} {
+    color: {{ block.settings.subheader_color }};
+    font-size: {{ block.settings.subheader_size }}px;
+    font-weight: {{ block.settings.subheader_weight }};
+    line-height: 1.5;
+    margin: 0;
+    text-transform: {{ block.settings.subheader_transform }};
+  }
+
+  .ai-header-section__blocks-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: {{ block.settings.block_spacing }}px;
+    margin-top: {{ block.settings.content_spacing }}px;
+  }
+
+  @media (min-width: 768px) {
+    .ai-header-section__blocks-{{ ai_gen_id }} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .ai-header-section__block-{{ ai_gen_id }} {
+    background-color: {{ block.settings.block_background_color }};
+    padding: {{ block.settings.block_padding }}px;
+    border-radius: {{ block.settings.block_border_radius }}px;
+    border: {{ block.settings.block_border_width }}px solid {{ block.settings.block_border_color }};
+    text-align: {{ block.settings.block_text_alignment }};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-header-section__block-{{ ai_gen_id }}:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-header-section__block-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin: 0 auto {{ block.settings.icon_spacing }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background_color }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-header-section__block-icon-{{ ai_gen_id }} svg {
+    width: {{ block.settings.icon_size | times: 0.6 }}px;
+    height: {{ block.settings.icon_size | times: 0.6 }}px;
+  }
+
+  .ai-header-section__block-header-{{ ai_gen_id }} {
+    color: {{ block.settings.block_header_color }};
+    font-size: {{ block.settings.block_header_size }}px;
+    font-weight: {{ block.settings.block_header_weight }};
+    line-height: 1.3;
+    margin: 0 0 12px;
+    text-transform: {{ block.settings.block_header_transform }};
+  }
+
+  .ai-header-section__block-description-{{ ai_gen_id }} {
+    color: {{ block.settings.block_description_color }};
+    font-size: {{ block.settings.block_description_size }}px;
+    font-weight: {{ block.settings.block_description_weight }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 767px) {
+    .ai-header-section__blocks-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.block_spacing | divided_by: 2 }}px;
+    }
+
+    .ai-header-section__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+
+    .ai-header-section__block-header-{{ ai_gen_id }} {
+      font-size: {{ block.settings.block_header_size | times: 0.9 }}px;
+    }
+
+    .ai-header-section__block-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+
+    .ai-header-section__block-icon-{{ ai_gen_id }} svg {
+      width: {{ block.settings.icon_size | times: 0.5 }}px;
+      height: {{ block.settings.icon_size | times: 0.5 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-header-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-header-section__container-{{ ai_gen_id }}">
+    <div class="ai-header-section__header-{{ ai_gen_id }}">
+      {% if block.settings.preheader != blank %}
+        <div class="ai-header-section__preheader-{{ ai_gen_id }}">
+          {{ block.settings.preheader }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-header-section__heading-{{ ai_gen_id }}">
+          {{ block.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if block.settings.subheader != blank %}
+        <div class="ai-header-section__subheader-{{ ai_gen_id }}">
+          {{ block.settings.subheader }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-header-section__blocks-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% liquid
+          assign block_header_key = 'block_' | append: i | append: '_header'
+          assign block_description_key = 'block_' | append: i | append: '_description'
+          assign block_icon_key = 'block_' | append: i | append: '_icon'
+          assign block_header = block.settings[block_header_key]
+          assign block_description = block.settings[block_description_key]
+          assign block_icon = block.settings[block_icon_key]
+        %}
+
+        {% if block_header != blank or block_description != blank %}
+          <div class="ai-header-section__block-{{ ai_gen_id }}">
+            {% if block_icon != 'none' %}
+              <div class="ai-header-section__block-icon-{{ ai_gen_id }}">
+                {% case block_icon %}
+                  {% when 'recycle' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  {% when 'leaf' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  {% when 'heart' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  {% when 'star' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  {% when 'shield' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  {% when 'lightning' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  {% when 'gift' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                    </svg>
+                  {% when 'truck' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                {% endcase %}
+              </div>
+            {% endif %}
+
+            {% if block_header != blank %}
+              <h3 class="ai-header-section__block-header-{{ ai_gen_id }}">
+                {{ block_header }}
+              </h3>
+            {% endif %}
+
+            {% if block_description != blank %}
+              <div class="ai-header-section__block-description-{{ ai_gen_id }}">
+                {{ block_description }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header content blocks",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Header content"
+    },
+    {
+      "type": "text",
+      "id": "preheader",
+      "label": "Preheader text",
+      "default": "Our Values"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main heading",
+      "default": "What Makes Us Special"
+    },
+    {
+      "type": "textarea",
+      "id": "subheader",
+      "label": "Subheader text",
+      "default": "Discover our commitment to quality, sustainability, and craftsmanship"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Header bottom spacing",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Content top spacing",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Preheader style"
+    },
+    {
+      "type": "color",
+      "id": "preheader_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "preheader_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "preheader_weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "label": "Font weight",
+      "default": 500
+    },
+    {
+      "type": "select",
+      "id": "preheader_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "header",
+      "content": "Main heading style"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "label": "Font weight",
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "heading_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Subheader style"
+    },
+    {
+      "type": "color",
+      "id": "subheader_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "subheader_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "subheader_weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "label": "Font weight",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "subheader_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Block icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 40,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Icon bottom spacing",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_background_color",
+      "label": "Icon background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon border radius",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Content blocks"
+    },
+    {
+      "type": "select",
+      "id": "block_1_icon",
+      "label": "Block 1 icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "No icon"
+        },
+        {
+          "value": "recycle",
+          "label": "Recycle (Reusable)"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf (Eco-friendly)"
+        },
+        {
+          "value": "heart",
+          "label": "Heart (Handmade)"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        }
+      ],
+      "default": "recycle"
+    },
+    {
+      "type": "text",
+      "id": "block_1_header",
+      "label": "Block 1 header",
+      "default": "Reusable"
+    },
+    {
+      "type": "textarea",
+      "id": "block_1_description",
+      "label": "Block 1 description",
+      "default": "Our products are designed to last, reducing waste and providing long-term value for sustainable living."
+    },
+    {
+      "type": "select",
+      "id": "block_2_icon",
+      "label": "Block 2 icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "No icon"
+        },
+        {
+          "value": "recycle",
+          "label": "Recycle (Reusable)"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf (Eco-friendly)"
+        },
+        {
+          "value": "heart",
+          "label": "Heart (Handmade)"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        }
+      ],
+      "default": "leaf"
+    },
+    {
+      "type": "text",
+      "id": "block_2_header",
+      "label": "Block 2 header",
+      "default": "Eco-friendly"
+    },
+    {
+      "type": "textarea",
+      "id": "block_2_description",
+      "label": "Block 2 description",
+      "default": "Made with sustainable materials and processes that minimize environmental impact and protect our planet."
+    },
+    {
+      "type": "select",
+      "id": "block_3_icon",
+      "label": "Block 3 icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "No icon"
+        },
+        {
+          "value": "recycle",
+          "label": "Recycle (Reusable)"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf (Eco-friendly)"
+        },
+        {
+          "value": "heart",
+          "label": "Heart (Handmade)"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        }
+      ],
+      "default": "heart"
+    },
+    {
+      "type": "text",
+      "id": "block_3_header",
+      "label": "Block 3 header",
+      "default": "Handmade"
+    },
+    {
+      "type": "textarea",
+      "id": "block_3_description",
+      "label": "Block 3 description",
+      "default": "Carefully crafted by skilled artisans with attention to detail and traditional techniques passed down through generations."
+    },
+    {
+      "type": "header",
+      "content": "Block styling"
+    },
+    {
+      "type": "color",
+      "id": "block_background_color",
+      "label": "Background color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "block_border_color",
+      "label": "Border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "block_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "block_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "block_padding",
+      "min": 16,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "block_spacing",
+      "min": 16,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Spacing between blocks",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "block_text_alignment",
+      "label": "Block text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Block header style"
+    },
+    {
+      "type": "color",
+      "id": "block_header_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "block_header_size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "block_header_weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "label": "Font weight",
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "block_header_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Block description style"
+    },
+    {
+      "type": "color",
+      "id": "block_description_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "block_description_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "block_description_weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "label": "Font weight",
+      "default": 400
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header content blocks"
+    }
+  ]
+}
+{% endschema %}

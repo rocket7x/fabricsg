@@ -7,120 +7,65 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "page-header": {
-        "type": "main-page",
-        "settings": {
-          "seo_heading": "h2",
-          "banner_height_desktop": "200px",
-          "banner_height_mobile": "auto",
-          "bgcolor": "#bfbfbf",
-          "textcolor": "#ffffff"
-        }
-      },
-      "faq_section_ftgB9i": {
-        "type": "faq-section",
-        "blocks": {
-          "faq_Hh9xgb": {
-            "type": "faq",
-            "settings": {
-              "heading": "Frequently asked question",
-              "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
-            }
-          },
-          "faq_9dDXBc": {
-            "type": "faq",
-            "settings": {
-              "heading": "Frequently asked question",
-              "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
-            }
-          },
-          "faq_wXWezn": {
-            "type": "faq",
-            "settings": {
-              "heading": "Frequently asked question",
-              "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
-            }
-          },
-          "faq_XJK3ca": {
-            "type": "faq",
-            "settings": {
-              "heading": "Frequently asked question",
-              "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
-            }
-          }
-        },
-        "block_order": [
-          "faq_Hh9xgb",
-          "faq_9dDXBc",
-          "faq_wXWezn",
-          "faq_XJK3ca"
-        ],
-        "name": "t:sections.faq-section.presets.name",
-        "settings": {
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "open_first": true,
-          "section_border_style": "solid",
-          "heading": "FAQs",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "bgcolor": "primary",
-          "row_bgcolor": "secondary",
-          "section_visibility": "always",
-          "top_space_desktop": 30,
-          "bottom_space_desktop": 30,
-          "top_space_mobile": 30,
-          "bottom_space_mobile": 30
-        }
-      },
-      "934fe332-1636-4e37-9f6f-aeed102cc1d6": {
-        "type": "rotating-text",
-        "settings": {
-          "text1": "<p>Add promotional text here</p>",
-          "desktop_text_gap": 17,
-          "mobile_text_gap": 17,
-          "text2": "",
-          "desktop_subtext_gap": 17,
-          "mobile_subtext_gap": 17,
-          "rotating_text_style": "vertical",
-          "pause_on_hover": false,
-          "row1_font_family": "--heading-font-family",
-          "row2_font_family": "--font-family",
-          "row1_direction": "left",
-          "row2_direction": "right",
-          "heading_font_size": 100,
-          "subheading_font_size": 10,
-          "heading_font_size_m": 50,
-          "subheading_font_size_m": 16,
-          "section_border": true,
-          "section_border_bottom": true,
-          "border_width": "2px",
-          "border_style": "solid",
-          "background_opacity": 50,
-          "min_height_desktop": 400,
-          "min_height_mobile": 200,
-          "bgcolor": "#131212",
-          "bg_gradient_color": "",
-          "text1color": "#4e4e4e",
-          "outlinetext1color": "#000000",
-          "text2color": "#a56748",
-          "outlinetext2color": "#a56748",
-          "background_overlay": "#000000",
-          "border_color": "#000000",
-          "section_visibility": "always",
-          "top_space_desktop": 10,
-          "bottom_space_desktop": 10,
-          "top_space_mobile": 15,
-          "bottom_space_mobile": 15
-        }
+{
+  "sections": {
+    "page-header": {
+      "type": "main-page",
+      "settings": {
+        "banner": "shopify://shop_images/PearGreen_5.png",
+        "seo_heading": "h2",
+        "banner_height_desktop": "300px",
+        "banner_height_mobile": "auto",
+        "bgcolor": "#bfbfbf",
+        "textcolor": "#ffffff"
       }
     },
-    "order": [
-      "page-header",
-      "faq_section_ftgB9i",
-      "934fe332-1636-4e37-9f6f-aeed102cc1d6"
-    ]
-  }
-  
+    "17617039142c0ec006": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_972f11d_QzYnHQ": {
+          "type": "ai_gen_block_972f11d",
+          "settings": {
+            "heading": "Still have questions?",
+            "text": "<p>Can't find the answer you're looking for? Please reach out to our friendly team.</p>",
+            "heading_size": 24,
+            "text_size": 16,
+            "button_text": "Contact us",
+            "button_link": "shopify://pages/contact",
+            "button_text_size": 16,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "background_color": "#6e90b5",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_border_color_hover": "#000000",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 40,
+            "margin_top": 0,
+            "border_radius": 10,
+            "heading_spacing": 12,
+            "text_spacing": 24
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_972f11d_QzYnHQ"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "page-header",
+    "17617039142c0ec006"
+  ]
+}

@@ -7,1094 +7,1079 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "16596094546c627d0e": {
-        "type": "slider",
-        "blocks": {
-          "9fe30519-35ad-4a76-b0db-5e7d0cc61763": {
-            "type": "slide",
-            "settings": {
-              "videofile": "",
-              "banner_subtitle": "Banner Sub Heading Here",
-              "glass_effect": false,
-              "banner_title": "Banner Heading Here",
-              "seo_heading": "h2",
-              "banner_desc": "Banner Description Here",
-              "description_size": "text",
-              "desktop_title_size": 60,
-              "mobile_title_size": 36,
-              "button_size": "med",
-              "mobile_button_size": "m-med",
-              "button_text": "Shop Now",
-              "button_link": "",
-              "button_text2": "",
-              "button_link2": "",
-              "button2_alternate": true,
-              "desktop_content_position": "d-bottom-left",
-              "mobile_content_position": "m-bottom-left",
-              "title_color": "#ffffff",
-              "subtitle_color": "#ffffff",
-              "subtitle_bgcolor": "rgba(0,0,0,0)",
-              "desc_color": "#ffffff",
-              "btn_bg": "#ffffff",
-              "btn_text": "#000000",
-              "btn_border": "#ffffff",
-              "overlay_color": "#5b2709",
-              "overlay_opacity": 20,
-              "title_color_m": "#ffffff",
-              "subtitle_color_m": "#ffffff",
-              "subtitle_bgcolor_m": "rgba(0,0,0,0)",
-              "desc_color_m": "#ffffff",
-              "btn_bg_m": "#ffffff",
-              "btn_text_m": "#000000",
-              "btn_border_m": "#ffffff",
-              "overlay_color_m": "#a9a9a9",
-              "overlay_opacity_m": 50
-            }
-          },
-          "slide_ANd4Fr": {
-            "type": "slide",
-            "settings": {
-              "videofile": "",
-              "banner_subtitle": "Banner Description Here",
-              "glass_effect": false,
-              "banner_title": "Banner Heading Here",
-              "seo_heading": "h2",
-              "banner_desc": "Natural Skincare Solutions.",
-              "description_size": "text",
-              "desktop_title_size": 60,
-              "mobile_title_size": 36,
-              "button_size": "med",
-              "mobile_button_size": "m-med",
-              "button_text": "Shop Now",
-              "button_link": "",
-              "button_text2": "",
-              "button_link2": "",
-              "button2_alternate": true,
-              "desktop_content_position": "d-bottom-left",
-              "mobile_content_position": "m-bottom-left",
-              "title_color": "#ffffff",
-              "subtitle_color": "#ffffff",
-              "subtitle_bgcolor": "rgba(0,0,0,0)",
-              "desc_color": "#ffffff",
-              "btn_bg": "#ffffff",
-              "btn_text": "#000000",
-              "btn_border": "#ffffff",
-              "overlay_color": "#a9a9a9",
-              "overlay_opacity": 50,
-              "title_color_m": "#ffffff",
-              "subtitle_color_m": "#ffffff",
-              "subtitle_bgcolor_m": "rgba(0,0,0,0)",
-              "desc_color_m": "#ffffff",
-              "btn_bg_m": "#ffffff",
-              "btn_text_m": "#000000",
-              "btn_border_m": "#ffffff",
-              "overlay_color_m": "#a9a9a9",
-              "overlay_opacity_m": 50
-            }
+{
+  "sections": {
+    "split_slider_eBmA9J": {
+      "type": "split-slider",
+      "blocks": {
+        "slide_gc3xJx": {
+          "type": "slide",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "image_mobile": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "banner_subtitle": "FLAT 25% OFF",
+            "banner_title": "Spring Refresh Artisan Block Print Tablecloths",
+            "seo_heading": "h2",
+            "desktop_title_size": 70,
+            "mobile_title_size": 36,
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/rectangle-table-cover",
+            "button_size": "default",
+            "mobile_button_size": "m-med",
+            "mobile_content_position": "flex-end",
+            "mobile_content_alignment": "flex-start",
+            "title_color": "#000000",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "#850000",
+            "btn_bg": "#014f20",
+            "btn_text": "#ffffff",
+            "btn_border": "#014f20",
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#9d6348",
+            "subtitle_bgcolor_m": "#fff9ef",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#000000",
+            "btn_border_m": "#ffffff"
           }
         },
-        "block_order": [
-          "9fe30519-35ad-4a76-b0db-5e7d0cc61763",
-          "slide_ANd4Fr"
-        ],
-        "settings": {
-          "nav_style": "dots",
-          "content_below_image": false,
-          "rotate": false,
-          "interval": 5,
-          "desktop_height": "850px",
-          "mobile_height": "750px",
-          "bgcolor": "primary"
-        }
-      },
-      "d009ae55-5977-4815-a5d5-0fde7f0f5e63": {
-        "type": "rich-text",
-        "blocks": {
-          "11159a46-a7b8-48d3-94c7-948358264fc9": {
-            "type": "richtext",
-            "settings": {
-              "heading": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "size": "h2",
-              "content": "<h1>Use this section to welcome customers to your store, say a bit about your brand, or share news and seasonal promotions.</h1><h2></h2>"
-            }
+        "slide_7aLFcy": {
+          "type": "slide",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "image_mobile": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "banner_subtitle": "Upto 40% OFF",
+            "banner_title": "Cozy Up with Soft Premium Handmade Quilts",
+            "seo_heading": "h2",
+            "desktop_title_size": 70,
+            "mobile_title_size": 36,
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/quilt",
+            "button_size": "default",
+            "mobile_button_size": "m-med",
+            "mobile_content_position": "flex-end",
+            "mobile_content_alignment": "flex-start",
+            "title_color": "#000000",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "#850000",
+            "btn_bg": "#014f20",
+            "btn_text": "#ffffff",
+            "btn_border": "#014f20",
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#9d6348",
+            "subtitle_bgcolor_m": "#fff9ef",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#000000",
+            "btn_border_m": "#ffffff"
           }
         },
-        "block_order": [
-          "11159a46-a7b8-48d3-94c7-948358264fc9"
-        ],
-        "settings": {
-          "content_width": "container sm-container",
-          "content_alignment": "center",
-          "bgcolor": "secondary",
-          "section_visibility": "always",
-          "top_space_desktop": 60,
-          "bottom_space_desktop": 20,
-          "top_space_mobile": 20,
-          "bottom_space_mobile": 0
-        }
-      },
-      "f5544caa-c557-483b-8125-cde254a93932": {
-        "type": "gallery-carousel",
-        "blocks": {
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-1": {
-            "type": "image",
-            "settings": {
-              "heading": "",
-              "subheading": "",
-              "link": ""
-            }
-          },
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-2": {
-            "type": "image",
-            "settings": {
-              "heading": "",
-              "subheading": "",
-              "link": ""
-            }
-          },
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-3": {
-            "type": "image",
-            "settings": {
-              "heading": "",
-              "subheading": "",
-              "link": ""
-            }
-          },
-          "eeb2f9cb-f0d3-4a73-9df7-76edb3b7ad69": {
-            "type": "image",
-            "settings": {
-              "heading": "",
-              "subheading": "",
-              "link": ""
-            }
-          },
-          "115bf8fe-e23e-412d-a5f6-2149be87cb50": {
-            "type": "image",
-            "settings": {
-              "heading": "",
-              "subheading": "",
-              "link": ""
-            }
+        "slide_VRUXf8": {
+          "type": "slide",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "banner_subtitle": "FLAT 25% OFF",
+            "banner_title": "Shop handcrafted pillow covers",
+            "seo_heading": "h2",
+            "desktop_title_size": 70,
+            "mobile_title_size": 36,
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all-cotton-pillow-covers",
+            "button_size": "default",
+            "mobile_button_size": "m-med",
+            "mobile_content_position": "flex-end",
+            "mobile_content_alignment": "flex-start",
+            "title_color": "#000000",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "#850000",
+            "btn_bg": "#014f20",
+            "btn_text": "#ffffff",
+            "btn_border": "#014f20",
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#9d6348",
+            "subtitle_bgcolor_m": "#fff9ef",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#000000",
+            "btn_border_m": "#ffffff"
           }
         },
-        "block_order": [
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-1",
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-2",
-          "template--17273360318703__f5544caa-c557-483b-8125-cde254a93932-image-3",
-          "eeb2f9cb-f0d3-4a73-9df7-76edb3b7ad69",
-          "115bf8fe-e23e-412d-a5f6-2149be87cb50"
-        ],
-        "settings": {
-          "enable_fullwidth": true,
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "border_style": "solid",
-          "heading": "",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "heading_size": "h2",
-          "gallery_style": "auto-slide",
-          "slide_direction": "right",
-          "image_style": "square",
-          "image_size": "xsmall",
-          "text_alignment": "center",
-          "enable_image_animation": false,
-          "image_crop": true,
-          "image_background": false,
-          "enable_swipe": true,
-          "bgcolor": "secondary",
-          "section_visibility": "always",
-          "top_space_desktop": 0,
-          "bottom_space_desktop": 15,
-          "top_space_mobile": 0,
-          "bottom_space_mobile": 10
-        }
-      },
-      "b5f9cce1-f96f-4a1a-b7fc-11edba340612": {
-        "type": "collage",
-        "blocks": {
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-1": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-6",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-top-left",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#5b2709",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#ffffff",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-2": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-3",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-top-left",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#000000",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#ffffff",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-3": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-3",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-top-left",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#5b2709",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#000000",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "image_KMEiyQ": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-3",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-top-left",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#5b2709",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#000000",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "b16b4417-b935-4ef6-b933-50f81089b603": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-3",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h1",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 30,
-              "desktop_content_position": "d-bottom-center",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#000000",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#ffffff",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "31655306-dcd2-4f69-b98c-abbb6fd31586": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-6",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "Subheading",
-              "link": "",
-              "btn_text": "SHOP NOW",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "small",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "small",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-center-left",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#5b2709",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#000000",
-              "button_text_color": "#000000",
-              "button_bg_color": "#181818",
-              "button_border_color": "#ffffff"
-            }
+        "slide_hhKAhr": {
+          "type": "slide",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "banner_subtitle": "Our Season Favorites",
+            "banner_title": "Shop the New Spring Collection 25% Off",
+            "seo_heading": "h2",
+            "desktop_title_size": 70,
+            "mobile_title_size": 36,
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/strawberry-pink-collection",
+            "button_size": "default",
+            "mobile_button_size": "m-med",
+            "mobile_content_position": "flex-end",
+            "mobile_content_alignment": "flex-start",
+            "title_color": "#000000",
+            "subtitle_color": "#000000",
+            "subtitle_bgcolor": "#e7f5e8",
+            "btn_bg": "#014f20",
+            "btn_text": "#ffffff",
+            "btn_border": "#014f20",
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#9d6348",
+            "subtitle_bgcolor_m": "#fff9ef",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#000000",
+            "btn_border_m": "#ffffff"
           }
-        },
-        "block_order": [
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-1",
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-2",
-          "template--17273360318703__b5f9cce1-f96f-4a1a-b7fc-11edba340612-image-3",
-          "image_KMEiyQ",
-          "b16b4417-b935-4ef6-b933-50f81089b603",
-          "31655306-dcd2-4f69-b98c-abbb6fd31586"
-        ],
-        "settings": {
-          "enable_fullwidth": false,
-          "enable_swipe": true,
-          "image_layout": "rounded",
-          "enable_image_animation": true,
-          "enable_hover_effect": false,
-          "image_radius_desktop": 6,
-          "image_radius_mobile": 10,
-          "heading_size": "h1",
-          "button_size": "xsmall",
-          "space_in_images": true,
-          "image_spacing_desktop": 4,
-          "image_spacing_mobile": 10,
-          "bgcolor": "primary",
-          "section_visibility": "always",
-          "top_space_desktop": 60,
-          "bottom_space_desktop": 60,
-          "top_space_mobile": 20,
-          "bottom_space_mobile": 20
         }
       },
-      "d34fb875-26a3-4df0-a1e7-d6e7383eb9c8": {
-        "type": "image-with-text",
-        "blocks": {
-          "3ba5c7fb-0b36-4db8-b542-fa63699df604": {
-            "type": "text",
-            "settings": {
-              "content": "<h1>Image with text</h1>"
-            }
-          },
-          "96d23cb0-feef-466a-a80a-62101fc929d9": {
-            "type": "text",
-            "settings": {
-              "content": "<p>To provide clients insight into your brand, pair words with any image to introduce a new campaign.</p>"
-            }
-          },
-          "b5eb3218-1fe0-4557-9942-42782c8597d1": {
-            "type": "button",
-            "settings": {
-              "btn_text": "Read More",
-              "btn_link": "",
-              "button_size": "small",
-              "mobile_button_size": "m-med"
-            }
-          }
-        },
-        "block_order": [
-          "3ba5c7fb-0b36-4db8-b542-fa63699df604",
-          "96d23cb0-feef-466a-a80a-62101fc929d9",
-          "b5eb3218-1fe0-4557-9942-42782c8597d1"
-        ],
-        "settings": {
-          "enable_fullwidth": true,
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "border_style": "solid",
-          "image_shadow": false,
-          "enable_image_animation": false,
-          "image_alignment": "left",
-          "image_height": "aspect",
-          "show_icon_on_image": false,
-          "icon": "snail",
-          "left_to_right": 50,
-          "top_to_bottom": 50,
-          "mobile_left_to_right": 50,
-          "mobile_top_to_bottom": 50,
-          "icon_animated_color": "#000000",
-          "content_position": "center",
-          "bgcolor": "secondary",
-          "image_shadow_color": "#dddddd",
-          "section_visibility": "always",
-          "top_space_desktop": 0,
-          "bottom_space_desktop": 0,
-          "top_space_mobile": 0,
-          "bottom_space_mobile": 20
-        }
-      },
-      "165711430162a4074a": {
-        "type": "tabbed-collections",
-        "settings": {
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "border_style": "solid",
-          "arrow_position": "left",
-          "heading": "Collection Trending Product",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "heading_size": "h2",
-          "tabs_style": "straight",
-          "tabs_position": "right",
-          "tabs_alignment": "left-start",
-          "products_style": "carousel",
-          "enable_swipe": true,
-          "products_per_row": 5,
-          "product_grid_radius_desktop": 10,
-          "product_grid_radius_mobile": 10,
-          "product_grid_spacing_desktop": 10,
-          "product_grid_spacing_mobile": 10,
-          "show_image_in_tab": false,
-          "hide_tab_name": false,
-          "show_tabs_border": false,
-          "enable_view_all_button": false,
-          "view_all_button_text": "View all",
-          "button_size": "med",
-          "mobile_button_size": "m-med",
-          "bgcolor": "quaternary",
-          "section_visibility": "always",
-          "top_space_desktop": 60,
-          "bottom_space_desktop": 40,
-          "top_space_mobile": 30,
-          "bottom_space_mobile": 10
-        }
-      },
-      "b297b020-b709-42e6-80b1-4a9a36a378ca": {
-        "type": "image-banner",
-        "settings": {
-          "enable_parallax": true,
-          "section_visibility": "always",
-          "desktop_height": "750px",
-          "mobile_height": "500px",
-          "block_display": "categories",
-          "banner_title": "Banner Heading Here",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "desktop_title_size": 70,
-          "mobile_title_size": 36,
-          "banner_desc": "Banner Description Here",
-          "button_text": "Shop Now",
-          "button_link": "",
-          "button_size": "small",
-          "mobile_button_size": "m-small",
-          "content_position": "center-center",
-          "title_color": "#ffffff",
-          "desc_color": "#ffffff",
-          "btn_bg": "#ffffff",
-          "btn_text": "#000000",
-          "btn_border": "#ffffff",
-          "overlay_color": "#000000",
-          "overlay_opacity": 20
-        }
-      },
-      "1657114280ba0d82f2": {
-        "type": "rotating-text",
-        "settings": {
-          "text1": "",
-          "desktop_text_gap": 17,
-          "mobile_text_gap": 17,
-          "text2": "<p>Add promotional text here</p>",
-          "desktop_subtext_gap": 17,
-          "mobile_subtext_gap": 17,
-          "rotating_text_style": "vertical",
-          "pause_on_hover": false,
-          "row1_font_family": "--font-family",
-          "row2_font_family": "--font-family",
-          "row1_direction": "left",
-          "row2_direction": "right",
-          "heading_font_size": 14,
-          "subheading_font_size": 16,
-          "heading_font_size_m": 14,
-          "subheading_font_size_m": 10,
-          "section_border": false,
-          "section_border_bottom": true,
-          "border_width": "2px",
-          "border_style": "solid",
-          "background_opacity": 50,
-          "min_height_desktop": 400,
-          "min_height_mobile": 200,
-          "bgcolor": "#171616",
-          "bg_gradient_color": "",
-          "text1color": "#ffffff",
-          "outlinetext1color": "#ffffff",
-          "text2color": "#ffffff",
-          "outlinetext2color": "#a56748",
-          "background_overlay": "#000000",
-          "border_color": "#000000",
-          "section_visibility": "always",
-          "top_space_desktop": 10,
-          "bottom_space_desktop": 10,
-          "top_space_mobile": 10,
-          "bottom_space_mobile": 10
-        }
-      },
-      "7041adb5-795c-4498-b103-1f942e1341c1": {
-        "type": "image-with-text",
-        "blocks": {
-          "1ba7c8bb-72b7-41c3-ae8f-be8ff5f50700": {
-            "type": "text",
-            "settings": {
-              "content": "<h1>Image With Text</h1>"
-            }
-          },
-          "148f65e6-cadc-4117-a527-067339d4da6b": {
-            "type": "text",
-            "settings": {
-              "content": "<p>To provide clients insight into your brand, pair words with any image to introduce a new campaign.</p>"
-            }
-          },
-          "3c0ee838-f321-49b8-b312-f9d410e7fb8a": {
-            "type": "button",
-            "settings": {
-              "btn_text": "Read More",
-              "btn_link": "",
-              "button_size": "small",
-              "mobile_button_size": "m-med"
-            }
-          }
-        },
-        "block_order": [
-          "1ba7c8bb-72b7-41c3-ae8f-be8ff5f50700",
-          "148f65e6-cadc-4117-a527-067339d4da6b",
-          "3c0ee838-f321-49b8-b312-f9d410e7fb8a"
-        ],
-        "settings": {
-          "enable_fullwidth": false,
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "border_style": "solid",
-          "image_shadow": false,
-          "enable_image_animation": false,
-          "image_alignment": "left",
-          "image_height": "aspect",
-          "show_icon_on_image": false,
-          "icon": "snail",
-          "left_to_right": 50,
-          "top_to_bottom": 50,
-          "mobile_left_to_right": 50,
-          "mobile_top_to_bottom": 50,
-          "icon_animated_color": "#000000",
-          "content_position": "center",
-          "bgcolor": "secondary",
-          "image_shadow_color": "#dddddd",
-          "section_visibility": "always",
-          "top_space_desktop": 70,
-          "bottom_space_desktop": 70,
-          "top_space_mobile": 30,
-          "bottom_space_mobile": 10
-        }
-      },
-      "8498ec01-d8a1-4c69-810d-e2ca0fbbec5e": {
-        "type": "rich-text",
-        "blocks": {
-          "template--17273172721903__8498ec01-d8a1-4c69-810d-e2ca0fbbec5e-richtext-1": {
-            "type": "richtext",
-            "settings": {
-              "heading": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "size": "h2",
-              "content": "<h1>About your store</h1>"
-            }
-          },
-          "7a8e2373-19da-4437-9f18-1fc43dce2f30": {
-            "type": "richtext",
-            "settings": {
-              "heading": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "size": "h2",
-              "content": "<p>Use this section to welcome customers to your store, say a bit about your brand, or share news and seasonal promotions.</p>"
-            }
-          }
-        },
-        "block_order": [
-          "template--17273172721903__8498ec01-d8a1-4c69-810d-e2ca0fbbec5e-richtext-1",
-          "7a8e2373-19da-4437-9f18-1fc43dce2f30"
-        ],
-        "settings": {
-          "content_width": "container sm-container",
-          "content_alignment": "center",
-          "bgcolor": "quaternary",
-          "section_visibility": "always",
-          "top_space_desktop": 60,
-          "bottom_space_desktop": 20,
-          "top_space_mobile": 10,
-          "bottom_space_mobile": 0
-        }
-      },
-      "710bdeb3-3d69-4c48-bd1a-bfe6834d023b": {
-        "type": "collage",
-        "blocks": {
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-1": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-4",
-              "heading": "Heading",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "medium",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-bottom-center",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#282828",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "rgba(0,0,0,0)",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-2": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-4",
-              "heading": "Beyond Cleanse, Nourish",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "medium",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-bottom-center",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#000000",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#000000",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          },
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-3": {
-            "type": "image",
-            "settings": {
-              "image_width": "col-md-4",
-              "heading": "Get Your Glow On!",
-              "seo_heading": "h2",
-              "enable_text_shadow": false,
-              "subheading": "",
-              "link": "",
-              "btn_text": "",
-              "outline_button": false,
-              "heading_size": "h2",
-              "button_size": "xsmall",
-              "content_width": "medium",
-              "heading_size_m": "h2",
-              "button_size_m": "m-xsmall",
-              "content_width_m": "medium",
-              "overlayopacity": 20,
-              "desktop_content_position": "d-bottom-center",
-              "mobile_content_position": "m-center",
-              "overlaycolor": "#000000",
-              "textcolor": "#ffffff",
-              "text_shadow_color": "#000000",
-              "button_text_color": "#ffffff",
-              "button_bg_color": "#000000",
-              "button_border_color": "#000000"
-            }
-          }
-        },
-        "block_order": [
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-1",
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-2",
-          "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-3"
-        ],
-        "settings": {
-          "enable_fullwidth": true,
-          "enable_swipe": true,
-          "image_layout": "sharp",
-          "enable_image_animation": true,
-          "enable_hover_effect": false,
-          "image_radius_desktop": 10,
-          "image_radius_mobile": 10,
-          "heading_size": "h2",
-          "button_size": "xsmall",
-          "space_in_images": true,
-          "image_spacing_desktop": 10,
-          "image_spacing_mobile": 2,
-          "bgcolor": "quaternary",
-          "section_visibility": "always",
-          "top_space_desktop": 0,
-          "bottom_space_desktop": 0,
-          "top_space_mobile": 0,
-          "bottom_space_mobile": 0
-        }
-      },
-      "f9fc1e67-8232-49a6-af7b-a864d5d2d6d0": {
-        "type": "rich-text",
-        "blocks": {
-          "460015a2-97e7-4b8c-aad9-1083fc5e9837": {
-            "type": "richtext",
-            "settings": {
-              "heading": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "size": "h2",
-              "content": "<h1>Before vs After</h1>"
-            }
-          },
-          "d8131f40-b767-4d59-babb-aafbbeed887b": {
-            "type": "richtext",
-            "settings": {
-              "heading": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "size": "h2",
-              "content": "<p>Use this section to welcome customers to your store, say a bit about your brand, or share news and seasonal promotions</p>"
-            }
-          }
-        },
-        "block_order": [
-          "460015a2-97e7-4b8c-aad9-1083fc5e9837",
-          "d8131f40-b767-4d59-babb-aafbbeed887b"
-        ],
-        "settings": {
-          "content_width": "container sm-container",
-          "content_alignment": "center",
-          "bgcolor": "quaternary",
-          "section_visibility": "always",
-          "top_space_desktop": 40,
-          "bottom_space_desktop": 20,
-          "top_space_mobile": 20,
-          "bottom_space_mobile": 0
-        }
-      },
-      "before_after_image_9gUcy7": {
-        "type": "before-after-image",
-        "name": "t:sections.before-after.presets.name",
-        "settings": {
-          "container_width": "small",
-          "fullwidth": false,
-          "enable_top_border": false,
-          "enable_bottom_border": false,
-          "border_style": "solid",
-          "title": "",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "description": "",
-          "image_height": 400,
-          "mobile_image_height": 300,
-          "before_text": "Before",
-          "after_text": "After",
-          "text_alignment": "bottom",
-          "drag_position": 50,
-          "bg_color": "#d6d6d6",
-          "title_color": "#000000",
-          "description_color": "#000000",
-          "before_text_color": "#000000",
-          "after_text_color": "#000000",
-          "drag_bg_color": "#ffffff",
-          "drag_text_color": "#000000",
-          "section_border_color": "#000000",
-          "section_visibility": "always",
-          "top_space_desktop": 30,
-          "bottom_space_desktop": 30,
-          "top_space_mobile": 30,
-          "bottom_space_mobile": 30
-        }
-      },
-      "1659704293dae94760": {
-        "type": "testimonials",
-        "blocks": {
-          "1659704293e9251699-0": {
-            "type": "quote",
-            "settings": {
-              "rating": 4,
-              "message": "Add client reviews & testimonials to showcase your store’s happy clients.",
-              "author": "Author name here",
-              "author_city": "Author City here",
-              "video_text": ""
-            }
-          },
-          "quote_Xeabbm": {
-            "type": "quote",
-            "settings": {
-              "rating": 4,
-              "message": "Add client reviews & testimonials to showcase your store’s happy clients.",
-              "author": "Author name here",
-              "author_city": "Author City here",
-              "video_text": ""
-            }
-          },
-          "quote_DF8eNp": {
-            "type": "quote",
-            "settings": {
-              "rating": 4,
-              "message": "Add client reviews & testimonials to showcase your store’s happy clients.",
-              "author": "Author name here",
-              "author_city": "Author City here",
-              "video_text": ""
-            }
-          },
-          "quote_zciAnK": {
-            "type": "quote",
-            "settings": {
-              "rating": 4,
-              "message": "Add client reviews & testimonials to showcase your store’s happy clients.",
-              "author": "Author name here",
-              "author_city": "Author City here",
-              "video_text": ""
-            }
-          }
-        },
-        "block_order": [
-          "1659704293e9251699-0",
-          "quote_Xeabbm",
-          "quote_DF8eNp",
-          "quote_zciAnK"
-        ],
-        "settings": {
-          "heading": "What our clients say",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "heading_size": "h2",
-          "description": "",
-          "description_size": "text",
-          "alignment": "center",
-          "slider_style": "style1",
-          "column_count": "column1",
-          "nav_style": "arrow",
-          "arrow_position": "left",
-          "text_size": "h5",
-          "text_alignment": "center",
-          "divider_top": false,
-          "divider_bottom": false,
-          "bgcolor": "quaternary",
-          "section_visibility": "always",
-          "top_space_desktop": 70,
-          "bottom_space_desktop": 30,
-          "top_space_mobile": 45,
-          "bottom_space_mobile": 45
-        }
-      },
-      "8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102": {
-        "type": "lookbook",
-        "blocks": {
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-1": {
-            "type": "look",
-            "settings": {
-              "collection": "",
-              "heading": "",
-              "description": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "heading_size": "h2",
-              "product_item": []
-            }
-          },
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-2": {
-            "type": "look",
-            "settings": {
-              "collection": "",
-              "heading": "",
-              "description": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "heading_size": "h2",
-              "product_item": []
-            }
-          },
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-3": {
-            "type": "look",
-            "settings": {
-              "collection": "",
-              "heading": "",
-              "description": "",
-              "highlight_font": "body",
-              "seo_heading": "h2",
-              "heading_size": "h2",
-              "product_item": []
-            }
-          }
-        },
-        "block_order": [
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-1",
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-2",
-          "template--17273360318703__8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102-look-3"
-        ],
-        "settings": {
-          "bgcolor": "secondary",
-          "section_visibility": "always",
-          "top_space_desktop": 0,
-          "bottom_space_desktop": 0,
-          "top_space_mobile": 0,
-          "bottom_space_mobile": 30
-        }
-      },
-      "1660629607787399e3": {
-        "type": "featured-articles",
-        "blocks": {
-          "1660629607d1e54b3c-2": {
-            "type": "article",
-            "settings": {
-              "article": ""
-            }
-          },
-          "1660629607d1e54b3c-0": {
-            "type": "article",
-            "settings": {
-              "article": ""
-            }
-          },
-          "1660629607d1e54b3c-1": {
-            "type": "article",
-            "settings": {
-              "article": ""
-            }
-          }
-        },
-        "block_order": [
-          "1660629607d1e54b3c-2",
-          "1660629607d1e54b3c-0",
-          "1660629607d1e54b3c-1"
-        ],
-        "settings": {
-          "overlay_content": false,
-          "show_date": true,
-          "remove_desktop_column_gap": false,
-          "heading": "Add Blog posts here",
-          "highlight_font": "body",
-          "seo_heading": "h2",
-          "description_size": "text",
-          "button": "View all",
-          "link": "",
-          "card_background": false,
-          "alignment": "left",
-          "size": "h6",
-          "show_button_on_hover": false,
-          "bgcolor": "primary",
-          "section_visibility": "always",
-          "top_space_desktop": 70,
-          "bottom_space_desktop": 65,
-          "top_space_mobile": 40,
-          "bottom_space_mobile": 40
-        }
-      },
-      "166392752028a5490a": {
-        "type": "rotating-text",
-        "settings": {
-          "text1": "<p>Add promotional text here</p>",
-          "desktop_text_gap": 17,
-          "mobile_text_gap": 17,
-          "text2": "",
-          "desktop_subtext_gap": 17,
-          "mobile_subtext_gap": 17,
-          "rotating_text_style": "vertical",
-          "pause_on_hover": false,
-          "row1_font_family": "--heading-font-family",
-          "row2_font_family": "--font-family",
-          "row1_direction": "left",
-          "row2_direction": "right",
-          "heading_font_size": 106,
-          "subheading_font_size": 24,
-          "heading_font_size_m": 54,
-          "subheading_font_size_m": 10,
-          "section_border": false,
-          "section_border_bottom": true,
-          "border_width": "2px",
-          "border_style": "solid",
-          "background_opacity": 50,
-          "min_height_desktop": 400,
-          "min_height_mobile": 200,
-          "bgcolor": "#131212",
-          "bg_gradient_color": "",
-          "text1color": "#4e4e4e",
-          "outlinetext1color": "#000000",
-          "text2color": "#a56748",
-          "outlinetext2color": "#a56748",
-          "background_overlay": "#000000",
-          "border_color": "#000000",
-          "section_visibility": "always",
-          "top_space_desktop": 25,
-          "bottom_space_desktop": 25,
-          "top_space_mobile": 5,
-          "bottom_space_mobile": 5
-        }
+      "block_order": [
+        "slide_gc3xJx",
+        "slide_7aLFcy",
+        "slide_VRUXf8",
+        "slide_hhKAhr"
+      ],
+      "name": "t:sections.split-slider.presets.name",
+      "settings": {
+        "arrows": false,
+        "thumbnails": true,
+        "rotate": false,
+        "interval": 5,
+        "desktop_height": "adapt_image",
+        "mobile_height": "adapt_image",
+        "bgcolor": "#ffffff",
+        "enable_overlay": true,
+        "overlaycolor": "#000000"
       }
     },
-    "order": [
-      "16596094546c627d0e",
-      "d009ae55-5977-4815-a5d5-0fde7f0f5e63",
-      "f5544caa-c557-483b-8125-cde254a93932",
-      "b5f9cce1-f96f-4a1a-b7fc-11edba340612",
-      "d34fb875-26a3-4df0-a1e7-d6e7383eb9c8",
-      "165711430162a4074a",
-      "b297b020-b709-42e6-80b1-4a9a36a378ca",
-      "1657114280ba0d82f2",
-      "7041adb5-795c-4498-b103-1f942e1341c1",
-      "8498ec01-d8a1-4c69-810d-e2ca0fbbec5e",
-      "710bdeb3-3d69-4c48-bd1a-bfe6834d023b",
-      "f9fc1e67-8232-49a6-af7b-a864d5d2d6d0",
-      "before_after_image_9gUcy7",
-      "1659704293dae94760",
-      "8a0ff37e-4b6d-4e0c-a2c0-97f49ec37102",
-      "1660629607787399e3",
-      "166392752028a5490a"
-    ]
-  }
-  
+    "17617130611ed2ab9a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2df0cb9_YVQJrb": {
+          "type": "ai_gen_block_2df0cb9",
+          "settings": {
+            "item_1_text": "100% Cotton",
+            "icon_1_style": "cotton_ball",
+            "item_2_text": "30 Day Returns",
+            "icon_2_style": "return",
+            "item_3_text": "Secure Payments",
+            "icon_3_style": "lock",
+            "item_4_text": "Eco-Friendly",
+            "icon_4_style": "leaf",
+            "layout_direction": "row",
+            "mobile_layout": "single_line",
+            "spacing_between_items": 80,
+            "icon_text_gap": 8,
+            "section_padding": 20,
+            "icon_size": 24,
+            "icon_stroke_width": 1,
+            "icon_color": "#ffffff",
+            "text_size": 14,
+            "text_color": "#ffffff",
+            "text_weight": "500",
+            "text_line_height": 1.4,
+            "background_color": "#850000"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2df0cb9_YVQJrb"
+      ],
+      "settings": {}
+    },
+    "featured_collections_carousel_tbJadf": {
+      "type": "featured-collections-carousel",
+      "blocks": {
+        "collection_PyGHkk": {
+          "type": "collection",
+          "settings": {
+            "collection": "table-linen",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "Tablecloths",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_bFVFfX": {
+          "type": "collection",
+          "settings": {
+            "collection": "napkins-2",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_thUERk": {
+          "type": "collection",
+          "settings": {
+            "collection": "quilt",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_hpqw4g": {
+          "type": "collection",
+          "settings": {
+            "collection": "table-runners",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        },
+        "collection_MMLQFW": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-cotton-pillow-covers",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "subheading": "",
+            "headingcolor": "#000000",
+            "subheadingcolor": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_PyGHkk",
+        "collection_bFVFfX",
+        "collection_thUERk",
+        "collection_hpqw4g",
+        "collection_MMLQFW"
+      ],
+      "name": "t:sections.featured-collections-carousel.presets.name",
+      "settings": {
+        "style": "style2",
+        "enable_fullwidth": false,
+        "collections_per_row": 3,
+        "emphasize_center_image": true,
+        "heading": "Crafted with Tradition. Designed for Today.",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "subheading": "",
+        "description": "",
+        "btntext": "",
+        "btnlink": "shopify://collections",
+        "button_size": "default",
+        "mobile_button_size": "m-med",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 40,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 35,
+        "bottom_space_mobile": 35
+      }
+    },
+    "image_banner_dYAVcN": {
+      "type": "image-banner",
+      "name": "t:sections.image_banner.presets.name",
+      "settings": {
+        "enable_parallax": true,
+        "section_visibility": "always",
+        "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+        "desktop_height": "550px",
+        "mobile_height": "500px",
+        "block_display": "categories",
+        "banner_title": "Bring Artistry Home",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "desktop_title_size": 70,
+        "mobile_title_size": 36,
+        "banner_desc": "Discover vibrant, 100% cotton hand block printed textiles and decor that transform your everyday spaces into something extraordinary.",
+        "button_text": "Shop FabricSG",
+        "button_link": "shopify://collections/all",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "content_position": "bottom-left",
+        "title_color": "#ffffff",
+        "desc_color": "#ffffff",
+        "btn_bg": "#ffffff",
+        "btn_text": "#000000",
+        "btn_border": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "image_with_text_4Vi9mi": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_QTBEki": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort that Lasts",
+            "highlight_font": "body",
+            "heading_size": "h2",
+            "seo_heading": "h2"
+          }
+        },
+        "text_diywGe": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Every piece is created from pure cotton using sustainable block-printing methods. Fabrics that are gentle on the skin, kind to the planet, and strong enough for everyday living.</p>"
+          }
+        },
+        "button_VPRd4x": {
+          "type": "button",
+          "settings": {
+            "btn_text": "OUR STORY",
+            "btn_link": "shopify://pages/about-us",
+            "button_size": "med",
+            "mobile_button_size": "m-med"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QTBEki",
+        "text_diywGe",
+        "button_VPRd4x"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+        "image_shadow": false,
+        "enable_image_animation": true,
+        "image_alignment": "left",
+        "image_height": "landscape",
+        "show_icon_on_image": true,
+        "icon": "heart",
+        "left_to_right": 41,
+        "top_to_bottom": -8,
+        "mobile_left_to_right": 78,
+        "mobile_top_to_bottom": -7,
+        "icon_animated_color": "#ffffff",
+        "content_position": "center",
+        "bgcolor": "quaternary",
+        "image_shadow_color": "#dddddd",
+        "section_visibility": "always",
+        "top_space_desktop": 45,
+        "bottom_space_desktop": 45,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "1657114280ba0d82f2": {
+      "type": "rotating-text",
+      "settings": {
+        "text1": "",
+        "desktop_text_gap": 17,
+        "mobile_text_gap": 17,
+        "text2": "<p>FREE worldwide shipping on all orders!</p>",
+        "desktop_subtext_gap": 33,
+        "mobile_subtext_gap": 17,
+        "rotating_text_style": "vertical",
+        "pause_on_hover": true,
+        "row1_font_family": "--font-family",
+        "row2_font_family": "--font-family",
+        "row1_direction": "left",
+        "row2_direction": "right",
+        "heading_font_size": 14,
+        "subheading_font_size": 16,
+        "heading_font_size_m": 14,
+        "subheading_font_size_m": 14,
+        "section_border": false,
+        "section_border_bottom": true,
+        "border_width": "2px",
+        "border_style": "solid",
+        "background_opacity": 50,
+        "min_height_desktop": 400,
+        "min_height_mobile": 200,
+        "bgcolor": "#000000",
+        "bg_gradient_color": "",
+        "text1color": "#ffffff",
+        "outlinetext1color": "#ffffff",
+        "text2color": "#ffffff",
+        "outlinetext2color": "#a56748",
+        "background_overlay": "#000000",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 10,
+        "top_space_mobile": 10,
+        "bottom_space_mobile": 10
+      }
+    },
+    "165711430162a4074a": {
+      "type": "tabbed-collections",
+      "blocks": {
+        "collection_jcdwCN": {
+          "type": "collection",
+          "settings": {
+            "heading": "Table Linens",
+            "collection": "table-linen"
+          }
+        },
+        "collection_nHULiy": {
+          "type": "collection",
+          "settings": {
+            "heading": "Napkins",
+            "collection": "napkins-2"
+          }
+        },
+        "collection_YkajkK": {
+          "type": "collection",
+          "settings": {
+            "heading": "Ruffle Pillow Covers",
+            "collection": "ruffle-edge-pillow-covers"
+          }
+        }
+      },
+      "block_order": [
+        "collection_jcdwCN",
+        "collection_nHULiy",
+        "collection_YkajkK"
+      ],
+      "settings": {
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "arrow_position": "left",
+        "heading": "Modern Traditions: Our Best Picks",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "heading_size": "h2",
+        "tabs_style": "straight",
+        "tabs_position": "right",
+        "tabs_alignment": "left-start",
+        "products_style": "carousel",
+        "enable_swipe": true,
+        "products_per_row": 5,
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 10,
+        "show_image_in_tab": false,
+        "hide_tab_name": false,
+        "show_tabs_border": false,
+        "enable_view_all_button": false,
+        "view_all_button_text": "View all",
+        "button_size": "med",
+        "mobile_button_size": "m-med",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 40,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 40,
+        "bottom_space_mobile": 10
+      }
+    },
+    "8498ec01-d8a1-4c69-810d-e2ca0fbbec5e": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17273172721903__8498ec01-d8a1-4c69-810d-e2ca0fbbec5e-richtext-1": {
+          "type": "richtext",
+          "settings": {
+            "heading": "For Every Occasion, For Every Vision",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        },
+        "7a8e2373-19da-4437-9f18-1fc43dce2f30": {
+          "type": "richtext",
+          "settings": {
+            "heading": "",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17273172721903__8498ec01-d8a1-4c69-810d-e2ca0fbbec5e-richtext-1",
+        "7a8e2373-19da-4437-9f18-1fc43dce2f30"
+      ],
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 35,
+        "bottom_space_desktop": 20,
+        "top_space_mobile": 35,
+        "bottom_space_mobile": 0
+      }
+    },
+    "710bdeb3-3d69-4c48-bd1a-bfe6834d023b": {
+      "type": "collage",
+      "blocks": {
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-1": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "Your Big Day, Handcrafted",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "shopify://pages/contact",
+            "btn_text": "Submit Wedding Inquiry",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 20,
+            "desktop_content_position": "d-bottom-center",
+            "mobile_content_position": "m-bottom-center",
+            "overlaycolor": "#282828",
+            "textcolor": "#ffffff",
+            "text_shadow_color": "rgba(0,0,0,0)",
+            "button_text_color": "#000000",
+            "button_bg_color": "#6e90b5",
+            "button_border_color": "#5b7794"
+          }
+        },
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-2": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "Bring Tradition to Your Store",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "shopify://pages/about-us",
+            "btn_text": "Apply for Wholesale",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 20,
+            "desktop_content_position": "d-bottom-center",
+            "mobile_content_position": "m-bottom-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#ffffff",
+            "text_shadow_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_bg_color": "#6e90b5",
+            "button_border_color": "#5b7794"
+          }
+        },
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-3": {
+          "type": "image",
+          "settings": {
+            "image_width": "col-md-4",
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "Make It Uniquely Yours",
+            "seo_heading": "h2",
+            "enable_text_shadow": false,
+            "subheading": "",
+            "link": "shopify://pages/contact",
+            "btn_text": "Submit Custom Order",
+            "outline_button": false,
+            "heading_size": "h2",
+            "button_size": "xsmall",
+            "content_width": "medium",
+            "heading_size_m": "h2",
+            "button_size_m": "m-xsmall",
+            "content_width_m": "medium",
+            "overlayopacity": 20,
+            "desktop_content_position": "d-bottom-center",
+            "mobile_content_position": "m-bottom-center",
+            "overlaycolor": "#000000",
+            "textcolor": "#ffffff",
+            "text_shadow_color": "#000000",
+            "button_text_color": "#000000",
+            "button_bg_color": "#6e90b5",
+            "button_border_color": "#5b7794"
+          }
+        }
+      },
+      "block_order": [
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-1",
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-2",
+        "template--17273360318703__710bdeb3-3d69-4c48-bd1a-bfe6834d023b-image-3"
+      ],
+      "settings": {
+        "enable_fullwidth": true,
+        "enable_swipe": true,
+        "image_layout": "sharp",
+        "enable_image_animation": true,
+        "enable_hover_effect": false,
+        "image_radius_desktop": 10,
+        "image_radius_mobile": 10,
+        "heading_size": "h2",
+        "button_size": "xsmall",
+        "space_in_images": true,
+        "image_spacing_desktop": 10,
+        "image_spacing_mobile": 2,
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 0,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 0,
+        "bottom_space_mobile": 0
+      }
+    },
+    "social_media_gallery_DGUDGD": {
+      "type": "social-media-gallery",
+      "blocks": {
+        "media_Edra6z": {
+          "type": "media",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "link": ""
+          }
+        },
+        "media_BncMBP": {
+          "type": "media",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "link": "https://www.instagram.com/p/DQFkOkoETrB/"
+          }
+        },
+        "media_WNfnwL": {
+          "type": "media",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "link": "https://www.instagram.com/p/DQZcWP8DR_W/"
+          }
+        },
+        "media_XKb8q8": {
+          "type": "media",
+          "settings": {
+            "heading": "",
+            "link": "https://www.instagram.com/p/DP2SmSKgXjj/"
+          }
+        },
+        "media_JfWKEy": {
+          "type": "media",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "heading": "",
+            "link": "https://www.instagram.com/p/DQK_lI3DSKj/"
+          }
+        },
+        "media_3C7FFJ": {
+          "type": "media",
+          "settings": {
+            "heading": "",
+            "link": "https://www.instagram.com/p/DPmNn91DpBg/"
+          }
+        }
+      },
+      "block_order": [
+        "media_Edra6z",
+        "media_BncMBP",
+        "media_WNfnwL",
+        "media_XKb8q8",
+        "media_JfWKEy",
+        "media_3C7FFJ"
+      ],
+      "name": "t:sections.social_media_gallery.presets.name",
+      "settings": {
+        "heading": "FabricSG in the Wild",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "description": "<p>@ridhiblockprint</p>",
+        "social_media_icon": "instagram",
+        "bgcolor": "quaternary",
+        "overlay_text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "section_visibility": "always",
+        "top_space_desktop": 50,
+        "bottom_space_desktop": 50,
+        "top_space_mobile": 25,
+        "bottom_space_mobile": 25
+      }
+    },
+    "blocks_7BBaQm": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_277c85d_aLwxNw": {
+          "type": "ai_gen_block_277c85d",
+          "settings": {
+            "button_text": "The Art of Block Printing",
+            "button_link": "shopify://pages/the-art-of-hand-block-printing",
+            "button_alignment": "center",
+            "button_padding_vertical": 16,
+            "button_padding_horizontal": 32,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "button_min_width": 120,
+            "button_font_size": 16,
+            "button_font_weight": "500",
+            "button_font_family": "--font-family",
+            "button_text_transform": "none",
+            "button_letter_spacing": 0,
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#333333",
+            "button_hover_transform": -2,
+            "section_background_color": "#6e90b5",
+            "section_padding_top": 0,
+            "section_padding_bottom": 40,
+            "section_padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_277c85d_aLwxNw"
+      ],
+      "name": "Custom button",
+      "settings": {}
+    },
+    "rich_text_qmPjnk": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_PT7PaG": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Bring Color to the Table",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_PT7PaG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 35,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 0
+      }
+    },
+    "featured_collections_list_FTPz6x": {
+      "type": "featured-collections-list",
+      "blocks": {
+        "collection_cGrXPG": {
+          "type": "collection",
+          "settings": {
+            "collection": "asparagus-green"
+          }
+        },
+        "collection_jFPEkN": {
+          "type": "collection",
+          "settings": {
+            "collection": "dark-salmon-pink"
+          }
+        },
+        "collection_Yei9jV": {
+          "type": "collection",
+          "settings": {
+            "collection": "indian-light-blue"
+          }
+        },
+        "collection_Wwnq9U": {
+          "type": "collection",
+          "settings": {
+            "collection": "taupe"
+          }
+        }
+      },
+      "block_order": [
+        "collection_cGrXPG",
+        "collection_jFPEkN",
+        "collection_Yei9jV",
+        "collection_Wwnq9U"
+      ],
+      "name": "t:sections.featured-collections-list.presets.name",
+      "settings": {
+        "heading": "",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 25,
+        "bottom_space_desktop": 40,
+        "top_space_mobile": 0,
+        "bottom_space_mobile": 35
+      }
+    },
+    "color_based_collection_Er7EJK": {
+      "type": "color-based-collection",
+      "blocks": {
+        "collection_DGRGTT": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "basil-green-products",
+            "collection_color": "#506953",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": false,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        },
+        "collection_D4zap6": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "asparagus-green",
+            "collection_color": "#4784e9",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": false,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        },
+        "collection_twPETX": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "dark-salmon-pink",
+            "collection_color": "#eaaec4",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": false,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        },
+        "collection_k6gpHQ": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "garnet-red",
+            "collection_color": "#e22120",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": true,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        },
+        "collection_ncttL9": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "vintage-yellow",
+            "collection_color": "#f7d64d",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": true,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        },
+        "collection_3zYKxx": {
+          "type": "collection",
+          "settings": {
+            "colored_collection": "taupe",
+            "collection_color": "#ccbbaf",
+            "collection_custom_image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "show_title": false,
+            "show_description": true,
+            "enable_link": true,
+            "title": "",
+            "description": "",
+            "content_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_range": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection_DGRGTT",
+        "collection_D4zap6",
+        "collection_twPETX",
+        "collection_k6gpHQ",
+        "collection_ncttL9",
+        "collection_3zYKxx"
+      ],
+      "disabled": true,
+      "name": "Color based collection",
+      "settings": {
+        "enable_fullwidth": false,
+        "enable_swipe": true,
+        "section_visibility": "always",
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "border_style": "solid",
+        "desktop_height": "550px",
+        "mobile_height": "350px",
+        "seo_heading": "h3",
+        "heading_size": "h1",
+        "bgcolor": "primary",
+        "top_space_desktop": 20,
+        "bottom_space_desktop": 30,
+        "top_space_mobile": 20,
+        "bottom_space_mobile": 20
+      }
+    },
+    "blocks_VXnnFn": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0330f6d_HTJkqz": {
+          "type": "ai_gen_block_0330f6d",
+          "settings": {
+            "image": "https://via.placeholder.com/1200x800?text=FabricSG",
+            "image_width": 250,
+            "image_border_radius": 10,
+            "subheading_text": "Special Offer",
+            "header_text": "Buy More Save More",
+            "description_text": "Don't miss out on this amazing deal! Save more when you buy more.",
+            "percentage_text": "Flat 10% OFF",
+            "offer_text": "on orders above $500",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections",
+            "subheading_font_size": 12,
+            "subheading_font_weight": "600",
+            "subheading_color": "#e74c3c",
+            "header_font_size": 28,
+            "header_font_weight": "700",
+            "header_color": "#000000",
+            "description_font_size": 16,
+            "description_color": "#666666",
+            "percentage_font_size": 24,
+            "percentage_font_weight": "700",
+            "percentage_color": "#e74c3c",
+            "offer_text_font_size": 14,
+            "offer_text_color": "#333333",
+            "button_font_size": 16,
+            "button_font_weight": "600",
+            "mobile_alignment": "left",
+            "background_color": "#f8f9fa",
+            "offer_background_color": "#ffffff",
+            "offer_border_color": "#e74c3c",
+            "button_background_color": "#6e90b5",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#6e90b5",
+            "button_hover_background_color": "#6e90b5",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#6e90b5",
+            "border_radius": 12,
+            "offer_border_radius": 8,
+            "button_border_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0330f6d_HTJkqz"
+      ],
+      "name": "Buy more save more deal",
+      "settings": {}
+    },
+    "recently_viewed_product_VJDQHr": {
+      "type": "recently-viewed-product",
+      "name": "t:sections.recent-viewed-product.presets.name",
+      "settings": {
+        "heading": "Recently Viewed",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "product_grid_radius_desktop": 10,
+        "product_grid_radius_mobile": 10,
+        "product_grid_spacing_desktop": 10,
+        "product_grid_spacing_mobile": 10,
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 60,
+        "bottom_space_desktop": 60,
+        "top_space_mobile": 30,
+        "bottom_space_mobile": 30
+      }
+    },
+    "166392752028a5490a": {
+      "type": "rotating-text",
+      "settings": {
+        "text1": "<p>FabricSG</p>",
+        "desktop_text_gap": 17,
+        "mobile_text_gap": 17,
+        "text2": "",
+        "desktop_subtext_gap": 17,
+        "mobile_subtext_gap": 17,
+        "rotating_text_style": "vertical",
+        "pause_on_hover": false,
+        "row1_font_family": "--heading-font-family",
+        "row2_font_family": "--font-family",
+        "row1_direction": "left",
+        "row2_direction": "right",
+        "heading_font_size": 44,
+        "subheading_font_size": 24,
+        "heading_font_size_m": 54,
+        "subheading_font_size_m": 10,
+        "section_border": false,
+        "section_border_bottom": false,
+        "border_width": "2px",
+        "border_style": "solid",
+        "background_opacity": 50,
+        "min_height_desktop": 300,
+        "min_height_mobile": 200,
+        "bgcolor": "#6e90b5",
+        "bg_gradient_color": "",
+        "text1color": "#a0b7d0",
+        "outlinetext1color": "#000000",
+        "text2color": "#a56748",
+        "outlinetext2color": "#a56748",
+        "background_overlay": "#000000",
+        "border_color": "#000000",
+        "section_visibility": "always",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 0,
+        "top_space_mobile": 5,
+        "bottom_space_mobile": 5
+      }
+    }
+  },
+  "order": [
+    "split_slider_eBmA9J",
+    "17617130611ed2ab9a",
+    "featured_collections_carousel_tbJadf",
+    "image_banner_dYAVcN",
+    "image_with_text_4Vi9mi",
+    "1657114280ba0d82f2",
+    "165711430162a4074a",
+    "8498ec01-d8a1-4c69-810d-e2ca0fbbec5e",
+    "710bdeb3-3d69-4c48-bd1a-bfe6834d023b",
+    "social_media_gallery_DGUDGD",
+    "blocks_7BBaQm",
+    "rich_text_qmPjnk",
+    "featured_collections_list_FTPz6x",
+    "color_based_collection_Er7EJK",
+    "blocks_VXnnFn",
+    "recently_viewed_product_VJDQHr",
+    "166392752028a5490a"
+  ]
+}

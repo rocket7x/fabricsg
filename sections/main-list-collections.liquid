@@ -1,20 +1,13 @@
-{%- liquid
-  assign opacity = section.settings.overlay_opacity
-  assign opacity_color = section.settings.overlay_bg_color | color_modify: 'alpha', opacity
--%}
 <style>
   #shopify-section-{{ section.id }}{
     --mainBannerHeight:{{ section.settings.banner_height_desktop }};
-    --colorOverlayContent:{{ section.settings.overlay_text_color }};
-    --bgOverlayContent: {{ opacity_color }};
-    --bgSolidOverlayContent: {{ section.settings.overlay_bg_color }};
   }
   @media screen and (max-width:767px){
     #shopify-section-{{ section.id }}{
       --mainBannerHeight:{{ section.settings.banner_height_mobile }};
     }
   }
-</style> 
+</style>
 {% liquid 
 assign limit = section.settings.collections_per_page
   if section.settings.show_collections == 'selected'
@@ -24,7 +17,7 @@ assign limit = section.settings.collections_per_page
 {% if section.settings.banner_image != blank or section.settings.title != blank %}
 <div class="yv-collection-banner yv-main-collection-banner" {% if section.settings.banner == blank and section.settings.bgcolor != blank %}style="background-color:{{ section.settings.bgcolor }};"{% endif %}>
   {% if section.settings.banner_image != blank %}
-  {%- render 'lazy-image', image : section.settings.banner_image , class : 'banner-img' -%}
+  {%- render 'lazy-image' image : section.settings.banner_image , class : 'banner-img' -%}
   {% endif %}
   <div class="collection-banner-content">
     <{{ section.settings.seo_heading }} class="collection-banner-title h2" {% if section.settings.textcolor != blank %}style="color:{{ section.settings.textcolor }}"{% endif %}>{{ section.settings.title | escape }}</{{ section.settings.seo_heading }}>
@@ -57,10 +50,10 @@ assign limit = section.settings.collections_per_page
             else
               assign animationAttr = ''
             endif    
-              render 'collection-grid', collection: collection, animationAttr: animationAttr   
+              render 'collection-grid' collection: collection, animationAttr: animationAttr   
             endfor
           else
-            render 'not-found',  item: 'Collection'
+            render 'not-found'  item: 'Collection'
           endif
         else
           if section.blocks.size > 0 
@@ -72,16 +65,16 @@ assign limit = section.settings.collections_per_page
               else
                 assign animationAttr = ''
               endif
-              render 'collection-grid', collection: block.settings.collection, collectionImage: block.settings.image, animationAttr: animationAttr  
+              render 'collection-grid' collection: block.settings.collection, collectionImage: block.settings.image, animationAttr: animationAttr  
             endfor
           else
-            render 'not-found',  item: 'Collection'
+            render 'not-found'  item: 'Collection'
           endif
         endif %}
     </div>
   </div>
   {% if paginate.pages > 1 %}
-  {% render 'pagination', paginate: paginate %}
+  {% render 'pagination' paginate: paginate %}
   {% endif %}
 </div>
 {% endpaginate %}
@@ -190,22 +183,6 @@ assign limit = section.settings.collections_per_page
       "info": "t:sections.main-list-collections.settings.sort.info"
     },
     {
-      "type": "select",
-      "label": "t:sections.main-collection.settings.overlay_content.label",
-      "id": "content_style",
-      "default":"below",
-      "options": [
-        {
-          "label": "t:sections.main-collection.settings.overlay_content.options.above.label",
-          "value": "overlay"
-        },
-        {
-          "label": "t:sections.main-collection.settings.overlay_content.options.below.label",
-          "value": "below"
-        }
-      ]
-    },
-    {
       "type": "header",
       "content": "t:common.banner.content"
     },
@@ -278,32 +255,6 @@ assign limit = section.settings.collections_per_page
       "id": "textcolor",
       "default": "#181818",
       "label": "t:sections.main-list-collections.settings.textcolor.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.collage.blocks.image.settings.overlaycolor.label"
-    },
-    {
-      "type": "color",
-      "id": "overlay_text_color",
-      "default": "#ffffff",
-      "label": "t:common.header.text_section.label"
-    },
-    {
-      "type": "color",
-      "id": "overlay_bg_color",
-      "default": "#000000",
-      "label": "t:common.header.background_section.label"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label":"t:sections.countdown-with-images.settings.overlay_opacity.label",
-      "default": 0.2,
-      "max": 1,
-      "min": 0,
-      "step": 0.1,
-      "unit": "%"
     }
   ],
   "blocks": [

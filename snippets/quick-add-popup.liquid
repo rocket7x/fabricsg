@@ -8,7 +8,7 @@
           <path d="M1.25 0.000133605L24.9999 23.75L23.75 25L0 1.25013L1.25 0.000133605Z" fill="currentColor"></path>
         </svg>
       </quick-add-close>
-      <div class="quick-add-popup-content yv_product_content_section {% if settings.layout_style == 'rounded' %} product-layout-rounded{% endif %}" quick-add-body>        
+      <div class="quick-add-popup-content yv_product_content_section" quick-add-body>        
       </div>
     </div>
   </div>
@@ -75,7 +75,6 @@
     overflow: hidden;
     background-color: var(--primaryColorBody);
     color: var(--colorTextBody);
-    border-radius: var(--cardRadius);
   }
   .popup-close {
     position: absolute;
@@ -111,11 +110,6 @@
   }
   .quick-add-popup-product-img {
     width: 100px;
-
-  }
-  .product-layout-rounded .quick-add-popup-product-img {
-    border-radius:20px;
-    overflow: hidden;
   }
   .quick-add-popup-content-body {
     padding-top: 30px;

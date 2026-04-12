@@ -112,29 +112,29 @@ endif
    }
    {% endif %}
 </style>
-{% if section.settings.background_img != blank or section.settings.video != blank or section.settings.image_mobile != blank %}
+{% if section.settings.background_img != blank or section.settings.video != blank %}
 <div class="announcement-bar-background">
    {% liquid
    if section.settings.video != blank
-    echo section.settings.video | video_tag: controls: false, playsinline: true, muted: true, autoplay: true, loop: section.settings.is_autoloop, preload: 'none', class: 'videoBackgroundFile'
+   echo section.settings.video | video_tag: controls: false, playsinline: true, muted: true, autoplay: true, loop: section.settings.is_autoloop, preload: 'none'
    else
    if section.settings.image_mobile != blank
-    assign mobileImage = true
-    assign mobileClass = 'mobile-img d-block d-md-none'
-    render 'lazy-image', image: section.settings.image_mobile, class: mobileClass
+   assign mobileImage = true
+   assign mobileClass = 'mobile-img d-block d-md-none'
+   render 'lazy-image', image: section.settings.image_mobile, class: mobileClass
    endif
-    assign desktopClass = 'animationClass'
+   assign desktopClass = 'animationClass'
    if mobileImage
-    assign desktopClass = 'd-none d-md-block '
+   assign desktopClass = 'd-none d-md-block '
    endif
    if section.settings.background_img != blank
-    render 'lazy-image', image: section.settings.background_img, class: desktopClass
+   render 'lazy-image', image: section.settings.background_img, class: desktopClass
    endif
-    endif
+   endif
    %}
 </div>
 {% endif %}
-<div id="announcement-main-{{ section.id }}"  class="hidden container {% if section.settings.desktop_height == 'adapt_image' %} height-adapt{%- else -%} height-fixed{% endif %} {%if section.settings.mobile_height == 'mobile_image' %} mobile-height-adapt{%- else -%} mobile-height-fixed{% endif %}" >
+<div id="announcement-main-{{ section.id }}"  class="hidden container {% if section.settings.desktop_height == 'adapt_image' %} height-adapt{%- else -%} height-fixed{% endif %}" >
    <div class="announcement-bar-main-wrapper align-items-center d-flex close-icon-{{ section.settings.show_close }}">
       {% liquid
       if section.settings.enable_language_selector or section.settings.enable_currency_selector
@@ -443,7 +443,7 @@ endif
     {
       "type": "checkbox",
       "id": "is_autoloop",
-      "label": "t:sections.announcement-bar.settings.is_autoloop.label",
+      "label": "Enable autolooping",
       "default": false
     },
     {
@@ -605,7 +605,7 @@ endif
     },
     {
       "type": "header",
-      "content": "t:settings_schema.typography.settings.type_base_font_family.label"
+      "content": "Font"
     },
     {
       "type": "select",

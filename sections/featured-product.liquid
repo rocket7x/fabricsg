@@ -1,163 +1,124 @@
 {%- liquid
   assign product = section.settings.product
   assign featuredMedia = product.selected_or_first_available_variant.featured_media
-  assign featuredHeadingBar = false
+  assign featuredHeadingBar = false 
   if section.settings.heading != blank
     assign featuredHeadingBar = true
-  endif
+  endif 
   if section.settings.enable_thumb and section.settings.thumb_position == 'outer'
     assign featuredHeadingBar = false
-  endif
+  endif 
   assign product_form_id = 'product-form-' | append: section.id
-  assign productImageSize = '1700'
+  assign productImageSize = '1700' 
 -%}
 {% comment %}  {% endcomment %}
 <style>
-  #shopify-section-{{ section.id }}{
-    --productSliderHeight:{{ section.settings.featured_height_desktop }};
+#shopify-section-{{ section.id }}{
+  --productSliderHeight:{{ section.settings.featured_height_desktop }};
+}
+{% unless section.settings.featured_height_desktop == 'adapt' %}
+  .yv-feature-product-inner-wrapper .yv-product-small-slider-container .yv-product-small-slider
+  {
+    width:{{ section.settings.featured_height_desktop }};
   }
-  {% unless section.settings.featured_height_desktop == 'adapt' %}
+{% endunless %}
+{% if section.settings.featured_height_desktop == 'adapt' %}
+   .yv-feature-product-inner-wrapper .yv-product-small-slider-container .yv-product-small-slider
+  {
+    width: var(--slide-height);
+  }
+{% endif %}
+@media screen and (max-width:767px){
+  #shopify-section-{{ section.id }}{
+    --productSliderHeight:{{ section.settings.featured_height_mobile }};
+  }
+  {% unless section.settings.featured_height_mobile == 'adapt' %}
     .yv-feature-product-inner-wrapper .yv-product-small-slider-container .yv-product-small-slider
-    {
-      width:{{ section.settings.featured_height_desktop }};
-    }
-  {% endunless %}
-  {% if section.settings.featured_height_desktop == 'adapt' %}
-     .yv-feature-product-inner-wrapper .yv-product-small-slider-container .yv-product-small-slider
-    {
-      width: var(--slide-height);
-    }
-  {% endif %}
-  @media screen and (max-width:767px){
-    #shopify-section-{{ section.id }}{
-      --productSliderHeight:{{ section.settings.featured_height_mobile }};
-    }
-    {% unless section.settings.featured_height_mobile == 'adapt' %}
-      .yv-feature-product-inner-wrapper .yv-product-small-slider-container .yv-product-small-slider
-    {
+  {
+    width:{{ section.settings.featured_height_mobile }};
+  }
+    #shopify-section-{{ section.id }} .thumbnail-position-left .yv-product-small-slider,
+    #shopify-section-{{ section.id }} .thumbnail-position-right .yv-product-small-slider{
       width:{{ section.settings.featured_height_mobile }};
     }
-      #shopify-section-{{ section.id }} .thumbnail-position-left .yv-product-small-slider,
-      #shopify-section-{{ section.id }} .thumbnail-position-right .yv-product-small-slider{
-        width:{{ section.settings.featured_height_mobile }};
-      }
-    {% endunless %}
-  }
+  {% endunless %}
+}
 </style>
-<div class="section-spacer">
-  <div class="{% unless section.settings.enable_fullwidth %}container sm-container{% else %}fullwidth-product-section{% endunless %}">
-    <div
-      data-section="{{ section.id }}"
-      data-url="{{ product.url }}"
-      class="yv-feature-product-wrapper yv_product_content_section{% if settings.layout_style == 'rounded' %} product-layout-rounded{% endif %} image-position-{{ section.settings.featured_image_position }} thumbnail-enable-{{  section.settings.enable_thumb }}{% if section.settings.enable_thumb %} thumbnail-position-{{ section.settings.thumb_position }}{% endif %}"
-      {% if section.settings.show_icon_on_image %}
-        style="position: relative;"
-      {% endif %}
-    >
-      {% if section.settings.show_icon_on_image %}
-        <div class="yv-draw-icon" data-icon="{{ section.settings.icon }}">
-          {% render 'animated-icons', icon: section.settings.icon %}
-        </div>
-      {% endif %}
-      <product-info
-        data-section-id="{{ section.id }}"
-        data-product-id="{{ product.id }}"
-         data-original-section="{{ section.id }}"
-        data-url="{{ product.url }}"
-        data-update-url="false"
-        class="row no-gutters{% if section.settings.featured_height_desktop == 'adapt' %} yv-fixed-marquee{% endif %}"
-      >
+<div class="section-spacer" >
+  <div class="{% unless section.settings.enable_fullwidth %}container sm-container{% else %}fullwidth-product-section{% endunless %}" > 
+  <div data-section="{{ section.id }}" data-url="{{ product.url }}" class="yv-feature-product-wrapper yv_product_content_section{% if settings.layout_style == 'rounded' %} product-layout-rounded{% endif %} image-position-{{ section.settings.featured_image_position }} thumbnail-enable-{{  section.settings.enable_thumb }}{% if section.settings.enable_thumb %} thumbnail-position-{{ section.settings.thumb_position }}{% endif %}" {% if section.settings.show_icon_on_image %}style="position: relative;"{% endif %}>
+    {% if section.settings.show_icon_on_image %}
+      <div class="yv-draw-icon" data-icon="{{ section.settings.icon }}">
+        {% render 'animated-icons', icon: section.settings.icon %}
+      </div>
+    {% endif %}
+    <div class="row no-gutters{% if section.settings.featured_height_desktop == 'adapt' %} yv-fixed-marquee{% endif %}">
         <div class="col-md-6 col-lg-6">
           {%- if product.media.size > 0 -%}
-            {% if section.settings.enable_thumb %}
-              <div class="yv-feature-product-inner-wrapper" data-section="{{ section.id }}">
-            {% endif %}
-            <div
-              id="product-slider-{{ section.id }}"
-              class="
-                yv-feature-product-image {% if settings.pass_through_product_images %} pass-through-color{% endif %}
-                {% if section.settings.featured_height_desktop == 'adapt' %}featured-desktop-height-adapt{%- else -%}featured-desktop-height-fixed{% endif %}
-                {% if section.settings.featured_height_mobile == 'adapt' %}featured-mobile-height-adapt{%- else -%}featured-mobile-height-fixed{% endif %}  {% unless featuredHeadingBar %}no-featured-text{% endunless %}
-                {% if product.media.size > 1 %}multi-images{% endif %}
-              "
-              {% if product.media.size > 1 %}
-                data-product-slider-main-wrapper data-flickity-featured-product-slider='
-                  {"fade":true,
-                  "contain": true,
-                  "pageDots": false,
-                  "resize": true,
-                  "groupCells":true,
-                  "touchVerticalScroll": false,
-                  "prevNextButtons":true,
-                  "draggable":false,
-                  "adaptiveHeight": true
-                  }
-                '
-              {% endif %}
-              data-section="{{ section.id }}"
-            >
-              {% if featuredMedia != blank %}
-                <div
-                  class="yv-product-slider-item featured-prod-image active{% if settings.pass_through_product_images %} pass-through-color{% endif %}"
-                  data-id="featuredImage-{{ featuredMedia.id }}"
-                  id="media-main-{{ featuredMedia.id }}"
-                >
-                  <div
-                    class="image-wrapper"
-                    style="padding-bottom:{{ 1 | divided_by : featuredMedia.preview_image.aspect_ratio | times: 100 }}%"
-                  >
-                    {%- assign mediaId = 'yv-product-image-item-' | append: featuredMedia.id -%}
-                    {%- render 'lazy-image',
-                      id: mediaId,
-                      class: 'yv-product-image',
-                      image: featuredMedia,
-                      width: productImageSize
-                    -%}
-                    <a
-                      href="{{ featuredMedia | image_url }}"
-                      data-fancybox="gallery{{ section.id }}"
-                      data-thumb="{{ featuredMedia | image_url }}"
-                      class="no-js-hidden"
-                      aria-label="{{ featuredMedia.alt | downcase | default: product.title | strip_html }}"
-                    >
-                      <div class="gallery-cursor">
-                        <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                          <defs>
-                            <style>
-                              .cls-1 {
-                                fill: #fff;
-                              }
-                            </style>
-                          </defs>
-                          <g id="Layer_1-2">
-                            <g>
-                              <path class="cls-1" d="M20,0C8.97,0,0,8.97,0,20s8.97,20,20,20,20-8.97,20-20S31.03,0,20,0Z"></path>
-                              <polygon
-                                points="29.85 19.52 20.69 19.52 20.69 10.35 19.23 10.35 19.23 19.52 10.07 19.52 10.07 20.97 19.23 20.97 19.23 30.13 20.69 30.13 20.69 20.97 29.85 20.97 29.85 19.52">
-                              </polygon>
+                {% if section.settings.enable_thumb %}
+                <div class="yv-feature-product-inner-wrapper" data-section={{ section.id }}>
+                {% endif %}
+              <div
+                   id="product-slider-{{ section.id }}"
+                class=" yv-feature-product-image {% if settings.pass_through_product_images %} pass-through-color{% endif %}
+                  {% if section.settings.featured_height_desktop == 'adapt' %}featured-desktop-height-adapt{%- else -%}featured-desktop-height-fixed{% endif %}
+                  {% if section.settings.featured_height_mobile == 'adapt' %}featured-mobile-height-adapt{%- else -%}featured-mobile-height-fixed{% endif %}  {% unless featuredHeadingBar %}no-featured-text{% endunless %}
+                  {% if product.media.size > 1 %}multi-images{% endif %}"
+                {% if product.media.size > 1 %}
+                  data-flickity-featured-product-slider='
+                    {"fade":true,
+                    "contain": true,
+                    "pageDots": false,
+                    "resize": true,
+                    "groupCells":true,
+                    "touchVerticalScroll": false,
+                    "prevNextButtons":true,
+                    "draggable":false,
+                    "adaptiveHeight": true
+                    }
+                  '
+                {% endif %} data-section={{ section.id }}>
+                {% if featuredMedia != blank %}
+                  <div class="yv-product-slider-item featured-prod-image active{% if settings.pass_through_product_images %} pass-through-color{% endif %}" data-id="featuredImage-{{ featuredMedia.id }}"
+                    id="media-main-{{ featuredMedia.id }}">
+                    <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : featuredMedia.preview_image.aspect_ratio | times: 100 }}%" >
+                      {%- assign mediaId = 'yv-product-image-item-' | append: featuredMedia.id -%}
+                      {%- render 'lazy-image', id: mediaId, class: 'yv-product-image', image: featuredMedia, width: productImageSize -%}
+                      <a href="{{ featuredMedia | image_url }}" data-fancybox="gallery{{ section.id }}" data-thumb="{{ featuredMedia | image_url }}"
+                        class="no-js-hidden" aria-label="{{ featuredMedia.alt | downcase | default: product.title | strip_html }}">
+                        <div class="gallery-cursor">
+                          <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                            <defs>
+                              <style>
+                                .cls-1 {
+                                  fill: #fff;
+                                }
+                              </style>
+                            </defs>
+                            <g id="Layer_1-2">
+                              <g>
+                                <path class="cls-1" d="M20,0C8.97,0,0,8.97,0,20s8.97,20,20,20,20-8.97,20-20S31.03,0,20,0Z"></path>
+                                <polygon
+                                  points="29.85 19.52 20.69 19.52 20.69 10.35 19.23 10.35 19.23 19.52 10.07 19.52 10.07 20.97 19.23 20.97 19.23 30.13 20.69 30.13 20.69 20.97 29.85 20.97 29.85 19.52">
+                                </polygon>
+                              </g>
                             </g>
-                          </g>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              {% endif %}
-              {%- for media in product.media -%}
-                {% unless media.id == featuredMedia.id %}
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>   
+                {% endif %}
+                {%- for media in product.media -%}
+                  {% unless media.id == featuredMedia.id %}
                   {%- case media.media_type -%}
                     {%- when 'image' -%}
-                      <div
-                        class="yv-product-slider-item featured-prod-image{% if settings.pass_through_product_images %} pass-through-color{% endif %}"
-                        id="media-main-{{ media.id }}"
-                        data-id="featuredImage-{{ media.id }}"
-                      >
-                        <div
-                          class="image-wrapper"
-                          style="padding-bottom:{{ 1 | divided_by : media.preview_image.aspect_ratio | times: 100 }}%"
-                        >
+                      <div class="yv-product-slider-item featured-prod-image{% if settings.pass_through_product_images %} pass-through-color{% endif %}" id="media-main-{{ media.id }}"
+                        data-id="featuredImage-{{ media.id }}">
+                        <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : media.preview_image.aspect_ratio | times: 100 }}%" >
                           {%- assign mediaId = 'yv-product-image-item-' | append: media.id -%}
-                          {%- render 'lazy-image',
+                          {%-
+                            render 'lazy-image',
                             id: mediaId,
                             class: 'yv-product-image',
                             image: media,
@@ -203,17 +164,14 @@
                         class="yv-product-slider-item yv-product-external-video-item flickity-slider-item"
                         id="media-main-{{ media.id }}"
                       >
-                        <deferred-media
-                          class="image-wrapper"
-                          style="padding-bottom:{{ 1 | divided_by : media.aspect_ratio | times: 100 }}%"
-                        >
+                        <deferred-media class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : media.aspect_ratio | times: 100 }}%">
                           <template style="display:none">
-                            {{
-                              media
-                              | external_video_url: autoplay: false
-                              | external_video_tag: class: videoClass, loading: 'lazy'
-                            }}
-                          </template>
+                          {{
+                            media
+                            | external_video_url: autoplay: false
+                            | external_video_tag: class: videoClass, loading: 'lazy'
+                          }}
+                        </template>
                           <noscript>
                             <a
                               href="{{ media | external_video_url }}"
@@ -238,25 +196,14 @@
                           assign htmlVideo = media.sources[1]
                         endif
                       -%}
-                      <div
-                        class="yv-product-slider-item yv-product-video-item flickity-slider-item"
-                        id="media-main-{{ media.id }}"
-                      >
-                        <deferred-media
-                          class="image-wrapper"
-                          style="padding-bottom:{{ 1 | divided_by : media.aspect_ratio | times: 100 }}%"
-                        >
+                      <div class="yv-product-slider-item yv-product-video-item flickity-slider-item" id="media-main-{{ media.id }}" >
+                        <deferred-media class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : media.aspect_ratio | times: 100 }}%">
                           <template style="display:none">
-                            {{
-                              media
-                              | media_tag:
-                                loading: 'lazy',
-                                class: 'no-js-hidden',
-                                autoplay: false,
-                                controls: true,
-                                preload: 'none'
-                            }}
-                          </template>
+                          {{
+                            media
+                            | media_tag: loading: 'lazy', class: 'no-js-hidden', autoplay: false, controls: true, preload: 'none'
+                          }}
+                        </template>
                           <noscript>
                             <a href="{{ htmlVideo.url }}" target="_blank">
                               {% comment %}theme-check-disable ImgWidthAndHeight{% endcomment %}
@@ -277,23 +224,12 @@
                           assign media_aspect_ratio = media.preview_image.aspect_ratio
                         endif
                       -%}
-                      <div
-                        id="media-main-{{ media.id }}"
-                        class="yv-product-slider-item yv-product-model-item flickity-slider-item"
-                      >
+                      <div id="media-main-{{ media.id }}" class="yv-product-slider-item yv-product-model-item flickity-slider-item">
                         <div
                           class="product-single__media no-js-hidden"
                           style="padding-bottom: {{ 100 | divided_by: media_aspect_ratio }}%"
                           data-media-id="{{ media.id }}"
-                        >
-                          {{
-                            media
-                            | model_viewer_tag:
-                              image_size: true,
-                              reveal: 'interaction',
-                              toggleable: true,
-                              data-model-id: media.id
-                          }}
+                        > {{ media | model_viewer_tag: image_size: true, reveal: 'interaction', toggleable: true, data-model-id: media.id }}
                           <button class="close-product-model hidden">
                             <svg
                               aria-hidden="true"
@@ -344,85 +280,76 @@
                       </div>
                   {%- endcase -%}
                 {% endunless %}
-              {%- endfor -%}
-            </div>
-            {%- if featuredHeadingBar -%}
-              <div
-                class="featured-product-img-text style-{{ section.settings.marquee_text_position }}{% if section.settings.enable_marquee %} marque-enabled{% endif %}"
-                style="--animation-speed:{{ section.settings.marquee_speed }}s"
-              >
-                {% assign vertical_text_hyphen = '' %}
-                {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
-                  {% assign vertical_text_hyphen = '<span class="h5">-</span>' %}
-                {% endif %}
-                {%- if section.settings.heading != blank -%}
-                  {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
-                    <div class="marquee-group">
-                  {% endif %}
-                  <span class="h5">{{ section.settings.heading }}</span>
-                  {{ vertical_text_hyphen }}
-                  {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
-                    </div>
-                  {% endif %}
-                  {% if section.settings.enable_marquee %}
-                    {%- for i in (1..5) -%}
-                      {% if section.settings.marquee_text_position == 'vertical-text' %}
-                        <div class="marquee-group">
-                      {% endif %}
-                      <span class="h5">{{ section.settings.heading }}</span>
-                      {{ vertical_text_hyphen }}
-                      {% if section.settings.marquee_text_position == 'vertical-text' %}
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %}
-                {%- endif -%}
+                {%- endfor -%}
+                
               </div>
-            {%- endif -%}
-            <div
-              class="yv-product-small-slider-container "
-              tabindex="-1"
-              style="--layoutRadius:{% if settings.layout_style == 'rounded' %}6px{% else %}0px{% endif %}; --height:{{ featuredMedia.preview_image.height }}px;{% if product.media.size <= 1 or section.settings.enable_thumb == false %}display:none !important{% endif %}"
-            >
+              {%- if featuredHeadingBar -%}
+                <div
+                  class="featured-product-img-text style-{{ section.settings.marquee_text_position }}{% if section.settings.enable_marquee %} marque-enabled{% endif %}"
+                  style="--animation-speed:{{ section.settings.marquee_speed }}s"
+                >
+                  {% assign vertical_text_hyphen = '' %}
+                  {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
+                    {% assign vertical_text_hyphen = '<span class="h5">-</span>' %}
+                  {% endif %}
+                  {%- if section.settings.heading != blank -%}
+                    {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
+                    <div class="marquee-group">
+                    {% endif %}
+                    <span class="h5">{{ section.settings.heading }}</span>
+                    {{ vertical_text_hyphen }}
+                    {% if section.settings.marquee_text_position == 'vertical-text' and section.settings.enable_marquee %}
+                      </div>
+                    {% endif %}
+                    {% if section.settings.enable_marquee %}
+                      {%- for i in (1..5) -%}
+                        {% if section.settings.marquee_text_position == 'vertical-text' %}
+                          <div class="marquee-group">
+                        {% endif %}                   
+                        <span class="h5">{{ section.settings.heading }}</span>
+                        {{ vertical_text_hyphen }}
+                        {% if section.settings.marquee_text_position == 'vertical-text' %}
+                          </div>
+                        {% endif %}
+                      {% endfor %}                    
+                    {% endif %}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
               <div
-                id="product-thumb-slider-{{ section.id }}"
-                class="yv-product-small-slider data-thumb-slider"
-                data-flickity-featured-product-thumb-slider='
-                                                { "asNavFor": "#product-slider-{{ section.id }}", "contain": true, "pageDots": false,"cellAlign":"left","prevNextButtons": false}
-                '
+                class="yv-product-small-slider-container "
+                tabindex="-1"
+                style="--layoutRadius:{% if settings.layout_style == 'rounded' %}6px{% else %}0px{% endif %}; --height:{{ featuredMedia.preview_image.height }}px;{% if product.media.size <= 1 or section.settings.enable_thumb == false %}display:none !important{% endif %}"
               >
-                {% if featuredMedia != blank %}
-                  <div
-                    class="yv-product-slider-item gallery__slide-img {% if settings.pass_through_product_images %} pass-through-color{% endif %}"
-                    id="media-thumb-{{ featuredMedia.id }}"
-                    data-image="media-{{ featuredMedia.id }}"
-                  >
-                    {%- render 'lazy-image',
-                      image: featuredMedia.preview_image,
-                      width: '70',
-                      sizes: '[70,80,90,100,110,120]'
-                    -%}
-                  </div>
-                {% endif %}
-                {%- for media in product.media -%}
-                  {% unless media.id == featuredMedia.id %}
+                <div
+                  id="product-thumb-slider-{{ section.id }}"
+                  class="yv-product-small-slider data-thumb-slider"
+                  data-flickity-featured-product-thumb-slider='
+                              { "asNavFor": "#product-slider-{{ section.id }}", "contain": true, "pageDots": false,"cellAlign":"left","prevNextButtons": false}
+                  '
+                >
+                  {% if featuredMedia != blank %}
                     <div
                       class="yv-product-slider-item gallery__slide-img {% if settings.pass_through_product_images %} pass-through-color{% endif %}"
-                      id="media-thumb-{{ media.id }}"
-                      data-image="media-{{ media.id }}"
+                      id="media-thumb-{{ featuredMedia.id }}"
+                      data-image="media-{{ featuredMedia.id }}"
+                     
                     >
-                      {%- render 'lazy-image',
-                        image: media.preview_image,
-                        width: '70',
-                        sizes: '[70,80,90,100,110,120]'
-                      -%}
+                      {%- render 'lazy-image', image: featuredMedia.preview_image, width: '70', sizes: '[70,80,90,100,110,120]' -%}
+                    </div>
+                  {% endif %}
+                  {%- for media in product.media -%}
+                    {% unless media.id == featuredMedia.id %}
+                    <div class="yv-product-slider-item gallery__slide-img {% if settings.pass_through_product_images %} pass-through-color{% endif %}"
+                      id="media-thumb-{{ media.id }}" data-image="media-{{ media.id }}">
+                      {%- render 'lazy-image', image: media.preview_image, width: '70', sizes: '[70,80,90,100,110,120]' -%}
                     </div>
                   {% endunless %}
-                {%- endfor -%}
-              </div>
+                  {%- endfor -%}
+                </div>
             </div>
             {% if section.settings.enable_thumb %}
-              </div>
+            </div>
             {% endif %}
           {% else %}
             <div class="product-no-media">
@@ -430,9 +357,9 @@
             </div>
           {% endif %}
         </div>
-        <div class="col-md-6 col-lg-6"> 
+        <div class="col-md-6 col-lg-6">
           {%- unless section.settings.product == blank -%}
-            {%- render 'product-form', product: product, section: section -%}
+            {%- render 'product-form', product: product -%}
           {%- else -%}
             <div class="yv-feature-product-detail options-style-{{ settings.option_layout_style }}">
               {%- for block in section.blocks -%}
@@ -440,9 +367,7 @@
                   {%- when '@app' -%}
                     {%- render block -%}
                   {%- when 'title' -%}
-                    <{{ block.settings.seo_heading }} class="yv-product-detail-title {{ block.settings.heading_size }}">
-                      {{- 'onboarding.product_title' | t -}}
-                    </{{ block.settings.seo_heading }}>
+                    <{{ block.settings.seo_heading }} class="yv-product-detail-title {{ block.settings.heading_size }}">{{ 'onboarding.product_title' | t }}</{{ block.settings.seo_heading }}>
                   {%- when 'text' -%}
                     <p class="yv-product-detail-desc" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
                   {%- when 'price' -%}
@@ -452,9 +377,7 @@
                         <div class="yv-compare-price-box">
                           <span class="yv-product-compare-price"> {{ 9900 | money }}</span>
                           {%- if settings.show_saved_amount -%}
-                            {% liquid
-                              assign offText = 'products.product.off' | t
-                            %}
+                            {% liquid assign offText = 'products.product.off' | t %}
                             {%- if settings.saved_amount_style == 'percentage' -%}
                               <span class="yv-product-percent-off">
                                 {{-
@@ -477,9 +400,7 @@
                     </div>
                   {%- when 'quantity' -%}
                     <div class="yv-product-quantity">
-                      <label class="yv-variant-title" for="product-quantity-{{ product_form_id }}">
-                        {{- 'products.product.quantity.label' | t -}}
-                      </label>
+                      <label class="yv-variant-title" for="product-quantity-{{ product_form_id }}">{{ 'products.product.quantity.label' | t }}</label>
                       <div class="quantity">
                         <button type="button" class="quantity-button quantity-down no-js-hidden">
                           <span class="yv-visually-hidden">
@@ -508,7 +429,7 @@
                             <polygon points="14,6 8,6 8,0 6,0 6,6 0,6 0,8 6,8 6,14 8,14 8,8 14,8 "/>
                           </svg>
                         </button>
-                      </div>
+                      </div> 
                     </div>
                   {%- when 'variant' -%}
                     {%- comment -%}theme-check-disable TranslationKeyExists {%- endcomment -%}
@@ -523,9 +444,9 @@
                         {{ block.shopify_attributes }}
                       >
                         <label class="yv-variant-title">{{ 'products.product.option' | t: title: OptionName }}</label>
-
+                     
                         {% liquid
-                          assign swatchStyle = settings.color_swatch_style
+                        assign swatchStyle = settings.color_swatch_style
                           if downOption != 'color' or downOption != 'color'
                             if settings.color_swatch_style == 'circle'
                               assign swatchStyle = 'round'
@@ -604,10 +525,10 @@
                         data-button-wrapper
                       >
                         <button type="submit" class="Sd_addProduct add_to_cart button black-btn" disabled>
-                          {% if settings.buttonAnimation == 'animated-arrow' %}
-                            <span class="btn-animated-arrow">
-                              <svg fill="none" viewBox="0 0 8 8">
-                                <path fill="currentColor" fill-rule="evenodd" d="M0 0h8v8H7V1.707L1.354 7.354 1 7.707.293 7l.353-.354L6.293 1H0V0Z" clip-rule="evenodd"></path>
+                          
+                          {% if settings.buttonAnimation == 'animated-arrow'%}
+                            <span class="btn-animated-arrow"><svg fill="none" viewBox="0 0 8 8">
+                              <path fill="currentColor" fill-rule="evenodd" d="M0 0h8v8H7V1.707L1.354 7.354 1 7.707.293 7l.353-.354L6.293 1H0V0Z" clip-rule="evenodd"></path>
                               </svg>
                             </span>
                           {% endif %}
@@ -632,7 +553,7 @@
             </div>
           {%- endunless -%}
         </div>
-      </product-info>
+      </div>
     </div>
   </div>
 </div>
@@ -669,15 +590,15 @@
         stroke-width: 8;
       }
       #shopify-section-{{ section.id }} .yv-draw-icon {
-        position: absolute;
-        top: {{ section.settings.top_to_bottom | append: '%' }};
+        position: absolute;  
+        top: {{ section.settings.top_to_bottom | append: '%' }}; 
         left: {{ section.settings.left_to_right | append: '%' }};
       }
 
       @media only screen and (max-width:767px) {
         #shopify-section-{{ section.id }} .yv-draw-icon {
-          position: absolute;
-          top: {{ section.settings.mobile_top_to_bottom | append: '%' }};
+          position: absolute;  
+          top: {{ section.settings.mobile_top_to_bottom | append: '%' }}; 
           left: {{ section.settings.mobile_left_to_right | append: '%' }};
         }
       }
@@ -703,14 +624,14 @@
         background: url({{ 'select-arrow-white.png' | asset_url }}) no-repeat 97% 50% /10px transparent;
       }
       #shopify-section-{{ section.id }} .product-view-dropdown select {
-        background: url({{ 'select-arrow-white.png' | asset_url }}) no-repeat 88% 60% /9px transparent;
+        background: url({{ 'select-arrow-white.png' | asset_url }}) no-repeat 94% 60% /9px transparent;
       }
     {%- else -%}
     #shopify-section-{{ section.id }} .yv_product_content_section select{
       background:url({{ 'lang-dropdown-arrow.svg' | asset_url }}) no-repeat 97% 50% /10px transparent;
     }
     #shopify-section-{{ section.id }} .product-view-dropdown select {
-      background: url({{ 'lang-dropdown-arrow.svg' | asset_url }}) no-repeat 88% 60% /9px transparent ;
+      background: url({{ 'lang-dropdown-arrow.svg' | asset_url }}) no-repeat 94% 60% /9px transparent ;
     }
     {%- endif -%}
 
@@ -735,26 +656,36 @@
         }
       }
   {% endif %}
+
 </style>
 {% comment %} <script src="{{ 'fancybox.min.js' | asset_url }}" defer></script> {% endcomment %}
 <script src="{{ 'featured-product.js' | asset_url }}" defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    if (typeof AOS !== 'undefined') {
-      setTimeout(function () {
-        AOS.refresh();
-      }, 500);
-    }
-  });
-</script>
+document.addEventListener("DOMContentLoaded", function () {
+ 
+  if (typeof AOS !== "undefined") {
 
+    setTimeout(function () {
+
+      AOS.refresh(); 
+
+    }, 500); 
+
+  }
+
+});
+</script>
+ 
 {% schema %}
 {
   "name": "t:sections.featured-product.name",
   "tag": "section",
   "class": "feature-section featured-product-section",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": [
+      "header",
+      "footer"
+    ]
   },
   "settings": [
     {
@@ -1237,7 +1168,7 @@
           "label": "t:sections.main-product.blocks.inventory_status.settings.minimun_inventory.label",
           "default": 10,
           "min": 1,
-          "max": 100,
+          "max": 20,
           "step": 1
         },
         {
@@ -1287,12 +1218,6 @@
           "id": "enable_fullwidth",
           "default": false,
           "label": "t:sections.featured-product.blocks.button.settings.enable_fullwidth.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "pickup_availability",
-          "default": true,
-          "label": "t:sections.featured-product.blocks.button.settings.pickup-availability.name"
         }
       ]
     },

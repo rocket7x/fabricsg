@@ -4,7 +4,7 @@
   {%- if article.image and section.settings.show_image -%}
   <div class="yv-blog-detail-banner image-{{ section.settings.image_height }}" itemprop="image">
     <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : article.image.aspect_ratio | times: 100 | minus : 1 }}%">
-      {% render 'lazy-image', image: article.image %}     
+      {% render 'lazy-image' image: article.image %}     
     </div>
   </div>
   {%- endif -%}
@@ -198,7 +198,7 @@
                         <a href="{{- newArticle.url -}}" class="yv-blog-card-img">                 
                             {%- if newArticle.image -%}             
                             <div class="image-wrapper image-{{ settings.article_image_style }}" {% if settings.article_image_style == 'aspect' %}style="padding-bottom:{{ 1 | divided_by : newArticle.image.aspect_ratio | times: 100 }}%"{% endif %}>
-                              {% render 'lazy-image', image: newArticle.image %} 
+                              {% render 'lazy-image' image: newArticle.image %} 
                             </div>
                           {%- else -%}
                             {%- if settings.article_image_style != 'aspect' -%}

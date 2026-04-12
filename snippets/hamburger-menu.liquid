@@ -169,7 +169,7 @@
     {% liquid
       if section.settings.enable_language_selector or section.settings.enable_currency_selector
         echo '<div class="header-form">'
-          render 'header-localization', section : section, formId : 'headerMobileForm' 
+          render 'header-localization' section : section, formId : 'headerMobileForm' 
         echo '</div>'
       endif
     %}

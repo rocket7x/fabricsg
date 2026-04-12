@@ -1,0 +1,1153 @@
+{% doc %}
+  @prompt
+    6 text with icons row with broader range of icons to choose from and it needs to be mobile friendly, can the icons be outlined instead of filled in with color, as well as a button on the bottom, can it be a horizontal row instead of vertical, i love it - can we just add headers with the text, can you add header + text for each icon/text, perfect! now i just want to adjust the weight of the icon outline
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-text-row-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-icon-text-row__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-icon-text-row__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: {{ block.settings.item_spacing }}px;
+    margin-bottom: {{ block.settings.button_spacing }}px;
+  }
+
+  .ai-icon-text-row__item-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    display: flex;
+    flex-direction: column;
+    {% if block.settings.text_alignment == 'center' %}
+      align-items: center;
+    {% elsif block.settings.text_alignment == 'right' %}
+      align-items: flex-end;
+    {% else %}
+      align-items: flex-start;
+    {% endif %}
+    gap: {{ block.settings.icon_text_spacing }}px;
+  }
+
+  .ai-icon-text-row__icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    color: {{ block.settings.icon_color }};
+    stroke-width: {{ block.settings.icon_stroke_weight }};
+    flex-shrink: 0;
+  }
+
+  .ai-icon-text-row__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.header_text_spacing }}px;
+  }
+
+  .ai-icon-text-row__header-{{ ai_gen_id }} {
+    color: {{ block.settings.header_color }};
+    font-size: {{ block.settings.header_size }}px;
+    line-height: 1.2;
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-weight: 600;
+  }
+
+  .ai-icon-text-row__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.4;
+    margin: 0;
+    font-family: var(--font-family);
+  }
+
+  .ai-icon-text-row__button-wrapper-{{ ai_gen_id }} {
+    text-align: {{ block.settings.button_alignment }};
+  }
+
+  .ai-icon-text-row__button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
+    border: 2px solid {{ block.settings.button_border_color }};
+  }
+
+  .ai-icon-text-row__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 990px) {
+    .ai-icon-text-row__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_tablet }}, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-text-row__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_mobile }}, 1fr);
+      gap: {{ block.settings.item_spacing | times: 0.75 }}px;
+    }
+
+    .ai-icon-text-row__icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.85 }}px;
+      height: {{ block.settings.icon_size | times: 0.85 }}px;
+    }
+
+    .ai-icon-text-row__header-{{ ai_gen_id }} {
+      font-size: {{ block.settings.header_size | times: 0.9 }}px;
+    }
+
+    .ai-icon-text-row__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-icon-text-row__container-{{ ai_gen_id }} {
+      padding: 0 15px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-icon-text-row-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-icon-text-row__container-{{ ai_gen_id }}">
+    <div class="ai-icon-text-row__grid-{{ ai_gen_id }}">
+      {% for i in (1..6) %}
+        {% liquid
+          assign icon_key = 'icon_' | append: i
+          assign header_key = 'header_' | append: i
+          assign text_key = 'text_' | append: i
+          assign icon_value = block.settings[icon_key]
+          assign header_value = block.settings[header_key]
+          assign text_value = block.settings[text_key]
+        %}
+        
+        <div class="ai-icon-text-row__item-{{ ai_gen_id }}">
+          {% case icon_value %}
+            {% when 'shipping' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4l4 4m-4-4l4-4"/>
+              </svg>
+            {% when 'returns' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/>
+              </svg>
+            {% when 'support' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            {% when 'security' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+              </svg>
+            {% when 'quality' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+              </svg>
+            {% when 'warranty' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            {% when 'gift' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+              </svg>
+            {% when 'eco' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            {% when 'phone' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+              </svg>
+            {% when 'email' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+              </svg>
+            {% when 'location' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+            {% when 'clock' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            {% when 'heart' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            {% when 'star' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+              </svg>
+            {% when 'thumbs_up' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-.971a6.043 6.043 0 01-1.93-.86 4.467 4.467 0 00-2.02-.505H3.75a.75.75 0 01-.75-.75V10.5a.75.75 0 01.75-.75h2.883z"/>
+              </svg>
+            {% when 'check' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            {% when 'lightning' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+              </svg>
+            {% when 'globe' %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+              </svg>
+            {% else %}
+              <svg class="ai-icon-text-row__icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+          {% endcase %}
+          
+          {% if header_value != blank or text_value != blank %}
+            <div class="ai-icon-text-row__content-{{ ai_gen_id }}">
+              {% if header_value != blank %}
+                <h3 class="ai-icon-text-row__header-{{ ai_gen_id }}">{{ header_value }}</h3>
+              {% endif %}
+              {% if text_value != blank %}
+                <p class="ai-icon-text-row__text-{{ ai_gen_id }}">{{ text_value }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    
+    {% if block.settings.show_button and block.settings.button_text != blank %}
+      <div class="ai-icon-text-row__button-wrapper-{{ ai_gen_id }}">
+        <a href="{{ block.settings.button_link }}" class="ai-icon-text-row__button-{{ ai_gen_id }}">
+          {{ block.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon text row",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "columns_tablet",
+      "label": "Columns on tablet",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Item spacing",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "icon_text_spacing",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon to content spacing",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "header_text_spacing",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "label": "Header to text spacing",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "icon_stroke_weight",
+      "min": 1,
+      "max": 3,
+      "step": 0.5,
+      "label": "Icon outline weight",
+      "default": 1.5
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "select",
+      "id": "icon_1",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "shipping"
+    },
+    {
+      "type": "text",
+      "id": "header_1",
+      "label": "Header",
+      "default": "Free Shipping"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Description",
+      "default": "On orders over $50"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "select",
+      "id": "icon_2",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "returns"
+    },
+    {
+      "type": "text",
+      "id": "header_2",
+      "label": "Header",
+      "default": "Easy Returns"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Description",
+      "default": "30-day return policy"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "select",
+      "id": "icon_3",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "support"
+    },
+    {
+      "type": "text",
+      "id": "header_3",
+      "label": "Header",
+      "default": "24/7 Support"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Description",
+      "default": "Always here to help"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "select",
+      "id": "icon_4",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "security"
+    },
+    {
+      "type": "text",
+      "id": "header_4",
+      "label": "Header",
+      "default": "Secure Payment"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Description",
+      "default": "SSL encrypted checkout"
+    },
+    {
+      "type": "header",
+      "content": "Item 5"
+    },
+    {
+      "type": "select",
+      "id": "icon_5",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "quality"
+    },
+    {
+      "type": "text",
+      "id": "header_5",
+      "label": "Header",
+      "default": "Premium Quality"
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Description",
+      "default": "Handcrafted excellence"
+    },
+    {
+      "type": "header",
+      "content": "Item 6"
+    },
+    {
+      "type": "select",
+      "id": "icon_6",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "shipping",
+          "label": "Shipping"
+        },
+        {
+          "value": "returns",
+          "label": "Returns"
+        },
+        {
+          "value": "support",
+          "label": "Support"
+        },
+        {
+          "value": "security",
+          "label": "Security"
+        },
+        {
+          "value": "quality",
+          "label": "Quality"
+        },
+        {
+          "value": "warranty",
+          "label": "Warranty"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "eco",
+          "label": "Eco friendly"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "location",
+          "label": "Location"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "thumbs_up",
+          "label": "Thumbs up"
+        },
+        {
+          "value": "check",
+          "label": "Check mark"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "globe",
+          "label": "Globe"
+        }
+      ],
+      "default": "warranty"
+    },
+    {
+      "type": "text",
+      "id": "header_6",
+      "label": "Header",
+      "default": "1 Year Warranty"
+    },
+    {
+      "type": "text",
+      "id": "text_6",
+      "label": "Description",
+      "default": "Full coverage guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "header_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Header size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Header color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Button spacing",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button text size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Button vertical padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Button horizontal padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 4
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button hover background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button hover border",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon text row"
+    }
+  ]
+}
+{% endschema %}
