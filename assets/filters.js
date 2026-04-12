@@ -517,7 +517,7 @@ function ScrollExecute() {
             e.innerHTML = $(data).find('#CollectionProductsContainer').html();
             updateGridView(e)
             $('[data-collection-products]').append(e.querySelector('[data-collection-products]').innerHTML);
-            productVariants();
+            // productVariants();
             gridPickUpAvailability();
             productHoverSlider(); 
             if(animationStatus){

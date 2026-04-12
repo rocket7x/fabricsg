@@ -102,7 +102,6 @@ class CustomerAddresses {
 //** Reorder Product **//
 $('.reorderButton').on('click', function(e) {
     e.preventDefault();
-    console.log('reorderButton')
     let button = e.target;
     let formHtml = button.closest('.action-container').querySelector('.Reorder__container');
     let cloneForm = formHtml.cloneNode(true);

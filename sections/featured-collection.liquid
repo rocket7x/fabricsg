@@ -36,7 +36,7 @@
       <div class="yv-new-arriavl-imgbox" >
         <{% if stacked_products %}a href="{{ collection.url }}"{% else %}div{% endif %} class="small-trigger-element" aria-label="Featured collection">
           {%- if collectionImage -%}
-          {%- render 'lazy-image' image: collectionImage, width: '700x' -%}
+          {%- render 'lazy-image', image: collectionImage, width: '700x' -%}
           {%- else -%}
               {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
@@ -88,19 +88,26 @@
           <p class="heading-subtitle">{{ section.settings.subheading }}</p>
           {% if section.settings.highlight_font == 'body' %}
             {% capture highlightStyle %}
-            <span class="body-font">
+            <span class="body-font highlighted-text">
             {% endcapture %}
           {% elsif section.settings.highlight_font == 'heading' %}
           {% capture highlightStyle %}
-             <span class="heading-font">
+             <span class="heading-font highlighted-text">
           {% endcapture %}  
           {% else %}
           {% capture highlightStyle %}
-             <span class="accent-font">
+             <span class="accent-font highlighted-text">
           {% endcapture %}  
           {% endif %}
           <{{ section.settings.seo_heading }} class="heading-title {{ section.settings.heading_size }}">
-            {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+            {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+            {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+            {%- if heading contains '[' and heading contains ']' -%}
+              {%- render 'rotational-highlight', heading: heading -%}
+            {%- else -%}
+              {{- heading -}}
+            {%- endif -%}
+
           </{{ section.settings.seo_heading }}>
         </div>
         {% endif %}
@@ -141,7 +148,7 @@
           else
             assign animationAttr = ''
           endif
-          render 'product-grid' product: product, productFormId : productFormId, productClasses: mainClass , animationAttr: animationAttr, imageSize : '255x', customRadius: true
+          render 'product-grid', product: product, productFormId : productFormId, productClasses: mainClass , animationAttr: animationAttr, imageSize : '255x', customRadius: true
           endfor -%}
           {% else %}
           {%- for i in (1..productLimit) -%}
@@ -180,7 +187,7 @@
 <style>
   #shopify-section-{{ section.id }}.shopify-section .yv-new-arriavl-slider{
     --layoutRadius:{{ section.settings.product_grid_radius_desktop }}px;
-      --product-spacing:{{ section.settings.product_grid_spacing_desktop }}px;
+    --product-spacing:{{ section.settings.product_grid_spacing_desktop }}px;
   }
   #shopify-section-{{ section.id }}.shopify-section {
     {% if section.settings.enable_top_border %}
@@ -196,6 +203,15 @@
     --primaryColorBody:var(--{{- section.settings.bgcolor -}}ColorBody);
     --primaryBorderColor: var(--{{- section.settings.bgcolor -}}BorderColor);
     {%- endunless -%}
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }}.shopify-section .heading-title{
+    --fontSize: var(--{{ section.settings.heading_size }});
   }
   #shopify-section-{{ section.id }}.shopify-section .yv-new-arrival-sliderbox ,
   #shopify-section-{{ section.id }}.shopify-section .yv-new-arriavl-slider{
@@ -401,6 +417,21 @@
       "default": "All Products",
       "label": "t:sections.featured-collection.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

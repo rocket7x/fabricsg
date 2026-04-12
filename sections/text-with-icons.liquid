@@ -4,7 +4,7 @@
       <div class="row">
         {%- for block in section.blocks -%}
           <div class="col-{% if section.settings.mobile_column_count == '1' %}12{% else %}6{% endif %} col-sm-6 col-md-3 text-with-icon-column{% if section.settings.column_background %} column-bg{% endif %}" {{ block.shopify_attributes }}>
-            <div class="yv-service-item column-background-{{ section.settings.column_background }} column-icon-position-{{ section.settings.icon_position }} text-{{ section.settings.alignment }}{% if section.settings.icon_background %} icon-bg{% endif %}{% if section.settings.enable_border %} column-border-true{% endif %}">
+            <div class="yv-service-item column-background-{{ section.settings.column_background }} column-icon-position-{{ section.settings.icon_position }} text-{{ section.settings.alignment }}{% if section.settings.icon_background %} icon-bg{% endif %} icon-width-{{ section.settings.icon_width }}{% if section.settings.enable_border %} column-border-true{% endif %} {% if section.settings.border_style == 'separator' %}column-separator-true {% endif %}">
               <span class="column-icon">
                 {%- render 'icons', icon: block.settings.icon -%}
               </span>
@@ -197,6 +197,7 @@
       "type": "select",
       "id": "border_style",
       "label": "t:common.border_style.label",
+      "info": "t:sections.text-with-icons.settings.border_separator.label",
       "default": "dashed",
       "options": [
         {
@@ -210,6 +211,10 @@
         {
           "value": "solid",
           "label": "t:common.border_style.options.solid.label"
+        },
+        {
+          "value": "separator",
+          "label": "t:common.border_style.options.separator.label"
         }
       ]
     },
@@ -259,6 +264,26 @@
         }
       ]
     },
+    {
+      "type": "select",
+      "id": "icon_width",
+      "label": "t:sections.text-with-icons.settings.icon_width.label",
+      "default": "large",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.text-with-icons.settings.icon_width.options.small.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.text-with-icons.settings.icon_width.options.medium.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.text-with-icons.settings.icon_width.options.large.label"
+        }
+      ]
+    },    
     {
       "type": "header",
       "content": "t:common.header.color_section.label"
@@ -418,6 +443,10 @@
               "value": "refund"
             },
             {
+              "label": "t:common.icon.options.return.label",
+              "value": "return"
+            },
+            {
               "label": "t:common.icon.options.search.label",
               "value": "search"
             },
@@ -428,6 +457,18 @@
             {
               "label": "t:common.icon.options.shipping.label",
               "value": "shipping"
+            },
+            {
+              "label":"t:common.icon.options.shopping.label",
+              "value": "shopping"
+            },
+            {
+              "label": "t:common.icon.options.security.label",
+              "value": "security"
+            },
+            {
+              "label":"t:common.icon.options.service.label",
+              "value":  "service"
             },
             {
               "label": "t:common.icon.options.smile.label",

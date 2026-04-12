@@ -644,19 +644,111 @@
       %}      
       <a
         href="{{ mainProductUrl }}"
-        class="yv-product-title {{ settings.product_grid_content_size }}"
+        class="yv-product-title {{ settings.product_grid_content_size }} {% if settings.truncate_title >= 1 %}title-truncate{% endif %}"
         title="{{ product.title | strip_html }}"
         aria-label="{{ product.title | strip_html }}"
         tabindex="-1"
       >
         {{- product.title | strip_html -}}
       </a>  
+        {% unless hideCustomLabel %}
+          {% unless producttags %}
+            {%- capture customLabels -%}
+              {% liquid
+                assign custom_label1 = settings.custom_label1 | split: '.'
+                assign key1 = custom_label1 | first
+                assign value1 = custom_label1 | last
+                assign custom_label2 = settings.custom_label2 | split: '.'
+                assign key2 = custom_label2 | first
+                assign value2 = custom_label2 | last
+                assign custom_label3 = settings.custom_label3 | split: '.'
+                assign key3 = custom_label3 | first
+                assign value3 = custom_label3 | last
+                assign custom_label4 = settings.custom_label4 | split: '.'
+                assign key4 = custom_label4 | first
+                assign value4 = custom_label4 | last
+                assign custom_label5 = settings.custom_label5 | split: '.'
+                assign key5 = custom_label5 | first
+                assign value5 = custom_label5 | last
+              %}
+              {% if product.metafields[key1][value1] != blank %}
+                <li class="yv-product-card-label">
+                  {{ product.metafields[key1][value1] }}
+                </li>
+              {% endif %}
+              {% if product.metafields[key2][value2] != blank %}
+                <li class="yv-product-card-label">
+                  {{ product.metafields[key2][value2] }}
+                </li>
+              {% endif %}
+              {% if product.metafields[key3][value3] != blank %}
+                <li class="yv-product-card-label">
+                  {{ product.metafields[key3][value3] }}
+                </li>
+              {% endif %}
+              {% if product.metafields[key4][value4] != blank %}
+                <li class="yv-product-card-label">
+                  {{ product.metafields[key4][value4] }}
+                </li>
+              {% endif %}
+              {% if product.metafields[key5][value5] != blank %}
+                <li class="yv-product-card-label">
+                  {{ product.metafields[key5][value5] }}
+                </li>
+              {% endif %}
+            {%- endcapture -%}
+            {%- if customLabels != blank -%}
+              <ul class="list-unstyled yv-product-card-label-container style-{{ settings.custom_label_style }}">
+                {{ customLabels }}
+              </ul>
+            {%- endif -%}
+          {% endunless %}
+        {% endunless %}
+
+        {% unless settings.product_grid_content_alignment == 'text-justify' %}
+          {%- if settings.show_price -%}
+            <div
+              class="yv-prizebox {{ settings.product_grid_price_size }}"
+              data-saved="{{ settings.show_saved_amount }}"
+              data-saved-style="{{ settings.saved_amount_style }}"
+              data-price-wrapper=""
+              {{ block.shopify_attributes }}
+            >
+              {%- assign price_min = product.price_min | money -%}
+              {%- if product.price_varies -%}
+                <span class="yv-product-price price-varies">
+                  {{- 'products.product.price.from_price_html' | t: price: price_min -}}
+                </span>
+              {%- else -%}
+                <span class="yv-product-price">{{ price_min }}</span>
+              {%- endif -%}
+              {%- if product.compare_at_price_min > product.price_min -%}
+                <span class="yv-product-compare-price">{{ product.compare_at_price_min | money }}</span>
+              {%- endif -%}
+            </div>
+
+            {%- if current_variant.unit_price_measurement -%}
+              <p class="yv-product-unit-price {{ settings.product_grid_content_size }}">
+                {{ current_variant.unit_price | money }} /
+                {% if current_variant.unit_price_measurement.reference_value != 1 -%}
+                  {{- current_variant.unit_price_measurement.reference_value -}}
+                {%- endif %}
+                {{ current_variant.unit_price_measurement.reference_unit }}
+              </p>
+            {%- endif -%}
+            {%- if product.quantity_price_breaks_configured? -%}
+              <div class="card__information-volume-pricing-note">
+                <span class="text-xsmall">{{ 'products.product.volume_pricing.note' | t }}</span>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        {% endunless %}
       {% if settings.show_inventory and hidestockcount != true %}
         <p class="stock-status {{ stockClass }}">
           <span>{% render 'icons', icon: stockClass %}</span>{{ stockconent }}
         </p>
       {% endif %}
-      {% unless hideCustomLabel %}
+      {% comment %} {% unless hideCustomLabel %}
         {% unless producttags %}
           <ul class="list-unstyled yv-product-card-label-container">
             {% liquid
@@ -695,7 +787,7 @@
             {% endif %}
           </ul>
         {% endunless %}
-      {% endunless %}
+      {% endunless %} {% endcomment %}
       {% unless hidePickup %}
         {%- if settings.show_grid_pickup -%}
           {%- render 'grid-pickup-availability', product: product -%}
@@ -785,7 +877,7 @@
                     {% if variantValue.featured_media != blank %}
                       {% capture selectedColorImage %}
                       <div class="media-content">
-                      {%- render 'lazy-image' image: variantValue.featured_media, class: 'product-first-img', width: productImageSize -%}
+                      {%- render 'lazy-image', image: variantValue.featured_media, class: 'product-first-img', width: productImageSize -%}
                       </div>
                     {% endcapture %}
                       <script>
@@ -807,41 +899,43 @@
         {% endfor %}
       {% endif %}
     </div>
-      {%- if settings.show_price -%}
-        <div
-          class="yv-prizebox {{ settings.product_grid_content_size }}"
-          data-saved="{{ settings.show_saved_amount }}"
-          data-saved-style="{{ settings.saved_amount_style }}"
-          data-price-wrapper=""
-          {{ block.shopify_attributes }}
-        >
-          {%- assign price_min = product.price_min | money -%}
-          {%- if product.price_varies -%}
-            <span class="yv-product-price price-varies">
-              {{- 'products.product.price.from_price_html' | t: price: price_min -}}
-            </span>
-          {%- else -%}
-            <span class="yv-product-price">{{ price_min }}</span>
-          {%- endif -%}
-          {%- if product.compare_at_price_min > product.price_min -%}
-            <span class="yv-product-compare-price">{{ product.compare_at_price_min | money }}</span>
-          {%- endif -%}
-        </div>
-        {%- if current_variant.unit_price_measurement -%}
-          <p class="yv-product-unit-price {{ settings.product_grid_content_size }}">
-            {{ current_variant.unit_price | money }} /
-            {% if current_variant.unit_price_measurement.reference_value != 1 -%}
-              {{- current_variant.unit_price_measurement.reference_value -}}
-            {%- endif %}
-            {{ current_variant.unit_price_measurement.reference_unit }}
-          </p>
-        {%- endif -%}
-        {%- if product.quantity_price_breaks_configured? -%}
-          <div class="card__information-volume-pricing-note">
-            <span class="text-xsmall">{{ 'products.product.volume_pricing.note' | t }}</span>
+      {% if settings.product_grid_content_alignment == 'text-justify' %}
+        {%- if settings.show_price -%}
+          <div
+            class="yv-prizebox {{ settings.product_grid_content_size }}"
+            data-saved="{{ settings.show_saved_amount }}"
+            data-saved-style="{{ settings.saved_amount_style }}"
+            data-price-wrapper=""
+            {{ block.shopify_attributes }}
+          >
+            {%- assign price_min = product.price_min | money -%}
+            {%- if product.price_varies -%}
+              <span class="yv-product-price price-varies">
+                {{- 'products.product.price.from_price_html' | t: price: price_min -}}
+              </span>
+            {%- else -%}
+              <span class="yv-product-price">{{ price_min }}</span>
+            {%- endif -%}
+            {%- if product.compare_at_price_min > product.price_min -%}
+              <span class="yv-product-compare-price">{{ product.compare_at_price_min | money }}</span>
+            {%- endif -%}
           </div>
+          {%- if current_variant.unit_price_measurement -%}
+            <p class="yv-product-unit-price {{ settings.product_grid_content_size }}">
+              {{ current_variant.unit_price | money }} /
+              {% if current_variant.unit_price_measurement.reference_value != 1 -%}
+                {{- current_variant.unit_price_measurement.reference_value -}}
+              {%- endif %}
+              {{ current_variant.unit_price_measurement.reference_unit }}
+            </p>
+          {%- endif -%}
+          {%- if product.quantity_price_breaks_configured? -%}
+            <div class="card__information-volume-pricing-note">
+              <span class="text-xsmall">{{ 'products.product.volume_pricing.note' | t }}</span>
+            </div>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
+      {% endif %}
     </div>    
     {% if source %}
       {% unless product.has_only_default_variant or product.variants.size == 1 %}

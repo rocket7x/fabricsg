@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head><!-- SEOAnt Speed Up Script -->{%- if shop.metafields.seoantAppSiteSpeedUpV2.switch == 1 -%}{% include 'SEOAnt-SpeedUp' %}{%- endif -%}<!-- /SEOAnt Speed Up Script -->
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,37 +23,12 @@
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
+
     {%- render 'theme-style' -%}
     {%- render 'theme-scripts' -%}
-  <meta name="google-site-verification" content="tojjHOIZxB6jIjroaDlZf9TC3BF8jBDBhcHnW45z11k" />
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '286719772947931');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=286719772947931&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<meta name="p:domain_verify" content="fb1902560b5f93753e095dffc23b31a2"/>
-</head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WRRMD563');</script>
-<!-- End Google Tag Manager -->
+  </head>
   <body
-    class="template_{{ template | handle }} page-loading breadcrumb-{{ settings.enable_breadcrumb }} theme-layout-{{ settings.layout_style }}{% if settings.buttonAnimation == 'animated-arrow'%} button-style-arrow-animated{% endif %}"
+    class="template_{{ template | handle }} page-loading breadcrumb-{{ settings.enable_breadcrumb }} theme-layout-{{ settings.layout_style }} navigation-arrows-{{ settings.arrow_style }}{% if settings.buttonAnimation == 'animated-arrow'%} button-style-arrow-animated{% endif %}"
     style="--layoutRadius:{% if settings.layout_style == 'rounded' %}10px{% else %}0px{% endif %};"
   >
     <a class="skip-to-content-link button yv-visually-hidden focus-inside" href="#MainContent">
@@ -90,6 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         render 'quick-add-popup'
         section 'side-drawer-content'
       -%}
+      {% sections 'overlay-group' %}
     </div>
     {%- if settings.enable_cart_drawer -%}
       <div
@@ -127,8 +103,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         AOS.init({
           easing: 'ease',
           once: true,
-          duration: 1000,
-          offset: 60,
+          duration: 500,
+          offset: 25,
         });
       {% endif %}
       new universalParallax().init({

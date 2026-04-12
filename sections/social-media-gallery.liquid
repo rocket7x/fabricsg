@@ -6,18 +6,26 @@
         {% if section.settings.heading != blank %}
           {% if section.settings.highlight_font == 'body' %}
             {% capture highlightStyle %}
-            <span class="body-font">
+            <span class="body-font highlighted-text">
             {% endcapture %}
           {% elsif section.settings.highlight_font == 'heading' %}
           {% capture highlightStyle %}
-             <span class="heading-font">
+             <span class="heading-font highlighted-text">
           {% endcapture %}  
           {% else %}
           {% capture highlightStyle %}
-             <span class="accent-font">
+             <span class="accent-font highlighted-text">
           {% endcapture %}  
           {% endif %}
-          <{{ section.settings.seo_heading }} class="section-heading-title h2">{{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
+          <{{ section.settings.seo_heading }} class="section-heading-title h2">
+            {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+            {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+            {%- if heading contains '[' and heading contains ']' -%}
+              {%- render 'rotational-highlight', heading: heading -%}
+            {%- else -%}
+              {{- heading -}}
+            {%- endif -%}
+          </{{ section.settings.seo_heading }}>
         {% endif %}
         {% if section.settings.description != blank %}
           <div class="yv-social-media-desc">
@@ -194,7 +202,7 @@
 </div>
 <style>
   #shopify-section-{{ section.id }}.shopify-section{
-      --overlayBg: {{ section.settings.overlay_color.red }},{{ section.settings.overlay_color.green }},{{ section.settings.overlay_color.blue }},{{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --overlayBg: {{ section.settings.overlay_color.red }},{{ section.settings.overlay_color.green }},{{ section.settings.overlay_color.blue }},{{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --contentColor: {{ section.settings.overlay_text_color }};
     background:var(--{{- section.settings.bgcolor -}}ColorBody);
     padding-top:{{ section.settings.top_space_desktop }}px;
@@ -206,7 +214,17 @@
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
   }
+
+  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
+    --fontSize: var(--h2);
+  }
+
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -245,6 +263,21 @@
       "info": "t:common.highlight_text_and_break_text.info",
       "id": "heading",
       "default": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",
@@ -313,43 +346,43 @@
       "options": [
         {
           "value": "facebook",
-          "label": "Facebook"
+          "label": "t:settings_schema.social.settings.social_facebook_link.label"
         },
         {
           "value": "instagram",
-          "label": "Instagram"
+          "label": "t:settings_schema.social.settings.social_instagram_link.label"
         },
         {
           "value": "linkedin",
-          "label": "Linkedin"
+          "label": "t:settings_schema.social.settings.social_linkedin_link.label"
         },
         {
           "value": "pinterest",
-          "label": "Pinterest"
+          "label": "t:settings_schema.social.settings.social_pinterest_link.label"
         },
         {
           "value": "snapchat",
-          "label": "Snapchat"
+          "label": "t:settings_schema.social.settings.social_snapchat_link.label"
         },
         {
           "value": "tikTok",
-          "label": "TikTok"
+          "label": "t:settings_schema.social.settings.social_tiktok_link.label"
         },
         {
           "value": "tumblr",
-          "label": "Tumblr"
+          "label": "t:settings_schema.social.settings.social_tumblr_link.label"
         },
         {
           "value": "twitter",
-          "label": "Twitter"
+          "label": "t:settings_schema.social.settings.social_twitter_link.label"
         },
         {
           "value": "vimeo",
-          "label": "Vimeo"
+          "label": "t:settings_schema.social.settings.social_vimeo_link.label"
         },
         {
           "value": "youTube",
-          "label": "YouTube"
+          "label": "t:settings_schema.social.settings.social_youtube_link.label"
         }
       ]
     },

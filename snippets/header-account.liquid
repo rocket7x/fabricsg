@@ -234,3 +234,21 @@
     </div>
   {%- endform -%}
 </div>
+<style>
+  #yvForgetPassword,
+  #registerForm {
+    display: none;
+  }
+</style>
+<script>
+  function toggleForm(event) {
+    event.preventDefault();
+    var target = event.currentTarget;
+    var openFormId = target.getAttribute('data-open');
+    var closeFormId = target.getAttribute('data-close');
+    var openForm = document.getElementById(openFormId);
+    var closeForm = document.getElementById(closeFormId);
+    if (closeForm) closeForm.style.display = 'none';
+    if (openForm) openForm.style.display = 'block';
+  }
+</script>

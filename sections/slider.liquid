@@ -375,7 +375,13 @@
     }
   {% endunless %}
       #yv-banner-item-{{ block.id }} .yv-banner-subtitle{
-        background-color:{{ block.settings.subtitle_bgcolor_m }};
+        {% if block.settings.glass_effect == false %}
+          background-color:{{ block.settings.subtitle_bgcolor_m }};
+        {% else %}
+          background-color:rgba({{ block.settings.subtitle_bgcolor_m.red }}, {{ block.settings.subtitle_bgcolor_m.green }}, {{ block.settings.subtitle_bgcolor_m.blue }}, 0.1);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba({{ block.settings.subtitle_bgcolor_m.red }}, {{ block.settings.subtitle_bgcolor_m.green }}, {{ block.settings.subtitle_bgcolor_m.blue }}, 0.2);
+        {% endif %}
         color:{{ block.settings.subtitle_color_m }};
       }
       #yv-banner-item-{{ block.id }} .yv-banner-title{

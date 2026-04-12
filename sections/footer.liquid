@@ -115,6 +115,29 @@
                             {%- if form.posted_successfully? -%}
                             <span id="Newsletter-success--{{ section.id }}" class="success-text" tabindex="-1" autofocus role="status">{{- 'newsletter.success' | t -}}</span>
                             {%- endif -%}
+                            {%- liquid
+                              assign has_terms_and_conditions = false
+                              if settings.enable_terms_checkbox_newsletter and settings.terms_conditions_text_newsletter != blank
+                                assign has_terms_and_conditions = true
+                              endif
+                            %}
+                            {%- if has_terms_and_conditions -%}
+                              <div class="terms_conditions-wrapper custom-checkbox" data-newsletter-condition>
+                                <input
+                                  type="checkbox"
+                                  name="terms_conditions"
+                                  title="{{ settings.terms_conditions_text_newsletter | strip_html }}"
+                                  id="terms_conditions_input-{{ section.id }}"
+                                  onClick="acceptNewsletterConditions(event)"
+                                  data-section="shopify-section-{{ section.id }}"
+                                >
+                                <span class="checkmark"></span>
+                                <label for="terms_conditions_input-{{ section.id }}" title="{{ settings.terms_conditions_text_newsletter | strip_html }}">
+                                  {{ settings.terms_conditions_text_newsletter }}
+                                </label>
+                              </div>
+                            {%- endif -%}
+                            
                             <div class="yv-footer-newsletter-wrapper button-style-{{  block.settings.button_style }}">
                               <label class="visually-hidden" for="NewsletterForm--footer">{{- block.settings.placeholder -}}</label>
                               <input
@@ -140,6 +163,9 @@
                                 type="submit"
                                 class="{% if block.settings.button_style == 'button' %}button text-button small-btn{% else %} icon-button{% endif %} newsletter-form__button"
                                 name="commit"
+                                {% if has_terms_and_conditions %}
+                                  disabled
+                                {% endif %}
                                 aria-label="Subscribe">                                
                                 {% if block.settings.button_style == 'icon' %}                              
                                   <svg baseProfile="tiny-ps" viewBox="0 0 20 15" width="20" height="15"> 
@@ -211,7 +237,7 @@
       </div>
       <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
         {%- if section.settings.enable_language_selector or section.settings.enable_currency_selector -%}
-          {%- render 'localization' section: section -%}
+          {%- render 'localization', section: section -%}
         {%- endif -%}
       </div>
       <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">

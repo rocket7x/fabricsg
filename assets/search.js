@@ -169,7 +169,7 @@ function searchResults(inputField){
     var $form = inputField.closest('form');
     searchTyping = setTimeout(function() {
         $resultsBox.html(preLoadLoadGif);  
-        var term = $form.find('input[name="q"]').val();
+        var term = $form.find('input[name="q"]').val();     
         var resultType = 'product';
         if (searchPageResults) {
             resultType += ',page'
@@ -191,6 +191,9 @@ function searchResults(inputField){
           section_id='predictive-search';
       }
         if (term != inputField.data('oldval')) {
+            if((term.trim() == '') && ($(searchbarresult).closest('.yv-header-searchbar-box').length)){
+                searchbarresult.hide();
+            }
            if(inputField.hasClass("yv-search-bar")){
               $("button[data-searchbar-cross]").show();
            }
@@ -204,18 +207,17 @@ function searchResults(inputField){
                     }
                 }else{
                     if(_searchContainer.find('[data-search-suggestions]').length > 0){
-                if(results && results.querySelector('[data-search-suggestions]')){
-                    _searchContainer.find('[data-search-suggestions]').html(results.querySelector('[data-search-suggestions]').innerHTML)
-                    results.querySelector('[data-search-suggestions]').innerHTML = '';
-                }
-                    else{
-                    _searchContainer.find('[data-search-suggestions]').html('')
-                    }                          
-                }
+                        if(results && results.querySelector('[data-search-suggestions]')){
+                            _searchContainer.find('[data-search-suggestions]').html(results.querySelector('[data-search-suggestions]').innerHTML)
+                            results.querySelector('[data-search-suggestions]').innerHTML = '';
+                        }else{
+                        _searchContainer.find('[data-search-suggestions]').html('')
+                        }                          
+                    }
                 if(results){
                     $resultsBox.html(results.innerHTML);
                     searchTabsInit();
-                    if (recentProductHandle && retrievedSearch_v.includes(recentProductHandle) === false) {
+                    if ((typeof recentProductHandle != 'undefined') && retrievedSearch_v.includes(recentProductHandle) === false) {
                         retrievedSearch_v.push(recentProductHandle);
                     }
                     localStorage.setItem("Recent_search", JSON.stringify(retrievedSearch_v));

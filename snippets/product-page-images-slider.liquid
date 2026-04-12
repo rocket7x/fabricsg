@@ -8,7 +8,7 @@
         yv-product-feature data-main-slider yv-product-big-slider yv-product-slider
         {% if section.settings.carousel_height_desktop == 'adapt' %}slider-desktop-height-adapt{%- else -%}slider-desktop-height-fixed{% endif %}
         {% if section.settings.carousel_height_mobile == 'adapt' %}slider-mobile-height-adapt{%- else -%}slider-mobile-height-fixed{% endif %}  {% if product.media.size > 1 %}multi-images{% endif %}
-      "
+      " data-product-slider-main-wrapper
       {% if product.media.size > 1 %}
         data-flickity-product-slider='
           {"fade":true,
@@ -38,10 +38,14 @@
             style="padding-bottom:{{ 1 | divided_by : featuredMedia.preview_image.aspect_ratio | times: 100 }}%"
           >
             {%- assign mediaId = 'yv-product-image-item-' | append: featuredMedia.id -%}
+            {%- assign image_class = 'yv-product-image' -%}
+              {%- if section.settings.enable_zoom_icon and section.settings.gallery_style == 'slider' -%}
+                {%- assign image_class = image_class | append: ' yv-product-zoom-image' -%}
+              {%- endif -%}
             {%-
               render 'lazy-image',
               id: mediaId,
-              class: 'yv-product-image' | append: (section.settings.enable_zoom_icon and section.settings.gallery_style == 'slider' ? ' yv-product-zoom-image' : ''),
+              class: image_class,
               image: featuredMedia,
               width: productImageSize
             -%}
@@ -97,10 +101,14 @@
                 style="padding-bottom:{{ 1 | divided_by : media.preview_image.aspect_ratio | times: 100 }}%"
               >
                 {%- assign mediaId = 'yv-product-image-item-' | append: media.id -%}
+                {%- assign image_class = 'yv-product-image' -%}
+                 {%- if section.settings.enable_zoom_icon and section.settings.gallery_style == 'slider' -%}
+                  {%- assign image_class = image_class | append: ' yv-product-zoom-image' -%}
+                {%- endif -%}
                 {%-
                   render 'lazy-image',
                   id: mediaId,
-                  class: 'yv-product-image' | append: (section.settings.enable_zoom_icon and section.settings.gallery_style == 'slider' ? ' yv-product-zoom-image' : ''),
+                  class: image_class,
                   image: media,
                   width: productImageSize
                 -%}
@@ -371,8 +379,8 @@
     <div class="yv-product-feature-list-wrapper" id="yvProductFeatureListwrapper">
       <ul class="list-unstyled yv-product-feature-list yv-tabs" id="yvProductFeatureList">
         {%- if product.media.size > 1 -%}
-          <li class="yv-tab-item">
-            <a class="yv-tab-link feature-link active" href="#product-slider-{{ section.id }}">Gallery</a>
+          <li class="yv-tab-item active">
+            <a class="yv-tab-link feature-link" href="#product-slider-{{ section.id }}">Gallery</a>
           </li>
         {%- endif -%}
         {% if section.settings.show_description %}

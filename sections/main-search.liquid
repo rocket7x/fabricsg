@@ -1,5 +1,9 @@
 {% paginate search.results by 24 %}
 <style>
+    #shopify-section-{{ section.id }}{
+    --layoutRadius : {{ section.settings.filters_radius }}px;
+    --primaryAlternateBg:{{ section.settings.filter_card_bg_color }};
+  }
   .resultContainer > div{
     display:none;
   }
@@ -165,31 +169,23 @@
                     id="filterHeading"
                     class="yv-filter-sidebar-heading{% if section.settings.filters_layout == 'drawer' %} filters-drawer-toggle{% endif %}"
                   >
-                    {% if section.settings.filters_layout == 'drawer' %}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                        <g id="Layer_11" data-name="Layer 11">
-                          <g id="Layer_1-2" data-name="Layer 1">
-                              <path d="M0,1H16V3H0ZM0,7H16V9H0Zm0,6H16v2H0ZM7,0H9V4H7Zm3,6h2v4H10ZM5,12H7v4H5Z"/>
-                          </g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 474" width="50" height="50">
+                      <g id="Clip-Path" clip-path="url(#cp1)">
+                        <g id="Layer_3">
+                          <path id="Layer_4" fill-rule="evenodd" d="m456.8 0.2c13.1 0 21.3 14.2 14.6 25.5l-183.7 245.1v152.2c0 6.4-3.6 12.3-9.3 15.2l-67.7 33.8c-11.2 5.6-24.5-2.6-24.5-15.1v-186.1l-183.7-245.1c-6.6-11.3 1.5-25.5 14.6-25.5zm-239.1 257.4c1.5 2.6 2.4 5.6 2.4 8.6v163.3l33.8-16.9v-146.4c0-3 0.8-6 2.3-8.6l171-223.5h-380.4z"></path>
                         </g>
-                      </svg>
-                    {% else %}
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 474" width="50" height="50">
-                        <g id="Clip-Path" clip-path="url(#cp1)">
-                          <g id="Layer_3">
-                            <path id="Layer_4" fill-rule="evenodd" d="m456.8 0.2c13.1 0 21.3 14.2 14.6 25.5l-183.7 245.1v152.2c0 6.4-3.6 12.3-9.3 15.2l-67.7 33.8c-11.2 5.6-24.5-2.6-24.5-15.1v-186.1l-183.7-245.1c-6.6-11.3 1.5-25.5 14.6-25.5zm-239.1 257.4c1.5 2.6 2.4 5.6 2.4 8.6v163.3l33.8-16.9v-146.4c0-3 0.8-6 2.3-8.6l171-223.5h-380.4z"></path>
-                          </g>
-                        </g>
-                      </svg>
-                    {% endif %}
+                      </g>
+                    </svg>
                     {{ 'sections.collection_template.filter_by_label' | t }}                    
                   </h6>
                 </div>
               </div>
               {%- endif -%}
             {%- endif -%}
-               {% if search.types contains 'product' %}
-            <div class="yv-right-sidebar">
+            {% if search.types contains 'product' %}
+              {% comment %} {% if search.results_count <= 0 %} {% endcomment %}
+              <div class="yv-right-sidebar">
+              {% comment %} {{ search.results_count }} {% endcomment %}
               <p class="products-count text-medium">
                 {{ 'sections.collection_template.product_count_simple' | t: count: search.results_count }}
               </p>
@@ -270,6 +266,7 @@
                 {%- endif -%}
               </div>
             </div>
+              {% comment %} {% endif %} {% endcomment %}
            {% endif %}
           </div>
           {%- if search.types contains 'product' -%}
@@ -314,7 +311,7 @@
             <div id="CollectionProductsContainer" data-id="{{ section.id }}" class="yv-collection-products productResultContainer{% if section.settings.filters_layout == 'drawer' %} filters-toggle yv-drawer-filters{% endif %}">
               {%- if section.settings.enable_filtering -%}
                 {%- if search.filters.size > 0 or section.settings.filter_menu != blank -%}
-                  <aside id="filterSideBar" class="yv-filter-sidebar">
+                  <aside id="filterSideBar" class="yv-filter-sidebar filters-style-{{ section.settings.filters_style }}">
                     {% render 'collection-sidebar', section: section, results: search, clearAll: clearAll %}
                   </aside>
                 {% endif %}
@@ -352,7 +349,7 @@
                   {%- endfor -%}
                 </div>
                 {%- if paginate.pages > 1 -%}
-                {% render 'pagination', paginate: paginate , anchor: '' %}
+                {% render 'pagination', paginate: paginate, anchor: '' %}
                 {%- endif -%}
               </div>
             </div>
@@ -372,7 +369,7 @@
                     <a href="{{ item.url }}" class="yv-blog-card-img">
                       {%- if item.image -%}             
                       <div class="image-wrapper image-{{ settings.article_image_style }}" {% if settings.article_image_style == 'aspect' %}style="padding-bottom:{{ 1 | divided_by : item.image.aspect_ratio | times: 100 }}%"{% endif %}>
-                        {% render 'lazy-image' image: item.image %} 
+                        {% render 'lazy-image', image: item.image %} 
                       </div>
                     {%- else -%}
                       {%- if settings.article_image_style != 'aspect' -%}
@@ -440,7 +437,7 @@
           {%- liquid 
           		if search.types contains 'page' or search.types contains 'article'
                   if paginate.pages > 1
-                      render 'pagination', paginate: paginate , anchor: ''
+                      render 'pagination', paginate: paginate, anchor: ''
                   endif
                 endif
           -%}
@@ -518,6 +515,22 @@
       ]
     },
     {
+      "type": "select",
+      "id": "filters_style",
+      "default": "border",
+      "label": "t:sections.main-collection.settings.filters_style.label",
+      "options": [
+        {
+          "value": "border",
+          "label": "t:sections.main-collection.settings.filters_style.options.border.label"
+        },
+        {
+          "value": "card",
+          "label": "t:sections.main-collection.settings.filters_style.options.card.label"
+        }
+      ]
+    },
+    {
       "type": "checkbox",
       "id": "enable_sorting",
       "default": true,
@@ -528,6 +541,20 @@
       "id": "enable_display_options",
       "default": true,
       "label": "t:sections.main-collection.settings.enable_display_options.label"
+    },
+    {
+      "type": "range",
+      "id": "filters_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 10,
+      "label": "t:sections.main-collection.settings.filters_radius.label"
+    },
+     {
+      "type": "color",
+      "id": "filter_card_bg_color",
+      "label": "t:settings_schema.colors.settings.card_background.label"
     }
   ]
 }

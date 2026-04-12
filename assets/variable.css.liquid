@@ -1,7 +1,7 @@
 {% liquid
-      assign bodyfontbold = settings.type_base_font_family | font_modify: 'weight', 'bold'
-      assign bodyfontitalic = settings.type_base_font_family | font_modify: 'style', 'italic'
-      assign bodyfontbolditalic = bodyfontbold | font_modify: 'style', 'italic'
+  assign bodyfontbold = settings.type_base_font_family | font_modify: 'weight', 'bold'
+  assign bodyfontitalic = settings.type_base_font_family | font_modify: 'style', 'italic'
+  assign bodyfontbolditalic = bodyfontbold | font_modify: 'style', 'italic'
 %}
 {{ settings.type_base_font_family | font_face : font_display: 'swap' }}
 {{ bodyfontbold | font_face : font_display: 'swap' }}
@@ -50,6 +50,7 @@
   --customBadgeBg:{{ settings.custom_badge_bg }};
   --customBadgeText:{{ settings.custom_badge_text }};
   --secondaryColorBody: {{ settings.secondary_color_body_bg }};
+ 
   {% liquid 
     assign primarycolorBrightness = settings.color_body_bg | color_brightness
     assign secondarycolorBrightness = settings.secondary_color_body_bg | color_brightness
@@ -65,19 +66,26 @@
   {%- endif -%}
   {%- if secondarycolorBrightness < 130 -%}
     --secondarySocialIconBg:{{ settings.secondary_color_body_bg | color_lighten: 10 }};
+    --secondaryAlternateBg:{{ settings.secondary_color_body_bg | color_lighten: 10 }};
     {%- else -%}
     --secondarySocialIconBg:{{ settings.secondary_color_body_bg | color_darken: 10 }};
+    --secondaryAlternateBg:{{ settings.secondary_color_body_bg | color_darken: 5 }};
   {%- endif -%}
   {%- if tertiarycolorBrightness < 130 -%}
     --tertiarySocialIconBg:{{ settings.tertiary_color_body_bg | color_lighten: 10 }};
+    --tertiaryAlternateBg:{{ settings.tertiary_color_body_bg | color_lighten: 10 }};
     {%- else -%}
     --tertiarySocialIconBg:{{ settings.tertiary_color_body_bg | color_darken: 10 }};
+    --tertiaryAlternateBg:{{ settings.tertiary_color_body_bg | color_darken: 5 }};
   {%- endif -%}
   {%- if quaternarycolorBrightness < 130 -%}
     --quaternarySocialIconBg:{{ settings.quaternary_color_body_bg | color_lighten: 10 }};
+    --quaternaryAlternateBg:{{ settings.quaternary_color_body_bg | color_lighten: 10 }};
     {%- else -%}
     --quaternarySocialIconBg:{{ settings.quaternary_color_body_bg | color_darken: 10 }};
+    --quaternaryAlternateBg:{{ settings.quaternary_color_body_bg | color_darken: 5 }};
   {%- endif -%}
+
   --secondarycolorTextBody: {{ settings.secondary_color_body_text }};
   --secondaryColorLightTextBody: {{ settings.secondary_color_body_text | color_modify: 'alpha', 0.5 }};
   --secondaryColorXlightTextBody: {{ settings.secondary_color_body_text | color_modify: 'alpha', 0.3 }};
@@ -129,7 +137,7 @@
   --mediumText: calc(var(--text_base_size) * 16px);
   --largeText: calc(var(--text_base_size) * 18px);
   --xlargeText:  calc(var(--text_base_size) * 20px);
-  --buttonAnimationDirection:{%- case settings.buttonAnimation -%}
+  --buttonAnimationDirection:{%- case settings.buttonAnimation -%};
   {%- when 'left' -%}
   translateX(-100%)
   {%- when 'right' -%}

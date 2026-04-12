@@ -41,21 +41,27 @@
           {%- if block.settings.heading != blank or block.settings.description != blank -%}
             {% if block.settings.highlight_font == 'body' %}
               {% capture highlightStyle %}
-              <span class="body-font">
+              <span class="body-font highlighted-text">
               {% endcapture %}
             {% elsif block.settings.highlight_font == 'heading' %}
             {% capture highlightStyle %}
-               <span class="heading-font">
+               <span class="heading-font highlighted-text">
             {% endcapture %}  
             {% else %}
             {% capture highlightStyle %}
-               <span class="accent-font">
+               <span class="accent-font highlighted-text">
             {% endcapture %}  
             {% endif %}
             <div class="section-heading text-center">
               {%- if block.settings.heading != blank -%}
-              <{{ block.settings.seo_heading }} class="section-heading-title  {{ block.settings.heading_size }}">
-                  {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -}}
+              <{{ block.settings.seo_heading }} class="section-heading-title  {{ block.settings.heading_size }}" id="{{ block.id }}">
+                  {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -}} {% endcomment %}
+                  {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+                  {%- if heading contains '[' and heading contains ']' -%}
+                    {%- render 'rotational-highlight', heading: heading -%}
+                  {%- else -%}
+                    {{- heading -}}
+                  {%- endif -%}
               </{{ block.settings.seo_heading }}>
             {%- endif %}
               {% if  block.settings.description != blank %}
@@ -128,6 +134,7 @@
     background:var(--{{- section.settings.bgcolor -}}ColorBody);
     padding-top:{{ section.settings.top_space_desktop }}px;
     padding-bottom:{{ section.settings.bottom_space_desktop }}px;
+    --layoutRadius:{{ section.settings.product_grid_radius_desktop }}px;
      {%- unless section.settings.bgcolor == 'primary' or section.settings.bgcolor == 'gradient' -%}
     --colorTextBody:var(--{{- section.settings.bgcolor -}}colorTextBody);
     --heading_color:var(--{{- section.settings.bgcolor -}}_heading_color);
@@ -137,6 +144,27 @@
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
   }
+
+  @media only screen and (max-width:767px) {    
+    #shopify-section-{{ section.id }}.shopify-section {
+      --layoutRadius:{{ section.settings.product_grid_radius_mobile }}px;
+    }
+  }
+
+  {%- for block in section.blocks -%}
+    {% case block.type %}
+      {% when 'look' %}
+        #shopify-section-{{ section.id }} #{{ block.id }} {
+          {% if block.settings.highlight_text_gradient != blank %}
+            --highlightTextColor: {{ block.settings.highlight_text_gradient }};
+          {% else %}
+            --highlightTextColor: {{ block.settings.highlight_text_color }};
+          {% endif %}
+          --fontSize: var(--{{ block.settings.heading_size }});
+        }
+      {% endcase %}
+    {% endfor %}
+
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -216,6 +244,26 @@
       ]
     },
     {
+      "type": "range",
+      "id": "product_grid_radius_desktop",
+      "default": 10,
+      "label": "t:common.header.product_grid_radius_desktop.label",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "product_grid_radius_mobile",
+      "default": 10,
+      "label": "t:common.header.product_grid_radius_mobile.label",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
       "type": "header",
       "content": "t:common.header.space_section.label"
     },
@@ -276,6 +324,21 @@
           "id": "heading",
           "label": "t:sections.lookbook.blocks.settings.heading.label",
           "info": "t:common.highlight_text_and_break_text.info"
+        },
+        {
+          "type": "color",
+          "id": "highlight_text_color",
+          "label": "t:common.highlight_text_color.label",
+          "default": "#000000",
+          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
+        },
+        {
+          "type": "color_background",
+          "id": "highlight_text_gradient",
+          "label": "t:common.highlight_text_gradient.label",
+          "info": "t:common.highlight_text_gradient.info",
+          "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+          "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
         },
         {
           "type": "textarea",

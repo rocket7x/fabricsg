@@ -15,7 +15,7 @@
       {%- endif -%}
       {% liquid 
         if section.settings.enable_catalog
-          render 'header-category' section: section
+          render 'header-category', section: section
         endif 
       %}
       <a

@@ -60,7 +60,7 @@
 {%- endcapture -%}
 {% capture subheading %}
   {%- if section.settings.subheading != blank -%}
-    <h5 class="yv-countdown-title">{{ section.settings.subheading }}</h5>
+    <h5 class="yv-countdown-title {{ section.settings.subheading_size }} {{ section.settings.subheading_font }}-font">{{ section.settings.subheading | replace: '++', '<br/>' }}</h5>
   {%- endif -%}
 {% endcapture %}
 <div
@@ -83,7 +83,7 @@
         endif
       endif
     %}
-    <div class="yv-countdown-middle-content {% if contentPosition %}{{ section.settings.banner_content_position }}{% endif %} {% if contentPosition and section.settings.fullwidth_banner_content %} content-fullwidth{% endif %}"  {% if section.settings.show_as_banner and section.settings.fullwidth_banner %} style="border-radius:0px;"{% endif %}>
+    <div class="yv-countdown-middle-content {% if contentPosition %}{{ section.settings.banner_content_position }} {% endif %} {% if contentPosition and section.settings.fullwidth_banner_content %} content-fullwidth{% endif %}"  {% if section.settings.show_as_banner and section.settings.fullwidth_banner %} style="border-radius:0px;"{% endif %}>
       <div class="yv-countdown-center-content text-center">
         {% if contentPosition and section.settings.fullwidth_banner_content and subheading != blank %}
           <div class="yv-countdown-heading-content">
@@ -91,18 +91,26 @@
         {%- if section.settings.heading != blank -%}
           {% if section.settings.highlight_font == 'body' %}
             {% capture highlightStyle %}
-            <span class="body-font">
+            <span class="body-font highlighted-text">
             {% endcapture %}
           {% elsif section.settings.highlight_font == 'heading' %}
           {% capture highlightStyle %}
-             <span class="heading-font">
+             <span class="heading-font highlighted-text">
           {% endcapture %}  
           {% else %}
           {% capture highlightStyle %}
-             <span class="accent-font">
+             <span class="accent-font highlighted-text">
           {% endcapture %}  
           {% endif %}
-          <{{ section.settings.seo_heading }} class="yv-countdown-subtitle {{ section.settings.heading_size }}">{{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
+          <{{ section.settings.seo_heading }} class="yv-countdown-subtitle {{ section.settings.heading_size }}">
+            {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+            {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+            {%- if heading contains '[' and heading contains ']' -%}
+              {%- render 'rotational-highlight', heading: heading -%}
+            {%- else -%}
+              {{- heading -}}
+            {%- endif -%}
+          </{{ section.settings.seo_heading }}>
         {%- endif -%}
         {% if contentPosition and section.settings.fullwidth_banner_content and subheading != blank %}
           {{ subheading }}
@@ -138,8 +146,8 @@
           </ul>
         </div>
         {% unless contentPosition and section.settings.fullwidth_banner_content %}
-          {%- if section.settings.subheading != blank -%}
-            <h5 class="yv-countdown-title">{{ section.settings.subheading }}</h5>
+          {%- if section.settings.subheading != blank -%} 
+            <h5 class="yv-countdown-title {{ section.settings.subheading_size }} {{ section.settings.subheading_font }}-font">{{ section.settings.subheading | replace: '++', '<br/>' }}</h5>
           {%- endif -%}
           {{ short_description }}
         {% endunless %}
@@ -168,23 +176,47 @@
   assign imageOpacity = section.settings.image_overlay_opacity | divided_by: 100.0
   assign imageOpacityColor = section.settings.image_overlay_color | color_modify: 'alpha', imageOpacity
 -%}
+{%- liquid
+  assign timerOpacity = section.settings.timer_bg_opacity | divided_by: 100.0
+  assign timerOpacityColor = section.settings.timer_bg_color | color_modify: 'alpha', timerOpacity
+-%}
 <style>
   #shopify-section-{{ section.id }}.shopify-section {
-    background:{{- section.settings.bg_color | default: 'var(--primaryColorBody)' -}};
+    {% if section.settings.bg_gradient_color != blank %}
+      background:{{ section.settings.bg_gradient_color }};
+    {% else %}
+      background:{{- section.settings.bg_color | default: 'var(--primaryColorBody)' -}};
+    {% endif %}
     padding-top:{{ section.settings.top_space_desktop }}px;
     padding-bottom:{{ section.settings.bottom_space_desktop }}px;
     --countdownTextColor:{{ section.settings.text_color }};
     --countdownOverlayColor:{{ opacityColor }};
     --countdownImageOverlayColor:{{ imageOpacityColor }};
     --countdownTimerColor:{{ section.settings.timer_text_color }};
-    --countdownTimerBg:{{ section.settings.timer_bg_color }};
+    --countdownTimerBg:{{ timerOpacityColor }};
     --colorBtnPrimaryText:{{ section.settings.button_text_color }};
     --colorBtnPrimary:{{ section.settings.button_bg_color }};
     --colorBtnPrimaryBorder:{{ section.settings.button_border_color }};
+    --fullwidthContentPosition :{{ section.settings.fullwidth_banner_content_position }};
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
   }
+
+  #shopify-section-{{ section.id }}.shopify-section .yv-countdown-subtitle {
+    --fontSize: var(--{{ section.settings.heading_size }});
+  }
+
   {% if section.settings.overlay_opacity == 0 %}
     .yv-countdown-middle-content{
       box-shadow: none !important;
+    }
+  {% endif %}
+  {% if section.settings.timer_bg_opacity > 5 %}
+  .deal-counter:nth-child(odd) {
+      backdrop-filter: blur(20px);
     }
   {% endif %}
   @media only screen and (max-width:575px) {
@@ -256,6 +288,21 @@
       "default": "Countdown Heading Here",
       "label": "t:sections.countdown-with-images.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",
@@ -333,8 +380,53 @@
     {
       "type": "text",
       "id": "subheading",
+      "info": "t:sections.countdown-with-images.settings.subheading.info",
       "default": "Countdown Sub Heading Here",
       "label": "t:sections.countdown-with-images.settings.subheading.label"
+    },
+    {
+      "type": "select",
+      "id": "subheading_size",
+      "default": "h5",
+      "label": "t:common.heading_size.subheading", 
+      "options": [
+        {
+          "value": "text",
+          "label": "t:common.heading_size.options.small.label"
+        },
+        {
+          "value": "text-medium",
+          "label": "t:common.heading_size.options.medium.label"
+        },
+        {
+          "value": "text-large",
+          "label": "t:common.heading_size.options.large.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:common.heading_size.options.extra_large.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "subheading_font",
+      "default": "body",
+      "label": "t:sections.header.settings.type_font_size.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:common.highlight_font.options.body.label"
+        },
+        {
+          "value": "heading",
+          "label": "t:common.highlight_font.options.heading.label"
+        },
+        {
+          "value": "accent",
+          "label": "t:common.highlight_font.options.accent.label"
+        }
+      ]
     },
     {
       "type": "textarea",
@@ -396,6 +488,31 @@
         {
           "value": "bottom-right",
           "label": "t:common.content_position.options.bottom-right.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "fullwidth_banner_content_position",
+      "label": "t:sections.countdown-with-images.settings.fullwidth_banner_content_position.label",
+      "default": "center",
+      "visible_if":"{{ section.settings.fullwidth_banner_content == true }}",
+      "options": [
+        {
+          "label": "t:sections.countdown-with-images.settings.fullwidth_banner_content_position.options.left.label",
+          "value": "flex-start"
+        },
+        {
+          "label": "t:sections.countdown-with-images.settings.fullwidth_banner_content_position.options.center.label",
+          "value": "center"
+        },
+        {
+          "label": "t:sections.countdown-with-images.settings.fullwidth_banner_content_position.options.right.label",
+          "value": "flex-end"
+        },
+        {
+          "label": "t:sections.countdown-with-images.settings.fullwidth_banner_content_position.options.justify.label",
+          "value": "space-around"
         }
       ]
     },
@@ -472,6 +589,10 @@
       "content": "t:common.header.media_section.label"
     },
     {
+      "type": "header",
+      "content": "t:sections.countdown-with-images.settings.desktops_image.label"
+    },
+    {
       "type": "image_picker",
       "id": "left_image",
       "label": "t:sections.countdown-with-images.settings.left_image.label",
@@ -502,7 +623,7 @@
     {
       "type": "color",
       "id": "image_overlay_color",
-      "label": "Image Overlay",
+      "label": "t:sections.countdown-with-images.settings.image-overlay.label",
       "info": "t:sections.countdown-with-images.settings.overlay_color.info",
       "default": "#000000"
     },
@@ -527,9 +648,24 @@
       "unit": "%"
     },
     {
+      "type": "range",
+      "id": "timer_bg_opacity",
+      "label": "t:sections.countdown-with-images.settings.timer_bg_opacity.label",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "label": "t:common.header.background_section.label"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient_color",
+      "label": "t:sections.rotating-text.settings.bg_gradient_color.label"
     },
     {
       "type": "color",

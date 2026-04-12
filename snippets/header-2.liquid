@@ -30,7 +30,7 @@
         {% if is_open_catalog %}
           <div class="yv-browse-category">
             <ul class="list-unstyled navbar-nav list-menu--inline" role="list">							
-              {% render 'nav-item' section: section, menus_component: section.settings.catalog_menu %}
+              {% render 'nav-item', section: section, menus_component: section.settings.catalog_menu %}
             </ul>
           </div>
           <style>
@@ -84,7 +84,7 @@
           <ul class="list-unstyled navbar-nav list-menu--inline" {% if section.settings.menu_position == 'center' %}
             style="justify-content:center;"
           {% endif %} role="list">								
-            {% render 'nav-item' section: section, menus_component: section.settings.menu %}
+            {% render 'nav-item', section: section, menus_component: section.settings.menu %}
           </ul>
           {% if menu_label != blank %}
             <ul class="list-unstyled nav-quick-links-list">

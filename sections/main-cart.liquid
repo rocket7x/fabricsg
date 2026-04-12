@@ -399,8 +399,8 @@
             {%- endif -%}
             <ul class="list-unstyled cart-total-list">
               <li class="text-medium {% if cart.cart_level_discount_applications.size == 0 %}hidden{% endif %}" data-cart-original>
-                <span>{{ 'sections.cart.subtotal' | t }} </span>
-                <strong data-cart-original-price>{{ cart.original_total_price | money }}</strong>
+                <span>{{ 'sections.cart.new_subtotal' | t }} </span>
+                <strong data-cart-original-price>{{ cart.items_subtotal_price | money }}</strong>
               </li>
               {%- if cart.cart_level_discount_applications.size > 0 -%}
                 {%- for discount in cart.cart_level_discount_applications -%}
@@ -411,7 +411,7 @@
                 {%- endfor -%}
               {% endif %}
               <li class="cart-total-item text-large" data-cart-total>
-                <p>{{ 'sections.cart.new_subtotal' | t }}</p>
+                <p>{{ 'sections.cart.subtotal' | t }}</p>
                 <strong class="h4 heading-font" data-cart-total-price>{{ cart.total_price | money }}</strong>
               </li>
               <li class="cart-total-item cart-item-total">

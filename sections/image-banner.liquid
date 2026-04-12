@@ -2,19 +2,26 @@
    {% if section.settings.banner_title != blank %}
    {% if section.settings.highlight_font == 'body' %}
    {% capture highlightStyle %}
-   <span class="body-font">
+   <span class="body-font highlighted-text">
    {% endcapture %}
    {% elsif section.settings.highlight_font == 'heading' %}
    {% capture highlightStyle %}
-   <span class="heading-font">
+   <span class="heading-font highlighted-text">
    {% endcapture %}  
    {% else %}
    {% capture highlightStyle %}
-   <span class="accent-font">
+   <span class="accent-font highlighted-text">
    {% endcapture %}  
    {% endif %}
    <{{ section.settings.seo_heading }} class="yv-image-banner-heading">
-   {{ section.settings.banner_title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+   {% comment %} {{ section.settings.banner_title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+   {%- assign banner_title = section.settings.banner_title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+   {%- if banner_title contains '[' and banner_title contains ']' -%}
+     {%- render 'rotational-highlight', heading: banner_title -%}
+   {%- else -%}
+     {{- banner_title -}}
+   {%- endif -%}
+
    </{{ section.settings.seo_heading }}>
    {% endif %}
    {% if section.settings.banner_desc != blank %}
@@ -261,79 +268,95 @@
    {% endif %}
   </div>
 <style>
-   #shopify-section-{{ section.id }}{
-   --bannerHeight:{{ section.settings.desktop_height }};
-   --colorBtnPrimaryText:{{ section.settings.btn_text }};
-   --colorBtnPrimary:{{ section.settings.btn_bg }};
-   --colorBtnPrimaryBorder:{{ section.settings.btn_border }};
-   --bannerOverlayOpacity:{{ section.settings.overlay_opacity | divided_by: 100.0 }};
-   --bannerOverlayColor:{{ section.settings.overlay_color }};
-   --borderColor:{{ section.settings.title_color }};
-   }
-   #shopify-section-{{ section.id }} .yv-image-banner-heading {
-   color:{{ section.settings.title_color }};
-   font-size: {{ section.settings.mobile_title_size }}px;
-   }
-   #shopify-section-{{ section.id }} .yv-image-banner-heading * {
-   color:{{ section.settings.title_color }};
-   }
-   #shopify-section-{{ section.id }} .yv-banner-with-categories-title {
-   color:{{ section.settings.title_color }};
-   }
-   #shopify-section-{{ section.id }} .yv-image-banner-desc p{
-   color:{{ section.settings.desc_color }};
-   }
-   {% if section.blocks.size > 0 %}
+  #shopify-section-{{ section.id }}{
+    --bannerHeight:{{ section.settings.desktop_height }};
+    --colorBtnPrimaryText:{{ section.settings.btn_text }};
+    --colorBtnPrimary:{{ section.settings.btn_bg }};
+    --colorBtnPrimaryBorder:{{ section.settings.btn_border }};
+    --bannerOverlayOpacity:{{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --bannerOverlayColor:{{ section.settings.overlay_color }};
+    --borderColor:{{ section.settings.title_color }};
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .yv-image-banner-heading {
+    --fontSize: {{ section.settings.desktop_title_size }}px;
+  }
+
+  #shopify-section-{{ section.id }} .yv-image-banner-heading {
+    color:{{ section.settings.title_color }};
+    font-size: {{ section.settings.mobile_title_size }}px;
+    --fontSize: {{ section.settings.mobile_title_size }}px;
+  }
+  #shopify-section-{{ section.id }} .yv-image-banner-heading * {
+    color:{{ section.settings.title_color }};
+  }
+  #shopify-section-{{ section.id }} .yv-banner-with-categories-title {
+    color:{{ section.settings.title_color }};
+  }
+  #shopify-section-{{ section.id }} .yv-image-banner-desc p{
+    color:{{ section.settings.desc_color }};
+  }
+  {% if section.blocks.size > 0 %}
     {% liquid 
       for block in section.blocks
-         if forloop.first  
+          if forloop.first  
             if block.settings.collection.products.count > 0
                 assign product_list_grid = true
             else
             assign product_list_grid = false
             endif
-         endif
+          endif
       endfor
-     %}
-   {% if product_list_grid and section.settings.block_display == 'category_products' %}
-   #shopify-section-{{ section.id }} .yv-image-banner-wrapper {
-    padding-bottom: var(--banner-grid-height) ;
+      %}
+    {% comment %} 
+     {% if product_list_grid and section.settings.block_display == 'category_products' %}
+      #shopify-section-{{ section.id }} .yv-image-banner-wrapper {
+        padding-bottom: var(--banner-grid-height) ;
+      }
+    {% endif %} 
+   {% endcomment %}
+  {% endif %}
+  @media screen and (min-width:768px){
+    #shopify-section-{{ section.id }} .yv-image-banner-heading{
+      font-size: calc({{ section.settings.desktop_title_size }}px * 0.65);
+      --fontSize: calc({{ section.settings.desktop_title_size }}px * 0.65);
+    }
   }
-{% endif %}
-{% endif %}
-   @media screen and (min-width:768px){
-   #shopify-section-{{ section.id }} .yv-image-banner-heading{
-   font-size: calc({{ section.settings.desktop_title_size }}px * 0.65);
-   }
-   }
-   @media screen and (min-width:1200px){
-   #shopify-section-{{ section.id }} .yv-image-banner-heading{
-   font-size: calc({{ section.settings.desktop_title_size }}px * 0.85);
-   }
-   }
-   @media screen and (min-width:1441px){
-   #shopify-section-{{ section.id }} .yv-image-banner-heading{
-   font-size: {{ section.settings.desktop_title_size }}px;
-   }
-   }
-   @media screen and (max-width:767px){
-   #shopify-section-{{ section.id }}{
-   --bannerHeight:{{ section.settings.mobile_height }};
-   }
-   }
-   {% if section.settings.section_visibility == 'large' %}
-   @media (max-width: 767px) {
-   #shopify-section-{{ section.id }}{
-   display: none !important;
-   }
-   }
-   {% elsif section.settings.section_visibility == 'small' %}
-   @media (min-width: 768px) {
-   #shopify-section-{{ section.id }}{
-   display: none !important;
-   }
-   }
-   {% endif %}
+  @media screen and (min-width:1200px){
+    #shopify-section-{{ section.id }} .yv-image-banner-heading{
+      font-size: calc({{ section.settings.desktop_title_size }}px * 0.85);
+      --fontSize: calc({{ section.settings.desktop_title_size }}px * 0.85);
+    }
+  }
+  @media screen and (min-width:1441px){
+    #shopify-section-{{ section.id }} .yv-image-banner-heading{
+      font-size: {{ section.settings.desktop_title_size }}px;
+      --fontSize: {{ section.settings.desktop_title_size }}px;
+    }
+  }
+  @media screen and (max-width:767px){
+    #shopify-section-{{ section.id }}{
+      --bannerHeight:{{ section.settings.mobile_height }};
+    }
+  }
+  {% if section.settings.section_visibility == 'large' %}
+    @media (max-width: 767px) {
+      #shopify-section-{{ section.id }}{
+        display: none !important;
+      }
+    }
+  {% elsif section.settings.section_visibility == 'small' %}
+    @media (min-width: 768px) {
+      #shopify-section-{{ section.id }}{
+        display: none !important;
+      }
+    }
+  {% endif %}
 </style>
 {% schema %}
 {
@@ -464,6 +487,21 @@
       "label": "t:sections.image_banner.settings.banner_title.label",
       "info": "t:common.highlight_text_and_break_text.info",
       "default": "Banner Heading Here"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.banner_title contains '[' and section.settings.banner_title contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.banner_title contains '[' and section.settings.banner_title contains ']' }}"
     },
     {
       "type": "select",
@@ -725,7 +763,7 @@
         {
           "type": "text",
           "id": "custom_title",
-          "label": "Custom title"
+          "label": "t:sections.featured-collections-banner.blocks.collection.settings.heading.label"
         }
       ]
     }

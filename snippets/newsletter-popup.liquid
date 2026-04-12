@@ -36,10 +36,34 @@
                 {{ settings.newsletter_description }}
               </div>
             </div>
-            {%- form 'customer', id: 'contact-form-popup', class: 'contact-form' -%}
+            {%- form 'customer', id: 'contact-form-popup', class: 'newsletter-contact-form' -%}
               <input type="hidden" name="contact[tags]" value="newsletter">
               <input type="hidden" name="contact[context]" value="popup">
-              <div class="input-news-letter">
+
+              {%- liquid
+                assign has_terms_and_conditions = false
+                if settings.enable_terms_checkbox_newsletter and settings.terms_conditions_text_newsletter != blank and form.posted_successfully? == false
+                  assign has_terms_and_conditions = true
+                endif
+              %}
+              {%- if has_terms_and_conditions -%}
+                <div class="terms_conditions-wrapper custom-checkbox" data-newsletter-condition post="{{ form.posted_successfully? }}">
+                  <input
+                    type="checkbox"
+                    name="terms_conditions"
+                    title="{{ settings.terms_conditions_text_newsletter | strip_html }}"
+                    id="terms_conditions_input-popup"
+                    onClick="acceptNewsletterConditions(event)"
+                    data-section="shopify-section-popup"
+                  >
+                  <span class="checkmark"></span>
+                  <label for="terms_conditions_input-popup" title="{{ settings.terms_conditions_text_newsletter | strip_html }}">
+                    {{ settings.terms_conditions_text_newsletter }}
+                  </label>
+                </div>
+              {%- endif -%}
+
+              <div class="input-news-letter{% if form.posted_successfully? %} text-center{% endif %}">
                 {% if form.posted_successfully? %}
                   <span class="success-text">{{ 'newsletter.success' | t }}</span>
                 <script>
@@ -65,7 +89,7 @@
                       {{ form.errors.messages.email -}}
                     </span>
                   {%- endif -%}
-                  <button class="button btn-block" id="SubscribeBtn" name="commit">
+                  <button type="submit" class="button btn-block" id="SubscribeBtn" name="commit" {% if has_terms_and_conditions %} disabled {% endif %}>
                     
                     {% if settings.buttonAnimation == 'animated-arrow'%}
                       <span class="btn-animated-arrow"><svg fill="none" viewBox="0 0 8 8">
@@ -118,7 +142,6 @@
         e.preventDefault();
         var form = $(this).closest('form');
         form.submit();
-        console.log(posted_successfully);
       });
       if(localStorage.getItem("theme:popup-filled") === "true"){
         var date = new Date();

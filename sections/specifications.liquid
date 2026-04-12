@@ -26,7 +26,7 @@
                   <div class="yv-card-slide">
                     {% if block.settings[imageID] != blank %}
                       <figure class="yv-specs-img image-wrapper" style="padding-bottom:{{ 1 | divided_by : block.settings[imageID].aspect_ratio | times: 100 | minus : 1 }}%">
-                        {%- render 'lazy-image' image: block.settings[imageID] -%}
+                        {%- render 'lazy-image', image: block.settings[imageID] -%}
                       </figure>
                     {% endif %}
                     {% if block.settings[headingID] != blank or block.settings[contentID] != blank %}
@@ -63,6 +63,7 @@
     --subheading_color:var(--{{- section.settings.bgcolor -}}_subheading_color);
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
+    --heading_color:var(--{{- section.settings.bgcolor -}}_heading_color);
     {%- endunless -%}
   }
   @media only screen and (max-width:991px) {

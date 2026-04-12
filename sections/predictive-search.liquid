@@ -109,7 +109,7 @@
                     <a href="{{- article.url -}}" class="yv-blog-card-img">
                       {%- if article.image -%}             
                         <div class="image-wrapper image-{{ settings.article_image_style }}" {% if settings.article_image_style == 'aspect' %}style="padding-bottom:{{ 1 | divided_by : article.image.aspect_ratio | times: 100 }}%"{% endif %}>
-                          {% render 'lazy-image' image: article.image %} 
+                          {% render 'lazy-image', image: article.image %} 
                         </div>
                       {%- else -%}
                         {%- if settings.article_image_style != 'aspect' -%}
@@ -151,7 +151,7 @@
                     <a href="{{ collection.url }}" class="yv-collection-featured-img"  aria-label="{{- collection.title -}}">
                       {%- if collection.featured_image != blank -%}
                       <div class="image-wrapper image-{{ settings.collection_image_style }}" {% if settings.collection_image_style == 'aspect' %}style="padding-bottom:{{ 1 | divided_by : collection.featured_image.aspect_ratio | times : 100 | plus : 1 }}%"{% endif %}>
-                      {% render 'lazy-image' image: collection.featured_image %}
+                      {% render 'lazy-image', image: collection.featured_image %}
                       </div>
                       {% else %}   
                         {%- if settings.collection_image_style != 'aspect' -%}

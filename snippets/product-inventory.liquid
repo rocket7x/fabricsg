@@ -11,7 +11,7 @@
 -%}
 
 <div
-  class="product__inventory {% if hideInventoryStatus %}hidden{% endif %} {% if showBar %}low-inventory{% else %}full-inventory{% endif %}"
+  class="product__inventory{% if hideInventoryStatus %} hidden{% endif %}{% if showBar %} low-inventory{% else %} full-inventory{% endif %}"
   product__inventory
 >
   <span inventory-status>

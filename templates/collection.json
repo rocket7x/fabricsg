@@ -7,125 +7,164 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
-  "sections": {
-    "main-collection": {
-      "type": "main-collection",
-      "settings": {
-        "collection_title": false,
-        "seo_heading": "h2",
-        "collection_description": false,
-        "collpasible_collection_description": false,
-        "pagination_type": "paged",
-        "products_per_page": 12,
-        "product_count": true,
-        "enable_filtering": true,
-        "filters_layout": "sidebar",
-        "enable_sorting": true,
-        "enable_display_options": true,
-        "filter_menu": "",
-        "collection_image": false,
-        "banner_height_desktop": "auto",
-        "banner_height_mobile": "auto",
-        "bgcolor": "#f8f8f8",
-        "textcolor": "#000000",
-        "filter_menu_color": "#181818",
-        "filter_sub_menu_color": "#181818",
-        "filter_menu_bg": "#f4f4f4",
-        "filter_menu_border": "#ececec"
-      }
-    },
-    "aaf00201-1f78-4436-9389-632e71b65d14": {
-      "type": "multi-column",
-      "blocks": {
-        "template--17273360023791__aaf00201-1f78-4436-9389-632e71b65d14-column-3": {
-          "type": "column",
-          "settings": {
-            "video": "shopify://files/videos/Video-250.mp4",
-            "product": "",
-            "heading": "",
-            "heading_size": "h2",
-            "description": "",
-            "link_text": "More info",
-            "link_url": "",
-            "btn_as_link": false
-          }
-        },
-        "column_hwfGqJ": {
-          "type": "column",
-          "settings": {
-            "video": "shopify://files/videos/Video-998.mp4",
-            "product": "",
-            "heading": "",
-            "heading_size": "h2",
-            "description": "",
-            "link_text": "More info",
-            "link_url": "",
-            "btn_as_link": false
-          }
-        },
-        "column_rWgXFJ": {
-          "type": "column",
-          "settings": {
-            "video": "shopify://files/videos/Video-106.mp4",
-            "product": "",
-            "heading": "",
-            "heading_size": "h2",
-            "description": "",
-            "link_text": "More info",
-            "link_url": "",
-            "btn_as_link": false
-          }
+ {
+    "sections": {
+      "main-collection": {
+        "type": "main-collection",
+        "settings": {
+          "collection_title": false,
+          "seo_heading": "h2",
+          "collection_description": false,
+          "collpasible_collection_description": false,
+          "pagination_type": "paged",
+          "products_per_page": 16,
+          "product_count": true,
+          "enable_filtering": true,
+          "filters_layout": "drawer",
+          "enable_sorting": true,
+          "enable_display_options": true,
+          "filter_menu": "",
+          "collection_image": false,
+          "banner_height_desktop": "auto",
+          "banner_height_mobile": "auto",
+          "bgcolor": "#f8f8f8",
+          "textcolor": "#000000",
+          "filter_menu_color": "#181818",
+          "filter_sub_menu_color": "#181818",
+          "filter_menu_bg": "#f4f4f4",
+          "filter_menu_border": "#ececec"
         }
       },
-      "block_order": [
-        "template--17273360023791__aaf00201-1f78-4436-9389-632e71b65d14-column-3",
-        "column_hwfGqJ",
-        "column_rWgXFJ"
-      ],
-      "settings": {
-        "heading": "Where Tradition Meets Modern Living",
-        "highlight_font": "body",
-        "seo_heading": "h2",
-        "description": "<p>Classic, versatile, and made to be loved for generations.</p>",
-        "text_alignment": "center",
-        "grid_text_alignment": "left",
-        "media_style": "portrait",
-        "button_size": "small",
-        "mobile_button_size": "m-med",
-        "bgcolor": "primary",
-        "section_visibility": "always",
-        "top_space_desktop": 0,
-        "bottom_space_desktop": 50,
-        "top_space_mobile": 20,
-        "bottom_space_mobile": 20
+      "aaf00201-1f78-4436-9389-632e71b65d14": {
+        "type": "multi-column",
+        "blocks": {
+          "template--17273360023791__aaf00201-1f78-4436-9389-632e71b65d14-column-3": {
+            "type": "column",
+            "settings": {
+              "product": "",
+              "heading": "Add heading here",
+              "heading_size": "h2",
+              "description": "<p>Description</p>",
+              "link_text": "More info",
+              "link_url": "",
+              "btn_as_link": false
+            }
+          },
+          "column_hwfGqJ": {
+            "type": "column",
+            "settings": {
+              "product": "",
+              "heading": "Add heading here",
+              "heading_size": "h2",
+              "description": "<p>Description</p>",
+              "link_text": "More info",
+              "link_url": "",
+              "btn_as_link": false
+            }
+          },
+          "column_rWgXFJ": {
+            "type": "column",
+            "settings": {
+              "product": "",
+              "heading": "Add heading here",
+              "heading_size": "h2",
+              "description": "<p>Description</p>",
+              "link_text": "More info",
+              "link_url": "",
+              "btn_as_link": false
+            }
+          }
+        },
+        "block_order": [
+          "template--17273360023791__aaf00201-1f78-4436-9389-632e71b65d14-column-3",
+          "column_hwfGqJ",
+          "column_rWgXFJ"
+        ],
+        "settings": {
+          "heading": "Multi columns",
+          "highlight_font": "body",
+          "seo_heading": "h2",
+          "description": "<p>Share information and details about this event.</p>",
+          "text_alignment": "center",
+          "grid_text_alignment": "left",
+          "media_style": "square",
+          "button_size": "small",
+          "mobile_button_size": "m-med",
+          "bgcolor": "primary",
+          "section_visibility": "always",
+          "top_space_desktop": 0,
+          "bottom_space_desktop": 50,
+          "top_space_mobile": 20,
+          "bottom_space_mobile": 20
+        }
+      },
+      "976abf0c-0890-42da-ad68-44befa67a5fa": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Join Our Newsletter",
+          "highlight_font": "body",
+          "seo_heading": "h2",
+          "description": "Sign up it only takes a second to be the news.",
+          "placeholder": "Email Address",
+          "btn": "Subscribe",
+          "bgcolor": "secondary",
+          "button_text_color": "#ffffff",
+          "button_bg_color": "#000000",
+          "button_border_color": "#000000",
+          "section_visibility": "always",
+          "top_space_desktop": 40,
+          "bottom_space_desktop": 50,
+          "top_space_mobile": 40,
+          "bottom_space_mobile": 40
+        }
+      },
+      "02f66e8a-7c65-4b28-8f9b-a3be6ad534f6": {
+        "type": "rotating-text",
+        "settings": {
+          "text1": "<p>Add promotional text here</p>",
+          "desktop_text_gap": 17,
+          "mobile_text_gap": 17,
+          "text2": "",
+          "desktop_subtext_gap": 17,
+          "mobile_subtext_gap": 17,
+          "rotating_text_style": "vertical",
+          "pause_on_hover": false,
+          "row1_font_family": "--heading-font-family",
+          "row2_font_family": "--font-family",
+          "row1_direction": "left",
+          "row2_direction": "right",
+          "heading_font_size": 100,
+          "subheading_font_size": 24,
+          "heading_font_size_m": 50,
+          "subheading_font_size_m": 16,
+          "section_border": true,
+          "section_border_bottom": true,
+          "border_width": "2px",
+          "border_style": "solid",
+          "background_opacity": 50,
+          "min_height_desktop": 400,
+          "min_height_mobile": 200,
+          "bgcolor": "#131212",
+          "bg_gradient_color": "",
+          "text1color": "#4e4e4e",
+          "outlinetext1color": "#000000",
+          "text2color": "#a56748",
+          "outlinetext2color": "#a56748",
+          "background_overlay": "#000000",
+          "border_color": "#000000",
+          "section_visibility": "always",
+          "top_space_desktop": 10,
+          "bottom_space_desktop": 10,
+          "top_space_mobile": 15,
+          "bottom_space_mobile": 15
+        }
       }
     },
-    "newsletter_BcWiPe": {
-      "type": "newsletter",
-      "name": "t:sections.newsletter.presets.name",
-      "settings": {
-        "heading": "Join Our Newsletter",
-        "highlight_font": "body",
-        "seo_heading": "h2",
-        "description": "Timeless Prints, Exclusive Perks - Straight to Your Inbox.",
-        "placeholder": "Email Address",
-        "btn": "Subscribe",
-        "bgcolor": "quaternary",
-        "button_text_color": "#ffffff",
-        "button_bg_color": "#000000",
-        "button_border_color": "#000000",
-        "section_visibility": "always",
-        "top_space_desktop": 30,
-        "bottom_space_desktop": 30,
-        "top_space_mobile": 30,
-        "bottom_space_mobile": 30
-      }
-    }
-  },
-  "order": [
-    "main-collection",
-    "aaf00201-1f78-4436-9389-632e71b65d14",
-    "newsletter_BcWiPe"
-  ]
-}
+    "order": [
+      "main-collection",
+      "aaf00201-1f78-4436-9389-632e71b65d14",
+      "976abf0c-0890-42da-ad68-44befa67a5fa",
+      "02f66e8a-7c65-4b28-8f9b-a3be6ad534f6"
+    ]
+  }
+  

@@ -24,7 +24,7 @@
                                     <a href="{{ product.url }}" class="searchbar-product-img" aria-label="{{ product.title }}">
                                      {%- if product.featured_media != blank -%}
                                       <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : product.featured_media.preview_image.aspect_ratio | times: 100 | minus : 1 }}%">
-                                          {%- render 'lazy-image' image: product.featured_media.preview_image, sizes: '[60]' -%}
+                                          {%- render 'lazy-image', image: product.featured_media.preview_image, sizes: '[60]' -%}
                                       </div>
                                      {% else %}
                                         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -93,7 +93,7 @@
                                         <a href="{{ collection.url }}" class="searchbar-product-img" aria-label="{{ collection.title }}">
                                          {%- if collection.featured_image != blank -%}
                                           <div class="image-wrapper" style="padding-bottom:{{ 1 | divided_by : collection.featured_image.aspect_ratio | times: 100 | minus : 1 }}%">
-                                              {%- render 'lazy-image' image: collection.featured_image, sizes:'[60]' -%}
+                                              {%- render 'lazy-image', image: collection.featured_image, sizes:'[60]' -%}
                                           </div>
                                          {% else %}
                                             {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}

@@ -4,19 +4,28 @@
   {% if section.settings.title != blank %}
     {% if section.settings.highlight_font == 'body' %}
       {% capture highlightStyle %}
-      <span class="body-font">
+      <span class="body-font highlighted-text">
       {% endcapture %}
     {% elsif section.settings.highlight_font == 'heading' %}
     {% capture highlightStyle %}
-       <span class="heading-font">
+       <span class="heading-font highlighted-text">
     {% endcapture %}  
     {% else %}
     {% capture highlightStyle %}
-       <span class="accent-font">
+       <span class="accent-font highlighted-text">
     {% endcapture %}  
     {% endif %}
-    <{{ section.settings.seo_heading }} class="section-heading-title h2">{{ section.settings.title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
-    {% endif %}
+    <{{ section.settings.seo_heading }} class="section-heading-title h2">
+      {% comment %} {{ section.settings.title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+      {%- assign heading = section.settings.title | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+      {%- if heading contains '[' and heading contains ']' -%}
+        {%- render 'rotational-highlight', heading: heading -%}
+      {%- else -%}
+        {{- heading -}}
+      {%- endif -%}
+    </{{ section.settings.seo_heading }}>
+  {% endif %}
+
   {% if section.settings.description != blank %}
     <div class="section-heading-desc"><p>{{ section.settings.description | newline_to_br }}</p></div>
     {% endif %}
@@ -36,12 +45,12 @@
           {% endif %}
        {%- if section.settings.before_image_m != blank -%}        
         <div class="image-wrapper d-block d-md-none height-fixed">           
-            {%- render 'lazy-image' image: section.settings.before_image_m -%} 
+            {%- render 'lazy-image', image: section.settings.before_image_m -%} 
         </div>
         {%- endif %}
        {%- if section.settings.before_image != blank -%}        
         <div class="image-wrapper{% if section.settings.before_image_m != blank %} d-none d-md-block{% endif %} height-fixed" >           
-            {%- render 'lazy-image' image: section.settings.before_image -%} 
+            {%- render 'lazy-image', image: section.settings.before_image -%} 
         </div>
         {%- else -%}
           {% liquid
@@ -63,12 +72,12 @@
           {% endif %}
           {%- if section.settings.after_image_m != blank -%}
             <div class="image-wrapper d-block d-md-none height-fixed">           
-                {%- render 'lazy-image' image: section.settings.after_image_m -%} 
+                {%- render 'lazy-image', image: section.settings.after_image_m -%} 
             </div>
           {%- endif %}
        {%- if section.settings.after_image != blank -%}
         <div class="image-wrapper height-fixed">
-            {%- render 'lazy-image' image: section.settings.after_image -%}
+            {%- render 'lazy-image', image: section.settings.after_image -%}
         </div>
         {%- else -%}
           {% liquid
@@ -114,6 +123,15 @@
     --after_text_color:{{- section.settings.after_text_color -}};
     --cursorBgColor:{{- section.settings.drag_bg_color -}};
     --primaryBorderColor: {{- section.settings.section_border_color -}};
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
+    --fontSize: var(--h2);
   }
 
   @media only screen and (max-width:767px) {
@@ -213,6 +231,21 @@
       "id": "title",
       "label": "t:sections.before-after.settings.title.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.title contains '<strong>' or section.settings.title contains '[' and section.settings.title contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.title contains '<strong>' or section.settings.title contains '[' and section.settings.title contains ']' }}"
     },
     {
       "type": "select",

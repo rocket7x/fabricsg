@@ -1,6 +1,6 @@
-<div class="search-bar-container" aria-live="polite" tabindex="0">
+<div class="search-bar-container {{ settings.search_style }}-search" aria-live="polite" tabindex="0">
   <div class="search-bar-input">
-    <div class="container">
+    <div class="{{ settings.content_width }}">
       <form action="{{ routes.search_url }}" method="get" role="search">
         <input name="type" type="hidden" value="product">
         <input name="options[prefix]" type="hidden" value="last">
@@ -71,7 +71,7 @@
       </form>
     </div>
   </div>
-  <div class="container">
+  <div class="{{ settings.content_width }}">
     {% if settings.enable_result_suggestions %}
       <div class="yv-related-query" data-search-suggestions></div>
     {% endif %}

@@ -17,7 +17,7 @@
   {%- unless product.handle == current_product.handle -%}
         <li class="yv-similar-product-item">
           {% liquid 
-          render 'product-grid' product: product, productClasses: 'xsmall-product-card', hideRelated: true, hide_options: true , hideHoverImage: true
+          render 'product-grid', product: product, productClasses: 'xsmall-product-card', hideRelated: true, hide_options: true , hideHoverImage: true
           %}
         </li>
         {%- assign counter = counter | plus: 1 -%}
@@ -32,7 +32,7 @@
   </ul>
   {%- else -%}
   <div class="yv-similar-notfound">
-  {% render 'not-found' similar: true %}
+  {% render 'not-found', similar: true %}
   </div>
   {%- endif -%}
 </div>

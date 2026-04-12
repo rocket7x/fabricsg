@@ -3,12 +3,16 @@
     --mainBannerHeight:{{ section.settings.banner_height_desktop }};
     --filter-menu-border:{{ section.settings.filter_menu_border }};
     --filter-menu-color:{{ section.settings.filter_menu_color }};
+    --primaryAlternateBg:{{ section.settings.filter_card_bg_color }};
     --filter-submenu-color:{{ section.settings.filter_sub_menu_color }};
     --filter-menu-background:{{ section.settings.filter_menu_bg }};
+    --layoutRadius : {{ section.settings.filters_radius }}px;
+    --product-spacing:{{ section.settings.product_grid_spacing_desktop }}px;
   }
   @media screen and (max-width:767px){
     #shopify-section-{{ section.id }}{
       --mainBannerHeight:{{ section.settings.banner_height_mobile }};
+      --product-spacing:{{ section.settings.product_grid_spacing_mobile }}px;
     }
     .shopify-section-main-header.sticky-header-hidden-parent {
       z-index: 2;
@@ -17,6 +21,8 @@
 </style>
 {%- liquid
   assign showCollectionImage = false
+  assign collectionImage = ''
+
   if section.settings.collection_image
     if collection.image != blank
       assign showCollectionImage = true
@@ -26,52 +32,76 @@
       assign collectionImage = section.settings.default_banner
     endif
   endif
+
   assign sort_by = collection.sort_by | default: collection.default_sort_by
+  
+  assign has_collection_description = false
+  if section.settings.collection_description and collection.description != blank
+    assign has_collection_description = true
+  endif
+
+  assign has_collection_title = false
+  if section.settings.collection_title and collection.title != blank
+    assign has_collection_title = true
+  endif
 -%}
-{% if section.settings.collection_title or section.settings.collection_description or showCollectionImage %}
+{% if has_collection_description %}
+  {% capture collection_description %}
+    <div class="container sm-container">
+      <div class="collection-banner-content">
+        <div class="yv-collection-description rich-editor-text-content{% if section.settings.collpasible_collection_description %} short-description{% endif %}">
+          {{
+            collection.description
+            | replace: '<table', '<div class="table-responsive"><table'
+            | replace: '</table>', '</table></div>'
+          }}
+        </div>
+        {% if section.settings.collpasible_collection_description %}
+          <show-content class="cursor-pointer link more hidden">
+            {{- 'sections.collection_template.filter_show_more' | t -}}
+          </show-content>
+        {% endif %}
+      </div>
+    </div>
+  {% endcapture %} 
+{% endif %}
+
+{% if has_collection_title or showCollectionImage %}
   <div
     class="yv-collection-banner"
     {% if section.settings.banner == blank and section.settings.bgcolor != blank %}
       style="background-color:{{ section.settings.bgcolor }};"
     {% endif %}
+    data-image="{{ showCollectionImage }}"
+    data-title="{{ has_collection_title }}"
+    data-desc="{{ has_collection_description }}"
   >
     {%- if showCollectionImage -%}
       {%- render 'lazy-image', image: collectionImage, class: 'banner-img' -%}
     {%- endif -%}
-    <div class="container md-container">
-      <div class="collection-banner-content">
-        {% if section.settings.collection_title %}
-          <{{ section.settings.seo_heading }}
-            class="collection-banner-title h2"
-            {% if section.settings.textcolor != blank %}
-              style="color:{{ section.settings.textcolor }}"
-            {% endif %}
-          >
-            {{ collection.title }}
-          </{{ section.settings.seo_heading }}>
-        {%- endif -%}
+    {% if has_collection_title %}
+      <div class="container md-container">
+        <div class="collection-banner-content">
+          {% if has_collection_title %}
+            <{{ section.settings.seo_heading }}
+              class="collection-banner-title h2"
+              {% if section.settings.textcolor != blank %}
+                style="color:{{ section.settings.textcolor }}"
+              {% endif %}
+            >
+              {{ collection.title }}
+            </{{ section.settings.seo_heading }}>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 {%- endif -%}
-        {%- if settings.enable_breadcrumb_collection -%}
-          {%- render 'breadcrumb' -%}
-        {%- endif -%}
-{% if section.settings.collection_description and collection.description != blank %}
-  <div class="container sm-container">
-    <div class="collection-banner-content">
-      <div class="yv-collection-description rich-editor-text-content{% if section.settings.collpasible_collection_description %} short-description{% endif %}">
-        {{
-          collection.description
-          | replace: '<table', '<div class="table-responsive"><table'
-          | replace: '</table>', '</table></div>'
-        }}
-      </div>
-      {% if section.settings.collpasible_collection_description %}
-        <show-content class="cursor-pointer link more hidden">{{ 'sections.collection_template.filter_show_more' | t }}</show-content>
-      {% endif %}
-    </div>
-  </div>
+{%- if settings.enable_breadcrumb_collection -%}
+  {%- render 'breadcrumb' -%}
+{%- endif -%}
+{% if has_collection_description and section.settings.collection_description_position == 'above'%}
+   {{ collection_description }}
 {%- endif -%}
 {%- capture activeFilters -%}
   {%- for filter in collection.filters -%}
@@ -127,30 +157,30 @@
       <div class="yv-collections-topbar{% if filterVisibility %} yv-collections-topbar-sticky{% endif %}{% if collection.all_products_count == 0 %} d-none{% endif %}">
         {%- if section.settings.enable_filtering -%}
           {%- if collection.filters.size > 0 or section.settings.filter_menu != blank -%}
-          <div class="yv-left-sidebar">
-            <div class="filter-heading-wrapper"> 
-              <h6
-                id="filterHeading"
-                class="yv-filter-sidebar-heading{% if section.settings.filters_layout == 'drawer' %} filters-drawer-toggle{% endif %}"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 474" width="50" height="50">
-                    <g id="Clip-Path" clip-path="url(#cp1)">
-                    <g id="Layer_3">
-                      <path id="Layer_4" fill-rule="evenodd" d="m456.8 0.2c13.1 0 21.3 14.2 14.6 25.5l-183.7 245.1v152.2c0 6.4-3.6 12.3-9.3 15.2l-67.7 33.8c-11.2 5.6-24.5-2.6-24.5-15.1v-186.1l-183.7-245.1c-6.6-11.3 1.5-25.5 14.6-25.5zm-239.1 257.4c1.5 2.6 2.4 5.6 2.4 8.6v163.3l33.8-16.9v-146.4c0-3 0.8-6 2.3-8.6l171-223.5h-380.4z"></path>
+            <div class="yv-left-sidebar">
+              <div class="filter-heading-wrapper">
+                <h6
+                  id="filterHeading"
+                  class="yv-filter-sidebar-heading{% if section.settings.filters_layout == 'drawer' %} filters-drawer-toggle{% endif %}"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 474" width="50" height="50">
+                      <g id="Clip-Path" clip-path="url(#cp1)">
+                      <g id="Layer_3">
+                        <path id="Layer_4" fill-rule="evenodd" d="m456.8 0.2c13.1 0 21.3 14.2 14.6 25.5l-183.7 245.1v152.2c0 6.4-3.6 12.3-9.3 15.2l-67.7 33.8c-11.2 5.6-24.5-2.6-24.5-15.1v-186.1l-183.7-245.1c-6.6-11.3 1.5-25.5 14.6-25.5zm-239.1 257.4c1.5 2.6 2.4 5.6 2.4 8.6v163.3l33.8-16.9v-146.4c0-3 0.8-6 2.3-8.6l171-223.5h-380.4z"></path>
+                      </g>
                     </g>
-                  </g>
-                </svg>
-                {{ 'sections.collection_template.filter_by_label' | t }}
-              </h6>
+                  </svg>
+                  {{ 'sections.collection_template.filter_by_label' | t }}
+                </h6>
+              </div>
             </div>
-          </div>
           {%- endif -%}
         {%- endif -%}
         <div class="yv-right-sidebar">
           {% if section.settings.product_count %}
-          <p class="products-count text-medium">
-            {{ 'sections.collection_template.product_count_simple' | t: count: collection.products_count }}
-          </p>
+            <p class="products-count text-medium">
+              {{ 'sections.collection_template.product_count_simple' | t: count: collection.products_count }}
+            </p>
           {% endif %}
           <div class="collection-sort-elements">
             {%- if section.settings.enable_display_options -%}
@@ -184,12 +214,12 @@
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" width="16" height="10">
                     <path d="m0 0h16v2h-16zm0 4h12v2h-12zm0 4h8v2h-8z"/>
                   </svg>
-                <span>{{ 'sections.collection_template.sort_by_label' | t }}</span>  
-              <svg width="15" height="7" viewBox="0 0 15 7" fill="none">
-                <path
-                  d="M5.22891 6.14382L0.311533 1.66462C0.111998 1.48178 -5.39594e-08 1.23445 -4.26902e-08 0.976639C-3.14211e-08 0.718831 0.111998 0.471497 0.311533 0.288658C0.411127 0.197192 0.529616 0.124594 0.660167 0.0750507C0.790718 0.0255075 0.930746 4.06842e-08 1.07217 4.68662e-08C1.2136 5.30482e-08 1.35363 0.0255076 1.48418 0.0750507C1.61473 0.124594 1.73322 0.197192 1.83281 0.288658L6.73948 4.77761C6.83908 4.86908 6.95757 4.94168 7.08812 4.99122C7.21867 5.04076 7.35869 5.06627 7.50012 5.06627C7.64155 5.06627 7.78158 5.04076 7.91213 4.99122C8.04268 4.94168 8.16117 4.86908 8.26076 4.77761L13.1674 0.288658C13.3677 0.1049 13.64 0.00115203 13.9243 0.000236994C14.2086 -0.000678039 14.4816 0.101316 14.6834 0.28378C14.8851 0.466244 14.999 0.714232 15 0.97319C15.001 1.23215 14.889 1.48086 14.6887 1.66462L9.77133 6.14382C9.16871 6.69206 8.35183 7 7.50012 7C6.64842 7 5.83154 6.69206 5.22891 6.14382Z"
-                  fill="currentColor" />
-              </svg>
+                  <span>{{ 'sections.collection_template.sort_by_label' | t }}</span>
+                  <svg width="15" height="7" viewBox="0 0 15 7" fill="none">
+                    <path
+                      d="M5.22891 6.14382L0.311533 1.66462C0.111998 1.48178 -5.39594e-08 1.23445 -4.26902e-08 0.976639C-3.14211e-08 0.718831 0.111998 0.471497 0.311533 0.288658C0.411127 0.197192 0.529616 0.124594 0.660167 0.0750507C0.790718 0.0255075 0.930746 4.06842e-08 1.07217 4.68662e-08C1.2136 5.30482e-08 1.35363 0.0255076 1.48418 0.0750507C1.61473 0.124594 1.73322 0.197192 1.83281 0.288658L6.73948 4.77761C6.83908 4.86908 6.95757 4.94168 7.08812 4.99122C7.21867 5.04076 7.35869 5.06627 7.50012 5.06627C7.64155 5.06627 7.78158 5.04076 7.91213 4.99122C8.04268 4.94168 8.16117 4.86908 8.26076 4.77761L13.1674 0.288658C13.3677 0.1049 13.64 0.00115203 13.9243 0.000236994C14.2086 -0.000678039 14.4816 0.101316 14.6834 0.28378C14.8851 0.466244 14.999 0.714232 15 0.97319C15.001 1.23215 14.889 1.48086 14.6887 1.66462L9.77133 6.14382C9.16871 6.69206 8.35183 7 7.50012 7C6.64842 7 5.83154 6.69206 5.22891 6.14382Z"
+                      fill="currentColor" />
+                  </svg>
                 </button>
               </div>
               <ul id="sort__list" class="list-unstyled sort-list">
@@ -213,7 +243,7 @@
                 {%- for option in collection.sort_options -%}
                   <li class="{% if option.value == sort_by %}selected{% endif %}">
                     <input
-                      type="radio" 
+                      type="radio"
                       name="sort_by"
                       id="sortByOption-{{ forloop.index }}"
                       value="{{ option.value | escape }}"
@@ -244,24 +274,28 @@
       >
         {%- if section.settings.enable_filtering -%}
           {%- if collection.filters.size > 0 or section.settings.filter_menu != blank -%}
-            <aside id="filterSideBar" class="yv-filter-sidebar">
+            <aside id="filterSideBar" class="yv-filter-sidebar filters-style-{{ section.settings.filters_style }}">
               {% render 'collection-sidebar', section: section, results: collection, clearAll: clearAll %}
             </aside>
           {% endif %}
         {% else %}
-          <form id="FiltersForm" class="collectionFilters__form">
-          </form>
+          <form id="FiltersForm" class="collectionFilters__form"></form>
         {% endif %}
         {% if collection.all_products_count > 0 %}
           <div class="yv-products-list">
-                {% if activeFilters != blank %}
-                  <ul class="list-unstyled yv-products-applied-filter">
-                    {{ activeFilters }}
-                    <li class="yv-applied-filter-item">
-                      <a href="{{ '?type=product&options%5Bprefix%5D=last&q=' | append: search.terms | escape }}"  class="yv-applied-filter-remove">{{ 'sections.collection_template.clear_all' | t }}</a>
-                    </li>
-                  </ul>
-                {% endif %}
+            {% if activeFilters != blank %}
+              <ul class="list-unstyled yv-products-applied-filter">
+                {{ activeFilters }}
+                <li class="yv-applied-filter-item">
+                  <a
+                    href="{{ '?type=product&options%5Bprefix%5D=last&q=' | append: search.terms | escape }}"
+                    class="yv-applied-filter-remove"
+                  >
+                    {{- 'sections.collection_template.clear_all' | t -}}
+                  </a>
+                </li>
+              </ul>
+            {% endif %}
             <div class="row" data-collection-products>
               {% if collection.products_count > 0 %}
                 {% for product in collection.products %}
@@ -290,15 +324,16 @@
                           viewBox="0 0 100 100"
                           preserveAspectRatio="xMidYMid"
                         >
-                <circle cx="50" cy="50" fill="none" stroke="#d9e2ed" stroke-width="10" r="35"
-                        stroke-dasharray="164.93361431346415 56.97787143782138"
-                        style="animation-play-state: running; animation-delay: 0s;"
-                        transform="rotate(115.597 50 50)">
-                  <animateTransform attributeName="transform" type="rotate" calcMode="linear"
-                                    values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s"
-                                    repeatCount="indefinite">
-                  </animateTransform>
-                </circle></svg>
+                          <circle cx="50" cy="50" fill="none" stroke="#d9e2ed" stroke-width="10" r="35"
+                                  stroke-dasharray="164.93361431346415 56.97787143782138"
+                                  style="animation-play-state: running; animation-delay: 0s;"
+                                  transform="rotate(115.597 50 50)">
+                            <animateTransform attributeName="transform" type="rotate" calcMode="linear"
+                                              values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s"
+                                              repeatCount="indefinite">
+                            </animateTransform>
+                          </circle>
+                        </svg>
                       </div>
                     </div>
                   {% endif %}
@@ -316,6 +351,9 @@
         {% endif %}
       </div>
     {% endpaginate %}
+    {% if has_collection_description and section.settings.collection_description_position == 'below'%}
+      {{ collection_description }}
+    {%- endif -%}
   </div>
 </div>
 {% schema %}
@@ -370,6 +408,22 @@
       "label": "t:sections.main-collection.settings.collection_description.label"
     },
     {
+      "type": "select",
+      "id": "collection_description_position",
+      "default": "above",
+      "label": "t:sections.main-collection.settings.collection_description_position.label",
+      "options": [
+        {
+          "value": "above",
+          "label": "t:sections.main-collection.settings.collection_description_position.options.above.label"
+        },
+        {
+          "value": "below",
+          "label": "t:sections.main-collection.settings.collection_description_position.options.below.label"
+        }
+      ]
+    },
+    {
       "type": "checkbox",
       "id": "collpasible_collection_description",
       "default": false,
@@ -407,6 +461,26 @@
       "default": true
     },
     {
+      "type": "range",
+      "id": "product_grid_spacing_desktop",
+      "default": 7,
+      "label": "t:common.header.product_grid_spacing_desktop.label",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "product_grid_spacing_mobile",
+      "default": 7,
+      "label": "t:common.header.product_grid_spacing_mobile.label",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
       "type": "header",
       "content": "t:sections.main-collection.settings.header__1.content"
     },
@@ -434,6 +508,22 @@
       ]
     },
     {
+      "type": "select",
+      "id": "filters_style",
+      "default": "border",
+      "label": "t:sections.main-collection.settings.filters_style.label",
+      "options": [
+        {
+          "value": "border",
+          "label": "t:sections.main-collection.settings.filters_style.options.border.label"
+        },
+        {
+          "value": "card",
+          "label": "t:sections.main-collection.settings.filters_style.options.card.label"
+        }
+      ]
+    },
+    {
       "type": "checkbox",
       "id": "enable_sorting",
       "default": true,
@@ -449,6 +539,15 @@
       "type": "link_list",
       "id": "filter_menu",
       "label": "t:sections.main-collection.settings.filter_menu.label"
+    },
+    {
+      "type": "range",
+      "id": "filters_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 10,
+      "label": "t:sections.main-collection.settings.filters_radius.label"
     },
     {
       "type": "header",
@@ -533,6 +632,11 @@
     {
       "type": "paragraph",
       "content": "t:sections.main-collection.settings.filter_menu.label"
+    },
+    {
+      "type": "color",
+      "id": "filter_card_bg_color",
+      "label": "t:settings_schema.colors.settings.card_background.label"
     },
     {
       "type": "color",

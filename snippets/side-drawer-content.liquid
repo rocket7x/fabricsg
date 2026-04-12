@@ -29,10 +29,10 @@
                             <div class="row">
                               {% liquid 
                                 for collection in block.settings.collection_list
-                                  render 'collection-grid' collection: collection
+                                  render 'collection-grid', collection: collection
                                 else
                                   for i in (1..4)
-                                    render 'collection-grid' collection: collection
+                                    render 'collection-grid', collection: collection
                                   endfor
                                 endfor 
                               %}

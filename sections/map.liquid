@@ -8,11 +8,11 @@
           <div class="image-wrapper">
            {% render 'lazy-image', image: section.settings.image %}
           </div>
-          {% else %}
+        {% else %}
           <div class="map_box_placeholder">
           {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
           </div>
-          {% endif %}
+        {% endif %}
       </div>
     </div>
     {% if section.blocks.size > 0 %}
@@ -70,6 +70,13 @@
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
+    {% if section.settings.full_width == false %}
+      {% if settings.layout_style == 'rounded' %}
+        --layoutRadius: 10px;
+      {% endif %}
+    {% else %}
+      --layoutRadius: 0px;
+    {% endif %}
   }
   #shopify-section-{{ section.id }} .map_box_placeholder,
   #shopify-section-{{ section.id }} .image-wrapper{

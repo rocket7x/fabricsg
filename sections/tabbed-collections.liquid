@@ -28,9 +28,9 @@
       <div class="image-wrapper image-square" style="padding-bottom:100%">
         {% liquid
           if block.settings.tab_image != blank 
-            render 'lazy-image' image: block.settings.tab_image , sizes: '[50,75,100,125,150,175,200]' 
+            render 'lazy-image', image: block.settings.tab_image , sizes: '[50,75,100,125,150,175,200]' 
           else
-            render 'lazy-image' image: block.settings.collection.featured_image , sizes: '[50,75,100,125,150,175,200]' 
+            render 'lazy-image', image: block.settings.collection.featured_image , sizes: '[50,75,100,125,150,175,200]' 
           endif
         %}
       </div>
@@ -74,20 +74,26 @@
       {%- if section.settings.heading != blank -%}
         {% if section.settings.highlight_font == 'body' %}
           {% capture highlightStyle %}
-          <span class="body-font">
+          <span class="body-font highlighted-text">
           {% endcapture %}
         {% elsif section.settings.highlight_font == 'heading' %}
         {% capture highlightStyle %}
-           <span class="heading-font">
+           <span class="heading-font highlighted-text">
         {% endcapture %}  
         {% else %}
         {% capture highlightStyle %}
-           <span class="accent-font">
+           <span class="accent-font highlighted-text">
         {% endcapture %}  
         {% endif %} 
       <div class="section-heading{% if section.settings.tabs_position == 'bottom' %} text-{{ section.settings.tabs_alignment | split: '-' | first }}{% endif %}">
         <{{ section.settings.seo_heading }} class="section-heading-title {{ section.settings.heading_size }}">
-          {{- section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -}}
+          {% comment %} {{- section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -}} {% endcomment %}
+          {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+          {%- if heading contains '[' and heading contains ']' -%}
+            {%- render 'rotational-highlight', heading: heading -%}
+          {%- else -%}
+            {{- heading -}}
+          {%- endif -%}
         </{{ section.settings.seo_heading }}>
       </div>
       {%- endif -%}
@@ -99,7 +105,7 @@
     </div>
     {%- if collectionProductsAvailable -%}
     <div class="yv-tab-content">
-      <div class="yv-tab-pane">
+      <div class="yv-tab-pane" data-section-type="tabbed-collections">
         <div id="slider-{{ section.id }}" class="yv-collection-product-grid column-count-{{ section.settings.products_per_row }} yv-tabbed-collection-filter-items product-grid-{{ section.settings.products_style }} {% if section.settings.enable_swipe %}mobile-swipe{% endif %}" 
              {% if section.settings.products_style == 'carousel' %}data-flickity-slider='{"wrapAround":false,
                                    "cellAlign": "center",
@@ -128,7 +134,7 @@
                 assign delay = 100 | times : forloop.index
                   assign productFormId = 'product-form-' | append : section.id | append : forloop.index | append : '-' | append : collection.handle
                   assign animationAttr = 'data-aos="fade-up" data-aos-delay="' | append : delay | append : '"'   
-                  render 'product-grid' product : product, section : section, productFormId : productFormId, tabbedCollection : true, productClasses: mainClass, mainAttr: mainAttr, animationAttr: animationAttr, customRadius: true
+                  render 'product-grid', product : product, section : section, productFormId : productFormId, tabbedCollection : true, productClasses: mainClass, mainAttr: mainAttr, animationAttr: animationAttr, customRadius: true
                 endfor 
               endif 
            	endfor
@@ -224,7 +230,7 @@
     {% endif %}
   #shopify-section-{{ section.id }}.shopify-section .yv-tabbed-collection-filter-items{
     --layoutRadius:{{ section.settings.product_grid_radius_desktop }}px;
-      --product-spacing:{{ section.settings.product_grid_spacing_desktop }}px;
+    --product-spacing:{{ section.settings.product_grid_spacing_desktop }}px;
   }
   #shopify-section-{{ section.id }}.shopify-section {
     {% if section.settings.enable_top_border %}
@@ -245,7 +251,17 @@
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     --primaryBorderColor: var(--{{- section.settings.bgcolor -}}BorderColor);
     {%- endunless -%}
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
   }
+
+  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
+    --fontSize: var(--{{ section.settings.heading_size }});
+  }
+
   @media only screen and (max-width:767px) {    
     #shopify-section-{{ section.id }}.shopify-section .yv-tabbed-collection-filter-items{
       --layoutRadius:{{ section.settings.product_grid_radius_mobile }}px;
@@ -337,6 +353,21 @@
       "default": "Collection Trending Product",
       "label": "t:sections.tabbed-collections.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

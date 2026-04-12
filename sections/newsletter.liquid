@@ -2,19 +2,30 @@
   <div class="section-heading center-heading">
     {% if section.settings.highlight_font == 'body' %}
       {% capture highlightStyle %}
-      <span class="body-font">
+      <span class="body-font highlighted-text">
       {% endcapture %}
     {% elsif section.settings.highlight_font == 'heading' %}
-    {% capture highlightStyle %}
-       <span class="heading-font">
-    {% endcapture %}  
+      {% capture highlightStyle %}
+        <span class="heading-font highlighted-text">
+      {% endcapture %}  
     {% else %}
-    {% capture highlightStyle %}
-       <span class="accent-font">
-    {% endcapture %}  
+      {% capture highlightStyle %}
+        <span class="accent-font highlighted-text">
+      {% endcapture %}  
     {% endif %}
-    <{{ section.settings.seo_heading }} class="section-heading-title h2" >{{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}</{{ section.settings.seo_heading }}>
-    <p>{{ section.settings.description | replace: '++', '<br/>' }}</p>
+
+    {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+    <{{ section.settings.seo_heading }} class="section-heading-title h2">
+      {% if heading contains '[' and heading contains ']' %}
+        {%- render 'rotational-highlight', heading: heading -%}
+      {% else %}
+        {{- heading -}}
+      {% endif %}
+    </{{ section.settings.seo_heading }}>
+
+    {%- if section.settings.description != blank -%}
+      <p>{{ section.settings.description | replace: '++', '<br/>' }}</p>
+    {%- endif -%}
   </div>
   <div
     class="newsletter-content text_center"
@@ -32,6 +43,29 @@
           {{- 'newsletter.success' | t -}}
         </span>
       {%- endif -%}
+      {%- liquid
+        assign has_terms_and_conditions = false
+        if settings.enable_terms_checkbox_newsletter and settings.terms_conditions_text_newsletter != blank
+          assign has_terms_and_conditions = true
+        endif
+      %}
+      {%- if has_terms_and_conditions -%}
+        <div class="terms_conditions-wrapper custom-checkbox" style="--layoutRadius:{% if settings.layout_style == 'rounded' %}4px{% else %}0px{% endif %}" data-newsletter-condition>
+          <input
+            type="checkbox"
+            name="terms_conditions"
+            title="{{ settings.terms_conditions_text_newsletter | strip_html }}"
+            id="terms_conditions_input-{{ section.id }}"
+            onClick="acceptNewsletterConditions(event)"
+            data-section="shopify-section-{{ section.id }}"
+          >
+          <span class="checkmark"></span>
+          <label for="terms_conditions_input-{{ section.id }}" title="{{ settings.terms_conditions_text_newsletter | strip_html }}">
+            {{ settings.terms_conditions_text_newsletter }}
+          </label>
+        </div>
+      {%- endif -%}
+
       <div class="yv-newsletter-input">
         <input type="hidden" name="contact[tags]" value="newsletter">
         <input
@@ -54,8 +88,7 @@
           placeholder="{{ section.settings.placeholder }}"
           required
         >
-        <button type="submit" name="commit" id="Subscribe" class="button newsletter-btn">
-          
+        <button type="submit" name="commit" id="Subscribe" class="button newsletter-btn" {% if has_terms_and_conditions %} disabled {% endif %}>
             {% if settings.buttonAnimation == 'animated-arrow'%}
               <span class="btn-animated-arrow"><svg fill="none" viewBox="0 0 8 8">
                 <path fill="currentColor" fill-rule="evenodd" d="M0 0h8v8H7V1.707L1.354 7.354 1 7.707.293 7l.353-.354L6.293 1H0V0Z" clip-rule="evenodd"></path>
@@ -63,7 +96,6 @@
               </span>
             {% endif %}
             <span class="btn-txt">{{ section.settings.btn | default: 'Subscribe' }}</span>
-        
         </button>
       </div>
       {%- if form.errors -%}
@@ -78,7 +110,7 @@
     {% endform %}
   </div>
 </div>
-<style>
+<style> 
   #shopify-section-{{ section.id }}.shopify-section {
     background:var(--{{- section.settings.bgcolor -}}ColorBody);
     padding-top:{{ section.settings.top_space_desktop }}px;
@@ -90,10 +122,20 @@
     --colorLightTextBody:var(--{{- section.settings.bgcolor -}}ColorLightTextBody);
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     {%- endunless -%}
-    --colorBtnPrimaryText:{{ section.settings.button_text_color }};
-    --colorBtnPrimary:{{ section.settings.button_bg_color }};
-    --colorBtnPrimaryBorder:{{ section.settings.button_border_color }};
+    --colorBtnPrimaryText: {{ section.settings.button_text_color }};
+    --colorBtnPrimary: {{ section.settings.button_bg_color }};
+    --colorBtnPrimaryBorder: {{ section.settings.button_border_color }};
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
   }
+
+  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
+    --fontSize: var(--h2);
+  }
+
   @media only screen and (max-width:575px) {
     #shopify-section-{{ section.id }}.shopify-section {
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -131,6 +173,21 @@
       "default": "Join Our Newsletter",
       "label": "t:sections.newsletter.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

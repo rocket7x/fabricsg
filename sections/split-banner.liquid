@@ -28,19 +28,25 @@
                     {% if block.settings.heading != blank %}
                             {% if block.settings.highlight_font == 'body' %}
                               {% capture highlightStyle %}
-                              <span class="body-font">
+                              <span class="body-font highlighted-text">
                               {% endcapture %}
                             {% elsif block.settings.highlight_font == 'heading' %}
                             {% capture highlightStyle %}
-                               <span class="heading-font">
+                               <span class="heading-font highlighted-text">
                             {% endcapture %}  
                             {% else %}
                             {% capture highlightStyle %}
-                               <span class="accent-font">
+                               <span class="accent-font highlighted-text">
                             {% endcapture %}  
                             {% endif %} 
                         <{{ block.settings.seo_heading }} class="split-banner-heading {{ block.settings.heading_size }}">
-                            {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+                            {% comment %} {{ block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+                            {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+                            {%- if heading contains '[' and heading contains ']' -%}
+                              {%- render 'rotational-highlight', heading: heading -%}
+                            {%- else -%}
+                              {{- heading -}}
+                            {%- endif -%}
                         </{{ block.settings.seo_heading }}>
                     {% endif %}
                     {% if block.settings.description != blank %}
@@ -60,8 +66,8 @@
 {%- endif -%}
 <style>
     #shopify-section-{{ section.id }} {
-        padding-top:{{ section.settings.top_space_desktop }}px;
-        padding-bottom:{{ section.settings.bottom_space_desktop }}px;
+      padding-top:{{ section.settings.top_space_desktop }}px;
+      padding-bottom:{{ section.settings.bottom_space_desktop }}px;
       --media-height: {{ section.settings.desktop_height }};
       background:var(--{{- section.settings.bgcolor -}}ColorBody);
       {%- unless section.settings.bgcolor == 'primary' or section.settings.bgcolor == 'gradient' -%}
@@ -70,11 +76,11 @@
     }
 
     @media only screen and (max-width:767px) {
-        #shopify-section-{{ section.id }}{
-            padding-top:{{ section.settings.top_space_mobile }}px;
-            padding-bottom:{{ section.settings.bottom_space_mobile }}px;
-          --media-height: {{ section.settings.mobile_height }};
-        }
+      #shopify-section-{{ section.id }}{
+        padding-top:{{ section.settings.top_space_mobile }}px;
+        padding-bottom:{{ section.settings.bottom_space_mobile }}px;
+        --media-height: {{ section.settings.mobile_height }};
+      }
     }
     {% if section.settings.section_visibility == 'large' %}
         @media (max-width: 767px) {
@@ -91,13 +97,20 @@
     {% endif %}
 
     {%- for block in section.blocks -%}
-        
-        #split-banner-item-{{ block.id }} {
-            --overlay-heading-color: {{ block.settings.heading_color }};
-            --overlay-text-color: {{ block.settings.description_color }};
-            --overlay-opacity: {{ block.settings.overlay_opacity }};
-            --overlay-bg: {{ block.settings.overlay_bgcolor }};
-        }
+      #split-banner-item-{{ block.id }} {
+        --overlay-heading-color: {{ block.settings.heading_color }};
+        --overlay-text-color: {{ block.settings.description_color }};
+        --overlay-opacity: {{ block.settings.overlay_opacity }};
+        --overlay-bg: {{ block.settings.overlay_bgcolor }};
+      }
+      #split-banner-item-{{ block.id }} .split-banner-heading {
+        {% if block.settings.highlight_text_gradient != blank %}
+          --highlightTextColor: {{ block.settings.highlight_text_gradient }};
+        {% else %}
+          --highlightTextColor: {{ block.settings.highlight_text_color }};
+        {% endif %}
+        --fontSize: var(--{{ block.settings.heading_size }});
+      }
     {%- endfor -%}
 </style>
 {% schema %}
@@ -149,6 +162,10 @@
                 {
                     "value": "750px",
                     "label": "750px"
+                },
+                {
+                    "value": "850px",
+                    "label": "850px"
                 },
                 {
                     "value": "100vh",
@@ -290,6 +307,21 @@
                     "default": "Heading",
                     "label": "t:common.highlight_font.options.heading.label",
                     "info": "t:common.highlight_text_and_break_text.info"
+                },
+                {
+                  "type": "color",
+                  "id": "highlight_text_color",
+                  "label": "t:common.highlight_text_color.label",
+                  "default": "#000000",
+                  "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
+                },
+                {
+                  "type": "color_background",
+                  "id": "highlight_text_gradient",
+                  "label": "t:common.highlight_text_gradient.label",
+                  "info": "t:common.highlight_text_gradient.info",
+                  "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+                  "visible_if": "{{ block.settings.heading contains '<strong>' or block.settings.heading contains '[' and block.settings.heading contains ']' }}"
                 },
                 {
                     "type": "select",

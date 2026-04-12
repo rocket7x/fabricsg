@@ -50,16 +50,35 @@
         {%- assign collection = block.settings.collection -%}        
         <div class="yv-mobile-lookbook-items" data-index="{{ forloop.index0 }}">
                 {%- if block.settings.heading != blank or  block.settings.description != blank -%}
-                <div class="section-heading text-center">
-                    {%- if block.settings.heading != blank -%}
-                      <h2 class="section-heading-title {{ block.settings.heading_size }}">
-                        {{ block.settings.heading -}}
-                      </h2>
-                    {%- endif %}
-                    {% if block.settings.description != blank %}
-                      <p class="yv-lookbook-desc">{{ block.settings.description | newline_to_br }}</p>
-                    {% endif %}
-                </div>
+                  <div class="section-heading text-center">
+                      {%- if block.settings.heading != blank -%}
+                        {% if block.settings.highlight_font == 'body' %}
+                          {% capture highlightStyle %}
+                          <span class="body-font highlighted-text">
+                          {% endcapture %}
+                        {% elsif block.settings.highlight_font == 'heading' %}
+                        {% capture highlightStyle %}
+                          <span class="heading-font highlighted-text">
+                        {% endcapture %}  
+                        {% else %}
+                        {% capture highlightStyle %}
+                          <span class="accent-font highlighted-text">
+                        {% endcapture %}  
+                        {% endif %}
+                        <h2 class="section-heading-title {{ block.settings.heading_size }}" id="{{ block.id }}">
+                          {% comment %} {{ block.settings.heading -}} {% endcomment %}
+                          {%- assign heading = block.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+                          {%- if heading contains '[' and heading contains ']' -%}
+                            {%- render 'rotational-highlight', heading: heading -%}
+                          {%- else -%}
+                            {{- heading -}}
+                          {%- endif -%}
+                        </h2>
+                      {%- endif %}
+                      {% if block.settings.description != blank %}
+                        <p class="yv-lookbook-desc">{{ block.settings.description | newline_to_br }}</p>
+                      {% endif %}
+                  </div>
                 {%- endif -%}
                 {% liquid
                   assign productData = block.settings.product_item 

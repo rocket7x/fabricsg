@@ -5,19 +5,25 @@
 {% endif %} >
     {% if section.settings.highlight_font == 'body' %}
       {% capture highlightStyle %}
-      <span class="body-font">
+      <span class="body-font highlighted-text">
       {% endcapture %}
     {% elsif section.settings.highlight_font == 'heading' %}
     {% capture highlightStyle %}
-       <span class="heading-font">
+       <span class="heading-font highlighted-text">
     {% endcapture %}  
     {% else %}
     {% capture highlightStyle %}
-       <span class="accent-font">
+       <span class="accent-font highlighted-text">
     {% endcapture %}  
     {% endif %}
     <{{ section.settings.seo_heading }} class="section-heading-title featured-blog-section-heading h2">
-      {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }}
+      {% comment %} {{ section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' }} {% endcomment %}
+      {%- assign heading = section.settings.heading | replace: "<strong>", highlightStyle | replace: "</strong>", '</span>' | replace: '++', '<br/>' -%}
+      {%- if heading contains '[' and heading contains ']' -%}
+        {%- render 'rotational-highlight', heading: heading -%}
+      {%- else -%}
+        {{- heading -}}
+      {%- endif -%}
     </{{ section.settings.seo_heading }}>
     {%- if section.settings.button != blank and section.settings.link != blank -%}
       <a class="link" href="{{ section.settings.link }}">{{ section.settings.button }}</a>
@@ -38,7 +44,7 @@
             <a href="{{- article.url -}}" class="yv-blog-card-img">
               {%- if article.image -%}             
                 <div class="image-wrapper image-{{ settings.article_image_style }}" {% if settings.article_image_style == 'aspect' %}style="padding-bottom:{{ 1 | divided_by : article.image.aspect_ratio | times: 100 }}%"{% endif %}>
-                  {% render 'lazy-image' image: article.image %} 
+                  {% render 'lazy-image', image: article.image %} 
                 </div>
               {%- else -%}
                 {%- if settings.article_image_style != 'aspect' -%}
@@ -124,7 +130,17 @@
     --colorXlightTextBody:var(--{{- section.settings.bgcolor -}}ColorXlightTextBody);
     --primaryCardBackground:var(--{{- section.settings.bgcolor -}}CardBackground);
     {%- endunless -%}
+    {% if section.settings.highlight_text_gradient != blank %}
+      --highlightTextColor: {{ section.settings.highlight_text_gradient }};
+    {% else %}
+      --highlightTextColor: {{ section.settings.highlight_text_color }};
+    {% endif %}
   }
+
+  #shopify-section-{{ section.id }}.shopify-section .section-heading-title {
+    --fontSize: var(--h2);
+  }
+
   @media only screen and (max-width:991px) {
     #shopify-section-{{ section.id }}.shopify-section{
       padding-top:{{ section.settings.top_space_mobile }}px;
@@ -182,6 +198,21 @@
       "default": "Add Blog posts here",
       "label": "t:sections.featured-article.settings.heading.label",
       "info": "t:common.highlight_text_and_break_text.info"
+    },
+    {
+      "type": "color",
+      "id": "highlight_text_color",
+      "label": "t:common.highlight_text_color.label",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "highlight_text_gradient",
+      "label": "t:common.highlight_text_gradient.label",
+      "info": "t:common.highlight_text_gradient.info",
+      "default": "linear-gradient(90deg, #A678C8 0%, #718CC7 48.08%, #639A47 100%)",
+      "visible_if": "{{ section.settings.heading contains '<strong>' or section.settings.heading contains '[' and section.settings.heading contains ']' }}"
     },
     {
       "type": "select",

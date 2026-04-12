@@ -7,35 +7,78 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
-  "sections": {
-    "main": {
-      "type": "main-list-collections",
-      "blocks": {
-        "401b7e52-dbc6-429e-ad2e-77850fd0399d": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
+ {
+    "sections": {
+      "main": {
+        "type": "main-list-collections",
+        "blocks": {
+          "401b7e52-dbc6-429e-ad2e-77850fd0399d": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
           }
+        },
+        "block_order": [
+          "401b7e52-dbc6-429e-ad2e-77850fd0399d"
+        ],
+        "settings": {
+          "title": "Collections",
+          "seo_heading": "h2",
+          "collections_per_page": 16,
+          "show_collections": "all",
+          "sort": "date",
+          "banner_height_desktop": "auto",
+          "banner_height_mobile": "auto",
+          "bgcolor": "#f8f8f8",
+          "textcolor": "#181818"
         }
       },
-      "block_order": [
-        "401b7e52-dbc6-429e-ad2e-77850fd0399d"
-      ],
-      "settings": {
-        "title": "Shop Ridhi Block Print Collections",
-        "seo_heading": "h2",
-        "collections_per_page": 16,
-        "show_collections": "all",
-        "sort": "date",
-        "banner_height_desktop": "auto",
-        "banner_height_mobile": "auto",
-        "bgcolor": "#f8f8f8",
-        "textcolor": "#181818"
+      "55fbe7bc-0a81-4afc-b442-22482591cbed": {
+        "type": "rotating-text",
+        "settings": {
+          "text1": "<p>Add promotional text here</p>",
+          "desktop_text_gap": 17,
+          "mobile_text_gap": 17,
+          "text2": "",
+          "desktop_subtext_gap": 17,
+          "mobile_subtext_gap": 17,
+          "rotating_text_style": "vertical",
+          "pause_on_hover": false,
+          "row1_font_family": "--heading-font-family",
+          "row2_font_family": "--font-family",
+          "row1_direction": "left",
+          "row2_direction": "right",
+          "heading_font_size": 100,
+          "subheading_font_size": 24,
+          "heading_font_size_m": 50,
+          "subheading_font_size_m": 16,
+          "section_border": false,
+          "section_border_bottom": true,
+          "border_width": "2px",
+          "border_style": "solid",
+          "background_opacity": 50,
+          "min_height_desktop": 400,
+          "min_height_mobile": 200,
+          "bgcolor": "#131212",
+          "bg_gradient_color": "",
+          "text1color": "#4e4e4e",
+          "outlinetext1color": "#000000",
+          "text2color": "#a56748",
+          "outlinetext2color": "#a56748",
+          "background_overlay": "#000000",
+          "border_color": "#000000",
+          "section_visibility": "always",
+          "top_space_desktop": 10,
+          "bottom_space_desktop": 10,
+          "top_space_mobile": 15,
+          "bottom_space_mobile": 15
+        }
       }
-    }
-  },
-  "order": [
-    "main"
-  ]
-}
+    },
+    "order": [
+      "main",
+      "55fbe7bc-0a81-4afc-b442-22482591cbed"
+    ]
+  }
+  
