@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "sections": {
+      "main-page": {
+        "type": "main-page",
+        "settings": {
+          "seo_heading": "h2",
+          "banner_height_desktop": "200px",
+          "banner_height_mobile": "auto",
+          "bgcolor": "#bfbfbf",
+          "textcolor": "#ffffff"
+        }
+      },
+      "main": {
+        "type": "contact-page-template",
+        "settings": {
+          "contact_heading": "Support",
+          "seo_heading_service": "h3",
+          "phone_heading": "Phone",
+          "phone_number": "+1234567890",
+          "email_heading": "email",
+          "email": "info@email.com",
+          "address_heading": "Address",
+          "address": "#123 abc main city",
+          "form_heading": "Get In Touch",
+          "seo_heading": "h3",
+          "form_button": "SEND MESSAGE"
+        }
+      },
+      "16553647653bec1f07": {
+        "type": "map",
+        "settings": {
+          "full_width": true,
+          "mapaddress": "Shine dezign infonet",
+          "map_style": "roadmap",
+          "content_position": "middle-left",
+          "desktop_height": "500px",
+          "m_content_position": "overlay",
+          "mobile_height": "500px",
+          "bgcolor": "primary",
+          "section_visibility": "always"
+        }
+      },
+      "166393361574b55585": {
+        "type": "rotating-text",
+        "settings": {
+          "text1": "<p>Add promotional text here</p>",
+          "desktop_text_gap": 17,
+          "mobile_text_gap": 17,
+          "text2": "",
+          "desktop_subtext_gap": 17,
+          "mobile_subtext_gap": 17,
+          "rotating_text_style": "vertical",
+          "pause_on_hover": false,
+          "row1_font_family": "--heading-font-family",
+          "row2_font_family": "--font-family",
+          "row1_direction": "left",
+          "row2_direction": "right",
+          "heading_font_size": 100,
+          "subheading_font_size": 40,
+          "heading_font_size_m": 50,
+          "subheading_font_size_m": 16,
+          "section_border": false,
+          "section_border_bottom": true,
+          "border_width": "2px",
+          "border_style": "solid",
+          "background_opacity": 50,
+          "min_height_desktop": 400,
+          "min_height_mobile": 200,
+          "bgcolor": "#131212",
+          "bg_gradient_color": "",
+          "text1color": "#4e4e4e",
+          "outlinetext1color": "#000000",
+          "text2color": "#a56748",
+          "outlinetext2color": "#a56748",
+          "background_overlay": "#000000",
+          "border_color": "#000000",
+          "section_visibility": "always",
+          "top_space_desktop": 5,
+          "bottom_space_desktop": 5,
+          "top_space_mobile": 5,
+          "bottom_space_mobile": 5
+        }
+      }
+    },
+    "order": [
+      "main-page",
+      "main",
+      "16553647653bec1f07",
+      "166393361574b55585"
+    ]
+  }
+  

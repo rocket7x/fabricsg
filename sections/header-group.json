@@ -1,0 +1,120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "type": "header",
+    "name": "Header Group",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "show_bar": true,
+          "desktop_height": "adapt_image",
+          "mobile_height": "adapt_image",
+          "layout": "carousel",
+          "show_close": true,
+          "carousel_rotate": false,
+          "carousel_interval": 5,
+          "marquee_direction": "left",
+          "marquee_speed": 5,
+          "enable_language_selector": true,
+          "enable_currency_selector": true,
+          "fontcolor": "#ffffff",
+          "bg_style": "solid",
+          "bgcolor": "#181818",
+          "bgcolor2": "",
+          "overlay_color": "",
+          "overlay_opacity": 50,
+          "btn_bgcolor": "#ffffff",
+          "btn_fontcolor": "#181818",
+          "bborder_color": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "cef4fe6c-d7fa-4df1-9714-a75372759045": {
+            "type": "style-3",
+            "settings": {
+              "title": "Shop",
+              "products_count": 7,
+              "collection1": "beauty-personal-care",
+              "collection2": "beauty-snacking",
+              "collection3": "complimentary-gifts",
+              "collection4": "hyper-glowy-skin",
+              "collection5": "",
+              "collection6": "",
+              "collection7": "",
+              "collection8": "",
+              "collection9": "",
+              "collection10": "",
+              "collection11": "",
+              "collection12": ""
+            }
+          }
+        },
+        "block_order": [
+          "cef4fe6c-d7fa-4df1-9714-a75372759045"
+        ],
+        "settings": {
+          "header_style": "header3",
+          "enable_sticky_header": false,
+          "sticky_header_style": "always",
+          "enable_transparent_header": true,
+          "logo": "",
+          "logo_width": 100,
+          "logo_position": "center",
+          "menu_navigations": "click",
+          "menu": "main-menu",
+          "type_font_size": 15,
+          "menu_position": "center",
+          "enable_catalog": false,
+          "enable_catalog_drawer": false,
+          "view_catalog": "View catalog",
+          "catalog_menu": "main-menu",
+          "trust_badge_link": "",
+          "show_search": true,
+          "account_type": "page",
+          "cart_icon": "cart",
+          "enable_sticky_cart": false,
+          "icon_weight": "thin",
+          "enable_language_selector": true,
+          "enable_currency_selector": true,
+          "header_bgcolor": "#000000",
+          "header_textcolor": "#ffffff",
+          "header_textcolor_hover": "#ff5b5b",
+          "transparent_text_color": "#ffffff",
+          "hamburger_bgcolor": "#000000",
+          "hamburger_textcolor": "#ffffff",
+          "hamburger_textcolor_hover": "#9d6348",
+          "full_width_bgcolor": "",
+          "full_width_textcolor": "",
+          "full_width_textcolor_hover": "",
+          "mobile_menu_bg_color": "#000000",
+          "mobile_menu_text_color": "#ffffff",
+          "sub-menu_text_color": "#ffffff",
+          "mobile_menu_border_color": "#727272",
+          "catalogmenu_bg": "#f7f7f7",
+          "catologtext_color": "#000000",
+          "catologtext_hover": "#8f826b",
+          "catalog_bg": "#dddddd",
+          "catalog_text": "#ffffff",
+          "catalog_text_border": "#ededed",
+          "searchbar_text": "#000000",
+          "searchbar_icon_bg": "#ededed",
+          "searchbar_icon_color": "#000000"
+        }
+      }
+    },
+    "order": [
+      "announcement-bar",
+      "header"
+    ]
+  }
+  
