@@ -111,7 +111,7 @@
             "desktop_title_size": 70,
             "mobile_title_size": 36,
             "button_text": "Shop Now",
-            "button_link": "shopify://collections/strawberry-pink-collection-collection",
+            "button_link": "shopify://collections/strawberry-pink-collection-collection-collection",
             "button_size": "default",
             "mobile_button_size": "m-med",
             "mobile_content_position": "flex-end",
