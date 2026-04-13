@@ -1,7 +1,7 @@
-/Users/sachin/Movies/fabricsg/templates/product.oven-mitts.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.coasters.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.embroidery-napkins.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.border-napkins.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.plain-napkins.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.table-runner.json: ridhi
-/Users/sachin/Movies/fabricsg/templates/product.pillow-covers.json: ridhi
+/Users/sachin/Movies/fabricsg/templates/product.oven-mitts.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.coasters.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.embroidery-napkins.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.border-napkins.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.plain-napkins.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.table-runner.json: fabricsg
+/Users/sachin/Movies/fabricsg/templates/product.pillow-covers.json: fabricsg
