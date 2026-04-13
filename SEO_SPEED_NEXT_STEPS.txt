@@ -1,0 +1,13 @@
+Manual next steps in Shopify admin:
+1. Online Store -> Preferences:
+   - Set homepage title
+   - Set homepage meta description
+2. Theme Customize:
+   - Re-save homepage, header, footer
+   - Disable unused app embeds
+3. Settings -> Domains:
+   - Confirm primary domain is fabricsg.com
+4. Content:
+   - Add unique About Us / Contact / policy copy
+5. Images:
+   - Replace oversized banners with compressed JPG/WebP where possible
