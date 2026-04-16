@@ -1,18 +1,9 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main-page": {
       "type": "main-page",
       "settings": {
-        "seo_heading": "h2",
+        "seo_heading": "h1",
         "banner_height_desktop": "auto",
         "banner_height_mobile": "auto",
         "bgcolor": "#6e90b5",
@@ -22,7 +13,7 @@
     "main": {
       "type": "contact-page-template",
       "settings": {
-        "contact_heading": "Support",
+        "contact_heading": "Contact Us",
         "seo_heading_service": "h3",
         "phone_heading": "Phone",
         "phone_number": "+1 7379757192",
@@ -30,9 +21,9 @@
         "email": "renu@fabricsg.com",
         "address_heading": "Address",
         "address": "2935 Bluffstone Dr, Round Rock, TX 78665, United States",
-        "form_heading": "Get In Touch",
+        "form_heading": "We would love to hear from you",
         "seo_heading": "h3",
-        "form_button": "SEND MESSAGE"
+        "form_button": "Send Message"
       }
     }
   },

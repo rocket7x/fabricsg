@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner_MHxmgz": {
@@ -22,10 +13,10 @@
         "block_display": "categories",
         "banner_title": "Our Story",
         "highlight_font": "body",
-        "seo_heading": "h2",
+        "seo_heading": "h1",
         "desktop_title_size": 70,
         "mobile_title_size": 36,
-        "banner_desc": "Handmade with Heart, From Our Family to Yours.",
+        "banner_desc": "Handcrafted block print textiles, thoughtfully made for modern homes.",
         "button_text": "",
         "button_link": "",
         "button_size": "small",
@@ -62,7 +53,7 @@
             "highlight_font": "body",
             "seo_heading": "h2",
             "size": "h2",
-            "content": "<p>Welcome to fabricsg 🌸<br/><br/>I’m Renu, mom of twin daughters fabricsg & Sidhi, and the heart behind this small handmade brand. My daughter fabricsg is a special child, and my journey began when I started replacing paper with reusable cotton napkins for her needs and our home.<br/><br/>Inspired by my girls, I turned this necessity into a passion—creating timeless block-printed linens for everyday living.<br/><br/>Our pieces are lovingly handcrafted in Jaipur, India using centuries-old traditions. Every item you hold carries the warmth of a mother’s love, the skill of artisans, and the soul of a family-run business.<br/><br/>✨ Thank you for supporting handmade, women-led, and ethical craft. Your purchase helps preserve a beautiful tradition and empowers artisan communities across India.<br/><br/>With love,<br/>Renu & the fabricsg Family 💛</p>"
+            "content": "<p>FabricSG began with a love for handcrafted textiles and a deep respect for the heritage of Indian block printing.<br/><br/>We work with cotton because it feels soft, lives beautifully, and brings comfort into everyday spaces. From table linens and napkins to quilts and pillow covers, each piece is designed to feel timeless, practical and warm.<br/><br/>Our collections are inspired by homes that are layered, lived in and full of personality. We believe the pieces you use every day should feel special without being precious.<br/><br/>Every textile carries the character of handwork, the beauty of imperfect detail, and the story of traditional craftsmanship reimagined for modern living.<br/><br/>Thank you for supporting handmade design and the artisan traditions behind every piece.</p>"
           }
         }
       },
@@ -88,7 +79,7 @@
         "enable_top_border": false,
         "enable_bottom_border": false,
         "border_style": "solid",
-        "collection": "taupe",
+        "collection": "all",
         "products_count": 6,
         "edge_to_edge": false,
         "slider_full_width": false,
@@ -105,7 +96,7 @@
         "heading_size": "h2",
         "subheading": "",
         "collection_image": "shopify://shop_images/FB6E277B-7155-4CEF-AD31-F0C22E2A0DD9.jpg",
-        "collection_heading": "Shop Renu's Favorite Collection",
+        "collection_heading": "Explore the collection",
         "hide_description": true,
         "collection_desc": "",
         "bgcolor": "primary",
@@ -149,13 +140,13 @@
             "title_size": 16,
             "title_weight": "400",
             "description_size": 14,
-            "item_1_title": "Family Inspired",
+            "item_1_title": "Handcrafted",
             "item_1_description": "",
-            "item_2_title": "Sustainable Living",
+            "item_2_title": "100% Cotton",
             "item_2_description": "",
-            "item_3_title": "Handmade with Love",
+            "item_3_title": "Timeless Design",
             "item_3_description": "",
-            "item_4_title": "Ethical & Women led",
+            "item_4_title": "Made for Everyday Living",
             "item_4_description": ""
           },
           "blocks": {}
