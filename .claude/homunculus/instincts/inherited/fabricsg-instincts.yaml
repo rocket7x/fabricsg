@@ -1,0 +1,304 @@
+# Instincts generated from https://github.com/sachin7x/fabricsg
+# Generated: 2026-04-16T22:12:08.097Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: fabricsg-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Commit Length
+
+## Action
+
+Keep commit messages concise (~49 characters)
+
+## Evidence
+
+- Average commit message length: 49 chars
+- Based on 5 commits
+
+---
+id: fabricsg-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: fabricsg-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: fabricsg-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: fabricsg-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: fabricsg-workflow-edit-homepage-layout-and-links
+trigger: "when doing edit homepage layout and links"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sachin7x/fabricsg
+---
+
+# Fabricsg Workflow Edit Homepage Layout And Links
+
+## Action
+
+Follow the edit-homepage-layout-and-links workflow:
+1. Edit templates/index.json to change homepage layout or content.
+2. Edit sections/header-group.json if header or navigation links are involved.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: templates/index.json, sections/header-group.json
+
+---
+id: fabricsg-instinct-file-naming-camelcase
+trigger: "When creating or renaming files in the codebase"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct File Naming Camelcase
+
+## Action
+
+Name files using camelCase (e.g., myComponent.ts)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: fabricsg-instinct-function-naming-camelcase
+trigger: "When defining new functions"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Function Naming Camelcase
+
+## Action
+
+Name functions using camelCase (e.g., fetchData)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: fabricsg-instinct-class-naming-pascalcase
+trigger: "When defining new classes"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Class Naming Pascalcase
+
+## Action
+
+Name classes using PascalCase (e.g., HomePageLayout)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: fabricsg-instinct-constant-naming-screaming-snake-case
+trigger: "When declaring constants"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Constant Naming Screaming Snake Case
+
+## Action
+
+Name constants using SCREAMING_SNAKE_CASE (e.g., MAX_ITEMS)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: fabricsg-instinct-import-style-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Import Style Relative
+
+## Action
+
+Use relative import paths (e.g., import x from '../utils/x')
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: fabricsg-instinct-export-style-named
+trigger: "When exporting functions, classes, or variables"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Export Style Named
+
+## Action
+
+Use named exports (e.g., export { MyComponent })
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: fabricsg-instinct-git-commit-freeform
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Git Commit Freeform
+
+## Action
+
+Write a freeform commit message without a strict prefix, describing the change succinctly
+
+## Evidence
+
+- Seen in commit: 'Redesign homepage to Ridhi-inspired layout'
+- Seen in commit: 'Fix homepage collection links and header config'
+- Pattern in commits.prefixes (empty)
+
+---
+id: fabricsg-instinct-git-commit-length
+trigger: "When composing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Git Commit Length
+
+## Action
+
+Keep commit messages concise, typically under 50 characters
+
+## Evidence
+
+- Pattern in commits.averageLength (49)
+- Seen in commit: 'Make homepage links safer for deploy'
+
+---
+id: fabricsg-instinct-workflow-edit-homepage-layout
+trigger: "When someone wants to redesign the homepage or fix/update homepage links and navigation"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: sachin7x/fabricsg
+---
+
+# Fabricsg Instinct Workflow Edit Homepage Layout
+
+## Action
+
+Edit templates/index.json to change homepage layout or content; edit sections/header-group.json if header or navigation links are involved
+
+## Evidence
+
+- Workflow: edit-homepage-layout-and-links
+- Seen in commits: 'Edit templates/index.json to change homepage layout or content.', 'Edit sections/header-group.json if header or navigation links are involved.'
+
