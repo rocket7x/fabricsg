@@ -3,11 +3,17 @@ name: PR Preview Theme
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
 
 jobs:
   preview:
     name: Create PR Preview Theme
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +34,7 @@ jobs:
           THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
           # Truncate to Shopify's 50 char limit
           THEME_NAME="${THEME_NAME:0:50}"
-          echo "THEME_NAME=$THEME_NAME" >> $GITHUB_ENV
+          echo "THEME_NAME=$THEME_NAME" >> "$GITHUB_ENV"
 
           OUTPUT=$(shopify theme push \
             --store="${{ secrets.SHOPIFY_STORE_URL }}" \
@@ -37,9 +43,14 @@ jobs:
             --unpublished 2>&1)
           echo "$OUTPUT"
 
-          # Extract preview URL from JSON output
-          PREVIEW_URL=$(echo "$OUTPUT" | grep -o '"preview_url":"[^"]*"' | cut -d'"' -f4)
-          echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
+          PREVIEW_URL=$(python3 -c 'import re,sys; s=sys.stdin.read(); m=re.search(r'"'"'\"preview_url\":\"([^\"]+)\"'"'"', s); print(m.group(1) if m else "")' <<< "$OUTPUT")
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "❌ Could not extract preview URL from Shopify CLI output"
+            exit 1
+          fi
+
+          echo "PREVIEW_URL=$PREVIEW_URL" >> "$GITHUB_ENV"
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
 
@@ -59,8 +70,8 @@ jobs:
 
   cleanup:
     name: Delete PR Preview Theme
-    runs-on: ubuntu-latest
     if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
 
     steps:
       - name: Setup Node.js
@@ -76,10 +87,9 @@ jobs:
           THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
           THEME_NAME="${THEME_NAME:0:50}"
 
-          # Get theme ID by name
           THEME_ID=$(shopify theme list \
             --store="${{ secrets.SHOPIFY_STORE_URL }}" \
-            --json | jq -r ".[] | select(.name==\"$THEME_NAME\") | .id")
+            --json | python3 -c 'import json,sys; themes=json.load(sys.stdin); match=next((str(t.get("id")) for t in themes if t.get("name")==sys.argv[1]), ""); print(match)' "$THEME_NAME")
 
           if [ -n "$THEME_ID" ]; then
             shopify theme delete \
@@ -87,6 +97,8 @@ jobs:
               --theme="$THEME_ID" \
               --force
             echo "🗑 Deleted preview theme: $THEME_NAME"
+          else
+            echo "ℹ️ No preview theme found for: $THEME_NAME"
           fi
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
