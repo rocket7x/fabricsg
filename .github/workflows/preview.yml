@@ -31,7 +31,10 @@ jobs:
       - name: Push preview theme
         id: push_preview
         run: |
-          THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          # Shopify theme names cannot contain slashes, so replace them with
+          # dashes (branch names like `devin/123-foo` would otherwise break).
+          RAW_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          THEME_NAME="${RAW_NAME//\//-}"
           # Truncate to Shopify's 50 char limit
           THEME_NAME="${THEME_NAME:0:50}"
           echo "THEME_NAME=$THEME_NAME" >> "$GITHUB_ENV"
@@ -84,7 +87,8 @@ jobs:
 
       - name: Delete preview theme
         run: |
-          THEME_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          RAW_NAME="PR-${{ github.event.pull_request.number }}-${{ github.head_ref }}"
+          THEME_NAME="${RAW_NAME//\//-}"
           THEME_NAME="${THEME_NAME:0:50}"
 
           THEME_ID=$(shopify theme list \
