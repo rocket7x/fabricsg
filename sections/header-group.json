@@ -31,7 +31,7 @@
             "first_text": "100% cotton, handcrafted block print home decor",
             "date": "",
             "btn": "",
-            "link": "shopify://pages/our-story"
+            "link": "shopify://collections/all"
           }
         }
       },
@@ -73,14 +73,14 @@
           "type": "style-2",
           "settings": {
             "title": "Shop Collections",
-            "collection1": "table-linen",
+            "collection1": "all",
             "collection2": "quilt",
             "heading1": "Table Linens",
             "subheading1": "",
-            "link1": "shopify://collections/table-linen",
+            "link1": "shopify://collections/all",
             "heading2": "Napkins",
             "subheading2": "",
-            "link2": "shopify://collections/napkins-2"
+            "link2": "shopify://collections/all"
           }
         },
         "about_menu": {
@@ -91,10 +91,10 @@
             "collection2": "",
             "heading1": "Our Story",
             "subheading1": "",
-            "link1": "shopify://pages/our-story",
+            "link1": "shopify://collections/all",
             "heading2": "Wholesale Inquiry",
             "subheading2": "",
-            "link2": "shopify://pages/wholesale-form"
+            "link2": "shopify://pages/contact"
           }
         }
       },
