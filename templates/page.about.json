@@ -16,7 +16,7 @@
         "1655363675f1b45920-0": {
           "type": "heading",
           "settings": {
-            "heading": "Designed for homes that feel warm, layered and lived in",
+            "heading": "Made for homes that feel warm, lived in, and easy to enjoy",
             "highlight_font": "body",
             "heading_size": "h2",
             "seo_heading": "h2"
@@ -26,24 +26,24 @@
           "type": "icon-with-text",
           "settings": {
             "icon": "shipping",
-            "heading": "Handcrafted Detail",
-            "content": "<p>Each piece reflects the beauty of artisan-made block print and thoughtful finishing.</p>"
+            "heading": "Handcrafted by Nature",
+            "content": "<p>Each piece is block printed by hand, with the small variations that make handmade work feel real.</p>"
           }
         },
         "icon_with_text_8a7QBK": {
           "type": "icon-with-text",
           "settings": {
             "icon": "shipping",
-            "heading": "Everyday Function",
-            "content": "<p>Our textiles are designed to be used often, styled easily and loved for years.</p>"
+            "heading": "Made for Everyday Use",
+            "content": "<p>These are cotton pieces meant to be used often, washed well, and styled with ease.</p>"
           }
         },
         "icon_with_text_mVVjnc": {
           "type": "icon-with-text",
           "settings": {
             "icon": "shipping",
-            "heading": "Timeless Cotton Textiles",
-            "content": "<p>Soft cotton, practical forms and enduring patterns made for modern living.</p>"
+            "heading": "Soft Cotton, Lasting Style",
+            "content": "<p>100% cotton, practical silhouettes, and timeless prints made to fit modern homes.</p>"
           }
         }
       },
@@ -170,13 +170,13 @@
         "6083c11b-86bd-4143-b787-1a6287d4eee0": {
           "type": "text",
           "settings": {
-            "content": "<h2>Made to be used, styled and loved every day</h2>"
+            "content": "<h2>Crafted with tradition. Designed for today.</h2>"
           }
         },
         "379c8923-d6a2-4c59-9f7f-62af7de40760": {
           "type": "text",
           "settings": {
-            "content": "<p>Ridhi Block Print is built around the idea that home textiles should feel beautiful without being fragile. We create pieces that bring softness, character and comfort into the rituals of everyday life, from quiet breakfasts to festive tables and layered bedrooms.</p>"
+            "content": "<p>Ridhi Block Print is built around a simple idea: the pieces you use every day should feel good to live with. We make block printed cotton textiles that bring comfort, character, and warmth to daily routines, from laid-back breakfasts to festive tables and restful bedrooms.</p>"
           }
         },
         "b75a9e44-8e50-4de6-9fa2-b8787000d3a9": {
@@ -206,7 +206,7 @@
     "1663932958e0f46da2": {
       "type": "rotating-text",
       "settings": {
-        "text1": "<p>Handcrafted block print textiles for modern living</p>",
+        "text1": "<p>Handcrafted cotton textiles for everyday living</p>",
         "desktop_text_gap": 17,
         "mobile_text_gap": 17,
         "text2": "",
