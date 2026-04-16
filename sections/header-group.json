@@ -17,8 +17,8 @@
         "announcement_shipping": {
           "type": "announcement",
           "settings": {
-            "icon": "shipping",
-            "first_text": "Free shipping over $70 + free returns",
+            "icon": "none",
+            "first_text": "UPTO 40% OFF",
             "date": "",
             "btn": "",
             "link": "shopify://collections/all"
@@ -28,7 +28,7 @@
           "type": "announcement",
           "settings": {
             "icon": "none",
-            "first_text": "100% cotton, handcrafted block print home decor",
+            "first_text": "Free Worldwide Shipping",
             "date": "",
             "btn": "",
             "link": "shopify://collections/all"
@@ -86,15 +86,15 @@
         "about_menu": {
           "type": "style-2",
           "settings": {
-            "title": "About FabricSG",
+            "title": "Partner With Us",
             "collection1": "",
             "collection2": "",
-            "heading1": "Our Story",
+            "heading1": "Affiliate & Influencer Program",
             "subheading1": "",
-            "link1": "shopify://collections/all",
+            "link1": "shopify://pages/affiliate-program",
             "heading2": "Wholesale Inquiry",
             "subheading2": "",
-            "link2": "shopify://pages/contact"
+            "link2": "shopify://pages/wholesale-form"
           }
         }
       },
@@ -138,15 +138,15 @@
         "store_details_text": "",
         "store_content": "",
         "store_link": "",
-        "header_bgcolor": "#ffffff",
-        "header_textcolor": "#555555",
+        "header_bgcolor": "#fffaf4",
+        "header_textcolor": "#4f4137",
         "header_textcolor_hover": "#9d6348",
         "transparent_text_color": "#ffffff",
         "hamburger_bgcolor": "#7f4f34",
         "hamburger_textcolor": "#ffffff",
         "hamburger_textcolor_hover": "#9d6348",
-        "full_width_bgcolor": "#f8f3eb",
-        "full_width_textcolor": "#555555",
+        "full_width_bgcolor": "#fbf4ec",
+        "full_width_textcolor": "#4f4137",
         "full_width_textcolor_hover": "#9d6348",
         "mobile_menu_bg_color": "#ffffff",
         "mobile_menu_text_color": "#555555",

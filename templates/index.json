@@ -12,23 +12,23 @@
     "hero_slider": {
       "type": "slider",
       "blocks": {
-        "hero_slide_main": {
+        "slide_tablecloths": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/2_09a0ba02-33bf-40f7-9c22-6f0726c6824d.png",
             "image_mobile": "shopify://shop_images/3_cc3fb891-42c8-4983-88a7-56ebf534f7de.png",
             "videofile": "",
-            "banner_subtitle": "Crafted with tradition",
+            "banner_subtitle": "FLAT 25% OFF",
             "glass_effect": false,
-            "banner_title": "Handcrafted block print home decor for warm, lived-in spaces",
+            "banner_title": "Spring Refresh Artisan Block Print Tablecloths",
             "seo_heading": "h1",
-            "banner_desc": "Discover table linens, quilts, pillow covers and everyday textile pieces made in breathable cotton and timeless prints.",
+            "banner_desc": "Discover handcrafted cotton table linens inspired by the Ridhi Block Print homepage, with a warm, lived-in presentation and easy everyday styling.",
             "description_size": "text",
-            "desktop_title_size": 64,
+            "desktop_title_size": 60,
             "mobile_title_size": 34,
             "button_size": "med",
             "mobile_button_size": "m-med",
-            "button_text": "Shop Collection",
+            "button_text": "Shop Table Linens",
             "button_link": "/collections/all",
             "button_text2": "",
             "button_link2": "",
@@ -40,24 +40,156 @@
             "subtitle_bgcolor": "rgba(0,0,0,0)",
             "desc_color": "#ffffff",
             "btn_bg": "#ffffff",
-            "btn_text": "#1a1a1a",
+            "btn_text": "#1d1d1d",
             "btn_border": "#ffffff",
             "overlay_color": "#5b2709",
+            "overlay_opacity": 26,
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#ffffff",
+            "subtitle_bgcolor_m": "rgba(0,0,0,0)",
+            "desc_color_m": "#ffffff",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#1d1d1d",
+            "btn_border_m": "#ffffff",
+            "overlay_color_m": "#5b2709",
+            "overlay_opacity_m": 42
+          }
+        },
+        "slide_quilts": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/red_quilt.jpg",
+            "image_mobile": "shopify://shop_images/1_7_799f7661-46eb-4b7d-a3f5-16398ee2bfef.jpg",
+            "videofile": "",
+            "banner_subtitle": "UPTO 40% OFF",
+            "glass_effect": false,
+            "banner_title": "Cozy Up with Soft Premium Handmade Quilts",
+            "seo_heading": "h2",
+            "banner_desc": "Layer your bedroom with breathable cotton quilts and the soft, artisan-forward mood seen across the live Ridhi homepage.",
+            "description_size": "text",
+            "desktop_title_size": 58,
+            "mobile_title_size": 34,
+            "button_size": "med",
+            "mobile_button_size": "m-med",
+            "button_text": "Shop Quilts",
+            "button_link": "/collections/quilt",
+            "button_text2": "",
+            "button_link2": "",
+            "button2_alternate": true,
+            "desktop_content_position": "d-bottom-left",
+            "mobile_content_position": "m-bottom-left",
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "rgba(0,0,0,0)",
+            "desc_color": "#ffffff",
+            "btn_bg": "#ffffff",
+            "btn_text": "#1d1d1d",
+            "btn_border": "#ffffff",
+            "overlay_color": "#2d2017",
+            "overlay_opacity": 30,
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#ffffff",
+            "subtitle_bgcolor_m": "rgba(0,0,0,0)",
+            "desc_color_m": "#ffffff",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#1d1d1d",
+            "btn_border_m": "#ffffff",
+            "overlay_color_m": "#2d2017",
+            "overlay_opacity_m": 45
+          }
+        },
+        "slide_pillows": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/fabricsg_pillow_covers.gif",
+            "image_mobile": "shopify://shop_images/basil_green.png",
+            "videofile": "",
+            "banner_subtitle": "FLAT 25% OFF",
+            "glass_effect": false,
+            "banner_title": "Handcrafted Pillow Covers for Warm, Collected Rooms",
+            "seo_heading": "h2",
+            "banner_desc": "Bring artisan color, ruffles and layered texture into the living room with Ridhi-inspired pillow styling.",
+            "description_size": "text",
+            "desktop_title_size": 56,
+            "mobile_title_size": 32,
+            "button_size": "med",
+            "mobile_button_size": "m-med",
+            "button_text": "Shop Pillow Covers",
+            "button_link": "/collections/pillow-covers",
+            "button_text2": "",
+            "button_link2": "",
+            "button2_alternate": true,
+            "desktop_content_position": "d-bottom-left",
+            "mobile_content_position": "m-bottom-left",
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "rgba(0,0,0,0)",
+            "desc_color": "#ffffff",
+            "btn_bg": "#ffffff",
+            "btn_text": "#1d1d1d",
+            "btn_border": "#ffffff",
+            "overlay_color": "#593121",
             "overlay_opacity": 28,
             "title_color_m": "#ffffff",
             "subtitle_color_m": "#ffffff",
             "subtitle_bgcolor_m": "rgba(0,0,0,0)",
             "desc_color_m": "#ffffff",
             "btn_bg_m": "#ffffff",
-            "btn_text_m": "#1a1a1a",
+            "btn_text_m": "#1d1d1d",
             "btn_border_m": "#ffffff",
-            "overlay_color_m": "#5b2709",
+            "overlay_color_m": "#593121",
             "overlay_opacity_m": 42
+          }
+        },
+        "slide_spring": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/FB6E277B-7155-4CEF-AD31-F0C22E2A0DD9.jpg",
+            "image_mobile": "shopify://shop_images/mobile_dark_salmon.png",
+            "videofile": "",
+            "banner_subtitle": "OUR SEASON FAVORITES",
+            "glass_effect": false,
+            "banner_title": "Shop the New Spring Collection",
+            "seo_heading": "h2",
+            "banner_desc": "Fresh block printed cotton pieces for dining, gifting and everyday hosting, arranged in the same conservative flow as Ridhi’s homepage.",
+            "description_size": "text",
+            "desktop_title_size": 54,
+            "mobile_title_size": 32,
+            "button_size": "med",
+            "mobile_button_size": "m-med",
+            "button_text": "Shop Spring",
+            "button_link": "/collections/the-spring-collection",
+            "button_text2": "",
+            "button_link2": "",
+            "button2_alternate": true,
+            "desktop_content_position": "d-bottom-left",
+            "mobile_content_position": "m-bottom-left",
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+            "subtitle_bgcolor": "rgba(0,0,0,0)",
+            "desc_color": "#ffffff",
+            "btn_bg": "#ffffff",
+            "btn_text": "#1d1d1d",
+            "btn_border": "#ffffff",
+            "overlay_color": "#4e2f1d",
+            "overlay_opacity": 30,
+            "title_color_m": "#ffffff",
+            "subtitle_color_m": "#ffffff",
+            "subtitle_bgcolor_m": "rgba(0,0,0,0)",
+            "desc_color_m": "#ffffff",
+            "btn_bg_m": "#ffffff",
+            "btn_text_m": "#1d1d1d",
+            "btn_border_m": "#ffffff",
+            "overlay_color_m": "#4e2f1d",
+            "overlay_opacity_m": 44
           }
         }
       },
       "block_order": [
-        "hero_slide_main"
+        "slide_tablecloths",
+        "slide_quilts",
+        "slide_pillows",
+        "slide_spring"
       ],
       "settings": {
         "nav_style": "dots",
@@ -67,6 +199,84 @@
         "desktop_height": "850px",
         "mobile_height": "700px",
         "bgcolor": "primary"
+      }
+    },
+    "service_icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_cotton": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "heading": "100% Cotton",
+            "seo_heading": "h3",
+            "size": "text-large",
+            "subtext": "Soft, breathable fabrics for everyday living."
+          }
+        },
+        "icon_returns": {
+          "type": "column",
+          "settings": {
+            "icon": "refund",
+            "heading": "30 Day Returns",
+            "seo_heading": "h3",
+            "size": "text-large",
+            "subtext": "Shop with confidence and easy aftercare."
+          }
+        },
+        "icon_secure": {
+          "type": "column",
+          "settings": {
+            "icon": "secure",
+            "heading": "Secure Payments",
+            "seo_heading": "h3",
+            "size": "text-large",
+            "subtext": "A polished storefront experience with safe checkout."
+          }
+        },
+        "icon_shipping": {
+          "type": "column",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Free Worldwide Shipping",
+            "seo_heading": "h3",
+            "size": "text-large",
+            "subtext": "A core Ridhi-style message carried through the homepage."
+          }
+        }
+      },
+      "block_order": [
+        "icon_cotton",
+        "icon_returns",
+        "icon_secure",
+        "icon_shipping"
+      ],
+      "settings": {
+        "container_width": true,
+        "enable_top_border": false,
+        "enable_bottom_border": false,
+        "section_border_style": "solid",
+        "column_background": false,
+        "mobile_column_count": "2",
+        "alignment": "center",
+        "icon_content_space_desktop": 15,
+        "icon_content_space_mobile": 15,
+        "enable_border": false,
+        "border_style": "solid",
+        "column_radius_desktop": 12,
+        "column_radius_mobile": 12,
+        "icon_background": false,
+        "icon_position": "top",
+        "bgcolor": "primary",
+        "column_background_color": "#ffffff",
+        "icon_color": "#7f4f34",
+        "icon_background_color": "#ffffff",
+        "border_color": "#d8c8ba",
+        "section_visibility": "always",
+        "top_space_desktop": 20,
+        "bottom_space_desktop": 20,
+        "top_space_mobile": 20,
+        "bottom_space_mobile": 20
       }
     },
     "intro_text": {
@@ -79,7 +289,7 @@
             "highlight_font": "body",
             "seo_heading": "h2",
             "size": "h2",
-            "content": "<h2>Crafted with tradition. Designed for today.</h2><p>At FabricSG, we bring handmade block print textiles into modern homes with pieces that feel soft, thoughtful and easy to live with every day.</p>"
+            "content": "<h2>Crafted with Tradition. Designed for Today.</h2><p>Set the tone of your home with artisan block printed cotton decor inspired by the public Ridhi Block Print storefront. This theme now follows the same conservative homepage rhythm with welcoming copy, softer merchandising, and clearer seasonal storytelling.</p>"
           }
         }
       },
@@ -92,7 +302,7 @@
         "bgcolor": "secondary",
         "section_visibility": "always",
         "top_space_desktop": 55,
-        "bottom_space_desktop": 20,
+        "bottom_space_desktop": 15,
         "top_space_mobile": 30,
         "bottom_space_mobile": 10
       }
@@ -103,11 +313,12 @@
         "cat_1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/dark_salmon_pink.png",
             "image_width": "col-md-6",
             "heading": "Table Linens",
             "seo_heading": "h2",
             "enable_text_shadow": false,
-            "subheading": "For everyday meals and special hosting",
+            "subheading": "Set the perfect table with handcrafted cotton linens.",
             "link": "/collections/all",
             "btn_text": "Shop Now",
             "outline_button": false,
@@ -117,7 +328,7 @@
             "heading_size_m": "h2",
             "button_size_m": "m-xsmall",
             "content_width_m": "small",
-            "overlayopacity": 24,
+            "overlayopacity": 26,
             "desktop_content_position": "d-bottom-left",
             "mobile_content_position": "m-bottom-left",
             "overlaycolor": "#5b2709",
@@ -131,12 +342,13 @@
         "cat_2": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fabricsg_embroidered_napkins.gif",
             "image_width": "col-md-3",
-            "heading": "Napkins",
+            "heading": "Cotton Napkin Sets",
             "seo_heading": "h2",
             "enable_text_shadow": false,
-            "subheading": "Soft cotton layers for the table",
-            "link": "/collections/all",
+            "subheading": "Complete your table with block printed napkins.",
+            "link": "/collections/border-napkins",
             "btn_text": "",
             "outline_button": false,
             "heading_size": "h3",
@@ -159,12 +371,13 @@
         "cat_3": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/quilts.png",
             "image_width": "col-md-3",
-            "heading": "Quilts",
+            "heading": "Hand Block Printed Quilts",
             "seo_heading": "h2",
             "enable_text_shadow": false,
-            "subheading": "Layered comfort in hand-printed cotton",
-            "link": "/collections/all",
+            "subheading": "Lightweight cotton quilts for layered comfort.",
+            "link": "/collections/quilt",
             "btn_text": "",
             "outline_button": false,
             "heading_size": "h3",
@@ -173,10 +386,10 @@
             "heading_size_m": "h3",
             "button_size_m": "m-xsmall",
             "content_width_m": "small",
-            "overlayopacity": 20,
+            "overlayopacity": 24,
             "desktop_content_position": "d-bottom-left",
             "mobile_content_position": "m-bottom-left",
-            "overlaycolor": "#5b2709",
+            "overlaycolor": "#3f2418",
             "textcolor": "#ffffff",
             "text_shadow_color": "#000000",
             "button_text_color": "#ffffff",
@@ -187,12 +400,13 @@
         "cat_4": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fabricsg_table_runner.gif",
             "image_width": "col-md-3",
-            "heading": "Pillow Covers",
+            "heading": "Block Printed Table Runners",
             "seo_heading": "h2",
             "enable_text_shadow": false,
-            "subheading": "Print, texture and color for your home",
-            "link": "/collections/all",
+            "subheading": "Easy seasonal styling inspired by the Ridhi layout.",
+            "link": "/collections/table-runners",
             "btn_text": "",
             "outline_button": false,
             "heading_size": "h3",
@@ -201,10 +415,10 @@
             "heading_size_m": "h3",
             "button_size_m": "m-xsmall",
             "content_width_m": "small",
-            "overlayopacity": 20,
+            "overlayopacity": 22,
             "desktop_content_position": "d-bottom-left",
             "mobile_content_position": "m-bottom-left",
-            "overlaycolor": "#5b2709",
+            "overlaycolor": "#4d2f1d",
             "textcolor": "#ffffff",
             "text_shadow_color": "#000000",
             "button_text_color": "#ffffff",
@@ -215,12 +429,13 @@
         "cat_5": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fabricsg_pillow_covers.gif",
             "image_width": "col-md-3",
-            "heading": "Placemats",
+            "heading": "All Cotton Pillow Covers",
             "seo_heading": "h2",
             "enable_text_shadow": false,
-            "subheading": "Easy styling for everyday dining",
-            "link": "/collections/all",
+            "subheading": "Ruffles, prints and soft color stories for the home.",
+            "link": "/collections/all-cotton-pillow-covers",
             "btn_text": "",
             "outline_button": false,
             "heading_size": "h3",
@@ -229,43 +444,15 @@
             "heading_size_m": "h3",
             "button_size_m": "m-xsmall",
             "content_width_m": "small",
-            "overlayopacity": 20,
+            "overlayopacity": 22,
             "desktop_content_position": "d-bottom-left",
             "mobile_content_position": "m-bottom-left",
-            "overlaycolor": "#000000",
+            "overlaycolor": "#3b2419",
             "textcolor": "#ffffff",
             "text_shadow_color": "#000000",
             "button_text_color": "#ffffff",
             "button_bg_color": "#000000",
             "button_border_color": "#000000"
-          }
-        },
-        "cat_6": {
-          "type": "image",
-          "settings": {
-            "image_width": "col-md-6",
-            "heading": "Kitchen & Table",
-            "seo_heading": "h2",
-            "enable_text_shadow": false,
-            "subheading": "Functional pieces, block printed by hand",
-            "link": "/collections/all",
-            "btn_text": "Shop Now",
-            "outline_button": false,
-            "heading_size": "h2",
-            "button_size": "small",
-            "content_width": "medium",
-            "heading_size_m": "h2",
-            "button_size_m": "m-xsmall",
-            "content_width_m": "small",
-            "overlayopacity": 22,
-            "desktop_content_position": "d-center-left",
-            "mobile_content_position": "m-bottom-left",
-            "overlaycolor": "#5b2709",
-            "textcolor": "#ffffff",
-            "text_shadow_color": "#000000",
-            "button_text_color": "#000000",
-            "button_bg_color": "#ffffff",
-            "button_border_color": "#ffffff"
           }
         }
       },
@@ -274,8 +461,7 @@
         "cat_2",
         "cat_3",
         "cat_4",
-        "cat_5",
-        "cat_6"
+        "cat_5"
       ],
       "settings": {
         "enable_fullwidth": false,
@@ -292,7 +478,7 @@
         "image_spacing_mobile": 10,
         "bgcolor": "primary",
         "section_visibility": "always",
-        "top_space_desktop": 35,
+        "top_space_desktop": 20,
         "bottom_space_desktop": 55,
         "top_space_mobile": 15,
         "bottom_space_mobile": 20
@@ -308,7 +494,7 @@
             "highlight_font": "body",
             "seo_heading": "h2",
             "size": "h2",
-            "content": "<h2>Comfort that lasts</h2><p>Every piece is made in breathable cotton with thoughtful detailing, easy care and artisanal character, designed to be used, loved and styled again and again.</p>"
+            "content": "<h2>Comfort that Lasts</h2><p>Every piece is created from pure cotton using block printing traditions that feel gentle on the skin, kind to the home and easy to use every day. The copy and pacing here now echo Ridhi Block Print while staying conservative with the current catalog and theme capabilities.</p>"
           }
         }
       },
@@ -321,7 +507,7 @@
         "bgcolor": "secondary",
         "section_visibility": "always",
         "top_space_desktop": 50,
-        "bottom_space_desktop": 15,
+        "bottom_space_desktop": 10,
         "top_space_mobile": 25,
         "bottom_space_mobile": 5
       }
@@ -343,17 +529,18 @@
         "product_grid_radius_mobile": 10,
         "product_grid_spacing_desktop": 10,
         "product_grid_spacing_mobile": 10,
-        "heading": "Modern traditions, our best picks",
+        "heading": "Modern Traditions: Our Best Picks",
         "highlight_font": "body",
         "seo_heading": "h2",
         "heading_size": "h2",
-        "subheading": "Best sellers",
-        "collection_heading": "",
-        "hide_description": true,
-        "collection_desc": "",
+        "subheading": "",
+        "collection_image": "shopify://shop_images/FB6E277B-7155-4CEF-AD31-F0C22E2A0DD9.jpg",
+        "collection_heading": "Bring Artistry Home",
+        "hide_description": false,
+        "collection_desc": "Discover vibrant hand block printed cotton textiles and decor for dining rooms, bedrooms and everyday gifting.",
         "bgcolor": "primary",
-        "collection_title_color": "#000000",
-        "collection_desc_color": "#666666",
+        "collection_title_color": "#ffffff",
+        "collection_desc_color": "#ffffff",
         "section_visibility": "always",
         "show_icon_on_image": false,
         "icon": "snail",
@@ -362,6 +549,97 @@
         "mobile_left_to_right": 3,
         "mobile_top_to_bottom": 24,
         "icon_animated_color": "#000000",
+        "top_space_desktop": 10,
+        "bottom_space_desktop": 55,
+        "top_space_mobile": 10,
+        "bottom_space_mobile": 30
+      }
+    },
+    "partner_heading": {
+      "type": "rich-text",
+      "blocks": {
+        "partner_block": {
+          "type": "richtext",
+          "settings": {
+            "heading": "",
+            "highlight_font": "body",
+            "seo_heading": "h2",
+            "size": "h2",
+            "content": "<h2>For Every Occasion, For Every Vision</h2><p>Keep the Ridhi homepage’s partner-focused structure with three clear pathways for weddings, wholesale and custom requests, using existing internal pages instead of unsupported integrations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "partner_block"
+      ],
+      "settings": {
+        "content_width": "container sm-container",
+        "content_alignment": "center",
+        "bgcolor": "primary",
+        "section_visibility": "always",
+        "top_space_desktop": 30,
+        "bottom_space_desktop": 10,
+        "top_space_mobile": 25,
+        "bottom_space_mobile": 10
+      }
+    },
+    "partner_columns": {
+      "type": "multi-column",
+      "blocks": {
+        "partner_wedding": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ltk3.webp",
+            "heading": "Your Big Day, Handcrafted",
+            "heading_size": "h2",
+            "description": "<p>Explore wedding table styling and submit an inquiry through the existing theme page.</p>",
+            "link_text": "Submit Wedding Inquiry",
+            "link_url": "/pages/wedding-inquiry-form",
+            "btn_as_link": false
+          }
+        },
+        "partner_wholesale": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/turquoise.png",
+            "heading": "Bring Tradition to Your Store",
+            "heading_size": "h2",
+            "description": "<p>Keep wholesale outreach simple with safe internal links and conservative supporting copy.</p>",
+            "link_text": "Apply for Wholesale",
+            "link_url": "/pages/wholesale-form",
+            "btn_as_link": false
+          }
+        },
+        "partner_custom": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/turquoise_5_e867e3d0-1d9a-4ee2-81f0-5933399b7313.png",
+            "heading": "Make It Uniquely Yours",
+            "heading_size": "h2",
+            "description": "<p>Route custom requests to the existing page so the theme remains functional without new app dependencies.</p>",
+            "link_text": "Submit Custom Order",
+            "link_url": "/pages/custom-order-form",
+            "btn_as_link": false
+          }
+        }
+      },
+      "block_order": [
+        "partner_wedding",
+        "partner_wholesale",
+        "partner_custom"
+      ],
+      "settings": {
+        "heading": "",
+        "highlight_font": "body",
+        "seo_heading": "h2",
+        "description": "",
+        "text_alignment": "center",
+        "grid_text_alignment": "center",
+        "media_style": "square",
+        "button_size": "small",
+        "mobile_button_size": "m-small",
+        "bgcolor": "primary",
+        "section_visibility": "always",
         "top_space_desktop": 10,
         "bottom_space_desktop": 50,
         "top_space_mobile": 10,
@@ -375,16 +653,18 @@
       "settings": {
         "enable_parallax": true,
         "section_visibility": "always",
-        "desktop_height": "550px",
-        "mobile_height": "500px",
+        "image": "shopify://shop_images/IMG_1120__1_5431b178-f7ff-4cba-b781-fd83ad47d09e.jpg",
+        "image_mobile": "shopify://shop_images/mobile_dark_salmon.png",
+        "desktop_height": "520px",
+        "mobile_height": "420px",
         "block_display": "categories",
-        "banner_title": "Special offer, save more when you shop more",
+        "banner_title": "Buy More Save More",
         "highlight_font": "body",
         "seo_heading": "h2",
-        "desktop_title_size": 62,
+        "desktop_title_size": 56,
         "mobile_title_size": 34,
-        "banner_desc": "Enjoy free shipping over $70 and explore handcrafted block print pieces made for gifting, hosting and everyday living.",
-        "button_text": "Shop All",
+        "banner_desc": "Don’t miss out on this amazing deal. Save more when you buy more, and keep the call to action anchored to a safe internal collection route.",
+        "button_text": "Shop Now",
         "button_link": "/collections/all",
         "button_size": "small",
         "mobile_button_size": "m-small",
@@ -395,178 +675,7 @@
         "btn_text": "#000000",
         "btn_border": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 28
-      }
-    },
-    "trust_text": {
-      "type": "rich-text",
-      "blocks": {
-        "trust_block": {
-          "type": "richtext",
-          "settings": {
-            "heading": "",
-            "highlight_font": "body",
-            "seo_heading": "h2",
-            "size": "h2",
-            "content": "<h2>Why customers choose FabricSG</h2><p>Trusted by thousands of buyers for quality craftsmanship, global shipping and authentic handmade textiles that bring warmth, softness and personality to the home.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "trust_block"
-      ],
-      "settings": {
-        "content_width": "container sm-container",
-        "content_alignment": "center",
-        "bgcolor": "quaternary",
-        "section_visibility": "always",
-        "top_space_desktop": 55,
-        "bottom_space_desktop": 15,
-        "top_space_mobile": 30,
-        "bottom_space_mobile": 5
-      }
-    },
-    "trust_cards": {
-      "type": "collage",
-      "blocks": {
-        "trust_1": {
-          "type": "image",
-          "settings": {
-            "image_width": "col-md-3",
-            "heading": "100% Cotton",
-            "seo_heading": "h2",
-            "enable_text_shadow": false,
-            "subheading": "Soft, breathable and made for daily use",
-            "link": "/collections/all",
-            "btn_text": "",
-            "outline_button": false,
-            "heading_size": "h3",
-            "button_size": "xsmall",
-            "content_width": "medium",
-            "heading_size_m": "h3",
-            "button_size_m": "m-xsmall",
-            "content_width_m": "medium",
-            "overlayopacity": 20,
-            "desktop_content_position": "d-bottom-center",
-            "mobile_content_position": "m-bottom-center",
-            "overlaycolor": "#282828",
-            "textcolor": "#ffffff",
-            "text_shadow_color": "rgba(0,0,0,0)",
-            "button_text_color": "#ffffff",
-            "button_bg_color": "#000000",
-            "button_border_color": "#000000"
-          }
-        },
-        "trust_2": {
-          "type": "image",
-          "settings": {
-            "image_width": "col-md-3",
-            "heading": "Hand Block Printed",
-            "seo_heading": "h2",
-            "enable_text_shadow": false,
-            "subheading": "Artisanal prints with a human touch",
-            "link": "/pages/about-us",
-            "btn_text": "",
-            "outline_button": false,
-            "heading_size": "h3",
-            "button_size": "xsmall",
-            "content_width": "medium",
-            "heading_size_m": "h3",
-            "button_size_m": "m-xsmall",
-            "content_width_m": "medium",
-            "overlayopacity": 20,
-            "desktop_content_position": "d-bottom-center",
-            "mobile_content_position": "m-bottom-center",
-            "overlaycolor": "#000000",
-            "textcolor": "#ffffff",
-            "text_shadow_color": "#000000",
-            "button_text_color": "#ffffff",
-            "button_bg_color": "#000000",
-            "button_border_color": "#000000"
-          }
-        },
-        "trust_3": {
-          "type": "image",
-          "settings": {
-            "image_width": "col-md-3",
-            "heading": "Worldwide Shipping",
-            "seo_heading": "h2",
-            "enable_text_shadow": false,
-            "subheading": "Fast delivery to your doorstep",
-            "link": "/collections/all",
-            "btn_text": "",
-            "outline_button": false,
-            "heading_size": "h3",
-            "button_size": "xsmall",
-            "content_width": "medium",
-            "heading_size_m": "h3",
-            "button_size_m": "m-xsmall",
-            "content_width_m": "medium",
-            "overlayopacity": 20,
-            "desktop_content_position": "d-bottom-center",
-            "mobile_content_position": "m-bottom-center",
-            "overlaycolor": "#000000",
-            "textcolor": "#ffffff",
-            "text_shadow_color": "#000000",
-            "button_text_color": "#ffffff",
-            "button_bg_color": "#000000",
-            "button_border_color": "#000000"
-          }
-        },
-        "trust_4": {
-          "type": "image",
-          "settings": {
-            "image_width": "col-md-3",
-            "heading": "Loved by Customers",
-            "seo_heading": "h2",
-            "enable_text_shadow": false,
-            "subheading": "Thousands of happy buyers and repeat orders",
-            "link": "https://www.etsy.com/in-en/shop/FabricSG",
-            "btn_text": "",
-            "outline_button": false,
-            "heading_size": "h3",
-            "button_size": "xsmall",
-            "content_width": "medium",
-            "heading_size_m": "h3",
-            "button_size_m": "m-xsmall",
-            "content_width_m": "medium",
-            "overlayopacity": 20,
-            "desktop_content_position": "d-bottom-center",
-            "mobile_content_position": "m-bottom-center",
-            "overlaycolor": "#000000",
-            "textcolor": "#ffffff",
-            "text_shadow_color": "#000000",
-            "button_text_color": "#ffffff",
-            "button_bg_color": "#000000",
-            "button_border_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4"
-      ],
-      "settings": {
-        "enable_fullwidth": true,
-        "enable_swipe": true,
-        "image_layout": "sharp",
-        "enable_image_animation": true,
-        "enable_hover_effect": false,
-        "image_radius_desktop": 10,
-        "image_radius_mobile": 10,
-        "heading_size": "h2",
-        "button_size": "xsmall",
-        "space_in_images": true,
-        "image_spacing_desktop": 10,
-        "image_spacing_mobile": 4,
-        "bgcolor": "quaternary",
-        "section_visibility": "always",
-        "top_space_desktop": 0,
-        "bottom_space_desktop": 55,
-        "top_space_mobile": 0,
-        "bottom_space_mobile": 25
+        "overlay_opacity": 32
       }
     },
     "testimonial_section": {
@@ -576,8 +685,8 @@
           "type": "quote",
           "settings": {
             "rating": 5,
-            "message": "Beautiful quality and even better in person. The print and fabric feel premium, and the table setting looked instantly elevated.",
-            "author": "Happy Customer",
+            "message": "Beautiful quality and even better in person. The cotton feels lovely and the print made the whole table setting feel special.",
+            "author": "Verified Customer",
             "author_city": "USA",
             "video_text": ""
           }
@@ -586,7 +695,7 @@
           "type": "quote",
           "settings": {
             "rating": 5,
-            "message": "I ordered again because the craftsmanship is consistently lovely. Shipping was smooth and the colors were exactly what I hoped for.",
+            "message": "The pieces arrived with the same warmth and handmade character you see on the homepage. Easy to style and easy to love.",
             "author": "Repeat Buyer",
             "author_city": "Canada",
             "video_text": ""
@@ -596,9 +705,9 @@
           "type": "quote",
           "settings": {
             "rating": 5,
-            "message": "These pieces make the home feel warm and unique. You can tell they are made with care.",
-            "author": "Verified Customer",
-            "author_city": "Australia",
+            "message": "A thoughtful refresh for the store. The presentation feels more curated now and the products still remain the focus.",
+            "author": "Happy Customer",
+            "author_city": "United Kingdom",
             "video_text": ""
           }
         }
@@ -609,7 +718,7 @@
         "quote_3"
       ],
       "settings": {
-        "heading": "What our customers say",
+        "heading": "Loved by Customers",
         "highlight_font": "body",
         "seo_heading": "h2",
         "heading_size": "h2",
@@ -635,13 +744,14 @@
   },
   "order": [
     "hero_slider",
+    "service_icons",
     "intro_text",
     "category_gallery",
     "comfort_text",
     "best_picks",
+    "partner_heading",
+    "partner_columns",
     "offer_banner",
-    "trust_text",
-    "trust_cards",
     "testimonial_section"
   ]
 }

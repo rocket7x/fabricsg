@@ -13,12 +13,12 @@
     "main": {
       "type": "contact-page-template",
       "settings": {
-        "contact_heading": "Contact Us",
+        "contact_heading": "Get In Touch",
         "seo_heading_service": "h3",
         "phone_heading": "Phone",
         "phone_number": "+1 7379757192",
         "email_heading": "Email",
-        "email": "renu@fabricsg.com",
+        "email": "info@ridhiblockprint.com",
         "address_heading": "Address",
         "address": "2935 Bluffstone Dr, Round Rock, TX 78665, United States",
         "form_heading": "We would love to hear from you",
