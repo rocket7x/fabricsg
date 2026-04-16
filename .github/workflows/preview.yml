@@ -39,14 +39,27 @@ jobs:
           THEME_NAME="${THEME_NAME:0:50}"
           echo "THEME_NAME=$THEME_NAME" >> "$GITHUB_ENV"
 
-          OUTPUT=$(shopify theme push \
+          # Run push without `set -e` aborting before we can print the output.
+          set +e
+          shopify theme push \
             --store="${{ secrets.SHOPIFY_STORE_URL }}" \
             --theme="$THEME_NAME" \
             --json \
-            --unpublished 2>&1)
-          echo "$OUTPUT"
+            --unpublished > /tmp/push_output.txt 2>&1
+          STATUS=$?
+          set -e
 
-          PREVIEW_URL=$(python3 -c 'import re,sys; s=sys.stdin.read(); m=re.search(r'"'"'\"preview_url\":\"([^\"]+)\"'"'"', s); print(m.group(1) if m else "")' <<< "$OUTPUT")
+          echo "=== shopify theme push output (exit=$STATUS) ==="
+          cat /tmp/push_output.txt
+          echo "=== end of shopify output ==="
+
+          if [ $STATUS -ne 0 ]; then
+            echo "❌ shopify theme push failed with exit code $STATUS"
+            exit $STATUS
+          fi
+
+          # Extract preview URL from the last JSON object in the captured output.
+          PREVIEW_URL=$(python3 -c 'import re,sys; s=open("/tmp/push_output.txt").read(); m=re.findall(r"\"preview_url\":\"([^\"]+)\"", s); print(m[-1] if m else "")')
 
           if [ -z "$PREVIEW_URL" ]; then
             echo "❌ Could not extract preview URL from Shopify CLI output"
