@@ -300,7 +300,7 @@
             "discount_text": "10% OFF",
             "threshold_text": "on orders above $100",
             "button_text": "SHOP YOUR FAVORITES",
-            "button_link": "shopify://collections/rectangle-table-cover",
+            "button_link": "shopify://collections/table-linens",
             "section_padding": 40,
             "content_gap": 40,
             "content_spacing": 16,

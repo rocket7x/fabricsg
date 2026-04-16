@@ -31,7 +31,7 @@
           {% endfor %}
       {% if link.links != blank %}     
         <div class="hamburger-menu-item dropdown-hamburger-menu-item">
-          <a href="javscript:void(0);" class="dropdown-hamburger-menu-item-title item" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
+          <a href="javascript:void(0);" class="dropdown-hamburger-menu-item-title item" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
             {{- link.title | escape }}
               {% if menubadge != blank %}
                 {{ menubadge }}
@@ -55,7 +55,7 @@
               {%- for childlink in link.links -%}
                 {% if childlink.links != blank %}
                   <div class="hamburger-menu-item inner-item dropdown-hamburger-menu-item">
-                    <a href="javscript:void(0);" class="dropdown-hamburger-menu-item-title item">
+                    <a href="javascript:void(0);" class="dropdown-hamburger-menu-item-title item">
                       {{- childlink.title | escape }}
                       <span class="hamburger-dropdown-icon">
                         <svg viewBox="0 0 21 15" width="21" height="15">
@@ -75,7 +75,7 @@
                           {{ childlink.title | escape }}
                         </button>
                         {%- for grandchildlink in childlink.links -%}
-                          <a class="hamburger-menu-item sub-inner-item" href="{{ grandchildlink.url }} ">
+                          <a class="hamburger-menu-item sub-inner-item" href="{{ grandchildlink.url }}">
                             <span class="item">{{ grandchildlink.title | escape }}</span>
                           </a>
                         {%- endfor -%}
@@ -83,7 +83,7 @@
                     </div>
                   </div>
                 {%- else -%}
-                  <a class="hamburger-menu-item inner-item" href="{{ childlink.url }} ">
+                  <a class="hamburger-menu-item inner-item" href="{{ childlink.url }}">
                     <span class="item">
                       {{ childlink.title | escape }}
                     </span>

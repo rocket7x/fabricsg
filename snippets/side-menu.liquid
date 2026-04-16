@@ -200,7 +200,7 @@
             {% assign collection = blockData.settings[collectionIndex] %}
             {%- if collection != blank and collection.all_products_count > 0 -%} 
             <li class="nav-item dropdown">
-              <button href="{{ collection.url }}" class="toggle-level">{{ collection.title }}</button>    
+              <button type="button" class="toggle-level">{{ collection.title }}</button>
               <div class="inner grandchild">        
                 <div class="inner-child-menu">
                   <ul class="list-unstyled">
@@ -255,7 +255,7 @@
                     {% endif %}
                   </a>
                 {%- else -%}
-                  <button class="list-menu__item {% if dropDown  or menuDropdown != '' %}toggle {% endif %}" href="{{ link.url }}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
+                  <button type="button" class="list-menu__item {% if dropDown  or menuDropdown != '' %}toggle {% endif %}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
                     {{ link.title | split: '{badge' | first | escape }}
                     {% if menubadge != blank %}
                       {{ menubadge }}
@@ -353,7 +353,7 @@
                     {% endif %}
                 </a>
               {%- else -%}
-                <button class="list-menu__item {% if link.links != '' %}toggle {% endif %}" href="{{ link.url }}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
+                <button type="button" class="list-menu__item {% if link.links != '' %}toggle {% endif %}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
                   {{ link.title | escape }}
                     {% if menubadge != blank %}
                       {{ menubadge }}
