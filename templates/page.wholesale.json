@@ -26,7 +26,7 @@
       "settings": {
         "enable_parallax": true,
         "section_visibility": "always",
-        "video": "shopify://files/videos/basilgreen.mp4",
+        "video": "",
         "desktop_height": "550px",
         "mobile_height": "500px",
         "block_display": "categories",
@@ -148,8 +148,7 @@
             "description_font_size": 14,
             "icon_1": "heart",
             "title_1": "Handcrafted & Unique",
-            "description_1": "Every item is hand block printed in Jaipur, making each piece one-of-a-kind.
-",
+            "description_1": "Every item is hand block printed in Jaipur, making each piece one-of-a-kind.",
             "icon_2": "quality",
             "title_2": "Eco-Friendly",
             "description_2": "Made from 100% natural cotton using sustainable methods.",
@@ -420,19 +419,16 @@
             "row_1_description": "Tablecloths, napkins, quilts, cushions, and more.",
             "row_2_icon": "check",
             "row_2_title": "Bulk Discounts",
-            "row_2_description": "Special pricing on large orders and bundles.
-",
+            "row_2_description": "Special pricing on large orders and bundles.",
             "row_3_icon": "check",
             "row_3_title": "Flexible Quantities",
-            "row_3_description": "We cater to both small boutiques and larger stores.
-",
+            "row_3_description": "We cater to both small boutiques and larger stores.",
             "row_4_icon": "check",
             "row_4_title": "Marketing Support",
             "row_4_description": "Access to product images, descriptions, and marketing assets.",
             "row_5_icon": "check",
             "row_5_title": "Fast Shipping",
-            "row_5_description": "Reliable, timely deliveries worldwide.
-",
+            "row_5_description": "Reliable, timely deliveries worldwide.",
             "button_text": "START TODAY",
             "button_link": "https://fabricsg.com/pages/wholesale-application",
             "button_alignment": "center",
