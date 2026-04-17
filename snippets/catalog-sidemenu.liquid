@@ -34,7 +34,7 @@
             {% endif %}
           </a>
         {%- else -%}
-          <button class="list-menu__item {% if link.links != '' %}toggle {% endif %}" href="{{ link.url }}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
+          <button type="button" class="list-menu__item {% if link.links != '' %}toggle {% endif %}" {% if menu_custom_color != blank %} style="color:{{ menu_custom_color }};" {% endif %}>
             {{ link.title | escape }}
             {% if menubadge != blank %}
               {{ menubadge }}

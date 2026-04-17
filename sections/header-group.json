@@ -14,30 +14,30 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_b4jGyV": {
+        "announcement_shipping": {
           "type": "announcement",
           "settings": {
             "icon": "none",
             "first_text": "UPTO 40% OFF",
             "date": "",
             "btn": "",
-            "link": ""
+            "link": "shopify://collections/all"
           }
         },
-        "announcement_pWCLRw": {
+        "announcement_cotton": {
           "type": "announcement",
           "settings": {
-            "icon": "shipping",
+            "icon": "none",
             "first_text": "Free Worldwide Shipping",
             "date": "",
             "btn": "",
-            "link": "shopify://collections/the-christmas-collection"
+            "link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "announcement_b4jGyV",
-        "announcement_pWCLRw"
+        "announcement_shipping",
+        "announcement_cotton"
       ],
       "settings": {
         "show_bar": true,
@@ -57,7 +57,7 @@
         "font_size": "text",
         "fontcolor": "#ffffff",
         "bg_style": "solid",
-        "bgcolor": "#850000",
+        "bgcolor": "#7f4f34",
         "bgcolor2": "",
         "overlay_color": "",
         "overlay_opacity": 50,
@@ -69,21 +69,21 @@
     "header": {
       "type": "header",
       "blocks": {
-        "style_2_RVyb7C": {
+        "shop_collections_menu": {
           "type": "style-2",
           "settings": {
             "title": "Shop Collections",
-            "collection1": "basil-green-products",
-            "collection2": "dark-salmon-pink",
-            "heading1": "Garnet Red",
+            "collection1": "all",
+            "collection2": "quilt",
+            "heading1": "Table Linens",
             "subheading1": "",
-            "link1": "shopify://collections/garnet-red",
-            "heading2": "Light Steel Blue",
+            "link1": "shopify://collections/all",
+            "heading2": "Napkins",
             "subheading2": "",
-            "link2": "shopify://collections/light-steel-blue"
+            "link2": "shopify://collections/all"
           }
         },
-        "style_2_UEJjDd": {
+        "about_menu": {
           "type": "style-2",
           "settings": {
             "title": "Partner With Us",
@@ -94,13 +94,13 @@
             "link1": "shopify://pages/affiliate-program",
             "heading2": "Wholesale Inquiry",
             "subheading2": "",
-            "link2": "shopify://pages/about-us"
+            "link2": "shopify://pages/wholesale-form"
           }
         }
       },
       "block_order": [
-        "style_2_RVyb7C",
-        "style_2_UEJjDd"
+        "shop_collections_menu",
+        "about_menu"
       ],
       "name": "Menu",
       "settings": {
@@ -138,27 +138,27 @@
         "store_details_text": "",
         "store_content": "",
         "store_link": "",
-        "header_bgcolor": "#ffffff",
-        "header_textcolor": "#555555",
-        "header_textcolor_hover": "#a0b7d0",
+        "header_bgcolor": "#fffaf4",
+        "header_textcolor": "#4f4137",
+        "header_textcolor_hover": "#9d6348",
         "transparent_text_color": "#ffffff",
-        "hamburger_bgcolor": "#6e90b5",
+        "hamburger_bgcolor": "#7f4f34",
         "hamburger_textcolor": "#ffffff",
-        "hamburger_textcolor_hover": "#a0b7d0",
-        "full_width_bgcolor": "#6e90b5",
-        "full_width_textcolor": "#ffffff",
-        "full_width_textcolor_hover": "#a0b7d0",
+        "hamburger_textcolor_hover": "#9d6348",
+        "full_width_bgcolor": "#fbf4ec",
+        "full_width_textcolor": "#4f4137",
+        "full_width_textcolor_hover": "#9d6348",
         "mobile_menu_bg_color": "#ffffff",
         "mobile_menu_text_color": "#555555",
         "sub-menu_text_color": "#555555",
-        "mobile_menu_border_color": "#6e90b5",
+        "mobile_menu_border_color": "#7f4f34",
         "mobile_menu_button": "#ffffff",
         "mobile_menu_text": "#000000",
         "mobile_menu_border": "#727272",
         "catalogmenu_bg": "#ffffff",
         "catologtext_color": "#000000",
-        "catologtext_hover": "#a0b7d0",
-        "catalog_bg": "#dddddd",
+        "catologtext_hover": "#9d6348",
+        "catalog_bg": "#f4eae2",
         "catalog_text": "#ffffff",
         "catalog_text_border": "#ededed",
         "searchbar_text": "#000000",

@@ -35,7 +35,7 @@
         "seo_heading": "h2",
         "desktop_title_size": 70,
         "mobile_title_size": 36,
-        "banner_desc": "A timeless tradition where artisan hands transform fabric into living art, one carved block at a time",
+        "banner_desc": "A traditional craft shaped by skilled hands, natural rhythm, and everyday beauty.",
         "button_text": "",
         "button_link": "shopify://collections/all",
         "button_size": "small",
@@ -56,11 +56,11 @@
         "richtext_mcUpNb": {
           "type": "richtext",
           "settings": {
-            "heading": "A Heritage Centuries in the Making",
+            "heading": "A Craft with Deep Roots",
             "highlight_font": "body",
             "seo_heading": "h2",
             "size": "h2",
-            "content": "<p>Hand block printing is an ancient textile art form that dates back thousands of years, with roots deeply embedded in Indian craftsmanship. This meticulous technique has been passed down through generations of artisan families, each keeper of this tradition adding their own vision while honoring the sacred methods of their ancestors.</p><p>What began as a means to decorate fabrics for royalty has evolved into a celebrated art form that bridges the past and present. Each piece tells a story - of patient hands carving intricate designs into wooden blocks, of natural dyes extracted from earth and plant, and of the rhythmic press of block against cloth that creates patterns both timeless and unique.</p><p>In an era of mass production, hand block printing stands as a testament to the irreplaceable value of human touch. Every print carries the subtle variations that make it authentic, the slight imperfections that prove its handmade origins, and the soul of the artisan who crafted it.</p>"
+            "content": "<p>Hand block printing is a long-standing textile tradition in India, passed down through generations of skilled makers. It is a careful, hands-on process that values patience, precision, and a strong understanding of pattern, color, and cloth.</p><p>Each design begins with a carved wooden block. The block is dipped in dye and pressed onto fabric by hand, again and again, until the pattern comes together. That rhythm is what gives block print its character: you can see the work of the hand in every repeat.</p><p>Because each piece is printed manually, no two are exactly alike. Those slight variations are part of the beauty. They remind us that handmade textiles bring warmth, individuality, and a sense of heritage that machine-made fabric cannot quite replicate.</p>"
           }
         }
       },
@@ -94,7 +94,7 @@
         "text_nbxhTC": {
           "type": "text",
           "settings": {
-            "content": "<p><strong>1. Carving the Block: </strong>Master artisans hand-carve intricate designs into seasoned wood, a process requiring years of skill and unwavering precision.</p><p><strong>2. Preparing the Dye: </strong>Natural dyes are carefully extracted from plants, minerals, and earth, mixed to achieve rich, lasting colors that honor tradition.</p><p><strong>3. The Printing Ritual: </strong>With practiced rhythm, the artisan dips the block in dye and presses it firmly onto fabric, repeating this dance to create patterns.</p><p><strong>4. Setting & Finishing: </strong>The printed fabric is treated and washed, allowing colors to set and bloom into their final, vibrant expression.</p>"
+            "content": "<p><strong>1. Carving the block:</strong> The design is first carved into wood by hand, with each block made to print a specific part of the pattern.</p><p><strong>2. Preparing the color:</strong> Dyes are mixed and tested so the print lands clearly and keeps its depth on cotton.</p><p><strong>3. Printing by hand:</strong> The block is pressed onto the fabric one repeat at a time, with careful alignment and a steady rhythm.</p><p><strong>4. Washing and finishing:</strong> Once printed, the fabric is set, washed, and finished so it feels soft and ready for everyday use.</p>"
           }
         }
       },
@@ -138,9 +138,9 @@
           "settings": {
             "image": "shopify://shop_images/IMG_20250714_161406_607.jpg",
             "product": "taupe-embroidery-napkins",
-            "heading": "Floral Heritage",
+            "heading": "Floral Motifs",
             "heading_size": "h2",
-            "description": "<p>Traditional floral motifs passed through generations</p>",
+            "description": "<p>Classic floral patterns that continue to feel fresh in the home.</p>",
             "link_text": "",
             "link_url": "",
             "btn_as_link": false
@@ -151,9 +151,9 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-11-01_at_4.54.44_PM.png",
             "product": "green-stripe-tissue-box-cover",
-            "heading": "Geometric Harmony",
+            "heading": "Geometric Prints",
             "heading_size": "h2",
-            "description": "<p>Sacred geometry in textile form</p>",
+            "description": "<p>Clean, balanced patterns that pair easily with modern spaces.</p>",
             "link_text": "",
             "link_url": "",
             "btn_as_link": false
@@ -164,9 +164,9 @@
           "settings": {
             "image": "shopify://shop_images/skyshell.png",
             "product": "sky-shell-piping-pillow-cover",
-            "heading": "Natural Elements",
+            "heading": "Nature-Inspired Color",
             "heading_size": "h2",
-            "description": "<p>Inspired by earth, water, and sky</p>",
+            "description": "<p>Soft tones and grounded palettes drawn from the natural world.</p>",
             "link_text": "",
             "link_url": "",
             "btn_as_link": false
@@ -180,10 +180,10 @@
       ],
       "name": "t:sections.multi_column.presets.name",
       "settings": {
-        "heading": "Timeless Patterns",
+        "heading": "Patterns That Last",
         "highlight_font": "body",
         "seo_heading": "h2",
-        "description": "<p>Each pattern carries meaning, history, and the distinct touch of its creator</p>",
+        "description": "<p>Traditional motifs, reworked in a way that feels easy to live with today.</p>",
         "text_alignment": "center",
         "grid_text_alignment": "center",
         "media_style": "square",
@@ -203,11 +203,11 @@
         "richtext_bjTag8": {
           "type": "richtext",
           "settings": {
-            "heading": "Bring This Art Into Your Home",
+            "heading": "Bring Block Print Home",
             "highlight_font": "body",
             "seo_heading": "h2",
             "size": "h2",
-            "content": "<p>Explore our curated collection of hand block printed decor, where each piece carries the soul of traditional craftsmanship and the beauty of timeless design.</p>"
+            "content": "<p>Explore our collection of block printed cotton pieces made to add warmth, pattern, and comfort to everyday spaces.</p>"
           }
         }
       },
