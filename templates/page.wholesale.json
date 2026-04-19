@@ -26,7 +26,7 @@
       "settings": {
         "enable_parallax": true,
         "section_visibility": "always",
-        "video": "shopify://files/videos/basilgreen.mp4",
+        "video": "",
         "desktop_height": "550px",
         "mobile_height": "500px",
         "block_display": "categories",

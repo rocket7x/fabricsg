@@ -243,7 +243,7 @@
         "template--17273360023791__aaf00201-1f78-4436-9389-632e71b65d14-column-3": {
           "type": "column",
           "settings": {
-            "video": "shopify://files/videos/Video-250.mp4",
+            "video": "",
             "product": "",
             "heading": "",
             "heading_size": "h2",
@@ -256,7 +256,7 @@
         "column_hwfGqJ": {
           "type": "column",
           "settings": {
-            "video": "shopify://files/videos/Video-998.mp4",
+            "video": "",
             "product": "",
             "heading": "",
             "heading_size": "h2",
@@ -269,7 +269,7 @@
         "column_rWgXFJ": {
           "type": "column",
           "settings": {
-            "video": "shopify://files/videos/Video-106.mp4",
+            "video": "",
             "product": "",
             "heading": "",
             "heading_size": "h2",
